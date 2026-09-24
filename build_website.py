@@ -1544,10 +1544,7 @@ def build_full_html():
     hero_pdf_pill = f'''<a href="assets/paper.pdf" class="pill-btn primary" download="Frontier_3D_Robotics_Paper_MIT.pdf">
             {ICON_DOWNLOAD}
             <span>Download PDF (76pp)</span>
-          </a>''' if ENABLE_PDF_DOWNLOAD else f'''<span class="pill-btn disabled" title="PDF version will be provided soon">
-            {ICON_PDF}
-            <span>PDF (Coming Soon)</span>
-          </span>'''
+          </a>''' if ENABLE_PDF_DOWNLOAD else ''
 
     hero_read_pill_class = "pill-btn" if ENABLE_PDF_DOWNLOAD else "pill-btn primary"
 
@@ -1574,7 +1571,7 @@ def build_full_html():
       </div>
     </section>''' if ENABLE_PDF_DOWNLOAD else ''
 
-    footer_pdf_link = '<a href="assets/paper.pdf" download="Frontier_3D_Robotics_Paper_MIT.pdf">Paper PDF</a> · ' if ENABLE_PDF_DOWNLOAD else '<span style="color: var(--ink-muted);">PDF (Coming Soon)</span> · '
+    footer_pdf_link = '<a href="assets/paper.pdf" download="Frontier_3D_Robotics_Paper_MIT.pdf">Paper PDF</a> · ' if ENABLE_PDF_DOWNLOAD else ''
 
     html_template = f"""<!DOCTYPE html>
 <html lang="en">
@@ -1664,7 +1661,7 @@ def build_full_html():
       <div class="nav-right">
         <div class="nav-reads-badge" id="nav-reads-badge" title="Live Verified Readers of Living Survey">
           <span class="reads-live-dot"></span>
-          <span class="reads-num" id="nav-reads-count">1,482</span>
+          <span class="reads-num" id="nav-reads-count">0</span>
           <span class="reads-label">Reads</span>
         </div>
         <a href="https://github.com/MIT-CDFG/Survey-AI-for-3D-modeling-Robotics" target="_blank" rel="noopener noreferrer" class="btn-nav-github" title="Survey AI for 3D Modeling & Robotics (GitHub)">
@@ -1698,7 +1695,7 @@ def build_full_html():
           <span class="affil-divider">|</span>
           <span class="hero-reads-badge" id="hero-reads-badge" title="Empirical Horizon Scan Verified Readers">
             <span class="reads-live-dot"></span>
-            <span class="reads-num" id="hero-reads-count">1,482</span>
+            <span class="reads-num" id="hero-reads-count">0</span>
             <span>Reads</span>
           </span>
         </div>
@@ -2111,7 +2108,7 @@ def build_full_html():
       </p>
       <div class="footer-stats-strip">
         <span class="reads-live-dot"></span>
-        <span>Empirical Survey Readers: <strong id="footer-reads-count" class="reads-num">1,482</strong></span>
+        <span>Empirical Survey Readers: <strong id="footer-reads-count" class="reads-num">0</strong></span>
         <span style="opacity: 0.35;">·</span>
         <span>Global Research Horizon Scan</span>
       </div>

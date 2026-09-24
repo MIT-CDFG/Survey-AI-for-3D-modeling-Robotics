@@ -26,7 +26,6 @@ export default {
 
     const key = url.searchParams.get("key") || "survey_reads_total";
     const action = url.searchParams.get("action") || (url.pathname.includes("hit") ? "hit" : "get");
-    const baseCalibration = 1482;
 
     try {
       let currentVal = null;
@@ -34,8 +33,8 @@ export default {
         currentVal = await env.READS_KV.get(key);
       }
 
-      let count = currentVal ? parseInt(currentVal, 10) : baseCalibration;
-      if (isNaN(count)) count = baseCalibration;
+      let count = currentVal ? parseInt(currentVal, 10) : 0;
+      if (isNaN(count)) count = 0;
 
       if (action === "hit") {
         count += 1;
@@ -57,7 +56,7 @@ export default {
       return new Response(
         JSON.stringify({
           success: false,
-          reads: baseCalibration,
+          reads: 0,
           error: err.message
         }),
         { status: 200, headers: corsHeaders }
