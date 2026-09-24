@@ -19,8 +19,8 @@ which previously split the survey's count between these two keys:
 The Worker always supplies the first URL to Busuanzi, regardless of the client's
 platform, fragment, query parameters, or referrer policy. This keeps the existing
 desktop page-view total; it does not create a new counter, seed a database, or add
-the unrelated origin-wide count. The frontend uses only this endpoint. All three
-badges show its returned page count.
+the unrelated origin-wide count. The frontend uses only this endpoint. The
+navigation and footer badges show its returned page count.
 
 The old browser-local increment fallback is removed. Loading or failed requests
 show an em dash with a status tooltip. Legacy local

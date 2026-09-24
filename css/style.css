@@ -389,31 +389,6 @@ code, pre, kbd, samp, tt {
   letter-spacing: -0.01em;
 }
 
-.hero-reads-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.85rem;
-  color: var(--ink-secondary);
-  font-weight: 600;
-  padding: 0.2rem 0.75rem;
-  border-radius: var(--radius-full);
-  background: var(--bg-box);
-  border: 1px solid var(--border-subtle);
-  vertical-align: middle;
-  transition: all 0.2s ease;
-}
-
-.hero-reads-badge:hover {
-  border-color: var(--mit-red);
-}
-
-.hero-reads-badge .reads-num {
-  color: var(--mit-red);
-  font-family: var(--font-mono, monospace);
-  font-weight: 700;
-}
-
 .footer-stats-strip {
   margin-top: 0.85rem;
   display: inline-flex;

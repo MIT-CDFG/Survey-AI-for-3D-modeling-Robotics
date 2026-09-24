@@ -8,8 +8,8 @@ const client = await readFile(new URL('../js/reads-counter.js', import.meta.url)
 const origin = 'https://mit-cdfg.github.io';
 const endpoint = 'https://survey-reads-counter.frankdou.workers.dev/hit';
 const valid = (reads) => ({ success: true, reads, page: PAGE_URL, source: 'busuanzi-page-pv' });
-const countIDs = ['nav-reads-count', 'hero-reads-count', 'footer-reads-count'];
-const badgeIDs = ['nav-reads-badge', 'hero-reads-badge', 'footer-reads-badge'];
+const countIDs = ['nav-reads-count', 'footer-reads-count'];
+const badgeIDs = ['nav-reads-badge', 'footer-reads-badge'];
 const flush = () => new Promise(resolve => setImmediate(resolve));
 
 function browser({ fetch, localOrigin = origin, override, readyState = 'complete' }) {
@@ -45,7 +45,7 @@ function assertDisplay(page, text, state) {
   for (const id of badgeIDs) assert.equal(page.nodes.get(id).attrs['data-reads-state'], state, id);
 }
 
-test('all three badges use the shared page count even with blocked browser storage', async () => {
+test('both visible badges use the shared page count even with blocked browser storage', async () => {
   const page = browser({ fetch: async () => Response.json(valid(1234)) });
   assertDisplay(page, '\u2014', 'loading');
   await flush();
@@ -209,7 +209,7 @@ test('malformed JSONP, network errors, and upstream HTTP errors fail without fal
 test('published HTML and generator both retain versioned counter script and honest loading placeholders', async () => {
   for (const name of ['index.html', 'build_website.py']) {
     const html = await readFile(new URL('../' + name, import.meta.url), 'utf8');
-    assert.match(html, /js\/reads-counter\.js\?v=20260924-canonical/);
+    assert.match(html, /js\/reads-counter\.js\?v=20260924-compact/);
     for (const id of countIDs) assert.match(html, new RegExp('id="' + id + '"[^>]*>&mdash;'));
     for (const id of badgeIDs) assert.match(html, new RegExp('id="' + id + '" data-reads-state="loading"'));
   }

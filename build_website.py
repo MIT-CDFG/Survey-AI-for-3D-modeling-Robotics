@@ -1601,7 +1601,7 @@ def build_full_html():
   <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "YOUR_CLOUDFLARE_BEACON_TOKEN"}}'></script> -->
 
   <!-- Live Readers & Visitor Counter -->
-  <script src="js/reads-counter.js?v=20260924-canonical" defer></script>
+  <script src="js/reads-counter.js?v=20260924-compact" defer></script>
   
   <!-- SIGGRAPH Font Set (ACM SIGGRAPH / acmart style: Linux Libertine, Linux Biolinum, Inconsolata) -->
   <link rel="preload" href="fonts/LibertinusSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -1691,11 +1691,6 @@ def build_full_html():
           <span><strong>Computational Design and Fabrication Group (CDFG)</strong> · MIT CSAIL</span>
           <span class="affil-divider">|</span>
           <span class="status-badge">Working Draft & Empirical Horizon Scan</span>
-          <span class="affil-divider">|</span>
-          <span class="hero-reads-badge" id="hero-reads-badge" data-reads-state="loading" title="Loading shared read count">
-            <span class="reads-num" id="hero-reads-count">&mdash;</span>
-            <span>Reads</span>
-          </span>
         </div>
 
         <div class="action-pills-row">

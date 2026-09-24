@@ -8,8 +8,8 @@
 
   var PAGE_URL = 'https://mit-cdfg.github.io/Survey-AI-for-3D-modeling-Robotics/';
   var ENDPOINT = window.CF_COUNTER_URL || 'https://survey-reads-counter.frankdou.workers.dev/hit';
-  var COUNT_IDS = ['nav-reads-count', 'hero-reads-count', 'footer-reads-count'];
-  var BADGE_IDS = ['nav-reads-badge', 'hero-reads-badge', 'footer-reads-badge'];
+  var COUNT_IDS = ['nav-reads-count', 'footer-reads-count'];
+  var BADGE_IDS = ['nav-reads-badge', 'footer-reads-badge'];
 
   function updateDisplay(count, state) {
     var formatted = count === null ? '\u2014' : count.toLocaleString('en-US');
