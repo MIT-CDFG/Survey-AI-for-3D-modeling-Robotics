@@ -1601,7 +1601,7 @@ def build_full_html():
   <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "YOUR_CLOUDFLARE_BEACON_TOKEN"}}'></script> -->
 
   <!-- Live Readers & Visitor Counter -->
-  <script src="js/reads-counter.js" defer></script>
+  <script src="js/reads-counter.js?v=20260924-canonical" defer></script>
   
   <!-- SIGGRAPH Font Set (ACM SIGGRAPH / acmart style: Linux Libertine, Linux Biolinum, Inconsolata) -->
   <link rel="preload" href="fonts/LibertinusSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -1659,9 +1659,9 @@ def build_full_html():
       </nav>
 
       <div class="nav-right">
-        <div class="nav-reads-badge" id="nav-reads-badge" title="Live Verified Readers of Living Survey">
+        <div class="nav-reads-badge" id="nav-reads-badge" data-reads-state="loading" title="Loading shared read count">
           <span class="reads-live-dot"></span>
-          <span class="reads-num" id="nav-reads-count">0</span>
+          <span class="reads-num" id="nav-reads-count">&mdash;</span>
           <span class="reads-label">Reads</span>
         </div>
         <a href="https://github.com/Frank-ZY-Dou/awesome-ai-3d-modeling-robotics" target="_blank" rel="noopener noreferrer" class="btn-nav-github" title="Awesome AI for 3D Modeling & Robotics (GitHub)">
@@ -1693,9 +1693,9 @@ def build_full_html():
           <span class="affil-divider">|</span>
           <span class="status-badge">Working Draft & Empirical Horizon Scan</span>
           <span class="affil-divider">|</span>
-          <span class="hero-reads-badge" id="hero-reads-badge" title="Empirical Horizon Scan Verified Readers">
+          <span class="hero-reads-badge" id="hero-reads-badge" data-reads-state="loading" title="Loading shared read count">
             <span class="reads-live-dot"></span>
-            <span class="reads-num" id="hero-reads-count">0</span>
+            <span class="reads-num" id="hero-reads-count">&mdash;</span>
             <span>Reads</span>
           </span>
         </div>
@@ -2106,9 +2106,9 @@ def build_full_html():
       <p style="margin-top: 0.6rem; font-size: 0.8rem; color: var(--ink-muted);">
         Curated survey dataset & video archive open-sourced at <a href="https://github.com/Frank-ZY-Dou/awesome-ai-3d-modeling-robotics" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Frank-ZY-Dou/awesome-ai-3d-modeling-robotics</a>. © 2026 MIT CSAIL CDFG.
       </p>
-      <div class="footer-stats-strip">
+      <div class="footer-stats-strip" id="footer-reads-badge" data-reads-state="loading" title="Loading shared read count">
         <span class="reads-live-dot"></span>
-        <span>Empirical Survey Readers: <strong id="footer-reads-count" class="reads-num">0</strong></span>
+        <span>Survey Reads: <strong id="footer-reads-count" class="reads-num">&mdash;</strong></span>
         <span style="opacity: 0.35;">·</span>
         <span>Global Research Horizon Scan</span>
       </div>

@@ -1,145 +1,76 @@
 /**
- * Living Horizon Scan - Readers & Pageviews Counter
- * Starts from 0 and increments +1 on every page visit/refresh.
- * Supports Cloudflare Workers KV API and standard analytics services.
- * MIT CSAIL CDFG
+ * Shared page views for the survey, including its Paper and Archive views.
+ * The Worker uses the existing desktop counter's canonical page URL.
+ * Browser storage is never used as a source of read counts.
  */
-
 (function () {
   'use strict';
 
-  var CF_COUNTER_ENDPOINT = window.CF_COUNTER_URL || null;
-  var STORAGE_KEY = 'mit_cdfg_survey_reads_pv';
+  var PAGE_URL = 'https://mit-cdfg.github.io/Survey-AI-for-3D-modeling-Robotics/';
+  var ENDPOINT = window.CF_COUNTER_URL || 'https://survey-reads-counter.frankdou.workers.dev/hit';
+  var COUNT_IDS = ['nav-reads-count', 'hero-reads-count', 'footer-reads-count'];
+  var BADGE_IDS = ['nav-reads-badge', 'hero-reads-badge', 'footer-reads-badge'];
 
-  function safeGetStorage(key) {
-    try {
-      return localStorage.getItem(key);
-    } catch (e) {
-      return null;
-    }
-  }
+  function updateDisplay(count, state) {
+    var formatted = count === null ? '\u2014' : count.toLocaleString('en-US');
+    var description = state === 'ready' ? formatted + ' page views of this survey' :
+      state === 'loading' ? 'Loading shared read count' : 'Read count temporarily unavailable';
 
-  function safeSetStorage(key, val) {
-    try {
-      localStorage.setItem(key, val);
-    } catch (e) {}
-  }
-
-  function formatNumber(num) {
-    var n = parseInt(num, 10);
-    if (isNaN(n) || n < 0) return '0';
-    return n.toLocaleString('en-US');
-  }
-
-  function updateDisplay(count) {
-    var val = parseInt(count, 10);
-    if (isNaN(val) || val < 0) val = 0;
-    var formatted = formatNumber(val);
-    ['nav-reads-count', 'hero-reads-count', 'footer-reads-count'].forEach(function (id) {
+    COUNT_IDS.forEach(function (id) {
       var el = document.getElementById(id);
       if (el) el.textContent = formatted;
     });
-  }
-
-  // 1. Primary: Cloudflare Worker KV counter
-  function fetchFromCloudflare() {
-    if (!CF_COUNTER_ENDPOINT) return Promise.reject(new Error('No endpoint configured'));
-
-    // Increments by 1 on every page load
-    var url = CF_COUNTER_ENDPOINT + (CF_COUNTER_ENDPOINT.indexOf('?') >= 0 ? '&' : '?') + 'action=hit';
-
-    return fetch(url, { method: 'GET', mode: 'cors' })
-      .then(function (res) {
-        if (!res.ok) throw new Error('Worker response ' + res.status);
-        return res.json();
-      })
-      .then(function (data) {
-        var count = data.reads !== undefined ? data.reads : (data.count !== undefined ? data.count : data.value);
-        if (count !== undefined && !isNaN(count)) {
-          var num = parseInt(count, 10);
-          safeSetStorage(STORAGE_KEY, num);
-          updateDisplay(num);
-          return num;
-        }
-        throw new Error('Invalid response');
-      });
-  }
-
-  // 2. Secondary: Public Hit Counter (Busuanzi JSONP - page_pv increments on every refresh)
-  function fetchFromPublicCounter() {
-    var hostname = window.location.hostname;
-    if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '') {
-      return Promise.reject(new Error('Local development'));
-    }
-
-    return new Promise(function (resolve, reject) {
-      var callbackName = 'BszReadsCallback_' + Math.floor(Math.random() * 10000000);
-      var script = document.createElement('script');
-      
-      var timeout = setTimeout(function () {
-        if (window[callbackName]) {
-          delete window[callbackName];
-        }
-        if (script.parentNode) script.parentNode.removeChild(script);
-        reject(new Error('Timeout'));
-      }, 3500);
-
-      window[callbackName] = function (data) {
-        clearTimeout(timeout);
-        delete window[callbackName];
-        if (script.parentNode) script.parentNode.removeChild(script);
-        try {
-          var livePv = (data && (data.page_pv || data.site_pv)) || 0;
-          var total = parseInt(livePv, 10);
-          safeSetStorage(STORAGE_KEY, total);
-          updateDisplay(total);
-          resolve(total);
-        } catch (e) {
-          reject(e);
-        }
-      };
-
-      script.src = 'https://busuanzi.ibruce.info/busuanzi?jsonpCallback=' + callbackName;
-      script.referrerPolicy = 'no-referrer-when-downgrade';
-      script.onerror = function () {
-        clearTimeout(timeout);
-        delete window[callbackName];
-        if (script.parentNode) script.parentNode.removeChild(script);
-        reject(new Error('Load error'));
-      };
-      document.head.appendChild(script);
+    BADGE_IDS.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.setAttribute('data-reads-state', state);
+      el.setAttribute('title', description);
+      el.setAttribute('aria-label', description);
     });
   }
 
-  // 3. Fallback / Local mode: increment local counter on every page refresh
-  function fallbackIncrement() {
-    var current = parseInt(safeGetStorage(STORAGE_KEY), 10);
-    if (isNaN(current) || current < 0) {
-      current = 0;
-    }
-    current += 1;
-    safeSetStorage(STORAGE_KEY, current);
-    updateDisplay(current);
-  }
-
   function initReadsCounter() {
-    // Show current known count immediately
-    var current = parseInt(safeGetStorage(STORAGE_KEY), 10);
-    if (!isNaN(current) && current >= 0) {
-      updateDisplay(current);
+    updateDisplay(null, 'loading');
+
+    // Local previews must opt in to a local/mock endpoint, never the live counter.
+    if (window.location.origin !== 'https://mit-cdfg.github.io' && !window.CF_COUNTER_URL) {
+      updateDisplay(null, 'unavailable');
+      return;
     }
 
-    fetchFromCloudflare()
-      .catch(function () {
-        return fetchFromPublicCounter();
+    var controller = new AbortController();
+    var timeout = setTimeout(function () { controller.abort(); }, 15000);
+
+    // One request per page load. Retrying a hit could count the same visit twice.
+    fetch(ENDPOINT, {
+      method: 'POST',
+      mode: 'cors',
+      credentials: 'omit',
+      cache: 'no-store',
+      referrerPolicy: 'no-referrer',
+      signal: controller.signal
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Counter response ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        if (!data || data.success !== true || data.page !== PAGE_URL ||
+            data.source !== 'busuanzi-page-pv' ||
+            !Number.isSafeInteger(data.reads) || data.reads < 0) {
+          throw new Error('Invalid counter response');
+        }
+        updateDisplay(data.reads, 'ready');
       })
       .catch(function () {
-        fallbackIncrement();
-      });
+        // Never replace the shared total with a device-local count or site-wide PV.
+        updateDisplay(null, 'unavailable');
+      })
+      .finally(function () { clearTimeout(timeout); });
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initReadsCounter);
+    document.addEventListener('DOMContentLoaded', initReadsCounter, { once: true });
   } else {
     initReadsCounter();
   }

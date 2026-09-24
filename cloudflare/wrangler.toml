@@ -1,10 +1,9 @@
 name = "survey-reads-counter"
 main = "worker.js"
-compatibility_date = "2026-09-01"
+compatibility_date = "2026-09-24"
+workers_dev = true
+preview_urls = false
 
-# To bind Cloudflare KV storage:
-# 1. Run: npx wrangler kv namespace create READS_KV
-# 2. Paste the generated id below:
-# [[kv_namespaces]]
-# binding = "READS_KV"
-# id = "your-kv-namespace-id"
+# Busuanzi retains the existing count; this Worker needs no KV/D1 binding.
+[observability]
+enabled = false
