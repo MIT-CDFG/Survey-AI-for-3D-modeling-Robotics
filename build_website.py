@@ -1660,7 +1660,6 @@ def build_full_html():
 
       <div class="nav-right">
         <div class="nav-reads-badge" id="nav-reads-badge" data-reads-state="loading" title="Loading shared read count">
-          <span class="reads-live-dot"></span>
           <span class="reads-num" id="nav-reads-count">&mdash;</span>
           <span class="reads-label">Reads</span>
         </div>
@@ -1694,7 +1693,6 @@ def build_full_html():
           <span class="status-badge">Working Draft & Empirical Horizon Scan</span>
           <span class="affil-divider">|</span>
           <span class="hero-reads-badge" id="hero-reads-badge" data-reads-state="loading" title="Loading shared read count">
-            <span class="reads-live-dot"></span>
             <span class="reads-num" id="hero-reads-count">&mdash;</span>
             <span>Reads</span>
           </span>
@@ -2107,7 +2105,6 @@ def build_full_html():
         Curated survey dataset & video archive open-sourced at <a href="https://github.com/Frank-ZY-Dou/awesome-ai-3d-modeling-robotics" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Frank-ZY-Dou/awesome-ai-3d-modeling-robotics</a>. © 2026 MIT CSAIL CDFG.
       </p>
       <div class="footer-stats-strip" id="footer-reads-badge" data-reads-state="loading" title="Loading shared read count">
-        <span class="reads-live-dot"></span>
         <span>Survey Reads: <strong id="footer-reads-count" class="reads-num">&mdash;</strong></span>
         <span style="opacity: 0.35;">·</span>
         <span>Global Research Horizon Scan</span>
