@@ -447,10 +447,10 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
     return f"""
     <section class="appendix-section" id="app:cases">
       <h1 class="appendix-heading"><span class="header-section-number">Appendix C ·</span> Index of archived posts</h1>
-      <p><a href="#tab:index" class="academic-ref-link">Table 7</a> lists the 190 archived posts in source-list order, systematically classified under our <strong>Evidence Ranking &amp; Reproducibility Hierarchy</strong> across three audit tiers:
-      <strong>Rank 1 (Full Reproducibility · Demo + Implementation Code, 26 posts / 13 groups)</strong>,
-      <strong>Rank 2 (Interactive Verification · Demo + Interactive Web Link, 12 posts / 12 groups)</strong>, and
-      <strong>Rank 3 (Demonstration Only · Recorded Media Only, 152 posts / 120 groups)</strong>.
+      <p><a href="#tab:index" class="academic-ref-link">Table 7</a> lists the core catalog of archived community posts in source-list order, systematically classified under our <strong>Evidence Ranking &amp; Reproducibility Hierarchy</strong> across three audit tiers:
+      <strong>Rank 1 (Full Reproducibility · Demo + Implementation Code, 16 groups)</strong>,
+      <strong>Rank 2 (Interactive Verification · Demo + Interactive Web Link, 14 groups)</strong>, and
+      <strong>Rank 3 (Demonstration Only · Recorded Media Only, 152 groups)</strong>.
       The third column, Type, designates the post role: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. The Code / Demo column provides direct links to verified code repositories or interactive web applications where released.</p>
 
       <div class="gallery-callout-panel">
@@ -470,7 +470,7 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
       </div>
 
       <div class="academic-table-card" id="tab:index">
-        <div class="table-caption"><strong>Table 7: Index of the 190 archived posts, classified by Evidence Ranking.</strong> Type: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. Total 190 records spanning 145 archival groups.</div>
+        <div class="table-caption"><strong>Table 7: Index of archived posts, classified by Evidence Ranking.</strong> Type: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. Total 236 records spanning 182 archival groups across the living survey.</div>
         <div class="table-scroll-container">
           <table class="academic-table post-index-table">
             <thead>
@@ -1595,7 +1595,7 @@ def build_full_html():
   <meta name="citation_publication_date" content="2026/09/22">
   {meta_pdf_citation}
   
-  <meta name="description" content="A systematic empirical survey analyzing over 190 community demonstrations, technical reports, and benchmark evaluations of frontier multimodal models in 3D modeling, parametric CAD, and embodied robotics.">
+  <meta name="description" content="A systematic empirical survey analyzing over 236 community demonstrations, technical reports, and benchmark evaluations of frontier multimodal models in 3D modeling, parametric CAD, and embodied robotics.">
 
   <!-- Cloudflare Web Analytics (Optional: paste beacon token from dash.cloudflare.com) -->
   <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "YOUR_CLOUDFLARE_BEACON_TOKEN"}}'></script> -->
@@ -1763,7 +1763,7 @@ def build_full_html():
               </div>
               <div class="pillar-tagline">Demonstrations as a Distributed User Study</div>
               <p>
-                Rather than treating community posts as anecdotal marketing demonstrations, we analyze the corpus of over 190 publicly documented showcases and developer reports as an extensive, distributed "crowdsourced user study." This framing captures how models operate when prompted across diverse geometry kernels (CGM, Open CASCADE), DCC software (Blender), physics simulators (Isaac Sim, MuJoCo, Genesis), and physical robot hardware—revealing real-world workflow friction, prompt overhead, and boundary failures that static benchmarks miss.
+                Rather than treating community posts as anecdotal marketing demonstrations, we analyze the corpus of over 236 publicly documented showcases and developer reports as an extensive, distributed "crowdsourced user study." This framing captures how models operate when prompted across diverse geometry kernels (CGM, Open CASCADE), DCC software (Blender), physics simulators (Isaac Sim, MuJoCo, Genesis), and physical robot hardware—revealing real-world workflow friction, prompt overhead, and boundary failures that static benchmarks miss.
               </p>
             </div>
 
@@ -1825,13 +1825,13 @@ def build_full_html():
       <div class="stats-container">
         <h2 class="panel-section-title">Empirical Benchmark & Corpus Statistics Dashboard</h2>
         <p class="panel-section-desc">
-          A systematic quantitative synthesis summarizing empirical evaluations across 190+ community reports, a four-tier evidentiary classification matrix, and standardized benchmark comparisons in 3D reconstruction, parametric CAD, and embodied robotics.
+          A systematic quantitative synthesis summarizing empirical evaluations across 236+ community reports, an evidentiary classification matrix, and standardized benchmark comparisons in 3D reconstruction, parametric CAD, and embodied robotics.
         </p>
 
         <!-- Metric Summary Cards -->
         <div class="stat-summary-grid">
           <div class="stat-card">
-            <div class="stat-val">172+</div>
+            <div class="stat-val">{total_count}</div>
             <div class="stat-desc">Archived Technical Showcases &amp; Reports</div>
           </div>
           <div class="stat-card">
