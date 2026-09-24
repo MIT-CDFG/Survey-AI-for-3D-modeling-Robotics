@@ -1584,9 +1584,9 @@ def build_full_html():
   <meta name="citation_title" content="On the Opportunities and Risks of Frontier Models for 3D Modeling, Computational Design and Robotics">
   <meta name="citation_author" content="Dou, Zhiyang">
   <meta name="citation_author" content="Watanabe, Akihisa">
+  <meta name="citation_author" content="Meindl, Jamison">
   <meta name="citation_author" content="Deng, Anna">
   <meta name="citation_author" content="Huang, Tianyu">
-  <meta name="citation_author" content="Meindl, Jamison">
   <meta name="citation_author" content="Sadalski, Igor">
   <meta name="citation_author" content="Liang, Harrison">
   <meta name="citation_author" content="Guo, Minghao">
@@ -1611,7 +1611,7 @@ def build_full_html():
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v={int(time.time())}">
+  <link rel="stylesheet" href="css/style.css?v=20260924-reads">
 </head>
 <body id="top">
 
@@ -2074,7 +2074,7 @@ def build_full_html():
         </div>
         <pre class="bibtex-code" id="bibtex-code">@article{{dou2026frontier3drobotics,
   title={{On the Opportunities and Risks of Frontier Models for 3D Modeling, Computational Design and Robotics}},
-  author={{Dou, Zhiyang and Watanabe, Akihisa and Deng, Anna and Huang, Tianyu and Meindl, Jamison and Sadalski, Igor and Liang, Harrison and Guo, Minghao and Jones, Benjamin Tod and Matusik, Wojciech}},
+  author={{Dou, Zhiyang and Watanabe, Akihisa and Meindl, Jamison and Deng, Anna and Huang, Tianyu and Sadalski, Igor and Liang, Harrison and Guo, Minghao and Jones, Benjamin Tod and Matusik, Wojciech}},
   journal={{MIT CSAIL Research Report}},
   year={{2026}},
   month={{September}},

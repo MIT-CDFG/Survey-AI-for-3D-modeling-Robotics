@@ -9,7 +9,7 @@
 
 ## Authors
 
-**Zhiyang Dou**<sup>1</sup>, **Akihisa Watanabe**<sup>1</sup>, **Anna Deng**<sup>1</sup>, **Tianyu Huang**<sup>1</sup>, **Jamison Meindl**<sup>1</sup>, **Igor Sadalski**<sup>1</sup>, **Harrison Liang**<sup>1</sup>, **Minghao Guo**<sup>1</sup>, **Benjamin Tod Jones**<sup>1</sup>, **Wojciech Matusik**<sup>1</sup>
+**Zhiyang Dou**<sup>1</sup>, **Akihisa Watanabe**<sup>1</sup>, **Jamison Meindl**<sup>1</sup>, **Anna Deng**<sup>1</sup>, **Tianyu Huang**<sup>1</sup>, **Igor Sadalski**<sup>1</sup>, **Harrison Liang**<sup>1</sup>, **Minghao Guo**<sup>1</sup>, **Benjamin Tod Jones**<sup>1</sup>, **Wojciech Matusik**<sup>1</sup>
 
 <sup>1</sup>*Computational Design and Fabrication Group (CDFG), MIT CSAIL*
 
@@ -91,7 +91,7 @@ If you find this survey or archive useful for your research, please cite:
 ```bibtex
 @article{dou2026frontier3drobotics,
   title={On the Opportunities and Risks of Frontier Models for 3D Modeling, Computational Design and Robotics},
-  author={Dou, Zhiyang and Watanabe, Akihisa and Deng, Anna and Huang, Tianyu and Meindl, Jamison and Sadalski, Igor and Liang, Harrison and Guo, Minghao and Jones, Benjamin Tod and Matusik, Wojciech},
+  author={Dou, Zhiyang and Watanabe, Akihisa and Meindl, Jamison and Deng, Anna and Huang, Tianyu and Sadalski, Igor and Liang, Harrison and Guo, Minghao and Jones, Benjamin Tod and Matusik, Wojciech},
   journal={MIT CSAIL Research Report},
   year={2026},
   month={September},
