@@ -67,8 +67,8 @@ To run the survey web portal locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/MIT-CDFG/Survey-AI-for-3D-modeling-Robotics.git
-cd Survey-AI-for-3D-modeling-Robotics
+git clone https://github.com/Frank-ZY-Dou/awesome-ai-3d-modeling-robotics.git
+cd awesome-ai-3d-modeling-robotics
 
 # Start a local HTTP server
 python3 -m http.server 8000
