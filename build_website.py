@@ -1675,21 +1675,8 @@ def build_full_html():
           On the Opportunities and Risks of Frontier Models for 3D Modeling, Computational Design and Robotics
         </h1>
 
-        <div class="authors-row">
-          <span class="author-item">Zhiyang Dou<sup>1</sup>,</span>
-          <span class="author-item">Akihisa Watanabe<sup>1</sup>,</span>
-          <span class="author-item">Anna Deng<sup>1</sup>,</span>
-          <span class="author-item">Tianyu Huang<sup>1</sup>,</span>
-          <span class="author-item">Jamison Meindl<sup>1</sup>,</span>
-          <span class="author-item">Igor Sadalski<sup>1</sup>,</span>
-          <span class="author-item">Harrison Liang<sup>1</sup>,</span>
-          <span class="author-item">Minghao Guo<sup>1</sup>,</span>
-          <span class="author-item">Benjamin Tod Jones<sup>1</sup>,</span>
-          <span class="author-item">Wojciech Matusik<sup>1</sup></span>
-        </div>
-
         <div class="affiliation-row">
-          <span><sup>1</sup><strong>Computational Design and Fabrication Group (CDFG)</strong> · MIT CSAIL</span>
+          <span><strong>Computational Design and Fabrication Group (CDFG)</strong> · MIT CSAIL</span>
           <span class="affil-divider">|</span>
           <span class="status-badge">Working Draft & Empirical Horizon Scan</span>
         </div>
