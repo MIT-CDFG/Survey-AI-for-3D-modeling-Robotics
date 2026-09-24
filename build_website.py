@@ -1587,6 +1587,11 @@ def build_full_html():
   <meta name="citation_title" content="On the Opportunities and Risks of Frontier Models for 3D Modeling, Computational Design and Robotics">
   <meta name="citation_author" content="Dou, Zhiyang">
   <meta name="citation_author" content="Watanabe, Akihisa">
+  <meta name="citation_author" content="Deng, Anna">
+  <meta name="citation_author" content="Huang, Tianyu">
+  <meta name="citation_author" content="Meindl, Jamison">
+  <meta name="citation_author" content="Sadalski, Igor">
+  <meta name="citation_author" content="Liang, Harrison">
   <meta name="citation_author" content="Guo, Minghao">
   <meta name="citation_author" content="Jones, Benjamin Tod">
   <meta name="citation_author" content="Matusik, Wojciech">
@@ -1594,6 +1599,12 @@ def build_full_html():
   {meta_pdf_citation}
   
   <meta name="description" content="A systematic empirical survey analyzing over 190 community demonstrations, technical reports, and benchmark evaluations of frontier multimodal models in 3D modeling, parametric CAD, and embodied robotics.">
+
+  <!-- Cloudflare Web Analytics (Optional: paste beacon token from dash.cloudflare.com) -->
+  <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "YOUR_CLOUDFLARE_BEACON_TOKEN"}}'></script> -->
+
+  <!-- Live Readers & Visitor Counter -->
+  <script src="js/reads-counter.js" defer></script>
   
   <!-- SIGGRAPH Font Set (ACM SIGGRAPH / acmart style: Linux Libertine, Linux Biolinum, Inconsolata) -->
   <link rel="preload" href="fonts/LibertinusSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -1651,6 +1662,11 @@ def build_full_html():
       </nav>
 
       <div class="nav-right">
+        <div class="nav-reads-badge" id="nav-reads-badge" title="Live Verified Readers of Living Survey">
+          <span class="reads-live-dot"></span>
+          <span class="reads-num" id="nav-reads-count">1,482</span>
+          <span class="reads-label">Reads</span>
+        </div>
         <a href="https://github.com/MIT-CDFG/Survey-AI-for-3D-modeling-Robotics" target="_blank" rel="noopener noreferrer" class="btn-nav-github" title="Survey AI for 3D Modeling & Robotics (GitHub)">
           <svg height="15" width="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
           <span class="nav-btn-text">GitHub</span>
@@ -1679,6 +1695,12 @@ def build_full_html():
           <span><strong>Computational Design and Fabrication Group (CDFG)</strong> · MIT CSAIL</span>
           <span class="affil-divider">|</span>
           <span class="status-badge">Working Draft & Empirical Horizon Scan</span>
+          <span class="affil-divider">|</span>
+          <span class="hero-reads-badge" id="hero-reads-badge" title="Empirical Horizon Scan Verified Readers">
+            <span class="reads-live-dot"></span>
+            <span class="reads-num" id="hero-reads-count">1,482</span>
+            <span>Reads</span>
+          </span>
         </div>
 
         <div class="action-pills-row">
@@ -2087,6 +2109,12 @@ def build_full_html():
       <p style="margin-top: 0.6rem; font-size: 0.8rem; color: var(--ink-muted);">
         Curated survey dataset & video archive open-sourced at <a href="https://github.com/MIT-CDFG/Survey-AI-for-3D-modeling-Robotics" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">MIT-CDFG/Survey-AI-for-3D-modeling-Robotics</a>. © 2026 MIT CSAIL CDFG.
       </p>
+      <div class="footer-stats-strip">
+        <span class="reads-live-dot"></span>
+        <span>Empirical Survey Readers: <strong id="footer-reads-count" class="reads-num">1,482</strong></span>
+        <span style="opacity: 0.35;">·</span>
+        <span>Global Research Horizon Scan</span>
+      </div>
     </footer>
 
   </main>

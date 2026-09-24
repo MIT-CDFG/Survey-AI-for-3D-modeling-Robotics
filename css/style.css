@@ -357,6 +357,100 @@ code, pre, kbd, samp, tt {
   text-decoration: none;
 }
 
+/* Reads / Views Counter Badges */
+.nav-reads-badge {
+  background: var(--bg-page);
+  border: 1px solid var(--border-line);
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.38rem 0.8rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.nav-reads-badge:hover {
+  border-color: var(--mit-red);
+  color: var(--ink-primary);
+  background: var(--bg-box);
+}
+
+.reads-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+  display: inline-block;
+  flex-shrink: 0;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+  70% { transform: scale(1); box-shadow: 0 0 0 5px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.reads-num {
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  color: var(--ink-primary);
+  letter-spacing: -0.01em;
+}
+
+.hero-reads-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--ink-secondary);
+  font-weight: 600;
+  padding: 0.2rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-box);
+  border: 1px solid var(--border-subtle);
+  vertical-align: middle;
+  transition: all 0.2s ease;
+}
+
+.hero-reads-badge:hover {
+  border-color: var(--mit-red);
+}
+
+.hero-reads-badge .reads-num {
+  color: var(--mit-red);
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+}
+
+.footer-stats-strip {
+  margin-top: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--ink-secondary);
+  background: var(--bg-box);
+  padding: 0.4rem 0.95rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 600px) {
+  .nav-reads-badge .reads-label {
+    display: none;
+  }
+}
+
 .btn-nav-download {
   background: var(--bg-page);
   border: 1.5px solid var(--mit-red);
