@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="380" fill="url(#bgGrad)"/>
+  <rect x="0.5" y="0.5" width="599" height="379" fill="none" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Top Title Bar -->
+  <g transform="translate(24, 20)">
+    <rect x="0" y="0" width="220" height="20" rx="10" fill="#FEE2E2"/>
+    <text x="110" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="800" fill="#750014" letter-spacing="0.08em" text-anchor="middle">REPRODUCIBILITY &amp; AUDIT TIER</text>
+    <text x="0" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700" fill="#0F172A" letter-spacing="-0.01em">Evidence Ranking Hierarchy</text>
+  </g>
+
+  <!-- TIER 1 (Highest: Demo + Implementation Code) -->
+  <g transform="translate(24, 76)" filter="url(#cardShadow)">
+    <rect width="552" height="88" rx="8" fill="#FFFFFF" stroke="#FECACA" stroke-width="1.2"/>
+    <rect width="6" height="88" rx="3" fill="#750014"/>
+    
+    <!-- Rank Badge -->
+    <rect x="18" y="14" width="118" height="22" rx="4" fill="#750014"/>
+    <text x="77" y="29" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" letter-spacing="0.05em" text-anchor="middle">RANK 1 · HIGHEST</text>
+    
+    <!-- Title & Verification Status -->
+    <text x="146" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13.5" font-weight="700" fill="#1E293B">Demo + Implementation Code</text>
+    
+    <!-- Feature Pill 1 -->
+    <rect x="420" y="14" width="118" height="20" rx="10" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="0.8"/>
+    <text x="479" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" fill="#750014" text-anchor="middle">✓ Full Reproducibility</text>
+    
+    <!-- Description Line -->
+    <text x="18" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#475569">Public source code, scripts, or GitHub repository allowing complete end-to-end execution.</text>
+    <text x="18" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#750014">Criteria: Video / Execution Demo + Verifiable Source Code / CAD Harness</text>
+  </g>
+
+  <!-- TIER 2 (Intermediate: Demo + Live URL / Interactive Viewer) -->
+  <g transform="translate(24, 176)" filter="url(#cardShadow)">
+    <rect width="552" height="88" rx="8" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="1.2"/>
+    <rect width="6" height="88" rx="3" fill="#1D4ED8"/>
+    
+    <!-- Rank Badge -->
+    <rect x="18" y="14" width="138" height="22" rx="4" fill="#1D4ED8"/>
+    <text x="87" y="29" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" letter-spacing="0.05em" text-anchor="middle">RANK 2 · INTERMEDIATE</text>
+    
+    <!-- Title & Verification Status -->
+    <text x="166" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13.5" font-weight="700" fill="#1E293B">Demo + Interactive Web Link</text>
+    
+    <!-- Feature Pill 2 -->
+    <rect x="424" y="14" width="114" height="20" rx="10" fill="#EFF6FF" stroke="#93C5FD" stroke-width="0.8"/>
+    <text x="481" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" fill="#1D4ED8" text-anchor="middle">⚡ Interactive Audit</text>
+    
+    <!-- Description Line -->
+    <text x="18" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#475569">Public interactive web app, 3D model viewer, or inspectable CAD link (e.g. Onshape, Godot).</text>
+    <text x="18" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#1D4ED8">Criteria: Video / Execution Demo + Inspectable Live Web Viewer / URL</text>
+  </g>
+
+  <!-- TIER 3 (Baseline: Demo Only) -->
+  <g transform="translate(24, 276)" filter="url(#cardShadow)">
+    <rect width="552" height="88" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2"/>
+    <rect width="6" height="88" rx="3" fill="#64748B"/>
+    
+    <!-- Rank Badge -->
+    <rect x="18" y="14" width="122" height="22" rx="4" fill="#64748B"/>
+    <text x="79" y="29" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="800" fill="#FFFFFF" letter-spacing="0.05em" text-anchor="middle">RANK 3 · BASELINE</text>
+    
+    <!-- Title & Verification Status -->
+    <text x="150" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13.5" font-weight="700" fill="#1E293B">Demo Only</text>
+    
+    <!-- Feature Pill 3 -->
+    <rect x="424" y="14" width="114" height="20" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="0.8"/>
+    <text x="481" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" fill="#64748B" text-anchor="middle">👁 Observation Only</text>
+    
+    <!-- Description Line -->
+    <text x="18" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#475569">Recorded video demonstration, screen capture, or showcase image without public code or viewer.</text>
+    <text x="18" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#64748B">Criteria: Qualitative demonstration media retained for empirical capability scanning</text>
+  </g>
+</svg>

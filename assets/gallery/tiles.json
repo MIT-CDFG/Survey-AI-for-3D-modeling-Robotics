@@ -1,0 +1,770 @@
+{
+ "M01": {
+  "rid": "1",
+  "key": "guillo2026invalides",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m01-les-invalides-blender-unreal-emmanuel-guillo.jpg"
+ },
+ "M03": {
+  "rid": "2",
+  "key": "shiker2026miomoto",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m03-miomoto-phone-model-aharon-shiker.jpg"
+ },
+ "M04": {
+  "rid": "3",
+  "key": "shalaby2026bigboy",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m04-big-boy-game-assets-peter-shalaby-1.jpg"
+ },
+ "M05": {
+  "rid": "4",
+  "key": "wolff2026datacenter",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m05-server-rack-data-center-sune-wolff.jpg"
+ },
+ "M07": {
+  "rid": "5",
+  "key": "krcha2026locomotive",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m07-steam-locomotive-sketch-tomkrcha.jpg"
+ },
+ "M09": {
+  "rid": "6",
+  "key": "krcha2026house",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m09-residential-reconstruction-tomkrcha.jpg"
+ },
+ "M10": {
+  "rid": "7",
+  "key": "shumer2026manhattan",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m10-manhattan-unreal-mattshumer.jpg"
+ },
+ "M11": {
+  "rid": "8",
+  "key": "ricouard2026house",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m11-house-blender-to-ue5-dimillian.jpg"
+ },
+ "M12": {
+  "rid": "9",
+  "key": "shameem2026palace",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m12-palace-of-fine-arts-sharifshameem.jpg"
+ },
+ "M13": {
+  "rid": "10",
+  "key": "shumer2026survival",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m13-unreal-survival-world-mattshumer.jpg"
+ },
+ "M14": {
+  "rid": "11",
+  "key": "schirano2026mappin",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m14-map-pin-to-3d-neighborhood-skirano.jpg"
+ },
+ "M15": {
+  "rid": "12",
+  "key": "pepperien2026character",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m15-character-turntable-test-dr-pepperien-1.jpg"
+ },
+ "M16": {
+  "rid": "13",
+  "key": "wolfe2026werewolf",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m16-werewolf-character-rig-mreflow.jpg"
+ },
+ "M17": {
+  "rid": "14",
+  "key": "ye2026zillow",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m17-zillow-listing-house-realyunfanye.jpg"
+ },
+ "M18": {
+  "rid": "15",
+  "key": "kendre2026villa",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m18-villa-scene-comparison-karankendre.jpg"
+ },
+ "M19": {
+  "rid": "16",
+  "key": "xikhar2026assets",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m19-blender-game-assets-xikhar.jpg"
+ },
+ "M20": {
+  "rid": "17",
+  "key": "aigeboku2026touchdesigner",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m20-computer-use-3d-workflow-aigeboku-1.jpg"
+ },
+ "M21": {
+  "rid": "18",
+  "key": "dstudioai2026rigging",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m21-rigging-helper-workflow-dstudio-ai.jpg"
+ },
+ "M22": {
+  "rid": "19",
+  "key": "buggeddev2026rigging",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m22-auto-rigging-motion-thebuggeddev.jpg"
+ },
+ "M23": {
+  "rid": "20",
+  "key": "cerf2026blendermcp",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m23-blender-mcp-tripo-gui-luccacerf.jpg"
+ },
+ "M24": {
+  "rid": "21",
+  "key": "gostev2026vangogh",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m24-van-gogh-town-threejs-petergostev.jpg"
+ },
+ "M25": {
+  "rid": "22",
+  "key": "goofy2026tidalrush",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m25-kart-racing-game-goofyninjaaa.jpg"
+ },
+ "M26": {
+  "rid": "23",
+  "key": "brown2026fpsmap",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m26-fps-map-rileybrown.jpg"
+ },
+ "M27": {
+  "rid": "24",
+  "key": "berman2026fallguys",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m27-fall-guys-clone-matthewberman.jpg"
+ },
+ "M28": {
+  "rid": "25",
+  "key": "mollick2026ocean",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m28-ocean-storm-scene-emollick.jpg"
+ },
+ "M29": {
+  "rid": "26",
+  "key": "mollick2026shader",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m29-underwater-gothic-city-emollick.jpg"
+ },
+ "M30": {
+  "rid": "27",
+  "key": "higgsfield2026previs",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m30-museum-camera-previs-higgsfield.jpg"
+ },
+ "M31": {
+  "rid": "28",
+  "key": "davis2026ship",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m31-blender-boat-render-davis7.jpg"
+ },
+ "I01": {
+  "rid": "37",
+  "key": "taussy2026ikeachair",
+  "cat": "Industrial Design",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/i01-ikea-chair-photo-to-model-doron-taussy.jpg"
+ },
+ "I02": {
+  "rid": "38",
+  "key": "senet2026robotarm",
+  "cat": "Industrial Design",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/i02-solidworks-robot-arm-mecagent.jpg"
+ },
+ "I03": {
+  "rid": "40",
+  "key": "senet2026turbojet",
+  "cat": "Industrial Design",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/i03-solidworks-turbojet-mecagent.jpg"
+ },
+ "I04": {
+  "rid": "42",
+  "key": "varghese2026turbofan",
+  "cat": "Industrial Design",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/i04-cgm-turbofan-brep-julian-varghese-1.jpg"
+ },
+ "I06": {
+  "rid": "43",
+  "key": "schirano2026ipod",
+  "cat": "Industrial Design",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/i06-3d-ipod-mac-app-skirano.jpg"
+ },
+ "I07": {
+  "rid": "44",
+  "key": "schirano2026codexmicro",
+  "cat": "Industrial Design",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/i07-codex-micro-model-skirano-1.jpg"
+ },
+ "R01": {
+  "rid": "50",
+  "key": "chooi2026bowl",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r01-block-in-bowl-eval-chooi-jeq.jpg"
+ },
+ "R02": {
+  "rid": "51",
+  "key": "cdngdev2026painting",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r02-golden-gate-robot-painting-cdngdev.jpg"
+ },
+ "R03": {
+  "rid": "52",
+  "key": "zhang2026enpire",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r03-enpire-in-context-learning-tonghe-zhang.jpg"
+ },
+ "R04": {
+  "rid": "53",
+  "key": "chooi2026bimanual",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r04-dual-arm-vs-molmoact2-chooi-jeq.jpg"
+ },
+ "R06": {
+  "rid": "54",
+  "key": "andonlabs2026drone",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r06-drone-follow-person-andonlabs.jpg"
+ },
+ "R07": {
+  "rid": "55",
+  "key": "chen2026robodojo",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r07-robodojo-evaluation-mario-chan.jpg"
+ },
+ "R08": {
+  "rid": "56",
+  "key": "nichol2026so101",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r08-so101-block-cleanup-unixpickle.jpg"
+ },
+ "M32": {
+  "rid": "71",
+  "key": "dou2026kitchentwin",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m32-kitchen-video-to-sim-assets-frankzydou.jpg"
+ },
+ "R09": {
+  "rid": "72",
+  "key": "dou2026so101pen",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r09-so101-pen-pickup-frankzydou.jpg"
+ },
+ "R10": {
+  "rid": "73",
+  "key": "dou2026wuji2hand",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r10-wuji2-hand-self-righting-frankzydou.jpg"
+ },
+ "R11": {
+  "rid": "74",
+  "key": "sucar2026objectslam",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r11-agentic-object-slam-mujoco-sucaredgar.jpg"
+ },
+ "R12": {
+  "rid": "75",
+  "key": "zhu2026penspinning",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r12-sharpa-hand-pen-spinning-isaac-lab-walterzhu8.jpg"
+ },
+ "R13": {
+  "rid": "76",
+  "key": "chooi2026roboharm",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r13-roboharm-harmful-instruction-trials-chooi-jeq.jpg"
+ },
+ "R14": {
+  "rid": "78",
+  "key": "duan2026llmharness",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r14-llm-harness-tabletop-molmoact2-sim-djiafei.jpg"
+ },
+ "R15": {
+  "rid": "79",
+  "key": "guo2026real2sim",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r15-real2sim-from-robot-demonstrations-lingxiao234.jpg"
+ },
+ "R16": {
+  "rid": "80",
+  "key": "hrybov2026fibonacci",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r16-mujoco-arm-writes-fibonacci-dimentary.jpg"
+ },
+ "R17": {
+  "rid": "81",
+  "key": "guo2026wujihands",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r17-wuji-hands-real2sim-retarget-lingxiao234.jpg"
+ },
+ "I08": {
+  "rid": "82",
+  "key": "fitzgerald2026tendonhand",
+  "cat": "Industrial Design",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/i08-tendon-driven-robot-hand-design-earthtojake.jpg"
+ },
+ "R18": {
+  "rid": "83",
+  "key": "hu2026dexgpt",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r18-hand-video-to-real2sim-pipeline-huxiao.jpg"
+ },
+ "R19": {
+  "rid": "84",
+  "key": "cassiano2026vitrus",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r19-unseen-robot-vitrus-os-lucascassiano.jpg"
+ },
+ "R20": {
+  "rid": "85",
+  "key": "ze2026rubik",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r20-rubiks-cube-robot-hands-zeyanjie.jpg"
+ },
+ "R21": {
+  "rid": "86",
+  "key": "sung2026g1navigation",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r21-g1-navigation-generated-scene-roteksong-1.jpg"
+ },
+ "R22": {
+  "rid": "87",
+  "key": "axel2026mobileicl",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r22-mobile-manipulation-icl-ax-pey.jpg"
+ },
+ "R23": {
+  "rid": "88",
+  "key": "sasaki2026robotdog",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r23-robot-dog-fusion360-rl-loops-gclue-akira.jpg"
+ },
+ "R24": {
+  "rid": "89",
+  "key": "xu2026officescan",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r24-office-scan-blender-newton-g1-jiarui-x.jpg"
+ },
+ "R25": {
+  "rid": "90",
+  "key": "zhang2026keyboard",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r25-keyboard-typing-kaiwynd.jpg"
+ },
+ "R26": {
+  "rid": "91",
+  "key": "sung2026g1cola",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r26-g1-cola-bottle-isaac-sim-roteksong-1.jpg"
+ },
+ "R27": {
+  "rid": "92",
+  "key": "wang2026alohaconstraints",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r27-dual-aloha-spatial-constraints-qineng-wang.jpg"
+ },
+ "M33": {
+  "rid": "93",
+  "key": "givros2026blender",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m33-city-scene-custom-skill-givros.jpg"
+ },
+ "M34": {
+  "rid": "94",
+  "key": "givros2026roblox",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m34-roblox-racing-scene-givros.jpg"
+ },
+ "M35": {
+  "rid": "95",
+  "key": "givros2026lakeside",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m35-lakeside-french-village-givros.jpg"
+ },
+ "M36": {
+  "rid": "96",
+  "key": "emmettshine2026renovation",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m36-basement-renovation-emmettshine.jpg"
+ },
+ "R28": {
+  "rid": "97",
+  "key": "infante2026kitchen",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r28-kitchen-snack-tray-trials-andreti.jpg"
+ },
+ "I09": {
+  "rid": "98",
+  "key": "dive2026technical",
+  "cat": "Industrial Design",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/i09-drawing-to-onshape-adam-zach-dive.jpg"
+ },
+ "M37": {
+  "rid": "99",
+  "key": "szeto2026apartment",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m37-apartment-photo-tour-dylan-szeto.jpg"
+ },
+ "R29": {
+  "rid": "102",
+  "key": "rayyan2026molmospaces",
+  "cat": "Robot Control",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/r29-molmospaces-zero-shot-omar-rayyan.jpg"
+ },
+ "M38": {
+  "rid": "104",
+  "key": "sinschoolofai2026experience",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m38-vr-experience-sin-school-ai.jpg"
+ },
+ "M39": {
+  "rid": "105",
+  "key": "sagyoai2026unwrapping",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m39-uv-unwrapping-sagyoai.jpg"
+ },
+ "M40": {
+  "rid": "106",
+  "key": "higgsfieldai2026footage",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m40-street-robot-vfx-higgsfield.jpg"
+ },
+ "I10": {
+  "rid": "107",
+  "key": "wada2026printable",
+  "cat": "Industrial Design",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/i10-frame-joint-calibration-wada.jpg"
+ },
+ "M41": {
+  "rid": "108",
+  "key": "plumb2026unfinished",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m41-courier-spacecraft-jonathan-plumb-1.jpg"
+ },
+ "I11": {
+  "rid": "109",
+  "key": "eminimnim2026controller",
+  "cat": "Industrial Design",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/i11-mini-dj-controller-eminimnim.jpg"
+ },
+ "M42": {
+  "rid": "110",
+  "key": "simmons2026fallingwater",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m42-three-blender-builds-pat-simmons.jpg"
+ },
+ "M43": {
+  "rid": "111",
+  "key": "gokulakrishnanp2026environment",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m43-reference-environment-gokula-krishnan.jpg"
+ },
+ "M44": {
+  "rid": "112",
+  "key": "alimzhanov2026interactive",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m44-tesla-factory-adil-alimzhanov.jpg"
+ },
+ "M45": {
+  "rid": "113",
+  "key": "floraai2026animation",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m45-shoe-last-animation-flora.jpg"
+ },
+ "M46": {
+  "rid": "114",
+  "key": "higgsfieldai2026higgsfield",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m46-cartoon-character-controls-higgsfield.jpg"
+ },
+ "M47": {
+  "rid": "115",
+  "key": "deng2026articulated",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m47-articulated-avatar-yuntian-deng.jpg"
+ },
+ "M48": {
+  "rid": "116",
+  "key": "zhao2026stanford",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m48-stanford-kitchen-linfeng-zhao.jpg"
+ },
+ "M49": {
+  "rid": "117",
+  "key": "scarcella2026rendered",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m49-op1-field-houdini-nick-scarcella.jpg"
+ },
+ "M50": {
+  "rid": "118",
+  "key": "nickson2026photographs",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m50-studio-photos-roberto-nickson.jpg"
+ },
+ "M51": {
+  "rid": "119",
+  "key": "miya009073802026reference",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m51-komorebi-market-miya.jpg"
+ },
+ "M52": {
+  "rid": "120",
+  "key": "yokohara2026architectural",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m52-procedural-houdini-yokohara.jpg"
+ },
+ "M53": {
+  "rid": "121",
+  "key": "krcha2026porsche",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m53-porsche-subdivision-tomkrcha.jpg"
+ },
+ "M54": {
+  "rid": "123",
+  "key": "givros2026wetland",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m54-cozy-wetland-lake-givros.jpg"
+ },
+ "I12": {
+  "rid": "124",
+  "key": "stone2026garden",
+  "cat": "Industrial Design",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/i12-garden-room-gym-shaun-stone.jpg"
+ },
+ "M57": {
+  "rid": "127",
+  "key": "tarokichijo2026village",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m57-skyrim-village-tarokichijo.jpg"
+ },
+ "M58": {
+  "rid": "128",
+  "key": "hussain2026architectural",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m58-architectural-walkthrough-shahad-hussain.jpg"
+ },
+ "M59": {
+  "rid": "129",
+  "key": "kumar2026blender",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m59-forest-path-comparison-satyam-kumar.jpg"
+ },
+ "M60": {
+  "rid": "130",
+  "key": "salmaaboukarr2026experiment",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m60-fabric-comparison-salma.jpg"
+ },
+ "M61": {
+  "rid": "131",
+  "key": "daradoescode2026recreated",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m61-bottle-model-dara.jpg"
+ },
+ "I13": {
+  "rid": "133",
+  "key": "i2cjak2026bluetooth",
+  "cat": "Industrial Design",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/i13-bluetooth-wearable-i2cjak.jpg"
+ },
+ "I14": {
+  "rid": "134",
+  "key": "sterling2026simulation",
+  "cat": "Industrial Design",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/i14-sentinel-stage-lighting-cerspense.jpg"
+ },
+ "M62": {
+  "rid": "135",
+  "key": "openai2026historical",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m62-historical-london-peter-gostev.jpg"
+ },
+ "M63": {
+  "rid": "136",
+  "key": "fateev2026workstation",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m63-gpu-workstation-alexey-fateev.jpg"
+ },
+ "M64": {
+  "rid": "137",
+  "key": "techartist2026interactive",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m64-radial-engine-techartist.jpg"
+ },
+ "M65": {
+  "rid": "138",
+  "key": "mayya2026materials",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m65-mango-tree-speedtree-varun-mayya-1.jpg"
+ },
+ "M66": {
+  "rid": "139",
+  "key": "yokohara2026reference",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m66-street-reconstruction-yokohara.jpg"
+ },
+ "M67": {
+  "rid": "140",
+  "key": "anshuc2026overnight",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m67-game-world-expansion-anshuc.jpg"
+ },
+ "I15": {
+  "rid": "141",
+  "key": "sanjaya2026mechanism",
+  "cat": "Industrial Design",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/i15-cessna-landing-gear-dilum-sanjaya.jpg"
+ },
+ "M68": {
+  "rid": "143",
+  "key": "andrews2026inspired",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m68-pequod-game-alfred-andrews.jpg"
+ },
+ "M69": {
+  "rid": "144",
+  "key": "unity2026assembled",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m69-unity-city-andrew-walko.jpg"
+ },
+ "M70": {
+  "rid": "145",
+  "key": "lew2026blender",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m70-scene-camera-reference-jerrod-lew.jpg"
+ },
+ "M71": {
+  "rid": "146",
+  "key": "ashebytes2026explorable",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m71-anatomy-model-ashe.jpg"
+ },
+ "M72": {
+  "rid": "147",
+  "key": "mojon12026electric",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m72-cinema4d-shaver-mojon1-1.jpg"
+ },
+ "M73": {
+  "rid": "148",
+  "key": "sidhu2026photogrammetry",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m73-drawing-room-scan-bilawal-sidhu.jpg"
+ },
+ "M74": {
+  "rid": "149",
+  "key": "manastireanu2026unirii",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m74-piata-unirii-voxel-dan-manastireanu.jpg"
+ },
+ "M75": {
+  "rid": "150",
+  "key": "sanjaya2026visualization",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m75-v8-engine-dilum-sanjaya.jpg"
+ },
+ "M76": {
+  "rid": "153",
+  "key": "ameen2026previsualization",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m76-keyboard-previz-yasir-ameen.jpg"
+ },
+ "M77": {
+  "rid": "154",
+  "key": "manowiecki2026warsaws",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m77-warsaw-pkin-pawel-manowiecki.jpg"
+ },
+ "M78": {
+  "rid": "155",
+  "key": "tusat2026visualization",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m78-titan-visualization-arda-tugsat.jpg"
+ },
+ "M79": {
+  "rid": "156",
+  "key": "aibattle2026sonic",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m79-sonic-godot-effort-aibattle.jpg"
+ },
+ "M80": {
+  "rid": "161",
+  "key": "koviq2026prototypes",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m80-three-game-prototypes-koviq.jpg"
+ },
+ "M81": {
+  "rid": "162",
+  "key": "stanik2026cathedral",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m81-cathedral-animation-aidan-stanik.jpg"
+ },
+ "M82": {
+  "rid": "163",
+  "key": "youwareai2026interactive",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m82-jet-engine-viewer-youware.jpg"
+ },
+ "M83": {
+  "rid": "164",
+  "key": "pixverse2026reference",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/m83-catfu-motion-reference-pixverse.jpg"
+ },
+ "X01": {
+  "rid": "167",
+  "key": "youwareai2026floating",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/x01-floating-island-tram-comparison-youware.jpg"
+ },
+ "X02": {
+  "rid": "168",
+  "key": "aiboticssq2026controller",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/x02-xbox-controller-svg-three-models-aibotics.jpg"
+ },
+ "X03": {
+  "rid": "169",
+  "key": "spac892026prompt",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/x03-same-prompt-two-models-spac89.jpg"
+ },
+ "X04": {
+  "rid": "171",
+  "key": "thtbee2026mechanical",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/x04-mechanical-butterfly-threejs-thtbee.jpg"
+ },
+ "X05": {
+  "rid": "172",
+  "key": "thtbee2026pagoda",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/x05-voxel-pagoda-eight-minutes-thtbee.jpg"
+ },
+ "X06": {
+  "rid": "174",
+  "key": "lentils802026reported",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/x06-first-checkpoint-output-lentils.jpg"
+ },
+ "X07": {
+  "rid": "176",
+  "key": "luminabench2026illustration",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/x07-ps5-svg-luminabench.jpg"
+ },
+ "X10": {
+  "rid": "181",
+  "key": "harshithlucky32026vehicle",
+  "cat": "3D Modeling",
+  "img": "/media/frank/Frank_disk21/codes/awesome-astra/assets/images/x10-waymo-vehicle-opus-55-harshith.jpg"
+ }
+}
