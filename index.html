@@ -231,37 +231,44 @@
         <article class="paper-article">
           <div class="latex-content-body">
             <h1 class="unnumbered" id="abstract">Abstract</h1>
-<p>Frontier multimodal models—such as GPT-6 Astra, Anthropic Claude
-(Opus 5.5), and Google Gemini (3.8 Flash)—construct 3D environments,
-synthesize parametric CAD assemblies, and operate robotic controllers
-through standard software interfaces. Because early findings circulate
-largely through unevenly documented demonstrations and vendor reports,
-we evaluate 236 public showcases, technical reports, and benchmarks
-across 182 archival groups, cross-checking empirical claims against code
-repositories, execution traces, and evaluation environments. Across
-domains, 3D spatial perception, geometric reasoning, and coordinate
-grounding show substantial gains over prior model generations.
-Controlled benchmarks corroborate these improvements: on identical
-tasks, BVB video reconstruction scores rise from 57.03 (GPT-5.5) to
-70.07 (GPT-6 Astra), PhysBrain 1.5 averages 73.3 across 28 embodied
-tasks, and Parametric CAD Bench v2 rewards jump from 70.34% to 84.78%.
-In CAD, models generate editable boundary-representation (B-rep) solids
-and multi-part assemblies with up to 511 kernel-validated bodies, though
-engineering tolerances and physical manufacturability remain unverified.
-In robotics, offline simulation synthesis yields controllers matching
-specialized baselines (achieving an author-reported 0.902 note-onset F1
-on RoboPianist and driving hardware trials), but multi-second model
-latency restricts runtime closed-loop control. When guiding online
-manipulation through external motion planners, models complete
-multi-stage tasks (e.g., 19/20 bowl placements), though spatial
-precision fluctuates and safety refusal of harmful physical instructions
-varies widely across model families. We structure these findings across
-software interfaces, execution regimes, and feedback loops, balancing
-opportunities in agentic engineering and real-to-sim pipelines against
-risks in physical safety and attribution ambiguity. Because observed
-performance reflects the integrated model–harness system rather than the
-model alone, practical deployment requires domain-specific physical
-validation over unverified visual outputs.</p>
+<p>Frontier multimodal foundation models—such as GPT-6 Astra, Anthropic
+Claude (Opus 5.5, Fable 5.1), and Google Gemini 3.8 Flash—demonstrate
+emergent capabilities to construct 3D environments, synthesize native
+parametric CAD assemblies, and operate robotic controllers through
+standard software harnesses. Because early breakthroughs circulate
+primarily through public demonstrations and technical reports with
+uneven documentation, the empirical record has remained fragmented. To
+establish a rigorous foundation, this survey systematically analyzes
+over 236 community demonstrations, technical reports, and benchmark
+evaluations across 182 archival groups, cross-checking empirical claims
+against accessible code, execution logs, and evaluation protocols to
+treat this corpus as a distributed, crowdsourced natural experiment. On
+one central finding the empirical record converges: <em>3D spatial
+perception, geometric reasoning, and scene understanding have advanced
+substantially over preceding model generations</em>. Controlled
+evaluations substantiate this shift: BVB video-reconstruction rises from
+57.03 for GPT-5.5 to 70.07 for GPT-6 Astra on identical benchmarks,
+vendor-reported PhysBrain 1.5 averages 73.3 across 28
+embodied-understanding tasks, and Parametric CAD Bench v2 reward jumps
+from 70.34% to 84.78%. Models now produce natively editable 3D scenes
+and boundary-representation (B-rep) solid models with feature histories,
+including up to 511 kernel-checked solids in complex assemblies;
+nonetheless, functional engineering performance and physical
+manufacturability remain largely unverified. In robotics, offline
+simulation-based development synthesizes controllers reaching specialist
+parity—achieving an author-reported RoboPianist two-hand note-onset F1
+of 0.902 and driving physical hardware executions—though multi-second
+latency currently precludes dynamic closed-loop control. Online action
+selection completes diverse manipulation tasks through harnesses (e.g.,
+19/20 bowl placements), yet precision varies and safety refusal of
+harmful instructions differs widely across models. We structure these
+developments across interfaces, development regimes, and feedback
+mechanisms, mapping key opportunities in agentic design and real-to-sim
+workflows against urgent risks in physical safety, attribution
+ambiguity, and shifts in research and educational practice. Ultimately,
+observed performance is a property of the complete
+model–harness–development ecosystem, necessitating domain-specific
+validation before real-world adoption.</p>
 <h1 class="unnumbered" id="executive-summary">Executive summary</h1>
 <p><span id="sec:summary" data-label="sec:summary"></span></p>
 <p>Frontier models have recently crossed an inflection point, producing
