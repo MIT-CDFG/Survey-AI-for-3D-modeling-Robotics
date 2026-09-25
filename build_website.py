@@ -16,7 +16,15 @@ import time
 import urllib.request
 
 WEBSITE_DIR = os.path.dirname(os.path.abspath(__file__))
-WORKSPACE = os.path.dirname(WEBSITE_DIR)
+# Auto-detect astra-paper workspace root
+if os.path.exists(os.path.join(WEBSITE_DIR, "posts.bib")):
+    WORKSPACE = WEBSITE_DIR
+elif os.path.exists(os.path.join(os.path.dirname(WEBSITE_DIR), "posts.bib")):
+    WORKSPACE = os.path.dirname(WEBSITE_DIR)
+elif os.path.exists(os.path.join(os.path.dirname(WEBSITE_DIR), "astra-paper", "posts.bib")):
+    WORKSPACE = os.path.join(os.path.dirname(WEBSITE_DIR), "astra-paper")
+else:
+    WORKSPACE = os.path.dirname(WEBSITE_DIR)
 
 # Feature flag: Temporarily disable PDF download/viewer on website
 ENABLE_PDF_DOWNLOAD = False
@@ -337,7 +345,9 @@ def resolve_latex_refs(html):
 
 def build_appendix_c_html(bib_urls, gallery_items=None):
     if gallery_items is None:
-        gallery_path = os.path.join(WORKSPACE, "website/assets/gallery.json")
+        local_gal = os.path.join(WEBSITE_DIR, "assets/gallery.json")
+        ws_gal = os.path.join(WORKSPACE, "website/assets/gallery.json")
+        gallery_path = local_gal if os.path.exists(local_gal) else ws_gal
         if os.path.exists(gallery_path):
             with open(gallery_path, encoding="utf-8") as f:
                 gallery_items = json.load(f)
@@ -495,8 +505,20 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
     """
 
 def fetch_awesome_readme():
-    url = f"https://raw.githubusercontent.com/Frank-ZY-Dou/awesome-ai-3d-modeling-robotics/main/README.md?_t={int(time.time())}"
+    local_awesome = os.path.expanduser("~/No-iCloud/awesome-ai-3d-modeling-robotics/README.md")
     cached_path = os.path.join(WEBSITE_DIR, "awesome_readme.md")
+    if os.path.exists(local_awesome):
+        try:
+            with open(local_awesome, 'r', encoding='utf-8') as f:
+                content = f.read()
+            with open(cached_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            print("Successfully loaded fresh README.md from local awesome repository!")
+            return content
+        except Exception as e:
+            print(f"Warning: Could not read local awesome README ({e})")
+
+    url = f"https://raw.githubusercontent.com/Frank-ZY-Dou/awesome-ai-3d-modeling-robotics/main/README.md?_t={int(time.time())}"
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'})
         with urllib.request.urlopen(req, timeout=10) as response:
@@ -1008,7 +1030,9 @@ def convert_paper_html(bib_urls=None):
     # Clean run-in lead paragraphs
     out = out.replace('<p><strong>Source scope.</strong>', '<p class="no-indent"><strong>Source scope.</strong>')
     
-    gallery_json_path = os.path.join(WORKSPACE, "website/assets/gallery.json")
+    local_gal = os.path.join(WEBSITE_DIR, "assets/gallery.json")
+    ws_gal = os.path.join(WORKSPACE, "website/assets/gallery.json")
+    gallery_json_path = local_gal if os.path.exists(local_gal) else ws_gal
     gallery_data_by_id = {}
     if os.path.exists(gallery_json_path):
         try:
