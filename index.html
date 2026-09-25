@@ -375,7 +375,7 @@ unstated protocols and secondary-only accounts while recording
 reproducibility limits. Because many sources are preliminary, unrefereed
 public demonstrations and open-source releases frequently provide only
 partial toolchains, this review pairs reported capabilities with their
-explicit methodological constraints (Tables <a href="#tab:eval-3d" class="academic-ref-link">3</a> and <a href="#tab:eval-robot" class="academic-ref-link">4</a> and Sections <a href="#sec:intro-methods" class="academic-ref-link">9</a> and <a href="#sec:risk-assessment" class="academic-ref-link">6.7</a>).</p>
+explicit methodological constraints (Tables <a href="#tab:eval-3d" class="academic-ref-link">3</a> and <a href="#tab:eval-robot" class="academic-ref-link">4</a> and Sections <a href="#sec:intro-methods" class="academic-ref-link">10</a> and <a href="#sec:risk-assessment" class="academic-ref-link">7.7</a>).</p>
 <div class="keybox">
 <h3 class="keybox-title">Recommendations by audience</h3>
 <ul>
@@ -455,7 +455,7 @@ and previsualization pipelines. We treat public community demonstrations
 as an observational user study: practitioners repeatedly test frontier
 models on spatial orientation, 3D perception, and coordinate reasoning,
 providing real-world capabilities and failure modes that complement
-laboratory benchmarks (Section <a href="#sec:intro-methods" class="academic-ref-link">9</a>).</p>
+laboratory benchmarks (Section <a href="#sec:intro-methods" class="academic-ref-link">10</a>).</p>
 <p>Because public demonstrations and vendor technical reports outpace
 formal peer review, we record available claims alongside their execution
 environments, missing protocols, and reproducibility limits (Tables <a href="#tab:eval-3d" class="academic-ref-link">3</a>, <a href="#tab:eval-robot" class="academic-ref-link">4</a>, and <a href="#tab:speed" class="academic-ref-link">5</a>).
@@ -500,7 +500,7 @@ task progress, final completion, safety refusals, and hardware incidents
 as distinct metrics <a href="#ref-menon2026astrarobotarms" class="citation-link" title="[166, 313, 243, 311] View in References">(Menon
 et al. 2026; Z. J. Zhang et al. 2026; Sun et al. 2026; W. Zhang et al.
 2026)</a>. Furthermore, independent manufacturing feasibility remains
-unverified for prominent community assemblies (Section <a href="#sec:risk-engineering" class="academic-ref-link">6.3</a>). Consequently, generating
+unverified for prominent community assemblies (Section <a href="#sec:risk-engineering" class="academic-ref-link">7.3</a>). Consequently, generating
 an artifact, measuring its geometric precision, and validating it for
 functional use require independent forms of empirical verification.</p>
 <p>Economic and operational factors are equally critical. Parametric CAD
@@ -515,24 +515,36 @@ advocate for evaluation methodologies that hold models and compute
 budgets fixed while testing the explicit effect of sensory feedback on
 task success; repeated downstream edits, physical fabrication
 stress-tests, and supervised robot trials are essential to establish
-artifact reliability, sim-to-real transfer, and operational safety (Sections <a href="#sec:recommendations" class="academic-ref-link">7</a> and <a href="#sec:conclusion" class="academic-ref-link">8</a>).</p>
+artifact reliability, sim-to-real transfer, and operational safety (Sections <a href="#sec:recommendations" class="academic-ref-link">8</a> and <a href="#sec:conclusion" class="academic-ref-link">9</a>).</p>
 <p><span id="sec:intro-overview" data-label="sec:intro-overview"></span>
 Figure <a href="#fig:roadmap" class="academic-ref-link">1</a> maps the structure of
-this survey. Section <a href="#sec:intro-related" class="academic-ref-link">1.1</a>
-reviews foundational related work in procedural scene modeling,
-generative CAD, and language-directed robot control. Section <a href="#sec:technology" class="academic-ref-link">2</a> examines interface paradigms,
-execution harnesses, and feedback mechanisms (Table <a href="#tab:workflow-comparison" class="academic-ref-link">2</a>). Section <a href="#sec:capabilities" class="academic-ref-link">3</a> analyzes empirical capabilities
+this survey. Section <a href="#sec:related" class="academic-ref-link">2</a> reviews foundational related work in
+procedural scene modeling, generative CAD, and language-directed robot
+control. Section <a href="#sec:technology" class="academic-ref-link">3</a> examines interface paradigms,
+execution harnesses, and feedback mechanisms (Table <a href="#tab:workflow-comparison" class="academic-ref-link">2</a>). Section <a href="#sec:capabilities" class="academic-ref-link">4</a> analyzes empirical capabilities
 across 3D modeling, industrial design/CAD, robot control, and
-animation/dynamic motion. Section <a href="#sec:evaluation" class="academic-ref-link">4</a>
+animation/dynamic motion. Section <a href="#sec:evaluation" class="academic-ref-link">5</a>
 synthesizes benchmark outcomes, task completion criteria, spatial
-grounding properties, and system attribution methodologies. Section <a href="#sec:opportunities" class="academic-ref-link">5</a> charts emerging applications in
-agentic engineering and real-to-sim pipelines, while Section <a href="#sec:risks" class="academic-ref-link">6</a> addresses reliability bottlenecks,
+grounding properties, and system attribution methodologies. Section <a href="#sec:opportunities" class="academic-ref-link">6</a> charts emerging applications in
+agentic engineering and real-to-sim pipelines, while Section <a href="#sec:risks" class="academic-ref-link">7</a> addresses reliability bottlenecks,
 computational overhead, manufacturing validity, cyber-physical safety,
-intellectual provenance, and educational implications. Finally, Sections <a href="#sec:recommendations" class="academic-ref-link">7</a> and <a href="#sec:conclusion" class="academic-ref-link">8</a>
+intellectual provenance, and educational implications. Finally, Sections <a href="#sec:recommendations" class="academic-ref-link">8</a> and <a href="#sec:conclusion" class="academic-ref-link">9</a>
 outline concrete guidelines for researchers, practitioners, and
-benchmark developers, followed by archival collection methods in Section <a href="#sec:intro-methods" class="academic-ref-link">9</a>.</p>
-<h2 data-number="1.1" id="sec:intro-related"><span
-class="header-section-number">1.1</span> Related work</h2>
+benchmark developers, followed by archival collection methods in Section <a href="#sec:intro-methods" class="academic-ref-link">10</a>.</p>
+
+    <figure class="academic-figure figure-main" id="fig:roadmap">
+      <div class="figure-img-wrap">
+        <img src="assets/figures/fig1_roadmap.svg" alt="Figure 1: Structure of this report" class="zoomable" loading="lazy">
+      </div>
+      <figcaption>
+        <strong>Figure 1: Structure of this report.</strong> Section 3 describes the software interfaces the demonstrations depend on and the difference between offline development and online operation. Section 4 covers 3D modeling, industrial design and CAD, robot control, and animation/motion, outlined in the colors used for the four domains throughout the report. Section 5 presents reconstruction and CAD evaluations before robotics, including comparisons with earlier models and the community interpretations and open questions in Section 5.5; Section 6 sets out the opportunities, Section 7 the risks, limitations, research and ethics questions and the limits of this assessment, and Section 8 the recommendations; Section 10 at the end of the report describes how the archive was built and checked. Box numbers are section numbers.
+      </figcaption>
+    </figure>
+    
+<h1 data-number="2" id="sec:related"><span
+class="header-section-number">2</span> Related Work</h1>
+<p><span id="sec:intro-related"
+data-label="sec:intro-related"></span></p>
 <p>Foundation-model workflows in 3D modeling, CAD, and robotics build on
 prior research in procedural synthesis, symbolic geometry, and
 code-based robot control. We organize this literature across seven
@@ -540,8 +552,9 @@ areas: programmatic 3D authoring, parametric CAD generation and repair,
 simulation-ready articulated assets, motion editing and character
 rigging, language-guided robot execution, automated offline robot
 learning, and program representations alongside related surveys.</p>
-<h4>Programmatic and agentic 3D
-authoring.</h4>
+<h2 data-number="2.1" id="sec:related-3d"><span
+class="header-section-number">2.1</span> Programmatic and agentic 3D
+authoring</h2>
 <p>Generative 3D modeling initially produced raw geometric primitives
 such as point clouds (Point-E <a href="#ref-nichol2022pointe" class="citation-link" title="[178] View in References">(Nichol et al. 2022)</a>) and neural
 implicit fields (Shap-E <a href="#ref-jun2023shape" class="citation-link" title="[124] View in References">(Jun and Nichol 2023)</a>), which lack
@@ -584,8 +597,9 @@ production software, generating editable Blender scenes, reconstructing
 environments from reference imagery, and importing assets directly into
 Unreal Engine and Unity <a href="#ref-krcha2026house" class="citation-link" title="[135, 207, 277, 210] View in References">(Krcha
 2026a; Ricouard 2026a, 2026d; Wolff 2026)</a>.</p>
-<h4>Parametric CAD generation,
-assembly, and programmatic repair.</h4>
+<h2 data-number="2.2" id="sec:related-cad"><span
+class="header-section-number">2.2</span> Parametric CAD generation,
+assembly, and programmatic repair</h2>
 <p>In computational design and computer-aided design (CAD), early deep
 learning models predicted command sequences over discrete modeling
 operations: DeepCAD <a href="#ref-wu2021deepcad" class="citation-link" title="[280] View in References">(Wu et al. 2021)</a> represented CAD
@@ -646,8 +660,9 @@ with SolidWorks (MecAgent) and CGM geometry kernels <span
 class="citation"
 data-cites="senet2026robotarm senet2026turbojet varghese2026turbofan">(Senet
 2026a, 2026b; Varghese 2026)</span>.</p>
-<h4>Simulation-ready assets,
-articulation, and real-to-sim.</h4>
+<h2 data-number="2.3" id="sec:related-sim"><span
+class="header-section-number">2.3</span> Simulation-ready assets,
+articulation, and real-to-sim</h2>
 <p>Transitioning from static visual geometry to interactive, physically
 grounded digital twins requires recovering kinematics, collision hulls,
 inertial tensors, and joint limits. Early pipelines focused on surface
@@ -680,8 +695,9 @@ physical fabrication constraints. Dou <a href="#ref-dou2026kitchentwin" class="
 to real kitchens, combining monocular video, metric-depth specialists,
 and agentic program generation to output articulated MJCF/URDF
 scenes.</p>
-<h4>Motion editing, character
-rigging, and animation-ready assets.</h4>
+<h2 data-number="2.4" id="sec:related-anim"><span
+class="header-section-number">2.4</span> Motion editing, character
+rigging, and animation-ready assets</h2>
 <p>Computer animation requires converting artistic intent into kinematic
 control through skeletal rigging, skinning, and keyframing. Recent
 methods automate these steps through discrete motion tokens, code
@@ -706,8 +722,9 @@ CLoSD <a href="#ref-tevet2024closd" class="citation-link" title="[248] View in 
 and reinforcement-learning-based physics controllers, ensuring that
 character motions satisfy dynamic balance, gravity, and contact
 constraints in simulation.</p>
-<h4>Language-guided robot
-planning, perception, and execution.</h4>
+<h2 data-number="2.5" id="sec:related-robot-planning"><span
+class="header-section-number">2.5</span> Language-guided robot planning,
+perception, and execution</h2>
 <p>Robot control using foundation models follows two main architectures:
 modular planning with external control primitives, and direct
 vision-language-action (VLA) models. In modular systems, early works
@@ -749,8 +766,9 @@ combine the strengths of both, deploying frontier models as supervisory
 verifiers over high-frequency motor policies (Su et al. <span
 class="citation" data-cites="su2026gptaspolicy">(Su et al.
 2026)</span>).</p>
-<h4>Automating robot learning
-via offline rewards and synthetic environments.</h4>
+<h2 data-number="2.6" id="sec:related-robot-learning"><span
+class="header-section-number">2.6</span> Automating robot learning via
+offline rewards and synthetic environments</h2>
 <p>Beyond acting as real-time planners, foundation models generate
 simulation environments and training curricula offline. Eureka <span
 class="citation" data-cites="ma2024eureka">(Ma, Liang, G. Wang, et al.
@@ -775,8 +793,9 @@ pipelines, foundation models configure simulation environments and
 optimize objective functions rather than issuing low-level joint torques
 during physical execution <a href="#ref-zhu2026penspinning" class="citation-link" title="[314, 311, 85] View in References">(Zhu
 2026a; W. Zhang et al. 2026; Goldberg 2026a)</a>.</p>
-<h4>Program representations,
-tool foundations, and relation to prior surveys.</h4>
+<h2 data-number="2.7" id="sec:related-foundations"><span
+class="header-section-number">2.7</span> Program representations, tool
+foundations, and relation to prior surveys</h2>
 <p>These workflows build on neurosymbolic representations and procedural
 graphics engines. Early neurosymbolic research established
 domain-specific languages (DSLs) for 3D shape structure, including
@@ -799,18 +818,8 @@ Siemens NX), animation suites (Blender, WebGL), and physics simulators
 model decisions from execution harnesses, external solvers, and physical
 validation checks, comparing benchmark metrics with public practitioner
 workflows.</p>
-
-    <figure class="academic-figure figure-main" id="fig:roadmap">
-      <div class="figure-img-wrap">
-        <img src="assets/figures/fig1_roadmap.svg" alt="Figure 1: Structure of this report" class="zoomable" loading="lazy">
-      </div>
-      <figcaption>
-        <strong>Figure 1: Structure of this report.</strong> Section 2 describes the software interfaces the demonstrations depend on and the difference between offline development and online operation. Section 3 covers 3D modeling, industrial design and CAD, robot control, and animation/motion, outlined in the colors used for the four domains throughout the report. Section 4 presents reconstruction and CAD evaluations before robotics, including comparisons with earlier models and the community interpretations and open questions in Section 4.5; Section 5 sets out the opportunities, Section 6 the risks, limitations, research and ethics questions and the limits of this assessment, and Section 7 the recommendations; Section 9 at the end of the report describes how the archive was built and checked. Box numbers are section numbers.
-      </figcaption>
-    </figure>
-    
-<h1 data-number="2" id="sec:technology"><span
-class="header-section-number">2</span> Harnesses, Tool Interfaces, and
+<h1 data-number="3" id="sec:technology"><span
+class="header-section-number">3</span> Harnesses, Tool Interfaces, and
 Feedback</h1>
 <p>We distinguish interface paradigms by the operations they expose to
 the model and the sensory or validation feedback they return; Table <a href="#tab:agentic-tools" class="academic-ref-link">1</a> summarizes the overarching
@@ -825,8 +834,8 @@ checks <a href="#ref-wolfe2026werewolf" class="citation-link" title="[276, 266,
 2026; Varghese 2026; Zhang 2026a)</a>. These architectural
 distinctions dictate which components must be held strictly constant in
 empirical evaluations.</p>
-<h2 data-number="2.1" id="sec:tech-applications"><span
-class="header-section-number">2.1</span> Application interfaces:
+<h2 data-number="3.1" id="sec:tech-applications"><span
+class="header-section-number">3.1</span> Application interfaces:
 Computer use, MCP, and tool servers</h2>
 <p><span id="sec:tech-computer-use"
 data-label="sec:tech-computer-use"></span></p>
@@ -903,7 +912,7 @@ specialist tools assume greater generative responsibility, observed
 performance reflects the joint synergy between model and harness; any
 empirical capability claim must explicitly report the toolchain
 alongside model identifiers. This attribution formalizes the
-model-versus-harness distinction (Section <a href="#sec:eval-attribution" class="academic-ref-link">4.6</a>), ensuring that evaluation
+model-versus-harness distinction (Section <a href="#sec:eval-attribution" class="academic-ref-link">5.6</a>), ensuring that evaluation
 metrics reflect true model generalization rather than bespoke harness
 engineering.</p>
 <div class="academic-table-card" id="tab:agentic-tools">
@@ -995,8 +1004,8 @@ HYPER3D says it “optimizes your input and chooses how to model it”</td>
   </div>
   
 </div>
-<h2 data-number="2.2" id="sec:tech-robot-interfaces"><span
-class="header-section-number">2.2</span> Robot control and execution
+<h2 data-number="3.2" id="sec:tech-robot-interfaces"><span
+class="header-section-number">3.2</span> Robot control and execution
 interfaces</h2>
 <p>Robot execution harnesses allow foundation models to specify task
 goals, command Cartesian end-effector targets, supervise learned
@@ -1023,7 +1032,7 @@ data-cites="aisi2026cyberincident robocurve2026roboharm">(UK AI Security
 Institute 2026; Sun et al. 2026)</span>. Crucially, high-level model
 decision frequencies (typically 0.1–1 Hz) and lower-level actuator
 control rates (typically 50–500 Hz) operate on vastly different
-timescales, demanding separate latency measurements (Section <a href="#sec:risk-speed" class="academic-ref-link">6.2</a>).</p>
+timescales, demanding separate latency measurements (Section <a href="#sec:risk-speed" class="academic-ref-link">7.2</a>).</p>
 <p>Beyond direct target command, hybrid architectures position the
 frontier model as a high-level cognitive supervisor over an underlying
 policy. For example, Su et al. <a href="#ref-su2026gptaspolicy" class="citation-link" title="[239] View in References">(Su et al. 2026)</a> employ GPT-6
@@ -1038,8 +1047,8 @@ Drone-Bench, models author parameterized control code that is evaluated
 offline prior to deployment <a href="#ref-zhang2026gpt6astrarobodojo" class="citation-link" title="[311, 14] View in References">(W.
 Zhang et al. 2026; Andon Labs 2026c)</a>. This design decouples
 test-time model computation from actual hardware execution speed.</p>
-<h2 data-number="2.3" id="sec:tech-icl"><span
-class="header-section-number">2.3</span> Learning from
+<h2 data-number="3.3" id="sec:tech-icl"><span
+class="header-section-number">3.3</span> Learning from
 demonstrations</h2>
 <p>Models can receive demonstrations, interaction history or previously
 acquired skills as context without changing their weights. Xiao supplied
@@ -1050,7 +1059,7 @@ Zhang 2026b; <span class="nocase">Cheng et al.</span> 2026)</a>.
 RoboDojo compares image and end-effector demonstrations or text
 descriptions with a zero-shot condition <a href="#ref-zhang2026gpt6astrarobodojo" class="citation-link" title="[311] View in References">(W. Zhang et al. 2026)</a>.
 Its demonstration conditions reduce success on matched layouts; Xiao’s
-first-pass report has no condition without a demonstration (Section <a href="#sec:eval-demonstrations" class="academic-ref-link">4.3</a>).</p>
+first-pass report has no condition without a demonstration (Section <a href="#sec:eval-demonstrations" class="academic-ref-link">5.3</a>).</p>
 <p>Interaction history supports adaptation within an episode; a
 persistent skill library supports reuse across episodes. RoboDojo
 reports recovery on some perturbation layouts and restricted-view
@@ -1061,8 +1070,8 @@ closed-loop skills, retains verified behaviors and execution experience,
 and keeps pretrained weights fixed <a href="#ref-nie2026tgl" class="citation-link" title="[179] View in References">(Nie et al. 2026)</a>. We distinguish
 adaptation within an episode from reuse of procedures acquired before
 evaluation.</p>
-<h2 data-number="2.4" id="sec:tech-regimes"><span
-class="header-section-number">2.4</span> Offline development and online
+<h2 data-number="3.4" id="sec:tech-regimes"><span
+class="header-section-number">3.4</span> Offline development and online
 operation</h2>
 <p>In offline development, the model writes and tests a controller
 before deployment. In online operation, it receives observations and
@@ -1109,7 +1118,7 @@ action <a href="#ref-goldberg2026agenticrobotics" class="citation-link" title="
 conditions withheld during simulation construction, while online
 operation also depends on the measured delay between model decisions and
 executed motion. Physical-safety requirements apply whenever generated
-code or model requests reach hardware (Section <a href="#sec:risk-safety" class="academic-ref-link">6.4</a>). Table <a href="#tab:workflow-comparison" class="academic-ref-link">2</a> compares the model’s
+code or model requests reach hardware (Section <a href="#sec:risk-safety" class="academic-ref-link">7.4</a>). Table <a href="#tab:workflow-comparison" class="academic-ref-link">2</a> compares the model’s
 role, the retained output and the scope of the available checks across
 these regimes. Rendering, solid validation and a task score expose
 different errors; none can substitute for a test of the property
@@ -1194,15 +1203,15 @@ software or a separately trained policy. Offline policy development can
 itself include training, as in Zhu’s pen-spinning account <span
 class="citation" data-cites="zhu2026penspinning">(Zhu 2026a)</span>.</p></div>
 </div>
-<h1 data-number="3" id="sec:capabilities"><span
-class="header-section-number">3</span> Capabilities</h1>
+<h1 data-number="4" id="sec:capabilities"><span
+class="header-section-number">4</span> Capabilities</h1>
 <p>The reported workflows can produce editable artifacts and executable
 actions, with checks ranging from rendered views to kernel validation
 and observed completion <a href="#ref-ricouard2026architectural" class="citation-link" title="[207, 266, 166] View in References">(Ricouard
 2026a; Varghese 2026; Menon et al. 2026)</a>. GPT-6 Astra supplies
-most reports in the archive; the comparisons in Section <a href="#sec:evaluation" class="academic-ref-link">4</a> cover other frontier LLMs.</p>
-<h2 data-number="3.1" id="sec:cap-3d"><span
-class="header-section-number">3.1</span> 3D modeling</h2>
+most reports in the archive; the comparisons in Section <a href="#sec:evaluation" class="academic-ref-link">5</a> cover other frontier LLMs.</p>
+<h2 data-number="4.1" id="sec:cap-3d"><span
+class="header-section-number">4.1</span> 3D modeling</h2>
 <p>Native scenes let users revise object geometry; executable projects
 also let them change animation and behavior. Krcha’s locomotive contains
 3,295 editable objects reconstructed from a drawing, while the house
@@ -1210,7 +1219,7 @@ accounts permit manual edits or import into another application <span
 class="citation"
 data-cites="krcha2026locomotive krcha2026house ricouard2026housepass">(Krcha
 2026b, 2026a; Ricouard 2026d)</span>. Most reported construction belongs
-to the offline development loop in Section <a href="#sec:tech-regimes" class="academic-ref-link">2.4</a>. The appendix galleries (Figures <a href="#fig:gallery-3d" class="academic-ref-link">3</a> and <a href="#fig:gallery-3d-b" class="academic-ref-link">4</a>)
+to the offline development loop in Section <a href="#sec:tech-regimes" class="academic-ref-link">3.4</a>. The appendix galleries (Figures <a href="#fig:gallery-3d" class="academic-ref-link">3</a> and <a href="#fig:gallery-3d-b" class="academic-ref-link">4</a>)
 show 90 of the 96 archival groups in 3D modeling, with 43 and 47 groups
 in the two panels.</p>
 
@@ -2292,7 +2301,7 @@ exports to SynergyXR <a href="#ref-wolff2026datacenter" class="citation-link" t
 lowers cable trays and reroutes cables, despite loose initial reference
 adherence. Wolff reports the team’s own expert review and says the model
 never operated the computer directly; the time and token cost appear in
-Section <a href="#sec:risk-speed" class="academic-ref-link">6.2</a>.</p>
+Section <a href="#sec:risk-speed" class="academic-ref-link">7.2</a>.</p>
 <h4>Characters and
 materials.</h4>
 <p>Character workflows focus on multi-view reference alignment, surface
@@ -2300,7 +2309,7 @@ topology, and material assignment <a href="#ref-pepperien2026character" class="
 character modeler’s design sheets and weapon views make reference
 agreement a primary requirement, where multi-view consistency must be
 evaluated against artistic intent; the replacement assessment appears in
-Section <a href="#sec:eval-field" class="academic-ref-link">4.5</a> <a href="#ref-pepperien2026character" class="citation-link" title="[59] View in References">(@Dr_pepperien 2026)</a>.
+Section <a href="#sec:eval-field" class="academic-ref-link">5.5</a> <a href="#ref-pepperien2026character" class="citation-link" title="[59] View in References">(@Dr_pepperien 2026)</a>.
 Specialist asset generators such as Meshy <a href="#ref-meshy" class="citation-link" title="[167] View in References">(Meshy AI 2026)</a> and Tripo are frequently
 combined with manual sculpting passes in Blender to establish base
 meshes before downstream texturing and shader assignment <span
@@ -2404,13 +2413,13 @@ physical transfer.</p>
 <h4>Conclusion.</h4>
 <p>Scene objects support geometry edits, executable worlds support
 behavior tests, and articulated digital-twin assets supply inputs for
-robot simulation (Sections <a href="#sec:opp-artifacts" class="academic-ref-link">5.1</a> and <a href="#sec:opp-realtosim" class="academic-ref-link">5.2</a>).
+robot simulation (Sections <a href="#sec:opp-artifacts" class="academic-ref-link">6.1</a> and <a href="#sec:opp-realtosim" class="academic-ref-link">6.2</a>).
 The kitchen, Tripo and Meshy workflows keep specialist components <span
 class="citation"
 data-cites="dstudioai2026rigging shalaby2026bigboy dou2026kitchentwin">(@Dstudio_ai
 2026; Shalaby 2026; Dou 2026b)</span>.</p>
-<h2 data-number="3.2" id="sec:cap-cad"><span
-class="header-section-number">3.2</span> Industrial design and CAD</h2>
+<h2 data-number="4.2" id="sec:cap-cad"><span
+class="header-section-number">4.2</span> Industrial design and CAD</h2>
 <p>CAD workflows produce parametric assemblies with feature histories
 and solid models validated by a geometry kernel. The assemblies permit
 feature and constraint edits; the solids permit geometric revisions, but
@@ -2657,7 +2666,7 @@ driven components rotate about the central axis <a href="#ref-senet2026robotarm
 2026b)</a>. Senet and MecAgent describe the same two cases, with no
 independent assembly test in the retained record; their implementation
 details do not support a component comparison. Retained assemblies
-permit edit and constraint tests (Section <a href="#sec:risk-engineering" class="academic-ref-link">6.3</a>).</p>
+permit edit and constraint tests (Section <a href="#sec:risk-engineering" class="academic-ref-link">7.3</a>).</p>
 <p>In FreeCAD, heecheee reports a bulldozer assembled through Codex and
 FreeCAD MCP whose moving-pivot slider failed in mechanism simulation;
 the translated follow-up still describes debugging, leaving mechanism
@@ -2710,10 +2719,10 @@ manufacturing remain future work <a href="#ref-cornelissen2026foldable" class="
 <p>Native assemblies, retained solids and interactive products make
 specified edits and behavior checks possible <a href="#ref-senet2026robotarm" class="citation-link" title="[225, 226, 266] View in References">(Senet
 2026a, 2026b; Varghese 2026)</a>. Keating’s manufacturing concern
-adds function and process constraints to that acceptance test (Sections <a href="#sec:risk-engineering" class="academic-ref-link">6.3</a> and <a href="#sec:opp-artifacts" class="academic-ref-link">5.1</a>) <span
+adds function and process constraints to that acceptance test (Sections <a href="#sec:risk-engineering" class="academic-ref-link">7.3</a> and <a href="#sec:opp-artifacts" class="academic-ref-link">6.1</a>) <span
 class="citation" data-cites="keating2026cad">(Keating 2026)</span>.</p>
-<h2 data-number="3.3" id="sec:cap-robot"><span
-class="header-section-number">3.3</span> Robot control</h2>
+<h2 data-number="4.3" id="sec:cap-robot"><span
+class="header-section-number">4.3</span> Robot control</h2>
 <p>Robot workflows divide into online target selection or policy
 correction and offline controller development <a href="#ref-chooi2026bowllinkedin" class="citation-link" title="[40, 239, 311] View in References">(Chooi
 2026a; Su et al. 2026; W. Zhang et al. 2026)</a>. Manipulation trials
@@ -3093,7 +3102,7 @@ the comments, identifying records with which reviewers could inspect how
 requested targets led to motion.</p>
 <p>Puzzle insertion records 2/20 for each model on the same rig <span
 class="citation" data-cites="menon2026astrarobotarms">(Menon et al.
-2026)</span>. Trial-time means include failures (Section <a href="#sec:risk-speed" class="academic-ref-link">6.2</a>).</p>
+2026)</span>. Trial-time means include failures (Section <a href="#sec:risk-speed" class="academic-ref-link">7.2</a>).</p>
 <p>Other pickup accounts expose the target and timing conditions of
 successful motions <a href="#ref-nichol2026so101" class="citation-link" title="[176, 177, 56] View in References">(Nichol
 2026a, 2026b; Dou 2026c)</a>. Dumping blocks before another
@@ -3130,7 +3139,7 @@ class="citation"
 data-cites="zhang2026enpire zhang2026enpirereply">(Zhang 2026b,
 2026a)</span>. Xiao reports a successful first pass after a human
 recording <a href="#ref-xiao2026icl" class="citation-link" title="[284] View in References">(Xiao
-2026a)</a>. No condition without a demonstration is reported. Section <a href="#sec:eval-demonstrations" class="academic-ref-link">4.3</a> gives the measured
+2026a)</a>. No condition without a demonstration is reported. Section <a href="#sec:eval-demonstrations" class="academic-ref-link">5.3</a> gives the measured
 outcomes for GPT-Policy and RoboDojo.</p>
 <h4>From simulation to robot
 execution.</h4>
@@ -3155,7 +3164,7 @@ class="citation" data-cites="goldberg2026agenticrobotics">(Goldberg
 2026a)</span>. These development loops tolerate slow calls. Across the
 retained archive, no group reports controlled transfer to physical
 conditions withheld during simulation construction. The loop is
-therefore partial under the four-state rule in Section <a href="#sec:intro-methods" class="academic-ref-link">9</a>: Guo and
+therefore partial under the four-state rule in Section <a href="#sec:intro-methods" class="academic-ref-link">10</a>: Guo and
 Goldberg report physical execution, while Goldberg alone also records a
 physical failure in the complete round trip.</p>
 <h4>Beyond arms: drones,
@@ -3210,9 +3219,9 @@ and unspecified settings.</p>
 separate measurements in robot trials <a href="#ref-menon2026astrarobotarms" class="citation-link" title="[166, 313, 85] View in References">(Menon
 et al. 2026; Z. J. Zhang et al. 2026; Goldberg 2026a)</a>. The
 reported controllers support offline development, while task trials
-permit controlled evaluation (Sections <a href="#sec:opp-offline" class="academic-ref-link">5.3</a> and <a href="#sec:opp-evaluation" class="academic-ref-link">5.4</a>).</p>
-<h2 data-number="3.4" id="sec:cap-animation"><span
-class="header-section-number">3.4</span> Animation and dynamic
+permit controlled evaluation (Sections <a href="#sec:opp-offline" class="academic-ref-link">6.3</a> and <a href="#sec:opp-evaluation" class="academic-ref-link">6.4</a>).</p>
+<h2 data-number="4.4" id="sec:cap-animation"><span
+class="header-section-number">4.4</span> Animation and dynamic
 motion</h2>
 <p>While static 3D modeling evaluates spatial reconstruction and
 geometry, animation workflows evaluate authored temporal dynamics,
@@ -3290,17 +3299,17 @@ temporal incoherence and geometric drift in generative video.</p>
 <p>Across animation workflows, models operate primarily as high-level
 motion directors and script synthesizers, delegating numerical
 time-stepping, inverse kinematics, and shader rasterization to external
-execution runtimes (Section <a href="#sec:opp-artifacts" class="academic-ref-link">5.1</a>).</p>
-<h1 data-number="4" id="sec:evaluation"><span
-class="header-section-number">4</span> Evaluation</h1>
+execution runtimes (Section <a href="#sec:opp-artifacts" class="academic-ref-link">6.1</a>).</p>
+<h1 data-number="5" id="sec:evaluation"><span
+class="header-section-number">5</span> Evaluation</h1>
 <p>Tables <a href="#tab:eval-3d" class="academic-ref-link">3</a> and <a href="#tab:eval-robot" class="academic-ref-link">4</a>
 compare reconstruction, CAD, robot-control, and real-to-sim evaluations,
 giving each system’s scores, evaluation sample and source and protocol
 qualifications. The archive contains 236 posts covering 182 archival
 groups and one separate coverage group across 3D modeling, industrial
 design and CAD, robot control, and procedural animation.</p>
-<h2 data-number="4.1" id="sec:eval-3d"><span
-class="header-section-number">4.1</span> 3D, CAD and spatial
+<h2 data-number="5.1" id="sec:eval-3d"><span
+class="header-section-number">5.1</span> 3D, CAD and spatial
 benchmarks</h2>
 <p>Reconstruction benchmarks score visible information and geometry;
 native CAD benchmarks also test editability, while spatial-understanding
@@ -3927,9 +3936,9 @@ relevant validation therefore depends on the intended use.
 Reconstruction and CAD scores measure image agreement, geometry or
 specified edits <a href="#ref-normal2026cadarena" class="citation-link" title="[217, 246, 21] View in References">(Saini
 et al. 2026; Tang et al. 2026; BenchCAD 2026)</a>; downstream tests
-must check the scene or solid against its application requirements (Section <a href="#sec:recommendations" class="academic-ref-link">7</a>).</p>
-<h2 data-number="4.2" id="sec:eval-robot"><span
-class="header-section-number">4.2</span> Robotics and embodied
+must check the scene or solid against its application requirements (Section <a href="#sec:recommendations" class="academic-ref-link">8</a>).</p>
+<h2 data-number="5.2" id="sec:eval-robot"><span
+class="header-section-number">5.2</span> Robotics and embodied
 benchmarks</h2>
 <p>Robot benchmarks distinguish intermediate task progress from
 completion and online action selection from offline controller
@@ -4368,8 +4377,8 @@ safety constraints for nominal completion</td>
   </div>
   
 </div>
-<h2 data-number="4.3" id="sec:eval-demonstrations"><span
-class="header-section-number">4.3</span> Comparing demonstration
+<h2 data-number="5.3" id="sec:eval-demonstrations"><span
+class="header-section-number">5.3</span> Comparing demonstration
 conditions</h2>
 <p>RoboDojo reports success falling from 22.9% zero-shot to 17.9% with
 an image and end-effector demonstration and 12.9% with text, over 340
@@ -4402,8 +4411,8 @@ The available comparisons do not separate representation, interface and
 condition mismatch. Which of these factors produces a benefit remains
 unresolved and requires varying demonstration format on fixed tasks,
 layout distributions and execution interfaces.</p>
-<h2 data-number="4.4" id="sec:eval-generations"><span
-class="header-section-number">4.4</span> Comparisons with earlier
+<h2 data-number="5.4" id="sec:eval-generations"><span
+class="header-section-number">5.4</span> Comparisons with earlier
 models</h2>
 <p>Model substitutions on shared reconstruction, CAD and manipulation
 benchmarks measure changes within each task set, without making the
@@ -4466,8 +4475,8 @@ hidden-reasoning accounts as hypotheses <a href="#ref-zhu2026astrabeyond" class
 and Duan’s single open-loop MolmoAct2-trajectory example, using Chooi’s
 code, does not establish training on robot data <a href="#ref-openai2026astrasystemcard" class="citation-link" title="[187, 62] View in References">(OpenAI 2026c;
 Duan 2026)</a>.</p>
-<h2 data-number="4.5" id="sec:eval-field"><span
-class="header-section-number">4.5</span> Community interpretations and
+<h2 data-number="5.5" id="sec:eval-field"><span
+class="header-section-number">5.5</span> Community interpretations and
 open questions</h2>
 <p>Read as the qualitative layer of this crowdsourced study, posts
 converge on capability gains, especially perception and spatial
@@ -4495,7 +4504,7 @@ data-cites="zhu2026astrabeyond goldberg2026inversephysics">(Zhu 2026b;
 Goldberg 2026b)</span>. The kitchen’s articulated assets and Sucar’s
 tracked scene provide real-to-sim inputs; Goldberg’s exported controller
 reaches sim-to-real, where the bar failure exposes a physical parameter
-that visual reconstruction did not recover (Sections <a href="#sec:cap-3d" class="academic-ref-link">3.1</a> and <a href="#sec:cap-robot" class="academic-ref-link">3.3</a>) <span
+that visual reconstruction did not recover (Sections <a href="#sec:cap-3d" class="academic-ref-link">4.1</a> and <a href="#sec:cap-robot" class="academic-ref-link">4.3</a>) <span
 class="citation"
 data-cites="dou2026kitchentwin sucar2026objectslam goldberg2026agenticrobotics">(Dou
 2026b; Sucar 2026; Goldberg 2026a)</span>. A scene that matches the
@@ -4516,22 +4525,22 @@ Medalists’ declaration prioritizes understanding, attribution and the
 transmission of ideas <a href="#ref-lin2026academiablog" class="citation-link" title="[145, 158, 71] View in References">(Lin
 2026; Malik 2026; Fields Medalists 2026)</a>. Reviewers therefore
 need identified dependencies and human contributions as well as the
-artifact or controller (Section <a href="#sec:risk-provenance" class="academic-ref-link">6.5</a>).</p>
+artifact or controller (Section <a href="#sec:risk-provenance" class="academic-ref-link">7.5</a>).</p>
 <p>Model comparisons test performance claims; the code audit identifies
-available components and unresolved dependencies (Sections <a href="#sec:eval-generations" class="academic-ref-link">4.4</a>, <a href="#sec:eval-3d" class="academic-ref-link">4.1</a>, <a href="#sec:eval-robot" class="academic-ref-link">4.2</a>, <a href="#sec:risk-assessment" class="academic-ref-link">6.7</a>, and <a href="#sec:risk-provenance" class="academic-ref-link">6.5</a>).
+available components and unresolved dependencies (Sections <a href="#sec:eval-generations" class="academic-ref-link">5.4</a>, <a href="#sec:eval-3d" class="academic-ref-link">5.1</a>, <a href="#sec:eval-robot" class="academic-ref-link">5.2</a>, <a href="#sec:risk-assessment" class="academic-ref-link">7.7</a>, and <a href="#sec:risk-provenance" class="academic-ref-link">7.5</a>).
 Refusal tests address a separate claim: RoboHarm records 20 safety
 refusals for Claude Fable 5.1 against GPT-6 Astra’s 2, distinguishing
-rejection from failure to complete (Section <a href="#sec:risk-safety" class="academic-ref-link">6.4</a>), while SafeHarness <span
+rejection from failure to complete (Section <a href="#sec:risk-safety" class="academic-ref-link">7.4</a>), while SafeHarness <span
 class="citation" data-cites="xu2026safeharness">(Xu et al. 2026)</span>
 observes that unconstrained agents in SafeLIBERO collide with forbidden
 obstacles in most episodes without obstacle-aware harness enforcement.
 Across these reports, executable interfaces and task-specific feedback
 provide opportunities for iterative correction. The available
 comparisons do not isolate how much of the observed improvement comes
-from the model, the interface or additional development effort. Section <a href="#sec:eval-attribution" class="academic-ref-link">4.6</a> specifies comparisons that
+from the model, the interface or additional development effort. Section <a href="#sec:eval-attribution" class="academic-ref-link">5.6</a> specifies comparisons that
 could distinguish these contributions.</p>
-<h2 data-number="4.6" id="sec:eval-attribution"><span
-class="header-section-number">4.6</span> Comparing model, interface and
+<h2 data-number="5.6" id="sec:eval-attribution"><span
+class="header-section-number">5.6</span> Comparing model, interface and
 development contributions</h2>
 <p>Observed performance is a property of a complete
 model–harness–development system, not of the model alone. We distinguish
@@ -4573,8 +4582,8 @@ functional acceptance for CAD, and completion under withheld physical
 conditions for exported controllers. Online robot evaluations also need
 separate measures of model decision latency, local control and enforced
 execution limits.</p>
-<h1 data-number="5" id="sec:opportunities"><span
-class="header-section-number">5</span> Opportunities</h1>
+<h1 data-number="6" id="sec:opportunities"><span
+class="header-section-number">6</span> Opportunities</h1>
 <p>The transition from purely pictorial generative AI toward executable
 representations marks a fundamental shift across 3D computer vision,
 computer-aided design, and robotics. Rather than generating uneditable
@@ -4595,8 +4604,8 @@ agent-synthesized controller can serve as an effective warm-start policy
 for subsequent human tuning or reinforcement learning. For each emerging
 paradigm, we examine the practical workflows it empowers and the
 domain-specific verification protocols it demands.</p>
-<h2 data-number="5.1" id="sec:opp-artifacts"><span
-class="header-section-number">5.1</span> Executable artifacts instead of
+<h2 data-number="6.1" id="sec:opp-artifacts"><span
+class="header-section-number">6.1</span> Executable artifacts instead of
 pictures</h2>
 <p>In 3D graphics and computational design, the primary operational
 breakthrough is the generation of native, structured project files
@@ -4623,9 +4632,9 @@ experimental showcases to routine engineering reuse requires validating
 that subsequent edits preserve watertight boundary representations,
 mating constraints, and dynamic balance. Comprehensive evaluations must
 maintain detailed logs of rejected geometry and manual topological
-repairs alongside final project releases (Sections <a href="#sec:risk-reliability" class="academic-ref-link">6.1</a> and <a href="#sec:risk-engineering" class="academic-ref-link">6.3</a>).</p>
-<h2 data-number="5.2" id="sec:opp-realtosim"><span
-class="header-section-number">5.2</span> Real-to-sim as an entry point,
+repairs alongside final project releases (Sections <a href="#sec:risk-reliability" class="academic-ref-link">7.1</a> and <a href="#sec:risk-engineering" class="academic-ref-link">7.3</a>).</p>
+<h2 data-number="6.2" id="sec:opp-realtosim"><span
+class="header-section-number">6.2</span> Real-to-sim as an entry point,
 sim-to-real as the test</h2>
 <p>Automated real-to-sim workflows dramatically lower the barrier to
 populating physics engines with complex, real-world digital twins. For
@@ -4647,7 +4656,7 @@ of whether a reconstructed simulation accurately captures physical
 dynamics. Goldberg’s toppled-bar incident highlights that geometric
 fidelity alone cannot guarantee physical fidelity: an unobserved
 discrepancy in mass distribution caused a real robot arm to fail during
-dynamic execution despite flawless performance in simulation (Section <a href="#sec:cap-robot" class="academic-ref-link">3.3</a>) <a href="#ref-goldberg2026agenticrobotics" class="citation-link" title="[85] View in References">(Goldberg 2026a)</a>.
+dynamic execution despite flawless performance in simulation (Section <a href="#sec:cap-robot" class="academic-ref-link">4.3</a>) <a href="#ref-goldberg2026agenticrobotics" class="citation-link" title="[85] View in References">(Goldberg 2026a)</a>.
 Estimating inverse physics parameters remains an open frontier: as Zhu
 and Goldberg emphasize, critical physical parameters such as mass,
 center of gravity, friction coefficients, and actuator compliance are
@@ -4658,8 +4667,8 @@ Goldberg 2026b)</span>. Rigorous sim-to-real validation requires
 evaluating exported policies on physical configurations deliberately
 withheld during simulation synthesis, with all operator interventions
 and hardware failures systematically recorded.</p>
-<h2 data-number="5.3" id="sec:opp-offline"><span
-class="header-section-number">5.3</span> Offline agentic
+<h2 data-number="6.3" id="sec:opp-offline"><span
+class="header-section-number">6.3</span> Offline agentic
 engineering</h2>
 <p>The decoupling of offline policy synthesis from real-time online
 execution offers a compelling path toward deploying foundation models on
@@ -4686,8 +4695,8 @@ rigorous sim-to-real validation under withheld physical disturbances,
 ensuring that the synthesized controller is robust to real-world
 friction and inertia without relying on a simulator in the execution
 loop.</p>
-<h2 data-number="5.4" id="sec:opp-evaluation"><span
-class="header-section-number">5.4</span> Evaluation and tooling that the
+<h2 data-number="6.4" id="sec:opp-evaluation"><span
+class="header-section-number">6.4</span> Evaluation and tooling that the
 record makes possible</h2>
 <p>The rapid dispersion of foundation model capabilities across
 heterogeneous developer communities necessitates open, reproducible
@@ -4728,8 +4737,8 @@ class="citation" data-cites="robocurve2026roboharm">(Sun et al.
 coupled with formal statistical confidence intervals, provides the
 robotics community with the rigorous experimental scaffolding necessary
 for verifiable safety claims.</p>
-<h2 data-number="5.5" id="sec:opp-access"><span
-class="header-section-number">5.5</span> Access and participation</h2>
+<h2 data-number="6.5" id="sec:opp-access"><span
+class="header-section-number">6.5</span> Access and participation</h2>
 <p>Natural language interfaces and multimodal reasoning lower the
 technical barrier to entry for complex 3D and CAD authoring tools.
 Experienced engineering teams can integrate foundation models to
@@ -4751,9 +4760,9 @@ center <a href="#ref-wolff2026datacenter" class="citation-link" title="[277] Vi
 2026)</a>. While automated code synthesis accelerates initial
 generation, the human engineer’s role shifts decisively toward
 high-level architectural specification, constraint formulation, and
-rigorous downstream quality assurance (Section <a href="#sec:risk-ethics" class="academic-ref-link">6.6</a>).</p>
-<h1 data-number="6" id="sec:risks"><span
-class="header-section-number">6</span> Risks and limitations</h1>
+rigorous downstream quality assurance (Section <a href="#sec:risk-ethics" class="academic-ref-link">7.6</a>).</p>
+<h1 data-number="7" id="sec:risks"><span
+class="header-section-number">7</span> Risks and limitations</h1>
 <p>Across the reviewed literature and community showcases, unresolved
 geometric constraints in CAD assemblies, incomplete multi-step
 manipulation sequences, and physical hardware collisions highlight the
@@ -4769,8 +4778,8 @@ computer-aided engineering or robotic manipulation necessitates
 rigorous, domain-specific verification; this assessment focuses on
 empirical capabilities, failure modes, and safety boundaries rather than
 formal regulatory certification.</p>
-<h2 data-number="6.1" id="sec:risk-reliability"><span
-class="header-section-number">6.1</span> Reliability</h2>
+<h2 data-number="7.1" id="sec:risk-reliability"><span
+class="header-section-number">7.1</span> Reliability</h2>
 <p>In generative 3D modeling and digital asset creation, visual
 plausibility does not guarantee functional integrity. Synthetic scenes
 and character rigs frequently exhibit geometric artifacts, loose
@@ -4818,8 +4827,8 @@ al. 2025)</a>. As a result, perceptual drift and kinematics
 reachability failures compound over extended execution horizons,
 underscoring the necessity of closed-loop state tracking in
 sequence-level benchmarks.</p>
-<h2 data-number="6.2" id="sec:risk-speed"><span
-class="header-section-number">6.2</span> Speed and cost</h2>
+<h2 data-number="7.2" id="sec:risk-speed"><span
+class="header-section-number">7.2</span> Speed and cost</h2>
 <p>Economic analyses of generative workflows often focus narrowly on
 token costs while neglecting human engineering overhead. For instance,
 Wolff validates high visual quality in a synthetic data-center layout,
@@ -5088,7 +5097,7 @@ class="citation" data-cites="xiao2026camerarate">(Xiao 2026b)</span>,
 frontier foundation models require several seconds of inference latency
 per decision query. Offline policy synthesis can easily accommodate
 multi-second reasoning queries because execution occurs after synthesis
-(Section <a href="#sec:opp-offline" class="academic-ref-link">5.3</a>). In contrast, closed-loop
+(Section <a href="#sec:opp-offline" class="academic-ref-link">6.3</a>). In contrast, closed-loop
 visual servoing is severely bounded by inference delay. In the SO-101
 pen-pickup experiment by Dou <a href="#ref-dou2026so101pen" class="citation-link" title="[56] View in References">(Dou 2026c)</a>, operational feasibility
 was achieved by constraining arm movements to quasi-static velocities,
@@ -5127,9 +5136,9 @@ Standardized reporting must track total elapsed time and aggregate
 compute expenditure per design passing explicit functional tolerances,
 or per successfully completed robot task, explicitly factoring in failed
 trials and human engineering interventions into a unified denominator
-(Section <a href="#sec:recommendations" class="academic-ref-link">7</a>).</p>
-<h2 data-number="6.3" id="sec:risk-engineering"><span
-class="header-section-number">6.3</span> Engineering validity</h2>
+(Section <a href="#sec:recommendations" class="academic-ref-link">8</a>).</p>
+<h2 data-number="7.3" id="sec:risk-engineering"><span
+class="header-section-number">7.3</span> Engineering validity</h2>
 <p>In computer-aided design (CAD), a generated solid body or parametric
 feature tree can satisfy mathematical boundary-representation (B-rep)
 topological checks while violating physical assembly constraints,
@@ -5140,7 +5149,7 @@ class="citation" data-cites="varghese2026turbofan">(Varghese
 2026)</span>, topological validity is distinct from engineering utility.
 In MecAgent’s automated SolidWorks modeling of a robotic arm and
 turbojet assembly, vendor reports explicitly identify unresolved 2D
-sketch constraints and over-constrained mating relations (Section <a href="#sec:cap-cad" class="academic-ref-link">3.2</a>) <a href="#ref-senet2026turbojet" class="citation-link" title="[226, 266, 225] View in References">(Senet
+sketch constraints and over-constrained mating relations (Section <a href="#sec:cap-cad" class="academic-ref-link">4.2</a>) <a href="#ref-senet2026turbojet" class="citation-link" title="[226, 266, 225] View in References">(Senet
 2026b, 2026a; Varghese 2026)</a>. As Keating underscores, the
 decisive hurdle in generative CAD lies in design for manufacturing
 (DFM): conforming to draft angles, tooling access, standard stock
@@ -5163,9 +5172,9 @@ comprehensive evaluation requires withholding parametric design changes
 during generation to test whether the feature tree regenerates cleanly
 without topological breakage. Empirical physical fabrication and
 dimensional metrology of generated components represent an essential,
-yet currently absent, validation milestone (Section <a href="#sec:recommendations" class="academic-ref-link">7</a>).</p>
-<h2 data-number="6.4" id="sec:risk-safety"><span
-class="header-section-number">6.4</span> Physical safety</h2>
+yet currently absent, validation milestone (Section <a href="#sec:recommendations" class="academic-ref-link">8</a>).</p>
+<h2 data-number="7.4" id="sec:risk-safety"><span
+class="header-section-number">7.4</span> Physical safety</h2>
 <p>Deploying foundation models in physical systems introduces safety
 requirements that differ fundamentally from digital tool use: the system
 must reliably reject hazardous instructions while avoiding unintended
@@ -5194,7 +5203,7 @@ class="citation" data-cites="goldberg2026agenticrobotics">(Goldberg
 2026a)</span>. This incident underscores that visual appearance alone
 cannot resolve unobserved physical properties like mass distribution and
 surface friction, making contact-rich physical validation an
-indispensable safety gate (Section <a href="#sec:cap-robot" class="academic-ref-link">3.3</a>).</p>
+indispensable safety gate (Section <a href="#sec:cap-robot" class="academic-ref-link">4.3</a>).</p>
 <h4>Refusal of harmful
 instructions.</h4>
 <p>A robotic system can fail to complete a harmful directive through
@@ -5332,8 +5341,8 @@ class="citation" data-cites="ames2019cbf brunke2021safelearning">(Ames
 et al. 2019; Brunke et al. 2021)</span>—operating independently of the
 foundation model’s cognitive state <a href="#ref-black2026genie" class="citation-link" title="[24, 118, 170] View in References">(Black
 2026; Isola 2026; Mollick 2026a)</a>.</p>
-<h2 data-number="6.5" id="sec:risk-provenance"><span
-class="header-section-number">6.5</span> Provenance and research
+<h2 data-number="7.5" id="sec:risk-provenance"><span
+class="header-section-number">7.5</span> Provenance and research
 credit</h2>
 <p>The rapid circulation of generative AI demonstrations across social
 media and preprint servers creates acute ambiguity surrounding technical
@@ -5362,10 +5371,9 @@ direct structural precedents with Eureka <a href="#ref-ma2024eureka" class="cit
 explicit dependency chains remain unacknowledged <a href="#ref-zhu2026penspinning" class="citation-link" title="[314] View in References">(Zhu 2026a)</a>. Similar attribution
 gaps appear across the accounts of Wolff, Senet, and Nichol, where
 dependencies on established 3D graphics, parametric CAD, and robotic
-primitives (Section <a href="#sec:intro-related" class="academic-ref-link">1.1</a>) remain undocumented <span
-class="citation"
-data-cites="nichol2026so101 wolff2026datacenter senet2026robotarm">(Nichol
-2026a; Wolff 2026; Senet 2026a)</span>. When an AI agent generates
+primitives (Section <a href="#sec:intro-related" class="academic-ref-link">2</a>) remain
+undocumented <a href="#ref-nichol2026so101" class="citation-link" title="[176, 277, 225] View in References">(Nichol
+2026a; Wolff 2026; Senet 2026a)</a>. When an AI agent generates
 functional code from a single prompt, users risk mistaking automated
 assembly for de novo discovery, inadvertently obscuring the human
 researchers who originated the underlying techniques.</p>
@@ -5434,8 +5442,8 @@ architectures <a href="#ref-tang2026bvb" class="citation-link" title="[246, 191
 Parametric CAD Bench 2026)</a>. Linking a GitHub repository is
 therefore insufficient without verifying environment dependencies,
 dataset availability, and licensing compliance.</p>
-<h2 data-number="6.6" id="sec:risk-ethics"><span
-class="header-section-number">6.6</span> Research practice, education
+<h2 data-number="7.6" id="sec:risk-ethics"><span
+class="header-section-number">7.6</span> Research practice, education
 and ethics</h2>
 <h4>Research practice and
 epistemic responsibility.</h4>
@@ -5479,7 +5487,7 @@ general reasoning capability <a href="#ref-glazer2026cost" class="citation-link
 2026b)</a>. In computational design and robotics, equitable research
 access requires evaluating algorithms based on computational efficiency,
 sample complexity, and standard hardware prerequisites, rather than raw
-API expenditure (Section <a href="#sec:risk-speed" class="academic-ref-link">6.2</a>).</p>
+API expenditure (Section <a href="#sec:risk-speed" class="academic-ref-link">7.2</a>).</p>
 <h4>Rights and labor
 impacts.</h4>
 <p>The United States Copyright Office establishes that copyright
@@ -5506,8 +5514,8 @@ al. 2026; W. Zhang et al. 2026)</a>. These findings mandate that
 real-world deployments maintain strict human supervision, continuous
 telemetry logging, and deterministic, model-independent physical
 interlocks.</p>
-<h2 data-number="6.7" id="sec:risk-assessment"><span
-class="header-section-number">6.7</span> Limitations of this
+<h2 data-number="7.7" id="sec:risk-assessment"><span
+class="header-section-number">7.7</span> Limitations of this
 assessment</h2>
 <p>The scope and findings of this survey are bounded by the curation and
 preservation characteristics of the archived corpus. While verifying
@@ -5565,12 +5573,12 @@ textual excerpts (Appendix <a href="#app:archive-notes" class="academic-ref-link
 artifact availability: published code first, followed by live
 interactive demonstrations, and archived media records. Across the
 corpus, executable code is accessible for only 7 of 134 demonstrations
-and 5 of 8 benchmark entries (Section <a href="#sec:intro-methods" class="academic-ref-link">9</a>). These
+and 5 of 8 benchmark entries (Section <a href="#sec:intro-methods" class="academic-ref-link">10</a>). These
 preservation constraints emphasize that community collections provide
 valuable qualitative insight into early adoption patterns, but cannot
 serve as unbiased estimates of industrial deployment performance.</p>
-<h1 data-number="7" id="sec:recommendations"><span
-class="header-section-number">7</span> Recommendations</h1>
+<h1 data-number="8" id="sec:recommendations"><span
+class="header-section-number">8</span> Recommendations</h1>
 <p>Rigorous deployment of foundation models in physical and
 computational engineering requires evaluating complete systems,
 verifying artifacts against domain-specific operational criteria, and
@@ -5585,7 +5593,7 @@ literature.</p>
 <h4>For 3D and CAD
 practitioners.</h4>
 <p>Evaluate generated digital assets against downstream production and
-manufacturing criteria rather than static visual fidelity (Sections <a href="#sec:risk-reliability" class="academic-ref-link">6.1</a> and <a href="#sec:risk-engineering" class="academic-ref-link">6.3</a>).
+manufacturing criteria rather than static visual fidelity (Sections <a href="#sec:risk-reliability" class="academic-ref-link">7.1</a> and <a href="#sec:risk-engineering" class="academic-ref-link">7.3</a>).
 In architectural modeling, product visualization, and mechanical design,
 practitioners should preserve native project files—such as procedural
 Blender Python scripts, FreeCAD parametric trees, or CAD boundary
@@ -5599,16 +5607,16 @@ whether parametric modifications regenerate cleanly without topological
 failure. Furthermore, practitioners should track and report total
 wall-clock engineering hours, rejected candidates, and manual repair
 interventions, establishing a realistic cost per accepted deliverable
-(Section <a href="#sec:risk-speed" class="academic-ref-link">6.2</a>).</p>
+(Section <a href="#sec:risk-speed" class="academic-ref-link">7.2</a>).</p>
 <h4>For robotics teams.</h4>
 <p>Decouple high-level policy synthesis from real-time physical
 actuation, and enforce deterministic, model-independent safety barriers
-(Sections <a href="#sec:risk-reliability" class="academic-ref-link">6.1</a> and <a href="#sec:risk-safety" class="academic-ref-link">6.4</a>).
+(Sections <a href="#sec:risk-reliability" class="academic-ref-link">7.1</a> and <a href="#sec:risk-safety" class="academic-ref-link">7.4</a>).
 Given the multi-second inference latencies of frontier foundation
 models, teams should leverage offline agentic engineering—where models
 synthesize standalone controllers or reward functions in
 simulation—before exporting lightweight, high-frequency policies onto
-physical hardware (Section <a href="#sec:opp-offline" class="academic-ref-link">5.3</a>) <a href="#ref-goldberg2026agenticrobotics" class="citation-link" title="[85] View in References">(Goldberg 2026a)</a>. In
+physical hardware (Section <a href="#sec:opp-offline" class="academic-ref-link">6.3</a>) <a href="#ref-goldberg2026agenticrobotics" class="citation-link" title="[85] View in References">(Goldberg 2026a)</a>. In
 online settings, never rely on a foundation model’s internal cognitive
 state for collision prevention; instead, integrate hard execution
 interlocks, such as Control Barrier Functions (CBFs) and real-time
@@ -5616,11 +5624,11 @@ Cartesian collision checkers <a href="#ref-ames2019cbf" class="citation-link" t
 class="nocase">Cheng et al.</span> 2026)</a>. Benchmark physical
 performance under withheld physical disturbances, and report full
 latency distributions, unedited video footage, and all hardware
-interventions or collisions alongside terminal task success rates (Section <a href="#sec:risk-speed" class="academic-ref-link">6.2</a> and Table <a href="#tab:speed" class="academic-ref-link">5</a>).</p>
+interventions or collisions alongside terminal task success rates (Section <a href="#sec:risk-speed" class="academic-ref-link">7.2</a> and Table <a href="#tab:speed" class="academic-ref-link">5</a>).</p>
 <h4>For researchers and
 demonstration authors.</h4>
 <p>Uphold scientific transparency by explicitly documenting dependency
-provenance, human engineering overhead, and model configurations (Section <a href="#sec:risk-provenance" class="academic-ref-link">6.5</a>). As demonstrated by the
+provenance, human engineering overhead, and model configurations (Section <a href="#sec:risk-provenance" class="academic-ref-link">7.5</a>). As demonstrated by the
 code-reuse disclosures of Dou <a href="#ref-dou2026so101pen" class="citation-link" title="[56] View in References">(Dou 2026c)</a>, student contributor
 acknowledgments by Zhu <a href="#ref-zhu2026penspinning" class="citation-link" title="[314] View in References">(Zhu 2026a)</a>, and literature
 citations by Goldberg <a href="#ref-goldberg2026agenticrobotics" class="citation-link" title="[85] View in References">(Goldberg 2026a)</a>,
@@ -5637,7 +5645,7 @@ Medalists 2026; Lin 2026; Malik 2026)</a>.</p>
 <h4>For educators and academic
 institutions.</h4>
 <p>Preserve foundational pedagogical training in first-principles
-engineering and empirical verification (Section <a href="#sec:risk-ethics" class="academic-ref-link">6.6</a>). While generative AI tools
+engineering and empirical verification (Section <a href="#sec:risk-ethics" class="academic-ref-link">7.6</a>). While generative AI tools
 accelerate code synthesis and drafting, educators should require
 students to mathematically justify constraint topologies, analyze
 kinematic singularities, and explain dynamic controller behaviors <span
@@ -5648,12 +5656,12 @@ unviable geometry and diagnosing simulation-to-real transfer failures
 rather than raw asset generation. Institutional access policies should
 evaluate tools based on total operational cost—including compute
 infrastructure, software licensing, and supervisory overhead—ensuring
-equitable access across diverse academic environments (Section <a href="#sec:risk-speed" class="academic-ref-link">6.2</a>).</p>
+equitable access across diverse academic environments (Section <a href="#sec:risk-speed" class="academic-ref-link">7.2</a>).</p>
 <h4>For benchmark and harness
 developers.</h4>
 <p>Construct open, reproducible evaluation harnesses that isolate model
 capabilities from scaffolding artifacts, reporting terminal completion
-alongside intermediate progress (Section <a href="#sec:eval-attribution" class="academic-ref-link">4.6</a>). Benchmark suites must
+alongside intermediate progress (Section <a href="#sec:eval-attribution" class="academic-ref-link">5.6</a>). Benchmark suites must
 release explicit task definitions, programmatic success predicates,
 random seeds, action budgets, and exact harness software versions. In
 generative CAD, benchmarks should evaluate parametric editability by
@@ -5670,7 +5678,7 @@ external engine leakage <a href="#ref-valentine2026chess" class="citation-link"
 developers.</h4>
 <p>Benchmark frontier models on contact-rich, precision manipulation
 under fixed, standardized execution harnesses, and incorporate physical
-refusal testing (Sections <a href="#sec:risk-reliability" class="academic-ref-link">6.1</a> and <a href="#sec:risk-safety" class="academic-ref-link">6.4</a>).
+refusal testing (Sections <a href="#sec:risk-reliability" class="academic-ref-link">7.1</a> and <a href="#sec:risk-safety" class="academic-ref-link">7.4</a>).
 Model evaluations should hold tool interfaces constant to isolate
 intrinsic spatial reasoning gains from external software enhancements.
 Frontier multimodal models must be evaluated on precision physical
@@ -5681,8 +5689,8 @@ alone. Finally, model safety evaluations should adopt standardized
 physical refusal protocols (such as RoboHarm <a href="#ref-robocurve2026roboharm" class="citation-link" title="[243] View in References">(Sun et al. 2026)</a>), measuring
 refusal of hazardous real-world instructions alongside benign task
 completion under standardized reasoning budgets.</p>
-<h1 data-number="8" id="sec:conclusion"><span
-class="header-section-number">8</span> Conclusion</h1>
+<h1 data-number="9" id="sec:conclusion"><span
+class="header-section-number">9</span> Conclusion</h1>
 <p>Frontier multimodal foundation models have achieved marked empirical
 advances in 3D spatial perception, procedural geometry synthesis, and
 robotic control. Viewed as an extensive, distributed natural experiment
@@ -5709,7 +5717,7 @@ Robocurve <a href="#ref-menon2026astrarobotarms" class="citation-link" title="[
 <h4>Status of demonstrated
 capabilities.</h4>
 <p>Despite these notable achievements, operational capabilities remain
-bounded under rigorous engineering criteria (Section <a href="#sec:intro-methods" class="academic-ref-link">9</a>). While
+bounded under rigorous engineering criteria (Section <a href="#sec:intro-methods" class="academic-ref-link">10</a>). While
 synthesized 3D scenes and CAD feature trees permit downstream parametric
 modification, existing reports do not establish that these artifacts
 satisfy strict manufacturing tolerances, kinematic assembly constraints,
@@ -5724,13 +5732,13 @@ data-cites="menon2026astrarobotarms zhang2026stationerybench zhang2026gpt6astrar
 et al. 2026; Z. J. Zhang et al. 2026; W. Zhang et al. 2026)</span>.
 Crucially, physical manufacturability (DFM), safe unattended physical
 operation, and economic viability per accepted deliverable remain
-<em>unestablished</em> in the empirical record (Sections <a href="#sec:risk-engineering" class="academic-ref-link">6.3</a>, <a href="#sec:risk-safety" class="academic-ref-link">6.4</a>, and <a href="#sec:risk-speed" class="academic-ref-link">6.2</a>).</p>
+<em>unestablished</em> in the empirical record (Sections <a href="#sec:risk-engineering" class="academic-ref-link">7.3</a>, <a href="#sec:risk-safety" class="academic-ref-link">7.4</a>, and <a href="#sec:risk-speed" class="academic-ref-link">7.2</a>).</p>
 <h4>Attributing performance
 gains.</h4>
 <p>Decoupling foundation model reasoning from external scaffolding is
-essential for rigorous evaluation (Section <a href="#sec:eval-attribution" class="academic-ref-link">4.6</a>). While within-benchmark
+essential for rigorous evaluation (Section <a href="#sec:eval-attribution" class="academic-ref-link">5.6</a>). While within-benchmark
 model substitutions demonstrate intrinsic reasoning improvements across
-generations (Section <a href="#sec:eval-generations" class="academic-ref-link">4.4</a>), external software
+generations (Section <a href="#sec:eval-generations" class="academic-ref-link">5.4</a>), external software
 scaffolding—such as interactive multimodal reflection, procedural
 geometric kernels, and low-level trajectory planners—accounts for a
 substantial share of reported task success. In offline engineering,
@@ -5752,7 +5760,7 @@ Future benchmarks must evaluate identical model pairs across fixed
 perception and manipulation tasks while systematically holding prompts,
 reasoning effort, and tool interfaces constant. Controlled ablations of
 state feedback and execution tools will formally separate perceptual
-grounding errors from high-level planning failures (Section <a href="#sec:eval-attribution" class="academic-ref-link">4.6</a>).</p></li>
+grounding errors from high-level planning failures (Section <a href="#sec:eval-attribution" class="academic-ref-link">5.6</a>).</p></li>
 <li><p><em>Which physical properties can be deduced from passive
 observation, and which strictly require contact-rich interaction?</em>
 Researchers should benchmark real-to-sim pipelines against physical
@@ -5768,7 +5776,7 @@ reporting raw token list prices to accounting for full wall-clock
 duration, engineer-in-the-loop intervention time, and discarded
 attempts. Online robotic evaluations must report complete model
 decision-latency distributions alongside high-frequency controller
-execution rates (Section <a href="#sec:risk-speed" class="academic-ref-link">6.2</a>).</p></li>
+execution rates (Section <a href="#sec:risk-speed" class="academic-ref-link">7.2</a>).</p></li>
 <li><p><em>How can scientific provenance, dependency histories, and
 human contributions be transparently verified?</em> Standardized
 reporting protocols should document exact training baselines,
@@ -5785,7 +5793,7 @@ accidental completions under fixed execution budgets. Furthermore,
 robotics architectures must integrate model-independent runtime
 interlocks—such as Control Barrier Functions and real-time collision
 checkers—to guarantee that high-level model reasoning errors never
-result in physical damage (Section <a href="#sec:risk-safety" class="academic-ref-link">6.4</a>).</p></li>
+result in physical damage (Section <a href="#sec:risk-safety" class="academic-ref-link">7.4</a>).</p></li>
 </ol>
 <p>In robotic engineering, real-to-sim has emerged as a rapid entry
 point for digital twin construction; however, sim-to-real transfer
@@ -5798,8 +5806,8 @@ governing the future of general-purpose embodied intelligence <span
 class="citation"
 data-cites="zhu2026astrabeyond goldberg2026inversephysics">(Zhu 2026b;
 Goldberg 2026b)</span>.</p>
-<h1 data-number="9" id="sec:intro-methods"><span id="sec:intro-scope"></span>><span
-class="header-section-number">9</span> Materials and methods</h1>
+<h1 data-number="10" id="sec:intro-methods"><span id="sec:intro-scope"></span>><span
+class="header-section-number">10</span> Materials and methods</h1>
 <p><span id="sec:intro-methods"
 data-label="sec:intro-methods"></span></p>
 <p>This assessment is grounded in a systematic, list-based curation and
@@ -5833,8 +5841,8 @@ with 24 quantitative benchmark suites. This protocol does not represent
 an automated platform-wide query or random probability sample; rather,
 it provides a curated natural experiment capturing early technical
 adoption across diverse domain specialists.</p>
-<h4>Methodological framing: The
-archive as a distributed user study.</h4>
+<h4>Methodological framing:
+The archive as a distributed user study.</h4>
 <p>We analyze the corpus as a large-scale, crowdsourced natural
 experiment. This methodology captures open-ended participation across
 self-selected tasks, documenting real-world implementation barriers,
@@ -5951,10 +5959,10 @@ permissive open-source licenses or complete autonomous execution
 pipelines.</p>
 <p>Our empirical corpus is actively maintained to track recent
 developments. Detailed preservation notes, licensing audits, and
-archival limitations are compiled in Section <a href="#sec:risk-assessment" class="academic-ref-link">6.7</a> and Appendix <a href="#app:archive-notes" class="academic-ref-link">B</a>,
+archival limitations are compiled in Section <a href="#sec:risk-assessment" class="academic-ref-link">7.7</a> and Appendix <a href="#app:archive-notes" class="academic-ref-link">B</a>,
 and the complete post inventory is indexed in Appendix <a href="#app:cases" class="academic-ref-link">C</a>.</p>
-<h1 data-number="10" id="app:eval-protocols"><span
-class="header-section-number">10</span> Evaluation protocols and linked
+<h1 data-number="11" id="app:eval-protocols"><span
+class="header-section-number">11</span> Evaluation protocols and linked
 components</h1>
 <p>Table <a href="#tab:eval-protocols" class="academic-ref-link">6</a> retains the settings, budgets,
 source-access qualifications and code links accompanying the main
@@ -6349,8 +6357,8 @@ suite.</td>
   </div>
   
 </div>
-<h1 data-number="11" id="app:archive-notes"><span
-class="header-section-number">11</span> Notes on the archive</h1>
+<h1 data-number="12" id="app:archive-notes"><span
+class="header-section-number">12</span> Notes on the archive</h1>
 <p>The archive contains 236 posts covering 182 archival groups and one
 separate coverage group across recent community releases. Recent
 expansions added verified cases in 3D modeling, parametric CAD and
