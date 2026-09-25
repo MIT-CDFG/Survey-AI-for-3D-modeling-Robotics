@@ -533,36 +533,37 @@ outline concrete guidelines for researchers, practitioners, and
 benchmark developers, followed by archival collection methods in Section <a href="#sec:intro-methods" class="academic-ref-link">9</a>.</p>
 <h2 data-number="1.1" id="sec:intro-related"><span
 class="header-section-number">1.1</span> Related work</h2>
-<p>Earlier research laid the algorithmic foundation for language-guided
-3D synthesis, executable CAD generation, and robot control with code. We
-categorize this prior literature across seven areas: programmatic 3D
-authoring; parametric CAD generation and repair; simulation-ready assets
-and real-to-sim; motion editing and animation; language-guided robot
-execution; offline robot learning automation; and program
-representations and prior surveys.</p>
+<p>Foundation-model workflows in 3D modeling, CAD, and robotics build on
+prior research in procedural synthesis, symbolic geometry, and
+code-based robot control. We organize this literature across seven
+areas: programmatic 3D authoring, parametric CAD generation and repair,
+simulation-ready articulated assets, motion editing and character
+rigging, language-guided robot execution, automated offline robot
+learning, and program representations alongside related surveys.</p>
 <h4>Programmatic and agentic 3D
 authoring.</h4>
 <p>Generative 3D modeling initially produced raw geometric primitives
 such as point clouds (Point-E <a href="#ref-nichol2022pointe" class="citation-link" title="[178] View in References">(Nichol et al. 2022)</a>) and neural
 implicit fields (Shap-E <a href="#ref-jun2023shape" class="citation-link" title="[124] View in References">(Jun and Nichol 2023)</a>), which lack
-editable parametric structure. Subsequent research moved toward
-programmatic scene authoring by translating natural language into
-procedural modeling scripts: 3D-GPT <a href="#ref-sun2023gpt3d" class="citation-link" title="[242] View in References">(Sun et al. 2023)</a> grounds instructions
-into procedural Blender modeling operators; Holodeck <span
-class="citation" data-cites="yang2024holodeck">(Y. Yang et al.
-2024)</span> generates interactive 3D environments from open-vocabulary
-prompts; SceneCraft <a href="#ref-hu2024scenecraft" class="citation-link" title="[106] View in References">(Hu et al. 2024)</a> converts scene
-graphs into Blender Python scripts with library learning; Large Language
-3D Modelers (LL3M) <a href="#ref-lu2025ll3m" class="citation-link" title="[152] View in References">(Lu et
-al. 2025)</a> represent geometry as interpretable programs; and
-VIGA <a href="#ref-yin2026viga" class="citation-link" title="[300] View in References">(S. Yin et al.
-2026)</a> uses rendered visual feedback for iterative
-inverse-graphics refinement. Parallel efforts establish agentic search
-and multimodal feedback loops: BlenderAlchemy <a href="#ref-huang2024blenderalchemy" class="citation-link" title="[108] View in References">(I. Huang et al. 2024)</a> uses
+editable parametric structure. Later work introduced programmatic scene
+authoring by translating natural language into procedural modeling
+scripts: 3D-GPT <a href="#ref-sun2023gpt3d" class="citation-link" title="[242] View in References">(Sun et
+al. 2023)</a> grounds instructions into procedural Blender modeling
+operators; Holodeck <a href="#ref-yang2024holodeck" class="citation-link" title="[296] View in References">(Y. Yang et al. 2024)</a> generates
+interactive 3D environments from open-vocabulary prompts;
+SceneCraft <a href="#ref-hu2024scenecraft" class="citation-link" title="[106] View in References">(Hu et
+al. 2024)</a> converts scene graphs into Blender Python scripts with
+library learning; Large Language 3D Modelers (LL3M) <span
+class="citation" data-cites="lu2025ll3m">(Lu et al. 2025)</span>
+represent geometry as interpretable programs; and VIGA <span
+class="citation" data-cites="yin2026viga">(S. Yin et al. 2026)</span>
+uses rendered visual feedback for iterative inverse-graphics refinement.
+Parallel efforts establish agentic search and multimodal feedback loops:
+BlenderAlchemy <a href="#ref-huang2024blenderalchemy" class="citation-link" title="[108] View in References">(I. Huang et al. 2024)</a> uses
 multi-turn vision-language editing with rendered visual evaluation and
-candidate search; L3GO <a href="#ref-yamada2024l3go" class="citation-link" title="[293] View in References">(Yamada et al. 2024)</a> uses
-chain-of-3D-thoughts to assemble unconventional shapes from programmatic
-primitives; LayoutGPT <a href="#ref-feng2023layoutgpt" class="citation-link" title="[70] View in References">(Feng et al. 2023)</a> generates 3D
+candidate search; L3GO <a href="#ref-yamada2024l3go" class="citation-link" title="[293] View in References">(Yamada et al. 2024)</a> prompts agents
+with chain-of-3D-thought reasoning to assemble unconventional shapes
+from programmatic primitives; LayoutGPT <a href="#ref-feng2023layoutgpt" class="citation-link" title="[70] View in References">(Feng et al. 2023)</a> generates 3D
 layouts through structured in-context prompts; LayoutVLM <span
 class="citation" data-cites="sun2024layoutvlm">(Sun et al. 2024)</span>
 decouples semantic layout planning from numerical constraint
@@ -663,7 +664,7 @@ across diverse object categories. In procedural asset generation,
 Infinigen-Sim <a href="#ref-joshi2025infinigensim" class="citation-link" title="[123] View in References">(Joshi et al. 2025)</a> generates
 physically plausible articulated simulation assets with procedural
 kinematics and material variations. Academic real-to-sim workflows
-demonstrate that visual fidelity is decoupled from dynamic utility:
+demonstrate that visual fidelity does not guarantee dynamic utility:
 RialTo <a href="#ref-torne2024rialto" class="citation-link" title="[254] View in References">(Torne et al.
 2024)</a> constructs real-to-sim digital twins from on-site scans to
 train robust manipulation policies that transfer back to the physical
