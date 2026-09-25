@@ -418,74 +418,57 @@ standardized safety suites.</p></li>
 <h1 data-number="1" id="sec:intro"><span
 class="header-section-number">1</span> Introduction</h1>
 <p>Three-dimensional (3D) modeling, computational design, and robotics
-constitute the computational and physical bedrock of modern engineering,
-manufacturing, and embodied intelligence. Traditionally, these domains
-have operated within siloed, highly specialized software ecosystems—from
-parametric CAD kernels and procedural scene graphs to complex multi-body
-physics simulators and robotic motion planners—requiring deep human
-expertise and painstaking manual specification. In recent years,
-foundation models have expanded rapidly beyond 2D natural language and
-image processing, increasingly demonstrating spatial reasoning, 3D
-coordinate awareness, and goal-directed agentic planning. Today,
-frontier multimodal large language models (LLMs), deployed as
-general-purpose reasoning agents without task-specific fine-tuning, can
-interface directly with standard engineering software to generate
-structured 3D scenes, synthesize native parametric CAD assemblies, and
-develop or operate robotic controllers <a href="#ref-krcha2026locomotive" class="citation-link" title="[136, 225, 40] View in References">(Krcha
-2026b; Senet 2026a; Chooi 2026a)</a>. Modern workflows couple
-frontier models with commercial and open-source tools, retaining
-procedural Blender <a href="#ref-blender" class="citation-link" title="[25] View in References">(Blender
-Foundation 2026)</a> objects, parametric SolidWorks <span
-class="citation" data-cites="solidworks">(Dassault Systèmes 2026)</span>
-assemblies via MecAgent <a href="#ref-mecagent2026robotarm" class="citation-link" title="[164] View in References">(MecAgent 2026a)</a>, and
-mathematically valid solid bodies checked by commercial geometry kernels
-such as CGM <a href="#ref-cgm" class="citation-link" title="[236, 136, 225, 266] View in References">(Spatial
+form the computational foundations of modern engineering, manufacturing,
+and embodied intelligence. Traditionally, these fields have relied on
+specialized software tools, from parametric CAD kernels and procedural
+scene graphs to multi-body physics simulators and robotic motion
+planners, requiring manual specification and domain expertise. In recent
+years, foundation models have expanded beyond 2D natural language and
+image processing to spatial reasoning, 3D coordinate awareness, and
+goal-directed planning. Today, frontier multimodal large language models
+(LLMs), deployed as general-purpose reasoning agents without
+task-specific fine-tuning, interface directly with engineering software
+to generate structured 3D scenes, synthesize native parametric CAD
+assemblies, and operate robotic controllers <a href="#ref-krcha2026locomotive" class="citation-link" title="[136, 225, 40] View in References">(Krcha
+2026b; Senet 2026a; Chooi 2026a)</a>. Current workflows couple
+frontier models with commercial and open-source tools: procedural
+Blender <a href="#ref-blender" class="citation-link" title="[25] View in References">(Blender Foundation
+2026)</a> objects, parametric SolidWorks <a href="#ref-solidworks" class="citation-link" title="[46] View in References">(Dassault Systèmes 2026)</a> assemblies via
+MecAgent <a href="#ref-mecagent2026robotarm" class="citation-link" title="[164] View in References">(MecAgent 2026a)</a>, and solid
+bodies validated by commercial geometry kernels such as CGM <span
+class="citation"
+data-cites="cgm krcha2026locomotive senet2026robotarm varghese2026turbofan">(Spatial
 (Dassault Systèmes) 2026; Krcha 2026b; Senet 2026a; Varghese
-2026)</a>. By preserving native project files, parametric feature
-trees, and kinematic constraints, these workflows mark a fundamental
-transition from non-editable pixel representations to inspectable,
-parameterized digital artifacts and physical actions.</p>
-<p>To provide a systematic and timely overview of this fast-moving
-landscape, this survey investigates recent tool-mediated, frontier-model
-workflows across 3D modeling, computational design, robotics, and
-procedural animation, synthesizing empirical evidence from over 236
-recent community demonstrations, technical reports, and benchmark
-evaluations across 182 archival groups spanning emerging foundation
-model workflows. In computational design, our scope encompasses
-industrial design and mechanical CAD: the procedural generation,
-constraint-solving, and iterative editing of parametric parts,
-multi-body assemblies, and interactive product prototypes. In animation,
-we analyze skeletal character rigging, procedural motion graphics,
-interactive WebGL shaders, and previsualization pipelines. Crucially,
-this survey treats the burgeoning volume of public community
-demonstrations as a distributed, crowdsourced user study. For example,
-community practitioners across disciplines consistently report a
-qualitative breakthrough in frontier models’ 3D perception, spatial
-orientation, and coordinate comprehension. These accounts provide a
-rich, user-centered perspective on emergent capabilities, complementing
-controlled laboratory benchmarks with insights from unstructured
-real-world adoption (Section <a href="#sec:intro-methods" class="academic-ref-link">9</a>).</p>
-<p>Public demonstrations and vendor technical reports accumulate much
-faster than conventional peer review can absorb them, creating an urgent
-need to assemble the public record systematically while holding reported
-metrics beside the specific evaluation protocols that produced them. A
-balanced assessment of opportunities and risks requires a joint account
-bridging 3D modeling, computer-aided design, robotics, and
-animation.</p>
-<p>This survey systematically analyzes reported claims and numerical
-findings against accessible archived repositories, project files, and
-evaluation benchmarks, cataloging missing protocols, secondary-only
-accounts, and reproducibility limits (Tables <a href="#tab:eval-3d" class="academic-ref-link">3</a>, <a href="#tab:eval-robot" class="academic-ref-link">4</a>, and <a href="#tab:speed" class="academic-ref-link">5</a>).
-While GPT-6 Astra is the most extensively documented system in the
-recent record, comparative evaluations against other leading frontier
-model families—including Anthropic Claude <a href="#ref-anthropic2024claude" class="citation-link" title="[15] View in References">(Anthropic 2024)</a>, Google
+2026)</span>. Preserving native project files, parametric feature trees,
+and kinematic constraints replaces non-editable pixel outputs with
+inspectable, parameterized digital models and physical action
+sequences.</p>
+<p>This survey examines tool-mediated frontier model workflows across 3D
+modeling, computational design, robotics, and procedural animation,
+synthesizing evidence from 236 public demonstrations, technical reports,
+and benchmark evaluations across 182 archival groups. In computational
+design, our scope covers industrial design and mechanical CAD:
+procedural part generation, constraint solving, and iterative editing of
+multi-body assemblies and product prototypes. In animation, we analyze
+skeletal character rigging, procedural motion graphics, WebGL shaders,
+and previsualization pipelines. We treat public community demonstrations
+as an observational user study: practitioners repeatedly test frontier
+models on spatial orientation, 3D perception, and coordinate reasoning,
+providing real-world capabilities and failure modes that complement
+laboratory benchmarks (Section <a href="#sec:intro-methods" class="academic-ref-link">9</a>).</p>
+<p>Because public demonstrations and vendor technical reports outpace
+formal peer review, we record available claims alongside their execution
+environments, missing protocols, and reproducibility limits (Tables <a href="#tab:eval-3d" class="academic-ref-link">3</a>, <a href="#tab:eval-robot" class="academic-ref-link">4</a>, and <a href="#tab:speed" class="academic-ref-link">5</a>).
+While GPT-6 Astra is the most extensively documented system in this
+recent record, comparative evaluations against other frontier model
+families—including Anthropic Claude <a href="#ref-anthropic2024claude" class="citation-link" title="[15] View in References">(Anthropic 2024)</a>, Google
 Gemini <a href="#ref-geminiteam2024gemini" class="citation-link" title="[79] View in References">(Gemini
 Team, Google 2023)</a>, xAI Grok <a href="#ref-xai2024grok" class="citation-link" title="[283] View in References">(<span class="nocase">xAI</span> 2024)</a>,
 and Moonshot Kimi <a href="#ref-moonshot2024kimi" class="citation-link" title="[173] View in References">(Moonshot AI 2024)</a>—bound
-conclusions regarding the broader class of frontier models. Aligning
-reported results with their execution conditions reveals comparisons
-that hold tasks and interfaces constant, enabling quantitative
-evaluation of model-level progress.</p>
+conclusions regarding frontier models generally. Aligning reported
+results with their execution conditions reveals comparisons that hold
+tasks and interfaces constant, enabling quantitative evaluation of
+model-level progress.</p>
 <p>On benchmark evaluations with fixed software interfaces, performance
 gains are pronounced. In CAD modeling, Parametric CAD Bench v2 reports
 mean rewards rising from 68.66% for GPT-5.6 Terra and 70.34% for GPT-5.6
@@ -519,8 +502,7 @@ et al. 2026; Z. J. Zhang et al. 2026; Sun et al. 2026; W. Zhang et al.
 2026)</a>. Furthermore, independent manufacturing feasibility remains
 unverified for prominent community assemblies (Section <a href="#sec:risk-engineering" class="academic-ref-link">6.3</a>). Consequently, generating
 an artifact, measuring its geometric precision, and validating it for
-functional use require independent, decoupled forms of empirical
-verification.</p>
+functional use require independent forms of empirical verification.</p>
 <p>Economic and operational factors are equally critical. Parametric CAD
 Bench v2 and Robocurve document inference token consumption and
 per-trial costs <a href="#ref-parametric2026cadbenchv2" class="citation-link" title="[191, 166] View in References">(Parametric
@@ -529,12 +511,11 @@ as ENPIRE and RoboDojo delineate the boundary between high-level model
 decisions and low-level reactive execution, while Drone-Bench tracks
 performance gains across iterative development <a href="#ref-nvlabs2026enpire" class="citation-link" title="[183, 285, 311, 14] View in References">(NVlabs
 2026; Xiao 2026b; W. Zhang et al. 2026; Andon Labs 2026c)</a>. We
-advocate for rigorous evaluation methodologies that hold models and
-compute budgets fixed while testing the explicit effect of sensory
-feedback on task success; repeated downstream edits, physical
-fabrication stress-tests, and supervised robot trials are essential to
-establish artifact reliability, sim-to-real transfer, and operational
-safety (Sections <a href="#sec:recommendations" class="academic-ref-link">7</a> and <a href="#sec:conclusion" class="academic-ref-link">8</a>).</p>
+advocate for evaluation methodologies that hold models and compute
+budgets fixed while testing the explicit effect of sensory feedback on
+task success; repeated downstream edits, physical fabrication
+stress-tests, and supervised robot trials are essential to establish
+artifact reliability, sim-to-real transfer, and operational safety (Sections <a href="#sec:recommendations" class="academic-ref-link">7</a> and <a href="#sec:conclusion" class="academic-ref-link">8</a>).</p>
 <p><span id="sec:intro-overview" data-label="sec:intro-overview"></span>
 Figure <a href="#fig:roadmap" class="academic-ref-link">1</a> maps the structure of
 this survey. Section <a href="#sec:intro-related" class="academic-ref-link">1.1</a>
@@ -552,184 +533,172 @@ outline concrete guidelines for researchers, practitioners, and
 benchmark developers, followed by archival collection methods in Section <a href="#sec:intro-methods" class="academic-ref-link">9</a>.</p>
 <h2 data-number="1.1" id="sec:intro-related"><span
 class="header-section-number">1.1</span> Related work</h2>
-<p>Earlier research laid the mathematical and algorithmic foundations
-for language-guided 3D synthesis, executable CAD generation, and
-foundation-model-based robotic control. The recent wave of
-frontier-model workflows expands these paradigms across broader software
-interfaces, tighter feedback loops, and more complex physical tasks. To
-contextualize these developments, we categorize prior literature across
-seven interconnected themes: programmatic 3D authoring; parametric CAD
-generation and repair; simulation-ready assets and real-to-sim; motion
-editing and animation; language-guided robot execution; offline robot
-learning automation; and underlying program representations and prior
-surveys.</p>
+<p>Earlier research laid the algorithmic foundation for language-guided
+3D synthesis, executable CAD generation, and robot control with code. We
+categorize this prior literature across seven areas: programmatic 3D
+authoring; parametric CAD generation and repair; simulation-ready assets
+and real-to-sim; motion editing and animation; language-guided robot
+execution; offline robot learning automation; and program
+representations and prior surveys.</p>
 <h4>Programmatic and agentic 3D
 authoring.</h4>
-<p>Generative 3D modeling initially focused on raw geometric primitives
+<p>Generative 3D modeling initially produced raw geometric primitives
 such as point clouds (Point-E <a href="#ref-nichol2022pointe" class="citation-link" title="[178] View in References">(Nichol et al. 2022)</a>) and neural
 implicit fields (Shap-E <a href="#ref-jun2023shape" class="citation-link" title="[124] View in References">(Jun and Nichol 2023)</a>), which lack
-editable parametric structure. Subsequent research transitioned toward
+editable parametric structure. Subsequent research moved toward
 programmatic scene authoring by translating natural language into
-procedural modeling scripts: 3D-GPT <a href="#ref-sun2023gpt3d" class="citation-link" title="[242] View in References">(Sun et al. 2023)</a> grounds language
-instructions into procedural Blender modeling operators; Holodeck <span
+procedural modeling scripts: 3D-GPT <a href="#ref-sun2023gpt3d" class="citation-link" title="[242] View in References">(Sun et al. 2023)</a> grounds instructions
+into procedural Blender modeling operators; Holodeck <span
 class="citation" data-cites="yang2024holodeck">(Y. Yang et al.
-2024)</span> generates complex interactive 3D environments from
-open-vocabulary prompts; SceneCraft <a href="#ref-hu2024scenecraft" class="citation-link" title="[106] View in References">(Hu et al. 2024)</a> models scene
-graphs to synthesize Blender Python scripts with library learning; Large
-Language 3D Modelers (LL3M) <a href="#ref-lu2025ll3m" class="citation-link" title="[152] View in References">(Lu et al. 2025)</a> represent geometry as
-interpretable programs; and VIGA <a href="#ref-yin2026viga" class="citation-link" title="[300] View in References">(S. Yin et al. 2026)</a> employs rendered
-visual feedback for iterative inverse-graphics refinement. Parallel
-efforts establish agentic search and multimodal feedback loops:
-BlenderAlchemy <a href="#ref-huang2024blenderalchemy" class="citation-link" title="[108] View in References">(I. Huang et al. 2024)</a>
-pioneers multi-turn vision-language editing with rendered visual
-evaluation and candidate search; L3GO <a href="#ref-yamada2024l3go" class="citation-link" title="[293] View in References">(Yamada et al. 2024)</a> utilizes
+2024)</span> generates interactive 3D environments from open-vocabulary
+prompts; SceneCraft <a href="#ref-hu2024scenecraft" class="citation-link" title="[106] View in References">(Hu et al. 2024)</a> converts scene
+graphs into Blender Python scripts with library learning; Large Language
+3D Modelers (LL3M) <a href="#ref-lu2025ll3m" class="citation-link" title="[152] View in References">(Lu et
+al. 2025)</a> represent geometry as interpretable programs; and
+VIGA <a href="#ref-yin2026viga" class="citation-link" title="[300] View in References">(S. Yin et al.
+2026)</a> uses rendered visual feedback for iterative
+inverse-graphics refinement. Parallel efforts establish agentic search
+and multimodal feedback loops: BlenderAlchemy <a href="#ref-huang2024blenderalchemy" class="citation-link" title="[108] View in References">(I. Huang et al. 2024)</a> uses
+multi-turn vision-language editing with rendered visual evaluation and
+candidate search; L3GO <a href="#ref-yamada2024l3go" class="citation-link" title="[293] View in References">(Yamada et al. 2024)</a> uses
 chain-of-3D-thoughts to assemble unconventional shapes from programmatic
-primitives; LayoutGPT <a href="#ref-feng2023layoutgpt" class="citation-link" title="[70] View in References">(Feng et al. 2023)</a> formalizes
-compositional 3D layout planning through structured in-context prompts;
-LayoutVLM <a href="#ref-sun2024layoutvlm" class="citation-link" title="[244] View in References">(Sun et
-al. 2024)</a> explicitly decouples high-level semantic layout
-reasoning from numerical constraint satisfaction via differentiable
-geometric optimizers; Liu et al. <a href="#ref-liu2025agentic3d" class="citation-link" title="[150] View in References">(Liu et al. 2025)</a> introduce
-spatially contextualized VLMs with persistent scene memory for
+primitives; LayoutGPT <a href="#ref-feng2023layoutgpt" class="citation-link" title="[70] View in References">(Feng et al. 2023)</a> generates 3D
+layouts through structured in-context prompts; LayoutVLM <span
+class="citation" data-cites="sun2024layoutvlm">(Sun et al. 2024)</span>
+decouples semantic layout planning from numerical constraint
+satisfaction via differentiable geometric optimizers; Liu et al. <span
+class="citation" data-cites="liu2025agentic3d">(Liu et al. 2025)</span>
+introduce spatially contextualized VLMs with persistent scene memory for
 incremental scene authoring; and Thinking in Blender <span
 class="citation" data-cites="he2026thinkinginblender">(He et al.
 2026)</span> decomposes single-image inverse graphics into staged
 executable scripts spanning geometry, materials, lighting, and camera
 composition. Benchmark frameworks such as BlenderGym <span
 class="citation" data-cites="gu2025blendergym">(Gu et al. 2025)</span>
-systematically evaluate these foundation model systems across
-programmatic geometry, procedural shaders, blendshapes, lighting, and
-layout editing, formalizing the allocation of inference-time compute
-between generation and verification. Recent community workflows
-operationalize these principles within production software, generating
-editable Blender scenes, reconstructing environments from reference
-imagery, and importing assets directly into game engines like Unreal
-Engine and Unity <a href="#ref-krcha2026house" class="citation-link" title="[135, 207, 277, 210] View in References">(Krcha
+evaluate foundation model systems across programmatic geometry,
+procedural shaders, blendshapes, lighting, and layout editing,
+formalizing the allocation of inference-time compute between generation
+and verification. Recent community workflows apply these methods within
+production software, generating editable Blender scenes, reconstructing
+environments from reference imagery, and importing assets directly into
+Unreal Engine and Unity <a href="#ref-krcha2026house" class="citation-link" title="[135, 207, 277, 210] View in References">(Krcha
 2026a; Ricouard 2026a, 2026d; Wolff 2026)</a>.</p>
 <h4>Parametric CAD generation,
 assembly, and programmatic repair.</h4>
-<p>In computational design and computer-aided design (CAD), initial deep
-learning paradigms learned sequence prediction over tokenized modeling
-commands: DeepCAD <a href="#ref-wu2021deepcad" class="citation-link" title="[280] View in References">(Wu
-et al. 2021)</a> represented CAD construction histories as discrete
-sketch-and-extrude commands; SkexGen <a href="#ref-xu2022skexgen" class="citation-link" title="[291] View in References">(Xu et al. 2022)</a> disentangled
-parametric sketches and extrusions into separate codebooks; Ganin et
+<p>In computational design and computer-aided design (CAD), early deep
+learning models predicted command sequences over discrete modeling
+operations: DeepCAD <a href="#ref-wu2021deepcad" class="citation-link" title="[280] View in References">(Wu et al. 2021)</a> represented CAD
+construction histories as sketch-and-extrude commands; SkexGen <span
+class="citation" data-cites="xu2022skexgen">(Xu et al. 2022)</span>
+separated sketches and extrusions into distinct codebooks; Ganin et
 al. <a href="#ref-ganin2021cad" class="citation-link" title="[77] View in References">(Ganin et al.
 2021)</a> framed 2D CAD sketch generation as language modeling;
 Text2CAD <a href="#ref-khan2024text2cad" class="citation-link" title="[129] View in References">(Khan et
 al. 2024)</a> learned direct text-to-sequence mappings; and
 CAD-Recode <a href="#ref-rukhovich2025cadrecode" class="citation-link" title="[216] View in References">(Rukhovich et al. 2025)</a>
 inverted unstructured 3D point clouds into parametric CAD code.
-Foundational relational benchmarks including SketchGraphs <span
-class="citation" data-cites="seff2020sketchgraphs">(Seff et al.
-2020)</span>, Vitruvion <a href="#ref-seff2021vitruvion" class="citation-link" title="[223] View in References">(Seff et al. 2021)</a>, Fusion 360
-Gallery <a href="#ref-willis2020fusiongallery" class="citation-link" title="[275] View in References">(Willis et al. 2020)</a>,
+Relational benchmarks including SketchGraphs <a href="#ref-seff2020sketchgraphs" class="citation-link" title="[222] View in References">(Seff et al. 2020)</a>,
+Vitruvion <a href="#ref-seff2021vitruvion" class="citation-link" title="[223] View in References">(Seff et
+al. 2021)</a>, Fusion 360 Gallery <a href="#ref-willis2020fusiongallery" class="citation-link" title="[275] View in References">(Willis et al. 2020)</a>,
 JoinABLe <a href="#ref-willis2021joinable" class="citation-link" title="[274] View in References">(Willis
 et al. 2021)</a>, and CADTalk <a href="#ref-yuan2023cadtalk" class="citation-link" title="[304] View in References">(Yuan et al. 2023)</a> established
 methods to represent parametric constraint graphs, predict mechanical
 joint alignments, and ground semantic concepts in CAD code blocks.
-Recent research splits into two complementary directions: specialist
-fine-tuned models and tool-augmented generalist agents. Among specialist
+Recent research divides into two main directions: specialist fine-tuned
+models and tool-augmented generalist agents. Among specialist
 architectures, CAD-Coder by Doris et al. <a href="#ref-doris2025cadcoder" class="citation-link" title="[52] View in References">(Doris et al. 2025)</a> fine-tunes
-open-source vision-language models for CadQuery generation; CAD-Coder by
-Guan et al. <a href="#ref-guan2025cadcoder" class="citation-link" title="[93] View in References">(Guan
-et al. 2025)</a> couples chain-of-thought code generation with
-geometric reward reinforcement learning; CADFusion <span
-class="citation" data-cites="wang2025cadfusion">(R. Wang et al.
-2025)</span> injects visual feedback into the model training pipeline;
-CAD-Editor <a href="#ref-yuan2025cadeditor" class="citation-link" title="[305] View in References">(Yuan
-et al. 2025)</a> formalizes a locate-then-infill strategy for
-localized natural-language CAD edits; cadrille <a href="#ref-kolodiazhnyi2025cadrille" class="citation-link" title="[132] View in References">(Kolodiazhnyi et al. 2025)</a>
-leverages multi-modal reinforcement learning with programmatic execution
-feedback; IterCAD by Hu et al. <a href="#ref-hu2026itercad" class="citation-link" title="[104] View in References">(Hu et al. 2026)</a> constructs an
+vision-language models for CadQuery generation; CAD-Coder by Guan et
+al. <a href="#ref-guan2025cadcoder" class="citation-link" title="[93] View in References">(Guan et al.
+2025)</a> couples chain-of-thought code generation with geometric
+reward reinforcement learning; CADFusion <a href="#ref-wang2025cadfusion" class="citation-link" title="[272] View in References">(R. Wang et al. 2025)</a> injects
+visual feedback during model training; CAD-Editor <a href="#ref-yuan2025cadeditor" class="citation-link" title="[305] View in References">(Yuan et al. 2025)</a> introduces a
+locate-then-infill strategy for localized natural-language CAD edits;
+cadrille <a href="#ref-kolodiazhnyi2025cadrille" class="citation-link" title="[132] View in References">(Kolodiazhnyi et al. 2025)</a>
+trains multimodal models using reinforcement learning with programmatic
+execution feedback; IterCAD by Hu et al. <a href="#ref-hu2026itercad" class="citation-link" title="[104] View in References">(Hu et al. 2026)</a> constructs an
 iterative multimodal agent for visually grounded CAD generation and
-multi-turn interactive editing; IterCAD by Wu et al. <span
-class="citation" data-cites="wu2026itercad">(Wu et al. 2026)</span>
-formulates iterative program repair from orthographic multi-view
-drawings with learned halting policies; BrepGen <a href="#ref-xu2024brepgen" class="citation-link" title="[290] View in References">(Xu et al. 2024)</a> models boundary
+interactive editing; IterCAD by Wu et al. <a href="#ref-wu2026itercad" class="citation-link" title="[281] View in References">(Wu et al. 2026)</a> formulates iterative
+program repair from orthographic multi-view drawings with learned
+halting policies; BrepGen <a href="#ref-xu2024brepgen" class="citation-link" title="[290] View in References">(Xu et al. 2024)</a> models boundary
 representations directly through structured latent diffusion; and
 DreamCAD <a href="#ref-khan2026dreamcad" class="citation-link" title="[130] View in References">(Khan et
 al. 2026)</a> generates CAD solids via differentiable parametric
-surfaces. Concurrently, generalist agent frameworks harness commercial
-and open-source CAD software without task-specific weights:
-Query2CAD <a href="#ref-badagabettu2024query2cad" class="citation-link" title="[19] View in References">(Badagabettu et al. 2024)</a>
-translates natural language into CAD macros with self-debugging and
-human guidance; CAD-Assistant <a href="#ref-mallis2024cadassistant" class="citation-link" title="[159] View in References">(Mallis et al. 2024)</a> equips
+surfaces. Concurrently, generalist agents drive commercial and
+open-source CAD software without task-specific weights: Query2CAD <span
+class="citation" data-cites="badagabettu2024query2cad">(Badagabettu et
+al. 2024)</span> translates natural language into CAD macros with
+self-debugging and human guidance; CAD-Assistant <a href="#ref-mallis2024cadassistant" class="citation-link" title="[159] View in References">(Mallis et al. 2024)</a> equips
 multimodal LLMs with FreeCAD tool APIs for open-ended parametric design;
 CADDesigner <a href="#ref-fan2025caddesigner" class="citation-link" title="[64] View in References">(Fan
-et al. 2025)</a> guides conceptual CAD through multi-turn
-conversational dialogue and visual inspection; ArtiCAD <span
-class="citation" data-cites="shui2026articad">(Shui et al. 2026)</span>
-orchestrates multi-agent code generation to assemble articulated
-mechanisms and export valid URDF models; Zero-to-CAD <span
-class="citation" data-cites="ataei2026zerotocad">(Ataei et al.
-2026)</span> synthesizes millions of interpretable CAD programs from
-software documentation without human modeling traces; and Embodied
-CAD <a href="#ref-liu2026embodiedcad" class="citation-link" title="[149] View in References">(Liu et al.
-2026)</a> employs solver-grounded LLM agents with typed geometric
-skills and B-rep kernel feedback. Benchmarks like Procedura <span
-class="citation" data-cites="lin2026procedura">(Lin et al. 2026)</span>
-and EPICCAD <a href="#ref-yin2026epiccad" class="citation-link" title="[301] View in References">(Z. Yin
-et al. 2026)</a> formalize multi-part assembly constraints and
-industrial Siemens NX execution environments, while community workflows
-interface directly with SolidWorks (MecAgent) and CGM geometry
-kernels <a href="#ref-senet2026robotarm" class="citation-link" title="[225, 226, 266] View in References">(Senet
-2026a, 2026b; Varghese 2026)</a>.</p>
+et al. 2025)</a> guides conceptual CAD through conversational
+dialogue and visual inspection; ArtiCAD <a href="#ref-shui2026articad" class="citation-link" title="[231] View in References">(Shui et al. 2026)</a> orchestrates
+multi-agent code generation to assemble articulated mechanisms and
+export valid URDF models; Zero-to-CAD <a href="#ref-ataei2026zerotocad" class="citation-link" title="[17] View in References">(Ataei et al. 2026)</a> synthesizes
+millions of interpretable CAD programs from software documentation
+without human modeling traces; and Embodied CAD <a href="#ref-liu2026embodiedcad" class="citation-link" title="[149] View in References">(Liu et al. 2026)</a> employs
+solver-grounded LLM agents with typed geometric skills and B-rep kernel
+feedback. Benchmarks like Procedura <a href="#ref-lin2026procedura" class="citation-link" title="[146] View in References">(Lin et al. 2026)</a> and EPICCAD <span
+class="citation" data-cites="yin2026epiccad">(Z. Yin et al. 2026)</span>
+formalize multi-part assembly constraints and industrial Siemens NX
+execution environments, while community workflows interface directly
+with SolidWorks (MecAgent) and CGM geometry kernels <span
+class="citation"
+data-cites="senet2026robotarm senet2026turbojet varghese2026turbofan">(Senet
+2026a, 2026b; Varghese 2026)</span>.</p>
 <h4>Simulation-ready assets,
 articulation, and real-to-sim.</h4>
 <p>Transitioning from static visual geometry to interactive, physically
 grounded digital twins requires recovering kinematics, collision hulls,
 inertial tensors, and joint limits. Early pipelines focused on surface
-appearance reconstruction, whereas recent frameworks explicitly
-synthesize functional simulation assets. Real2Code <span
-class="citation" data-cites="mandi2024real2code">(Mandi et al.
-2024)</span> reconstructs articulated mechanisms from visual inputs by
-synthesizing executable kinematic Python code; URDFormer <span
-class="citation" data-cites="chen2024urdformer">(Chen et al.
-2024)</span> extracts articulated simulation environments (URDF) from
-single real-world images to support robotic manipulation; and
-Articulate-Anything <a href="#ref-le2024articulateanything" class="citation-link" title="[137] View in References">(Le et al. 2024)</a> deploys
-vision-language foundation models with iterative simulation feedback to
-produce interactive articulated digital assets across diverse object
-categories. In procedural infrastructure, Infinigen-Sim <span
-class="citation" data-cites="joshi2025infinigensim">(Joshi et al.
-2025)</span> generates physically plausible articulated simulation
-assets with procedural kinematics and material variations. Crucially,
-academic real-to-sim workflows demonstrate that visual fidelity is
-decoupled from dynamic utility: RialTo <a href="#ref-torne2024rialto" class="citation-link" title="[254] View in References">(Torne et al. 2024)</a> constructs
-real-to-sim digital twins from on-site scans to train robust
-manipulation policies that transfer back to the physical world, while
-ACDC <a href="#ref-dai2024acdc" class="citation-link" title="[45] View in References">(Dai et al.
-2024)</a> automates the creation of “digital cousins”—geometrically
-distinct but functionally equivalent articulated environments—to enhance
-policy generalization under real-world domain shifts. Expanding beyond
-passive objects, Text2Robot <a href="#ref-ringel2024text2robot" class="citation-link" title="[211] View in References">(Ringel et al. 2024)</a> links text
-prompts to evolutionary robot morphology and control co-design,
-integrating simulation-driven validation with physical fabrication
-constraints. Dou <a href="#ref-dou2026kitchentwin" class="citation-link" title="[55] View in References">(Dou 2026b)</a> operationalizes these
-principles in complex real-world kitchen environments, combining
-monocular video, metric-depth specialists, and agentic program
-generation to output articulated MJCF/URDF scenes.</p>
+appearance reconstruction, whereas recent frameworks synthesize
+functional simulation assets directly. Real2Code <a href="#ref-mandi2024real2code" class="citation-link" title="[161] View in References">(Mandi et al. 2024)</a> reconstructs
+articulated mechanisms from visual inputs by synthesizing executable
+kinematic Python code; URDFormer <a href="#ref-chen2024urdformer" class="citation-link" title="[38] View in References">(Chen et al. 2024)</a> extracts
+articulated simulation environments (URDF) from single real-world images
+to support robotic manipulation; and Articulate-Anything <span
+class="citation" data-cites="le2024articulateanything">(Le et al.
+2024)</span> deploys vision-language foundation models with iterative
+simulation feedback to produce interactive articulated digital assets
+across diverse object categories. In procedural asset generation,
+Infinigen-Sim <a href="#ref-joshi2025infinigensim" class="citation-link" title="[123] View in References">(Joshi et al. 2025)</a> generates
+physically plausible articulated simulation assets with procedural
+kinematics and material variations. Academic real-to-sim workflows
+demonstrate that visual fidelity is decoupled from dynamic utility:
+RialTo <a href="#ref-torne2024rialto" class="citation-link" title="[254] View in References">(Torne et al.
+2024)</a> constructs real-to-sim digital twins from on-site scans to
+train robust manipulation policies that transfer back to the physical
+world, while ACDC <a href="#ref-dai2024acdc" class="citation-link" title="[45] View in References">(Dai
+et al. 2024)</a> automates the creation of “digital cousins”
+(geometrically distinct but functionally equivalent articulated
+environments) to improve policy generalization under real-world domain
+shifts. Expanding beyond passive objects, Text2Robot <span
+class="citation" data-cites="ringel2024text2robot">(Ringel et al.
+2024)</span> links text prompts to evolutionary robot morphology and
+control co-design, integrating simulation-driven validation with
+physical fabrication constraints. Dou <a href="#ref-dou2026kitchentwin" class="citation-link" title="[55] View in References">(Dou 2026b)</a> applies this workflow
+to real kitchens, combining monocular video, metric-depth specialists,
+and agentic program generation to output articulated MJCF/URDF
+scenes.</p>
 <h4>Motion editing, character
 rigging, and animation-ready assets.</h4>
-<p>In computer animation and character authoring, bridging high-level
-artistic intent and low-level kinematic control has traditionally
-required tedious manual rigging, skinning, and keyframing. Recent works
-leverage generative models to streamline this pipeline. For motion
-authoring, MotionGPT <a href="#ref-jiang2023motiongpt" class="citation-link" title="[120] View in References">(Jiang et al. 2023)</a> frames 3D
-human motion as discrete tokens to enable unified motion generation,
-text description, and editing within a shared vocabulary; Iterative
-Motion Editing <a href="#ref-goel2023motionediting" class="citation-link" title="[84] View in References">(Goel et al. 2023)</a> employs
+<p>Computer animation requires converting artistic intent into kinematic
+control through skeletal rigging, skinning, and keyframing. Recent
+methods automate these steps through discrete motion tokens, code
+generation, and learned rigging. For motion authoring, MotionGPT <span
+class="citation" data-cites="jiang2023motiongpt">(Jiang et al.
+2023)</span> frames 3D human motion as discrete tokens to enable unified
+motion generation, text description, and editing within a shared
+vocabulary; Iterative Motion Editing <a href="#ref-goel2023motionediting" class="citation-link" title="[84] View in References">(Goel et al. 2023)</a> employs
 LLMs to decompose natural-language revision instructions into
 compositional motion modification operators and kinematic constraints,
 leaving detailed trajectory synthesis to specialist motion generators;
-and Code2Worlds <a href="#ref-zhang2026code2worlds" class="citation-link" title="[312] View in References">(Y. Zhang et al. 2026)</a> empowers
+and Code2Worlds <a href="#ref-zhang2026code2worlds" class="citation-link" title="[312] View in References">(Y. Zhang et al. 2026)</a> prompts
 coding LLMs to generate dynamic 4D scenes with physical motion
 trajectories and automated motion evaluation. For structural asset
 preparation, Make-It-Animatable <a href="#ref-guo2024makeitanimatable" class="citation-link" title="[97] View in References">(Guo et al. 2024)</a> automates
 character rigging from raw meshes by predicting skeleton topologies and
 volumetric skinning weights, while UniRig <a href="#ref-zhang2025unirig" class="citation-link" title="[308] View in References">(Zhang et al. 2025)</a> establishes a
-unified framework for rigging diverse, non-humanoid skeletal topologies.
+unified model for rigging diverse, non-humanoid skeletal topologies.
 Bridging kinematic animation and physically simulated control,
 CLoSD <a href="#ref-tevet2024closd" class="citation-link" title="[248] View in References">(Tevet et al.
 2024)</a> closes the loop between kinematic motion diffusion models
@@ -738,10 +707,9 @@ character motions satisfy dynamic balance, gravity, and contact
 constraints in simulation.</p>
 <h4>Language-guided robot
 planning, perception, and execution.</h4>
-<p>Robotics has seen a rapid convergence between foundation models and
-physical interaction, organized across two main architectural paradigms:
+<p>Robot control using foundation models follows two main architectures:
 modular planning with external control primitives, and direct
-vision-language-action (VLA) mapping. In modular systems, early works
+vision-language-action (VLA) models. In modular systems, early works
 established language grounding via affordance-guided selection
 (SayCan <a href="#ref-ahn2022saycan" class="citation-link" title="[5] View in References">(Ahn et al.
 2022)</a>), closed-loop perceptual and environmental feedback (Inner
@@ -760,21 +728,21 @@ on 2D images; ReKep <a href="#ref-huang2024rekep" class="citation-link" title="
 models to write relational keypoint constraints as Python code, solved
 reactively by numerical optimization; and Agent as Policy <span
 class="citation" data-cites="jia2026agentaspolicy">(Jia et al.
-2026)</span> demonstrates that generalist LLM agents can directly serve
-as runtime closed-loop manipulation policies by generating, executing,
-and recursively debugging subroutines from visual observations. Recent
+2026)</span> demonstrates that generalist LLM agents can act as runtime
+closed-loop manipulation policies by generating, executing, and
+recursively debugging subroutines from visual observations. Recent
 community and benchmark workflows like ENPIRE and Inspect Robots adopt
 similar divisions of labor, using frontier models to identify target
 end-effector coordinates while delegating trajectory interpolation and
 inverse kinematics to local motion planners <a href="#ref-zhang2026enpirereply" class="citation-link" title="[309, 40, 311] View in References">(Zhang
 2026a; Chooi 2026a; W. Zhang et al. 2026)</a>. In parallel,
-end-to-end VLA models—such as PaLM-E <a href="#ref-driess2023palme" class="citation-link" title="[58] View in References">(Driess et al. 2023)</a>, RT-2 <span
+end-to-end VLA models (e.g., PaLM-E <a href="#ref-driess2023palme" class="citation-link" title="[58] View in References">(Driess et al. 2023)</a>, RT-2 <span
 class="citation" data-cites="brohan2023rt2">(Brohan et al. 2023)</span>,
 OpenVLA <a href="#ref-kim2024openvla" class="citation-link" title="[131] View in References">(Kim et al.
 2024)</a>, <span
 class="math inline"><em>π</em><sub>0.5</sub></span> <span
 class="citation" data-cites="pi2025pi05">(Physical Intelligence et al.
-2025)</span>, and MolmoAct2 <a href="#ref-fang2026molmoact2" class="citation-link" title="[65] View in References">(Fang et al. 2026)</a>—directly map
+2025)</span>, and MolmoAct2 <a href="#ref-fang2026molmoact2" class="citation-link" title="[65] View in References">(Fang et al. 2026)</a>) directly map
 multimodal observations to low-level motor commands. Hybrid frameworks
 combine the strengths of both, deploying frontier models as supervisory
 verifiers over high-frequency motor policies (Su et al. <span
@@ -782,17 +750,15 @@ class="citation" data-cites="su2026gptaspolicy">(Su et al.
 2026)</span>).</p>
 <h4>Automating robot learning
 via offline rewards and synthetic environments.</h4>
-<p>Beyond acting as real-time planners, foundation models increasingly
-serve as autonomous environment and policy engineers during offline
-training. Eureka <a href="#ref-ma2024eureka" class="citation-link" title="[155] View in References">(Ma,
-Liang, G. Wang, et al. 2024)</a> pioneered LLM-driven evolutionary
-reward authoring, synthesizing reward functions for reinforcement
-learning across complex dexterity benchmarks; DrEureka <span
-class="citation" data-cites="ma2024dreureka">(Ma, Liang, H.-J. Wang, et
-al. 2024)</span> extends this paradigm by jointly generating reward
-functions and domain randomization configurations, enabling zero-shot
-sim-to-real transfer on physical quadruped locomotion and manipulation
-platforms; and Text2Reward <a href="#ref-xie2023text2reward" class="citation-link" title="[287] View in References">(Xie et al. 2023)</a> generates
+<p>Beyond acting as real-time planners, foundation models generate
+simulation environments and training curricula offline. Eureka <span
+class="citation" data-cites="ma2024eureka">(Ma, Liang, G. Wang, et al.
+2024)</span> introduced evolutionary reward search with LLMs,
+synthesizing reward functions for reinforcement learning across
+dexterity benchmarks; DrEureka <a href="#ref-ma2024dreureka" class="citation-link" title="[156] View in References">(Ma, Liang, H.-J. Wang, et al. 2024)</a>
+adds domain randomization configurations, enabling zero-shot sim-to-real
+transfer on physical quadruped locomotion and manipulation platforms;
+and Text2Reward <a href="#ref-xie2023text2reward" class="citation-link" title="[287] View in References">(Xie et al. 2023)</a> generates
 dense, executable reward scripts optimized through execution feedback in
 physics simulators. Simultaneously, foundation models automate the
 construction of synthetic training data and environments: Gen2Sim <span
@@ -801,46 +767,37 @@ class="citation" data-cites="katara2023gen2sim">(Katara et al.
 assets and task variations; RoboGen <a href="#ref-wang2023robogen" class="citation-link" title="[273] View in References">(Wang et al. 2023)</a> orchestrates
 generative simulation into an autonomous loop that proposes tasks,
 generates assets, and verifies policy training curricula without human
-intervention; and GenSim2 <a href="#ref-hua2024gensim2" class="citation-link" title="[107] View in References">(Hua et al. 2024)</a> leverages
-multimodal and reasoning LLMs to scale simulation environments and
-demonstration data generation across articulated, multi-stage
-manipulation tasks. Across these pipelines, foundation models act as
-offline software engineers, configuring simulation environments and
-optimizing objective functions rather than directly issuing low-level
-joint torques during physical execution <a href="#ref-zhu2026penspinning" class="citation-link" title="[314, 311, 85] View in References">(Zhu
+intervention; and GenSim2 <a href="#ref-hua2024gensim2" class="citation-link" title="[107] View in References">(Hua et al. 2024)</a> uses multimodal
+LLMs to scale simulation environments and demonstration data generation
+across articulated, multi-stage manipulation tasks. Across these
+pipelines, foundation models configure simulation environments and
+optimize objective functions rather than issuing low-level joint torques
+during physical execution <a href="#ref-zhu2026penspinning" class="citation-link" title="[314, 311, 85] View in References">(Zhu
 2026a; W. Zhang et al. 2026; Goldberg 2026a)</a>.</p>
 <h4>Program representations,
 tool foundations, and relation to prior surveys.</h4>
-<p>Underpinning these workflows is a deep legacy of neurosymbolic
-representations and procedural graphics engines. Early neurosymbolic
-research established domain-specific languages (DSLs) for 3D shape
-structure, including ShapeAssembly <a href="#ref-jones2020shapeassembly" class="citation-link" title="[121] View in References">(Jones et al. 2020)</a> for
+<p>These workflows build on neurosymbolic representations and procedural
+graphics engines. Early neurosymbolic research established
+domain-specific languages (DSLs) for 3D shape structure, including
+ShapeAssembly <a href="#ref-jones2020shapeassembly" class="citation-link" title="[121] View in References">(Jones et al. 2020)</a> for
 hierarchical part synthesis and ShapeCoder <a href="#ref-jones2023shapecoder" class="citation-link" title="[122] View in References">(Jones et al. 2023)</a> for
 automated procedural abstraction discovery. Procedural graphics
 frameworks such as Infinigen <a href="#ref-raistrick2023infinigen" class="citation-link" title="[200] View in References">(Raistrick et al. 2023)</a> and
 Infinigen Indoors <a href="#ref-raistrick2024infinigenindoors" class="citation-link" title="[201] View in References">(Raistrick et al.
-2024)</a> provide rich mathematical primitives, material physics, and
-constraint satisfaction solvers that supply the underlying geometric
-intelligence for downstream foundation model agents. Prior surveys have
-addressed related domains from narrower vantage points: Ritchie et
-al. <a href="#ref-ritchie2023neurosymbolic" class="citation-link" title="[212] View in References">(Ritchie et al. 2023)</a>
-systematically surveyed neurosymbolic models in computer graphics,
-focusing on specialized DSLs and learned program synthesis; while Ye et
-al. <a href="#ref-ye2026survey3dembodied" class="citation-link" title="[298] View in References">(Ye et
-al. 2026)</a> surveyed 3D generative techniques tailored for embodied
-AI assets and simulation environments. This survey differs fundamentally
-in scope and focus: rather than examining domain-specific procedural
-models in isolation or treating generative 3D as an end in itself, we
-investigate the recent emergence of un-fine-tuned <em>frontier
-foundation models</em> operating as general-purpose agents across
-production software ecosystems—spanning parametric CAD kernels
-(SolidWorks, FreeCAD, CGM, Siemens NX), 3D animation suites (Blender,
-WebGL), and robotic physics simulators (Isaac Sim, MuJoCo, ROS2). We
-provide a unified system-level attribution framework that dissects the
-division of labor between model reasoning, software execution harnesses,
-specialist optimizers, and physical validation, bridging controlled
-academic benchmarks with large-scale empirical evidence from real-world
-practitioner adoption.</p>
+2024)</a> provide geometric primitives, material physics, and
+constraint satisfaction solvers that downstream agents call via code.
+Prior surveys focus on specific subfields: Ritchie et al. <span
+class="citation" data-cites="ritchie2023neurosymbolic">(Ritchie et al.
+2023)</span> reviewed neurosymbolic graphics models and learned program
+synthesis, while Ye et al. <a href="#ref-ye2026survey3dembodied" class="citation-link" title="[298] View in References">(Ye et al. 2026)</a> surveyed 3D
+asset generation for embodied AI simulation. Our survey focuses on
+un-fine-tuned frontier models deployed as general-purpose agents across
+production software: parametric CAD kernels (SolidWorks, FreeCAD, CGM,
+Siemens NX), animation suites (Blender, WebGL), and physics simulators
+(Isaac Sim, MuJoCo, ROS2). We evaluate system attribution by separating
+model decisions from execution harnesses, external solvers, and physical
+validation checks, comparing benchmark metrics with public practitioner
+workflows.</p>
 
     <figure class="academic-figure figure-main" id="fig:roadmap">
       <div class="figure-img-wrap">
