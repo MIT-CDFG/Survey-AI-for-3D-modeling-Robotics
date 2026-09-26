@@ -1278,7 +1278,7 @@ DOMAINS_CONFIG = [
         "badge": "Domain 01",
         "title": "3D Modeling & Spatial Synthesis",
         "short_title": "3D Modeling",
-        "desc": "93 community and research showcases exploring automated asset generation, architectural reconstruction, character and material synthesis, world-building, and generative 3D workflows.",
+        "desc": "{count} community and research showcases exploring automated asset generation, architectural reconstruction, character and material synthesis, world-building, and generative 3D workflows.",
         "sub_short_names": {
             "Architecture and real-world reconstruction": "Architecture & Recon",
             "Vehicles, products and environments": "Vehicles & Environments",
@@ -1292,7 +1292,7 @@ DOMAINS_CONFIG = [
         "badge": "Domain 02",
         "title": "Industrial Design & Parametric CAD",
         "short_title": "Industrial Design & CAD",
-        "desc": "19 archived showcases covering B-rep solid modeling, feature trees, industrial design drafting, and algorithmic CAD kernel execution.",
+        "desc": "{count} archived showcases covering B-rep solid modeling, feature trees, industrial design drafting, and algorithmic CAD kernel execution.",
         "sub_short_names": {
             "Parametric CAD and solid modeling": "Parametric Solid Modeling",
             "Product design and prototypes": "Product Design & Prototypes",
@@ -1304,7 +1304,7 @@ DOMAINS_CONFIG = [
         "badge": "Domain 03",
         "title": "Embodied Robotics & Physical Interaction",
         "short_title": "Embodied Robotics",
-        "desc": "33 archived showcases spanning high-precision manipulation, dexterous multi-finger hands, real-to-sim transfer, physics simulation control, and physical safety evaluations.",
+        "desc": "{count} archived showcases spanning high-precision manipulation, dexterous multi-finger hands, real-to-sim transfer, physics simulation control, and physical safety evaluations.",
         "sub_short_names": {
             "Manipulation evaluations": "Manipulation Evaluations",
             "Personal arms, dexterous hands and unseen robots": "Dexterous Arms & Hands",
@@ -1318,7 +1318,7 @@ DOMAINS_CONFIG = [
         "badge": "Domain 04",
         "title": "Animation & Motion Dynamics",
         "short_title": "Animation",
-        "desc": "27 archived showcases focusing on character rigging, procedural motion graphics, interactive shaders, and animation-to-video previsualization workflows.",
+        "desc": "{count} archived showcases focusing on character rigging, procedural motion graphics, interactive shaders, and animation-to-video previsualization workflows.",
         "sub_short_names": {
             "Rigging and character animation": "Rigging & Character Motion",
             "Procedural animation and motion graphics": "Procedural Motion Graphics",
@@ -1500,7 +1500,7 @@ def build_gallery_sidebar_html(gallery_items):
       <div class="sidebar-extra-section" style="margin-top: 1.25rem; padding-top: 0.85rem; border-top: 1px solid var(--border-subtle);">
         <a href="#benchmarks" class="sidebar-domain-head" onclick="switchView('view-stats', false); setTimeout(function(){ var el = document.getElementById('benchmarks-section') || document.getElementById('view-stats'); if(el) el.scrollIntoView({behavior:'smooth'}); }, 100); return false;" style="color: var(--mit-red); display: flex; align-items: center; justify-content: space-between; text-decoration: none; font-weight: 600;">
           <span>Quantitative Benchmarks ↗</span>
-          <span class="sidebar-domain-count">22 Suites</span>
+          <span class="sidebar-domain-count">30 Suites</span>
         </a>
       </div>
     </aside>
@@ -1519,9 +1519,9 @@ def build_gallery_sections_html(gallery_items):
         d_id = d_cfg['id']
         d_badge = d_cfg['badge']
         d_title = d_cfg['title']
-        d_desc = d_cfg['desc']
         sub_dict = grouped.get(d_id, {})
         d_total = sum(len(items) for items in sub_dict.values())
+        d_desc = d_cfg['desc'].format(count=d_total)
 
         html.append(f'''
         <section class="gallery-domain-section" id="domain-{d_id}" data-domain="{d_id}">
@@ -1599,7 +1599,7 @@ def build_full_html():
 
     hero_pdf_pill = f'''<a href="assets/paper.pdf" class="pill-btn primary" download="Frontier_3D_Robotics_Paper_MIT.pdf">
             {ICON_DOWNLOAD}
-            <span>Download PDF (76pp)</span>
+            <span>Download PDF (85pp)</span>
           </a>''' if ENABLE_PDF_DOWNLOAD else ''
 
     hero_read_pill_class = "pill-btn" if ENABLE_PDF_DOWNLOAD else "pill-btn primary"
@@ -1613,7 +1613,7 @@ def build_full_html():
         <div class="pdf-download-bar">
           <div>
             <strong>Frontier_3D_Robotics_Paper_MIT.pdf</strong>
-            <span style="color: var(--ink-muted); margin-left: 0.5rem;">(76 Pages · Complete Survey Draft)</span>
+            <span style="color: var(--ink-muted); margin-left: 0.5rem;">(85 Pages · Complete Survey Draft)</span>
           </div>
           <a href="assets/paper.pdf" download="Frontier_3D_Robotics_Paper_MIT.pdf" class="btn-pill btn-pill-primary">
             {ICON_DOWNLOAD}
@@ -1812,7 +1812,7 @@ def build_full_html():
               </div>
               <div class="pillar-tagline">Demonstrations as a Distributed User Study</div>
               <p>
-                Rather than treating community posts as anecdotal marketing demonstrations, we analyze the corpus of over 270 publicly documented showcases and developer reports as an extensive, distributed "crowdsourced user study." This framing captures how models operate when prompted across diverse geometry kernels (CGM, Open CASCADE), DCC software (Blender), physics simulators (Isaac Sim, MuJoCo, Genesis), and physical robot hardware—revealing real-world workflow friction, prompt overhead, and boundary failures that static benchmarks miss.
+                Rather than treating community posts as anecdotal marketing demonstrations, we analyze the corpus of over 285 publicly documented showcases and developer reports as an extensive, distributed "crowdsourced user study." This framing captures how models operate when prompted across diverse geometry kernels (CGM, Open CASCADE), DCC software (Blender), physics simulators (Isaac Sim, MuJoCo, Genesis), and physical robot hardware—revealing real-world workflow friction, prompt overhead, and boundary failures that static benchmarks miss.
               </p>
             </div>
 
@@ -1923,28 +1923,28 @@ def build_full_html():
               <td><strong>3D Scene &amp; Mesh Modeling</strong></td>
               <td>{m_count} Showcases</td>
               <td>{(m_count / total_count * 100):.1f}%</td>
-              <td>Procedural Blender scripts, NeRF/3DGS representations, architectural scans (M01–M88)</td>
+              <td>Procedural Blender scripts, NeRF/3DGS representations, architectural scans (M01–M108)</td>
               <td><span class="badge-tier tier-1">Tier 1 &amp; 2 (Established / Partial)</span></td>
             </tr>
             <tr>
               <td><strong>Industrial Design &amp; Parametric CAD</strong></td>
               <td>{cad_count} Showcases</td>
               <td>{(cad_count / total_count * 100):.1f}%</td>
-              <td>FreeCAD / SolidWorks / Onshape feature trees, 511-solid turbofan assembly (I01–I19)</td>
+              <td>FreeCAD / SolidWorks / Onshape feature trees, 511-solid turbofan assembly (I01–I25)</td>
               <td><span class="badge-tier tier-2">Tier 2 (Code Verified; DFM Pending)</span></td>
             </tr>
             <tr>
               <td><strong>Embodied Robot Control</strong></td>
               <td>{robot_count} Showcases</td>
               <td>{(robot_count / total_count * 100):.1f}%</td>
-              <td>Isaac Sim / MuJoCo controllers, SO-101 desktop manipulation, bimanual piano (R01–R32)</td>
+              <td>Isaac Sim / MuJoCo controllers, SO-101 desktop manipulation, bimanual piano (R01–R39)</td>
               <td><span class="badge-tier tier-2">Tier 2 &amp; 4 (Simulation Parity; Latency Bound)</span></td>
             </tr>
             <tr>
               <td><strong>Animation &amp; Dynamic Workflows</strong></td>
               <td>{anim_count} Showcases</td>
               <td>{(anim_count / total_count * 100):.1f}%</td>
-              <td>Character rigging, procedural motion graphics, interactive shaders, previs (A01–A09, M20–M83)</td>
+              <td>Character rigging, procedural motion graphics, interactive shaders, previs (A01–A20, M20–M83)</td>
               <td><span class="badge-tier tier-1">Tier 1 &amp; 3 (Interactive / Video Previs)</span></td>
             </tr>
           </tbody>
