@@ -471,9 +471,9 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
     <section class="appendix-section" id="app:cases">
       <h1 class="appendix-heading"><span class="header-section-number">Appendix C ·</span> Index of archived posts</h1>
       <p><a href="#tab:index" class="academic-ref-link">Table 7</a> lists the core catalog of archived community posts in source-list order, systematically classified under our <strong>Evidence Ranking &amp; Reproducibility Hierarchy</strong> across three audit tiers:
-      <strong>Rank 1 (Full Reproducibility · Demo + Implementation Code, 21 groups)</strong>,
+      <strong>Rank 1 (Full Reproducibility · Demo + Implementation Code, 30 groups)</strong>,
       <strong>Rank 2 (Interactive Verification · Demo + Interactive Web Link, 16 groups)</strong>, and
-      <strong>Rank 3 (Demonstration Only · Recorded Media Only, 164 groups)</strong>.
+      <strong>Rank 3 (Demonstration Only · Recorded Media Only, 168 groups)</strong>.
       The third column, Type, designates the post role: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. The Code / Demo column provides direct links to verified code repositories or interactive web applications where released.</p>
 
       <div class="gallery-callout-panel">
@@ -1179,6 +1179,7 @@ def convert_paper_html(bib_urls=None):
         out = out.replace(token, rep)
 
     # Ensure References heading and numbered references list
+    refs_heading = ""
     if '<div id="refs"' in out:
         ref_matches = list(re.finditer(r'<div id="(ref-[^"]+)" class="csl-entry"[^>]*>', out))
         num_refs = len(ref_matches)
@@ -1191,7 +1192,6 @@ def convert_paper_html(bib_urls=None):
             cite_map[full_id] = i
 
         refs_heading = f'<h1 class="unnumbered" id="references">References <span class="ref-count-badge">{num_refs} Citations</span></h1>\n'
-        out = out.replace('<div id="refs"', refs_heading + '<div id="refs"')
 
         ref_counter = 0
         def add_ref_number(match):
@@ -1256,12 +1256,14 @@ def convert_paper_html(bib_urls=None):
 
         out = "".join(res)
         
-    # Append Appendix C before References
+    # Append Appendix C before References, followed by References heading immediately preceding <div id="refs"
     appendix_c_html = build_appendix_c_html(bib_urls)
     if '<div id="refs"' in out:
-        out = out.replace('<div id="refs"', appendix_c_html + '\n\n<div id="refs"')
+        out = out.replace('<div id="refs"', appendix_c_html + '\n\n' + refs_heading + '<div id="refs"')
     else:
         out += "\n\n" + appendix_c_html
+        if refs_heading:
+            out += "\n\n" + refs_heading
 
     # Enhance academic tables to full-width responsive cards with top captions
     out = enhance_academic_tables(out)
