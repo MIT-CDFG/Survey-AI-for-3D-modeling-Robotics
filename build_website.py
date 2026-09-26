@@ -364,22 +364,27 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
     rows = []
     index_path = os.path.join(WORKSPACE, "sec/a_case_index.tex")
     
-    rank1_gids = {"M28", "M42", "M48", "R01", "R03", "R04", "R07", "R08", "R13", "R14", "R18", "R29", "R30"}
-    rank2_gids = {"I01", "I09", "M29", "M36", "M44", "M50", "M63", "M64", "M75", "M76", "M78", "M82"}
+    rank1_gids = {"A01", "A15", "I08", "I13", "M28", "M29", "M42", "M48", "M103", "R01", "R03", "R04", "R07", "R08", "R13", "R14", "R16", "R18", "R30", "R33", "R34", "R37"}
+    rank2_gids = {"A03", "A07", "I01", "I09", "I20", "M04", "M24", "M25", "M29", "M32", "M36", "M44", "M50", "M51", "M54", "M74", "M75", "M76", "M78", "M82", "M101", "R20", "R27", "X16"}
     extra_code_urls = {
         "M28": "https://github.com/emollick/abyssal-living-deep",
         "M42": "https://github.com/per-simmons/blender-production",
         "M48": "https://github.com/openretriever/retriever",
+        "M103": "https://github.com/mike007jd/voxel-musou",
+        "I08": "https://github.com/earthtojake/text-to-cad/tree/main/models/tendon_hand",
         "R01": "https://github.com/robocurve/inspect-robots",
         "R03": "https://github.com/NVlabs/ENPIRE",
         "R04": "https://github.com/robocurve/stationerybench",
         "R07": "https://github.com/RoboDojo-Benchmark/RoboDojo",
-        "R08": "https://github.com/huggingface/lerobot",
+        "R08": "https://github.com/openai/inspect-robots",
         "R13": "https://github.com/robocurve/roboharm",
         "R14": "https://github.com/allenai/molmoact2/tree/main/sim_eval",
         "R18": "https://github.com/Hu-xiao-max/dexgpt",
         "R29": "https://github.com/anonymous-report-421/GPT-as-Policy",
         "R30": "https://github.com/nftechie/misalignment/tree/main/experiments/001",
+        "R34": "https://github.com/EmbodiedSWE/EmbodiedSWE",
+        "R37": "https://github.com/robocurve/inspect-robots",
+        "A15": "https://github.com/sevenevesai/riso-windowseat",
     }
     
     if os.path.exists(index_path):
@@ -466,9 +471,9 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
     <section class="appendix-section" id="app:cases">
       <h1 class="appendix-heading"><span class="header-section-number">Appendix C ·</span> Index of archived posts</h1>
       <p><a href="#tab:index" class="academic-ref-link">Table 7</a> lists the core catalog of archived community posts in source-list order, systematically classified under our <strong>Evidence Ranking &amp; Reproducibility Hierarchy</strong> across three audit tiers:
-      <strong>Rank 1 (Full Reproducibility · Demo + Implementation Code, 16 groups)</strong>,
-      <strong>Rank 2 (Interactive Verification · Demo + Interactive Web Link, 14 groups)</strong>, and
-      <strong>Rank 3 (Demonstration Only · Recorded Media Only, 152 groups)</strong>.
+      <strong>Rank 1 (Full Reproducibility · Demo + Implementation Code, 21 groups)</strong>,
+      <strong>Rank 2 (Interactive Verification · Demo + Interactive Web Link, 16 groups)</strong>, and
+      <strong>Rank 3 (Demonstration Only · Recorded Media Only, 164 groups)</strong>.
       The third column, Type, designates the post role: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. The Code / Demo column provides direct links to verified code repositories or interactive web applications where released.</p>
 
       <div class="gallery-callout-panel">
@@ -488,7 +493,7 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
       </div>
 
       <div class="academic-table-card" id="tab:index">
-        <div class="table-caption"><strong>Table 7: Index of archived posts, classified by Evidence Ranking.</strong> Type: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. Total 236 records spanning 182 archival groups across the living survey.</div>
+        <div class="table-caption"><strong>Table 7: Index of archived posts, classified by Evidence Ranking.</strong> Type: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. Total 261 records spanning 201 archival groups across the living survey.</div>
         <div class="table-scroll-container">
           <table class="academic-table post-index-table">
             <thead>
@@ -605,6 +610,8 @@ def get_gallery_items(cases, readme_text=None):
                     platform = "LinkedIn"
                 elif "youtube.com" in source_url or "youtu.be" in source_url:
                     platform = "YouTube"
+                elif "reddit.com" in source_url:
+                    platform = "Reddit"
                 elif "x.com" in source_url or "twitter.com" in source_url:
                     platform = "X"
                     
@@ -690,12 +697,12 @@ def get_gallery_items(cases, readme_text=None):
                     
                 # Image handling
                 local_img = f"assets/gallery/{cid.lower()}.jpg"
-                if os.path.exists(os.path.join(WEBSITE_DIR, local_img)):
+                if cid.lower() != "i05" and os.path.exists(os.path.join(WEBSITE_DIR, local_img)):
                     display_img = local_img
-                elif rel_img:
+                elif rel_img and cid.lower() != "i05":
                     display_img = RAW_GITHUB_PAGES + rel_img
                 else:
-                    display_img = "assets/gallery/m01.jpg"
+                    display_img = ""
                     
                 remote_fallback_img = RAW_GITHUB_PAGES + rel_img if rel_img else display_img
                 
@@ -822,7 +829,7 @@ def build_benchmarks_section_html(readme_text):
           </p>
 
           <h4 style="font-family: var(--font-sans); font-size: 1.05rem; font-weight: 700; color: var(--ink-primary); margin: 1.5rem 0 0.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
-            <span>2.1 Robotics &amp; Embodied Control Evaluations (17 Benchmark Suites)</span>
+            <span>2.1 Robotics &amp; Embodied Control Evaluations (21 Benchmark Suites)</span>
             <span style="font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 4px; background: #e0f2fe; color: #0369a1;">Isaac Sim · MuJoCo · Real Hardware</span>
           </h4>
           <div class="table-container" style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 2rem;">
@@ -830,7 +837,7 @@ def build_benchmarks_section_html(readme_text):
           </div>
 
           <h4 style="font-family: var(--font-sans); font-size: 1.05rem; font-weight: 700; color: var(--ink-primary); margin: 2.25rem 0 0.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
-            <span>2.2 3D Reconstruction, CAD &amp; Spatial Intelligence (5 Benchmark Suites)</span>
+            <span>2.2 3D Reconstruction, CAD &amp; Spatial Intelligence (7 Benchmark Suites)</span>
             <span style="font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 4px; background: #fef3c7; color: #b45309;">CadQuery · B-rep · Spatial VQA</span>
           </h4>
           <div class="table-container" style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 2rem;">
@@ -1400,16 +1407,30 @@ def render_tile_html(item):
     rel_img_val = item.get('rel_img', '')
     onerror_attr = f' onerror="if(this.src.indexOf(\\\'frank-zy-dou.github.io\\\')===-1 && \\\'{rel_img_val}\\\'){{this.src=\\\'{remote_fallback}\\\';}}"' if rel_img_val else ''
 
-    return f"""
-    <div class="gallery-tile {domain_class} {rank_class}" data-domain="{item['domain']}" data-rank="{item['rank']}" data-rank-num="{item['rank_num']}" data-order="{item['order_index']}" data-id="{item['id']}" data-author="{item['author']}" data-desc="{item['title']} {item['desc']}">
-      <div class="tile-img-wrap" onclick="{onclick_js}">
+    if item['img_url']:
+        media_wrap_html = f"""<div class="tile-img-wrap" onclick="{onclick_js}">
         <img src="{item['img_url']}" alt="{item['id']}" loading="lazy"{onerror_attr}>
         <div class="tile-badges-overlay">
           <span class="tile-badge-id">{item['id']}</span>
           <span class="tile-badge-rank {item['rank']}">{item['rank_label']}</span>
         </div>
         {video_badge}
-      </div>
+      </div>"""
+    else:
+        media_wrap_html = f"""<div class="tile-img-wrap tile-img-text-only" onclick="{onclick_js}">
+        <div class="tile-text-only-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;margin-bottom:6px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span style="font-size:0.75rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-muted,#888);">Text Commentary Only</span>
+        </div>
+        <div class="tile-badges-overlay">
+          <span class="tile-badge-id">{item['id']}</span>
+          <span class="tile-badge-rank {item['rank']}">{item['rank_label']}</span>
+        </div>
+      </div>"""
+
+    return f"""
+    <div class="gallery-tile {domain_class} {rank_class}" data-domain="{item['domain']}" data-rank="{item['rank']}" data-rank-num="{item['rank_num']}" data-order="{item['order_index']}" data-id="{item['id']}" data-author="{item['author']}" data-desc="{item['title']} {item['desc']}">
+      {media_wrap_html}
       <div class="tile-meta">
         <div class="tile-author">{author_html}</div>
         <div class="tile-desc">{desc_html}</div>
@@ -1628,7 +1649,7 @@ def build_full_html():
   <meta name="citation_publication_date" content="2026/09/22">
   {meta_pdf_citation}
   
-  <meta name="description" content="A systematic empirical survey analyzing over 236 community demonstrations, technical reports, and benchmark evaluations of frontier multimodal models in 3D modeling, parametric CAD, and embodied robotics.">
+  <meta name="description" content="A systematic empirical survey analyzing over 261 community demonstrations, technical reports, and benchmark evaluations of frontier multimodal models in 3D modeling, parametric CAD, and embodied robotics.">
 
   <!-- Cloudflare Web Analytics (Optional: paste beacon token from dash.cloudflare.com) -->
   <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "YOUR_CLOUDFLARE_BEACON_TOKEN"}}'></script> -->
@@ -1789,7 +1810,7 @@ def build_full_html():
               </div>
               <div class="pillar-tagline">Demonstrations as a Distributed User Study</div>
               <p>
-                Rather than treating community posts as anecdotal marketing demonstrations, we analyze the corpus of over 236 publicly documented showcases and developer reports as an extensive, distributed "crowdsourced user study." This framing captures how models operate when prompted across diverse geometry kernels (CGM, Open CASCADE), DCC software (Blender), physics simulators (Isaac Sim, MuJoCo, Genesis), and physical robot hardware—revealing real-world workflow friction, prompt overhead, and boundary failures that static benchmarks miss.
+                Rather than treating community posts as anecdotal marketing demonstrations, we analyze the corpus of over 261 publicly documented showcases and developer reports as an extensive, distributed "crowdsourced user study." This framing captures how models operate when prompted across diverse geometry kernels (CGM, Open CASCADE), DCC software (Blender), physics simulators (Isaac Sim, MuJoCo, Genesis), and physical robot hardware—revealing real-world workflow friction, prompt overhead, and boundary failures that static benchmarks miss.
               </p>
             </div>
 
@@ -1852,7 +1873,7 @@ def build_full_html():
       <div class="stats-container">
         <h2 class="panel-section-title">Empirical Benchmark & Corpus Statistics Dashboard</h2>
         <p class="panel-section-desc">
-          A systematic quantitative synthesis summarizing empirical evaluations across 236+ community reports, an evidentiary classification matrix, and standardized benchmark comparisons in 3D reconstruction, parametric CAD, and embodied robotics.
+          A systematic quantitative synthesis summarizing empirical evaluations across 261+ community reports, an evidentiary classification matrix, and standardized benchmark comparisons in 3D reconstruction, parametric CAD, and embodied robotics.
         </p>
 
         <!-- Metric Summary Cards -->
