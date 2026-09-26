@@ -493,7 +493,7 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
       </div>
 
       <div class="academic-table-card" id="tab:index">
-        <div class="table-caption"><strong>Table 7: Index of archived posts, classified by Evidence Ranking.</strong> Type: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. Total 270 records spanning 206 archival groups across the living survey.</div>
+        <div class="table-caption"><strong>Table 7: Index of archived posts, classified by Evidence Ranking.</strong> Type: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. Total 285 records spanning 214 archival groups across the living survey.</div>
         <div class="table-scroll-container">
           <table class="academic-table post-index-table">
             <thead>
@@ -1649,7 +1649,7 @@ def build_full_html():
   <meta name="citation_publication_date" content="2026/09/22">
   {meta_pdf_citation}
   
-  <meta name="description" content="A systematic empirical survey analyzing over 270 community demonstrations, technical reports, and benchmark evaluations of frontier multimodal models in 3D modeling, parametric CAD, and embodied robotics.">
+  <meta name="description" content="A systematic empirical survey analyzing over 285 community demonstrations, technical reports, and benchmark evaluations of frontier multimodal models in 3D modeling, parametric CAD, and embodied robotics.">
 
   <!-- Cloudflare Web Analytics (Optional: paste beacon token from dash.cloudflare.com) -->
   <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "YOUR_CLOUDFLARE_BEACON_TOKEN"}}'></script> -->
@@ -1873,7 +1873,7 @@ def build_full_html():
       <div class="stats-container">
         <h2 class="panel-section-title">Empirical Benchmark & Corpus Statistics Dashboard</h2>
         <p class="panel-section-desc">
-          A systematic quantitative synthesis summarizing empirical evaluations across 270+ community reports, an evidentiary classification matrix, and standardized benchmark comparisons in 3D reconstruction, parametric CAD, and embodied robotics.
+          A systematic quantitative synthesis summarizing empirical evaluations across 285+ community reports, an evidentiary classification matrix, and standardized benchmark comparisons in 3D reconstruction, parametric CAD, and embodied robotics.
         </p>
 
         <!-- Metric Summary Cards -->

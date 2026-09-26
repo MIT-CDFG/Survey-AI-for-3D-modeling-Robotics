@@ -51,6 +51,31 @@
   },
   {
     "order_index": 2,
+    "id": "M74",
+    "domain": "3d",
+    "subsection": "Architecture and real-world reconstruction",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "Pia\u021ba Unirii voxel worlds: Astra and Fable compared",
+    "author": "Dan Manastireanu (@danmana)",
+    "source_url": "https://x.com/danmana/status/2096262733259837681",
+    "platform": "X",
+    "desc": "Pia\u021ba Unirii voxel worlds: Astra and Fable compared",
+    "img_url": "assets/gallery/m74.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m74-piata-unirii-voxel-dan-manastireanu.jpg",
+    "rel_img": "assets/images/m74-piata-unirii-voxel-dan-manastireanu.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m74-piata-unirii-voxel-dan-manastireanu.mp4",
+    "code_url": "https://github.com/danmana/piata-unirii",
+    "code_label": "danmana/piata-unirii",
+    "demo_url": "https://piata-unirii.vercel.app/runs/gpt-astra-xhigh-01/index.html",
+    "demo_label": "Piata Unirii miniature",
+    "model": "Multi-model (GPT-6 Astra and Claude Fable 5.1)",
+    "tools": "browser voxel worlds"
+  },
+  {
+    "order_index": 3,
     "id": "M104",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -75,7 +100,7 @@
     "tools": "Codex; Unreal Engine 5.8"
   },
   {
-    "order_index": 3,
+    "order_index": 4,
     "id": "M32",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -100,7 +125,7 @@
     "tools": "ViPE, Blender (small DSL), MJCF/URDF"
   },
   {
-    "order_index": 4,
+    "order_index": 5,
     "id": "M36",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -125,7 +150,7 @@
     "tools": "Granola; iPhone photos; rendering tools not stated"
   },
   {
-    "order_index": 5,
+    "order_index": 6,
     "id": "M50",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -148,31 +173,6 @@
     "demo_label": "Studio interior viewer",
     "model": "GPT-6 Astra",
     "tools": "No modeling tool named"
-  },
-  {
-    "order_index": 6,
-    "id": "M74",
-    "domain": "3d",
-    "subsection": "Architecture and real-world reconstruction",
-    "rank_num": 2,
-    "rank": "rank-2",
-    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
-    "rank_title": "Rank 2: Demo + Interactive Web Link",
-    "title": "Pia\u021ba Unirii voxel worlds: Astra and Fable compared",
-    "author": "Dan Manastireanu (@danmana)",
-    "source_url": "https://x.com/danmana/status/2096262733259837681",
-    "platform": "X",
-    "desc": "Pia\u021ba Unirii voxel worlds: Astra and Fable compared",
-    "img_url": "assets/gallery/m74.jpg",
-    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m74-piata-unirii-voxel-dan-manastireanu.jpg",
-    "rel_img": "assets/images/m74-piata-unirii-voxel-dan-manastireanu.jpg",
-    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m74-piata-unirii-voxel-dan-manastireanu.mp4",
-    "code_url": "",
-    "code_label": "Code",
-    "demo_url": "https://piata-unirii.vercel.app/runs/gpt-astra-xhigh-01/index.html",
-    "demo_label": "Piata Unirii miniature",
-    "model": "Multi-model (GPT-6 Astra and Claude Fable 5.1)",
-    "tools": "browser voxel worlds"
   },
   {
     "order_index": 7,
@@ -901,6 +901,56 @@
   },
   {
     "order_index": 36,
+    "id": "M106",
+    "domain": "3d",
+    "subsection": "Vehicles, products and environments",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "Conceptual X-16 engine in Three.js, with its source",
+    "author": "Techartist (@techartist_)",
+    "source_url": "https://x.com/techartist_/status/2103229334467346878",
+    "platform": "X",
+    "desc": "Techartist writes \"Built a conceptual X-16 engine in 3D with GPT-6 Astra using Threejs. Four cylinder banks, one crankshaft and exposed mechanics inspired by experimental multi-bank engine architectures.\" The clip moves through an interactive page with hero, crankshaft, bank, cutaway and exploded views, piston details and a running crank. It is a conceptual mechanism visualization, not a validated engine design.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m106-x16-engine-astra-techartist.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m106-x16-engine-astra-techartist.jpg",
+    "rel_img": "assets/images/m106-x16-engine-astra-techartist.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m106-x16-engine-astra-techartist.mp4",
+    "code_url": "https://github.com/iamtechartist/Conceptual-X-16",
+    "code_label": "iamtechartist/Conceptual-X-16",
+    "demo_url": "https://iamtechartist.github.io/Conceptual-X-16/",
+    "demo_label": "The X-Engine",
+    "model": "GPT-6 Astra",
+    "tools": "Three.js"
+  },
+  {
+    "order_index": 37,
+    "id": "M107",
+    "domain": "3d",
+    "subsection": "Vehicles, products and environments",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "Particle-collider exhibit with a detector that comes apart",
+    "author": "BuBBliK (@k1rallik)",
+    "source_url": "https://x.com/k1rallik/status/2097781208596029936",
+    "platform": "X",
+    "desc": "BuBBliK writes that \"One prompt to Astra started a 3D particle collider. A few refinements turned it into 5,212 animated components you can take apart.\" The clip shows a detector opening layer by layer, a 27 km accelerator ring and a synthetic collision display. The repository calls it a conceptual visualization, not a physics simulation or official CERN software.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m107-astra-particle-collider-k1rallik.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m107-astra-particle-collider-k1rallik.jpg",
+    "rel_img": "assets/images/m107-astra-particle-collider-k1rallik.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m107-astra-particle-collider-k1rallik.mp4",
+    "code_url": "https://github.com/bubblik525/collider",
+    "code_label": "bubblik525/collider",
+    "demo_url": "https://bubblik525.github.io/collider/",
+    "demo_label": "Collider exhibit",
+    "model": "GPT-6 Astra (named Astra by the author)",
+    "tools": "Three.js"
+  },
+  {
+    "order_index": 38,
     "id": "M54",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -925,7 +975,7 @@
     "tools": "Blender; GLB; Three.js; custom prompting workflow"
   },
   {
-    "order_index": 37,
+    "order_index": 39,
     "id": "M105",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -950,7 +1000,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 38,
+    "order_index": 40,
     "id": "M07",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -975,7 +1025,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 39,
+    "order_index": 41,
     "id": "M08",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1000,7 +1050,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 40,
+    "order_index": 42,
     "id": "M31",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1025,7 +1075,7 @@
     "tools": "Blender, Final Cut Pro, Affinity Photo"
   },
   {
-    "order_index": 41,
+    "order_index": 43,
     "id": "M05",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1050,7 +1100,7 @@
     "tools": "Blender, Unity, SynergyXR"
   },
   {
-    "order_index": 42,
+    "order_index": 44,
     "id": "M35",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1075,7 +1125,7 @@
     "tools": "Codex; Blender; custom workflow"
   },
   {
-    "order_index": 43,
+    "order_index": 45,
     "id": "M43",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1100,7 +1150,7 @@
     "tools": "Blender; ChatGPT"
   },
   {
-    "order_index": 44,
+    "order_index": 46,
     "id": "M49",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1125,7 +1175,7 @@
     "tools": "Houdini; MCP"
   },
   {
-    "order_index": 45,
+    "order_index": 47,
     "id": "M53",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1150,7 +1200,7 @@
     "tools": "Subdivision-surface modeling; Blender visible in media"
   },
   {
-    "order_index": 46,
+    "order_index": 48,
     "id": "M56",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1175,7 +1225,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 47,
+    "order_index": 49,
     "id": "M59",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1200,7 +1250,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 48,
+    "order_index": 50,
     "id": "M61",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1225,7 +1275,7 @@
     "tools": "No tool named"
   },
   {
-    "order_index": 49,
+    "order_index": 51,
     "id": "M63",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1250,7 +1300,7 @@
     "tools": "Blender MCP"
   },
   {
-    "order_index": 50,
+    "order_index": 52,
     "id": "M64",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1275,7 +1325,7 @@
     "tools": "Browser-based code; no library named"
   },
   {
-    "order_index": 51,
+    "order_index": 53,
     "id": "M65",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1300,7 +1350,7 @@
     "tools": "SpeedTree; Unreal named in the requested target"
   },
   {
-    "order_index": 52,
+    "order_index": 54,
     "id": "M71",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1325,7 +1375,7 @@
     "tools": "3D website; no library named"
   },
   {
-    "order_index": 53,
+    "order_index": 55,
     "id": "M72",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1350,7 +1400,7 @@
     "tools": "Cinema4D; SDS; sweep objects"
   },
   {
-    "order_index": 54,
+    "order_index": 56,
     "id": "M75",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1375,7 +1425,7 @@
     "tools": "No modeling tool or library named"
   },
   {
-    "order_index": 55,
+    "order_index": 57,
     "id": "M78",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1400,7 +1450,7 @@
     "tools": "Codex"
   },
   {
-    "order_index": 56,
+    "order_index": 58,
     "id": "X10",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1425,7 +1475,7 @@
     "tools": "Claude Code"
   },
   {
-    "order_index": 57,
+    "order_index": 59,
     "id": "X04",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1450,7 +1500,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 58,
+    "order_index": 60,
     "id": "X05",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1475,7 +1525,7 @@
     "tools": "arena.ai"
   },
   {
-    "order_index": 59,
+    "order_index": 61,
     "id": "X06",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1500,7 +1550,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 60,
+    "order_index": 62,
     "id": "X07",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1525,7 +1575,7 @@
     "tools": "SVG"
   },
   {
-    "order_index": 61,
+    "order_index": 63,
     "id": "M94",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1550,7 +1600,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 62,
+    "order_index": 64,
     "id": "X14",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1575,7 +1625,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 63,
+    "order_index": 65,
     "id": "X17",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1600,7 +1650,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 64,
+    "order_index": 66,
     "id": "X18",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1625,7 +1675,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 65,
+    "order_index": 67,
     "id": "X20",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1650,7 +1700,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 66,
+    "order_index": 68,
     "id": "M16",
     "domain": "3d",
     "subsection": "Characters and materials",
@@ -1675,7 +1725,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 67,
+    "order_index": 69,
     "id": "M15",
     "domain": "3d",
     "subsection": "Characters and materials",
@@ -1700,7 +1750,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 68,
+    "order_index": 70,
     "id": "M60",
     "domain": "3d",
     "subsection": "Characters and materials",
@@ -1725,7 +1775,7 @@
     "tools": "creation software not stated"
   },
   {
-    "order_index": 69,
+    "order_index": 71,
     "id": "M103",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -1750,7 +1800,32 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 70,
+    "order_index": 72,
+    "id": "M108",
+    "domain": "3d",
+    "subsection": "Game assets and playable worlds",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "Card packs, SpongeBob and The Office: three Three.js projects",
+    "author": "Sotiris Kaniras (@itssotsot)",
+    "source_url": "https://x.com/itssotsot/status/2099150618224955565",
+    "platform": "X",
+    "desc": "Sotiris Kaniras writes \"Everything was made with Astra. I didn't write a single line of code. I didn't render a single 3D model.\" and notes that \"only the first one is an actual game. The other two are just three.js and Blender web apps.\" The three images show a collectible card-pack room, a SpongeBob neighborhood and a walkable office. The SpongeBob and Office projects are unofficial fan works.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m108-astra-three-web-projects-itssotsot-1.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m108-astra-three-web-projects-itssotsot-1.jpg",
+    "rel_img": "assets/images/m108-astra-three-web-projects-itssotsot-1.jpg",
+    "video_url": "",
+    "code_url": "https://github.com/itssotsot/builders-booster-packs",
+    "code_label": "itssotsot/builders-booster-packs",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "GPT-6 Astra (named Astra by the author)",
+    "tools": "Three.js; Blender"
+  },
+  {
+    "order_index": 73,
     "id": "M04",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -1775,7 +1850,7 @@
     "tools": "Meshy, Blender"
   },
   {
-    "order_index": 71,
+    "order_index": 74,
     "id": "M24",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -1800,7 +1875,7 @@
     "tools": "three.js"
   },
   {
-    "order_index": 72,
+    "order_index": 75,
     "id": "M25",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -1825,7 +1900,7 @@
     "tools": "ChatGPT Sites"
   },
   {
-    "order_index": 73,
+    "order_index": 76,
     "id": "M51",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -1850,7 +1925,7 @@
     "tools": "Codex (gpt-6-astra medium); imagegen skill; img2threejs skill; Three.js; HTML5; TypeScript; Vite; Playwright"
   },
   {
-    "order_index": 74,
+    "order_index": 77,
     "id": "X16",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -1875,7 +1950,7 @@
     "tools": "CNVS"
   },
   {
-    "order_index": 75,
+    "order_index": 78,
     "id": "M13",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -1900,7 +1975,7 @@
     "tools": "Unreal Engine"
   },
   {
-    "order_index": 76,
+    "order_index": 79,
     "id": "M19",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -1925,7 +2000,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 77,
+    "order_index": 80,
     "id": "M26",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -1950,7 +2025,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 78,
+    "order_index": 81,
     "id": "M27",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -1975,7 +2050,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 79,
+    "order_index": 82,
     "id": "M34",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2000,7 +2075,7 @@
     "tools": "Roblox; custom skill"
   },
   {
-    "order_index": 80,
+    "order_index": 83,
     "id": "M38",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2025,7 +2100,7 @@
     "tools": "No creation tool named in the post"
   },
   {
-    "order_index": 81,
+    "order_index": 84,
     "id": "M41",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2050,7 +2125,7 @@
     "tools": "ChatGPT (Chat and Work); Blender; Unity/FBX in the prompt"
   },
   {
-    "order_index": 82,
+    "order_index": 85,
     "id": "M57",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2075,7 +2150,7 @@
     "tools": "Codex; img2threejs skill"
   },
   {
-    "order_index": 83,
+    "order_index": 86,
     "id": "M67",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2100,7 +2175,7 @@
     "tools": "Blender; image generation in the quoted earlier post"
   },
   {
-    "order_index": 84,
+    "order_index": 87,
     "id": "M68",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2125,7 +2200,7 @@
     "tools": "Voice prompts; no engine named"
   },
   {
-    "order_index": 85,
+    "order_index": 88,
     "id": "M69",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2150,7 +2225,7 @@
     "tools": "Unity; Unity skills; Unity CLI; Codex; computer use; Unity Asset Store city assets"
   },
   {
-    "order_index": 86,
+    "order_index": 89,
     "id": "M79",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2175,7 +2250,7 @@
     "tools": "Godot"
   },
   {
-    "order_index": 87,
+    "order_index": 90,
     "id": "M80",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2200,7 +2275,7 @@
     "tools": "Blender (named in the original title)"
   },
   {
-    "order_index": 88,
+    "order_index": 91,
     "id": "X01",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2225,7 +2300,7 @@
     "tools": "Three.js, YouWare"
   },
   {
-    "order_index": 89,
+    "order_index": 92,
     "id": "X02",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2250,7 +2325,7 @@
     "tools": "SVG in a browser"
   },
   {
-    "order_index": 90,
+    "order_index": 93,
     "id": "M88",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2275,7 +2350,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 91,
+    "order_index": 94,
     "id": "X12",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2300,7 +2375,7 @@
     "tools": "Higgsfield"
   },
   {
-    "order_index": 92,
+    "order_index": 95,
     "id": "X13",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2325,7 +2400,7 @@
     "tools": "Higgsfield"
   },
   {
-    "order_index": 93,
+    "order_index": 96,
     "id": "M92",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2350,7 +2425,7 @@
     "tools": "Higgsfield API"
   },
   {
-    "order_index": 94,
+    "order_index": 97,
     "id": "M95",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2375,7 +2450,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 95,
+    "order_index": 98,
     "id": "X21",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2400,7 +2475,7 @@
     "tools": "Higgsfield"
   },
   {
-    "order_index": 96,
+    "order_index": 99,
     "id": "X22",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2425,7 +2500,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 97,
+    "order_index": 100,
     "id": "M23",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2450,7 +2525,7 @@
     "tools": "Blender MCP, Tripo"
   },
   {
-    "order_index": 98,
+    "order_index": 101,
     "id": "M02",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2475,7 +2550,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 99,
+    "order_index": 102,
     "id": "M06",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2500,7 +2575,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 100,
+    "order_index": 103,
     "id": "M33",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2525,7 +2600,7 @@
     "tools": "Blender MCP; Three.js; custom skill"
   },
   {
-    "order_index": 101,
+    "order_index": 104,
     "id": "M39",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2550,7 +2625,7 @@
     "tools": "Tripo; Blender MCP"
   },
   {
-    "order_index": 102,
+    "order_index": 105,
     "id": "M81",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2575,7 +2650,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 103,
+    "order_index": 106,
     "id": "M82",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2600,7 +2675,7 @@
     "tools": "Three.js, YouWare"
   },
   {
-    "order_index": 104,
+    "order_index": 107,
     "id": "X03",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2625,7 +2700,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 105,
+    "order_index": 108,
     "id": "X09",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2650,7 +2725,7 @@
     "tools": "arena (LMSYS)"
   },
   {
-    "order_index": 106,
+    "order_index": 109,
     "id": "M85",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2675,7 +2750,7 @@
     "tools": "Blender, Rhino, Grasshopper, Revit, Unreal Engine (companion video description)"
   },
   {
-    "order_index": 107,
+    "order_index": 110,
     "id": "M87",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2700,7 +2775,7 @@
     "tools": "Jev; HYPER3D MCP"
   },
   {
-    "order_index": 108,
+    "order_index": 111,
     "id": "I02",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -2725,7 +2800,7 @@
     "tools": "SolidWorks 2026, MecAgent"
   },
   {
-    "order_index": 109,
+    "order_index": 112,
     "id": "I03",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -2750,7 +2825,7 @@
     "tools": "SolidWorks 2026, MecAgent"
   },
   {
-    "order_index": 110,
+    "order_index": 113,
     "id": "I04",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -2775,7 +2850,7 @@
     "tools": "CGM kernel, Python, MCP"
   },
   {
-    "order_index": 111,
+    "order_index": 114,
     "id": "I09",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -2800,7 +2875,7 @@
     "tools": "Adam harness; Onshape by PTC"
   },
   {
-    "order_index": 112,
+    "order_index": 115,
     "id": "I18",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -2825,7 +2900,7 @@
     "tools": "FreeCAD; FreeCAD MCP"
   },
   {
-    "order_index": 113,
+    "order_index": 116,
     "id": "I23",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -2850,7 +2925,7 @@
     "tools": "FreeCAD; FreeCAD MCP"
   },
   {
-    "order_index": 114,
+    "order_index": 117,
     "id": "I21",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -2875,7 +2950,7 @@
     "tools": "Adam harness; Onshape by PTC"
   },
   {
-    "order_index": 115,
+    "order_index": 118,
     "id": "I22",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -2900,7 +2975,7 @@
     "tools": "SolidWorks 2026; MecAgent"
   },
   {
-    "order_index": 116,
+    "order_index": 119,
     "id": "I08",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -2925,7 +3000,7 @@
     "tools": "text-to-cad"
   },
   {
-    "order_index": 117,
+    "order_index": 120,
     "id": "I13",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -2950,7 +3025,7 @@
     "tools": "KiStack; T3CAD (author's T3Code fork); Bluetooth; microphones; IMU; LED; button"
   },
   {
-    "order_index": 118,
+    "order_index": 121,
     "id": "I20",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -2975,7 +3050,7 @@
     "tools": "EasyEDA; tscircuit"
   },
   {
-    "order_index": 119,
+    "order_index": 122,
     "id": "I01",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3000,7 +3075,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 120,
+    "order_index": 123,
     "id": "I06",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3025,7 +3100,7 @@
     "tools": "Blender, macOS app"
   },
   {
-    "order_index": 121,
+    "order_index": 124,
     "id": "I07",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3050,7 +3125,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 122,
+    "order_index": 125,
     "id": "I05",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3075,7 +3150,7 @@
     "tools": ""
   },
   {
-    "order_index": 123,
+    "order_index": 126,
     "id": "I10",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3100,7 +3175,7 @@
     "tools": "STL; 3D printer (model not stated)"
   },
   {
-    "order_index": 124,
+    "order_index": 127,
     "id": "I11",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3125,7 +3200,7 @@
     "tools": "CAD tool not named; Blender"
   },
   {
-    "order_index": 125,
+    "order_index": 128,
     "id": "I12",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3150,7 +3225,7 @@
     "tools": "2D CAD (tool not named); Blender; Godot"
   },
   {
-    "order_index": 126,
+    "order_index": 129,
     "id": "I14",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3175,7 +3250,7 @@
     "tools": "Sentinel; Depence2 mentioned as comparison"
   },
   {
-    "order_index": 127,
+    "order_index": 130,
     "id": "I15",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3200,7 +3275,7 @@
     "tools": "YouTube reference video; modeling tool not named"
   },
   {
-    "order_index": 128,
+    "order_index": 131,
     "id": "I16",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3225,7 +3300,7 @@
     "tools": "Midjourney image; CAD software not named"
   },
   {
-    "order_index": 129,
+    "order_index": 132,
     "id": "I19",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3250,7 +3325,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 130,
+    "order_index": 133,
     "id": "I24",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3275,7 +3350,7 @@
     "tools": "Fusion 360; STEVE"
   },
   {
-    "order_index": 131,
+    "order_index": 134,
     "id": "I25",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3300,7 +3375,7 @@
     "tools": "BrickLink"
   },
   {
-    "order_index": 132,
+    "order_index": 135,
     "id": "I17",
     "domain": "cad",
     "subsection": "BIM drafting",
@@ -3325,7 +3400,7 @@
     "tools": "Revit, BIM Pure Revit MCP, Notion"
   },
   {
-    "order_index": 133,
+    "order_index": 136,
     "id": "R01",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -3350,7 +3425,7 @@
     "tools": "Inspect Robots, IK solver"
   },
   {
-    "order_index": 134,
+    "order_index": 137,
     "id": "R04",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -3375,7 +3450,7 @@
     "tools": "Inspect Robots, I2RT YAM bimanual arms"
   },
   {
-    "order_index": 135,
+    "order_index": 138,
     "id": "R37",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -3400,7 +3475,7 @@
     "tools": "Inspect Robots; I2RT YAM bimanual arms"
   },
   {
-    "order_index": 136,
+    "order_index": 139,
     "id": "R34",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -3425,7 +3500,7 @@
     "tools": "EmbodiedSWE; Isaac Lab; bimanual Franka arms (simulation)"
   },
   {
-    "order_index": 137,
+    "order_index": 140,
     "id": "R05",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -3450,7 +3525,7 @@
     "tools": "MolmoAct2 dataset, Inspect Robots code"
   },
   {
-    "order_index": 138,
+    "order_index": 141,
     "id": "R29",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -3475,7 +3550,32 @@
     "tools": "MolmoSpaces-v1"
   },
   {
-    "order_index": 139,
+    "order_index": 142,
+    "id": "R39",
+    "domain": "robotics",
+    "subsection": "Personal arms, dexterous hands and unseen robots",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "SO-101 arm told to push a red box, through a Codex MCP server",
+    "author": "Yassine Yousfi (@yassineyousfi_)",
+    "source_url": "https://x.com/yassineyousfi_/status/2097363151079842252",
+    "platform": "X",
+    "desc": "Yassine Yousfi writes \"I gave astra a robot and asked it to push a red box\" and links the code; this reply adds that an MCP server was needed for the command \"codex move the red box\". The repository drives an SO-101 arm watched by an Insta360 camera through OpenAI function calling, with a MuJoCo replica of the rig and the red-box task. No footage of the run is attached, and the posts do not say whether the run was on the real arm or in simulation.",
+    "img_url": "",
+    "remote_img": "",
+    "rel_img": "",
+    "video_url": "",
+    "code_url": "https://github.com/YassineYousfi/yad-use",
+    "code_label": "YassineYousfi/yad-use",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "GPT-6 Astra (named astra by the author)",
+    "tools": "Codex; SO-101; Insta360 camera; MuJoCo"
+  },
+  {
+    "order_index": 143,
     "id": "R20",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -3500,7 +3600,7 @@
     "tools": "robot hands (setting per the linked page)"
   },
   {
-    "order_index": 140,
+    "order_index": 144,
     "id": "R08",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -3525,7 +3625,7 @@
     "tools": "SO-101 arm"
   },
   {
-    "order_index": 141,
+    "order_index": 145,
     "id": "R09",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -3550,7 +3650,7 @@
     "tools": "LeRobot SO-101, third-person RGB camera"
   },
   {
-    "order_index": 142,
+    "order_index": 146,
     "id": "R10",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -3575,7 +3675,7 @@
     "tools": "Wuji2 hand, third-person camera"
   },
   {
-    "order_index": 143,
+    "order_index": 147,
     "id": "R17",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -3600,7 +3700,7 @@
     "tools": "Wuji hands (physical rollouts)"
   },
   {
-    "order_index": 144,
+    "order_index": 148,
     "id": "R25",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -3625,7 +3725,7 @@
     "tools": "robot arm and keyboard (setting not stated in the post)"
   },
   {
-    "order_index": 145,
+    "order_index": 149,
     "id": "R19",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -3650,7 +3750,7 @@
     "tools": "Vitrus robotics OS (physical robot)"
   },
   {
-    "order_index": 146,
+    "order_index": 150,
     "id": "R22",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -3675,7 +3775,7 @@
     "tools": "mobile manipulator (not named in the post)"
   },
   {
-    "order_index": 147,
+    "order_index": 151,
     "id": "R31",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -3700,7 +3800,7 @@
     "tools": "two RGB-D cameras; dual-arm setup (robot not named in the post)"
   },
   {
-    "order_index": 148,
+    "order_index": 152,
     "id": "R03",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -3725,7 +3825,7 @@
     "tools": "ENPIRE, bimanual arms"
   },
   {
-    "order_index": 149,
+    "order_index": 153,
     "id": "R18",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -3750,7 +3850,7 @@
     "tools": "44-DOF dexterous hand (simulation)"
   },
   {
-    "order_index": 150,
+    "order_index": 154,
     "id": "R33",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -3775,7 +3875,7 @@
     "tools": "NVIDIA Isaac Sim; iPhone"
   },
   {
-    "order_index": 151,
+    "order_index": 155,
     "id": "R11",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -3800,7 +3900,7 @@
     "tools": "MuJoCo"
   },
   {
-    "order_index": 152,
+    "order_index": 156,
     "id": "R15",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -3825,7 +3925,7 @@
     "tools": "MuJoCo, Blender"
   },
   {
-    "order_index": 153,
+    "order_index": 157,
     "id": "R24",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -3850,7 +3950,7 @@
     "tools": "Blender, Newton, Unitree G1 (simulation)"
   },
   {
-    "order_index": 154,
+    "order_index": 158,
     "id": "R35",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -3875,7 +3975,7 @@
     "tools": "MuJoCo; Blender"
   },
   {
-    "order_index": 155,
+    "order_index": 159,
     "id": "R14",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -3900,7 +4000,7 @@
     "tools": "MolmoAct2 sim_eval (simulation)"
   },
   {
-    "order_index": 156,
+    "order_index": 160,
     "id": "R16",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -3925,7 +4025,7 @@
     "tools": "MuJoCo (simulation)"
   },
   {
-    "order_index": 157,
+    "order_index": 161,
     "id": "R07",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -3950,7 +4050,7 @@
     "tools": "RoboDojo, RoboPianist"
   },
   {
-    "order_index": 158,
+    "order_index": 162,
     "id": "R27",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -3975,7 +4075,7 @@
     "tools": "Dual-ALOHA (setting per the linked demo page)"
   },
   {
-    "order_index": 159,
+    "order_index": 163,
     "id": "R12",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4000,7 +4100,7 @@
     "tools": "Isaac Lab, Sharpa hand (simulation)"
   },
   {
-    "order_index": 160,
+    "order_index": 164,
     "id": "R21",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4025,7 +4125,7 @@
     "tools": "Unitree G1 (simulation)"
   },
   {
-    "order_index": 161,
+    "order_index": 165,
     "id": "R26",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4050,7 +4150,7 @@
     "tools": "Isaac Sim, Unitree G1"
   },
   {
-    "order_index": 162,
+    "order_index": 166,
     "id": "R23",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4075,7 +4175,7 @@
     "tools": "Fusion 360, reinforcement learning (simulation)"
   },
   {
-    "order_index": 163,
+    "order_index": 167,
     "id": "R02",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4100,7 +4200,7 @@
     "tools": "SO-ARM101 (as identified in the AIToolHub.co share)"
   },
   {
-    "order_index": 164,
+    "order_index": 168,
     "id": "R06",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4125,7 +4225,7 @@
     "tools": "Drone-Bench"
   },
   {
-    "order_index": 165,
+    "order_index": 169,
     "id": "R28",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4150,7 +4250,7 @@
     "tools": "Kitchen simulation; revised harness and hardware setup (software not named)"
   },
   {
-    "order_index": 166,
+    "order_index": 170,
     "id": "R32",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4175,7 +4275,7 @@
     "tools": "MuJoCo (simulation); humanoid robot and whiteboard (simulation)"
   },
   {
-    "order_index": 167,
+    "order_index": 171,
     "id": "R36",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4200,7 +4300,7 @@
     "tools": "simulator not named; two robot arms (simulation)"
   },
   {
-    "order_index": 168,
+    "order_index": 172,
     "id": "R38",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4225,7 +4325,7 @@
     "tools": "C5R facility harness; Opentrons Flex; LC-MS"
   },
   {
-    "order_index": 169,
+    "order_index": 173,
     "id": "R13",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -4250,7 +4350,7 @@
     "tools": "I2RT YAM bimanual arms, Inspect Robots"
   },
   {
-    "order_index": 170,
+    "order_index": 174,
     "id": "R30",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -4275,7 +4375,7 @@
     "tools": "Discrete-action simulation; native APIs and a separate Claude Code follow-up"
   },
   {
-    "order_index": 171,
+    "order_index": 175,
     "id": "X08",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -4300,7 +4400,32 @@
     "tools": "none"
   },
   {
-    "order_index": 172,
+    "order_index": 176,
+    "id": "A18",
+    "domain": "animation",
+    "subsection": "Rigging and character animation",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "Cybertruck and Formula 1 car that transform into robots",
+    "author": "Scott (@scottstts)",
+    "source_url": "https://x.com/scottstts/status/2103260765847486734",
+    "platform": "X",
+    "desc": "Scott writes \"Currently i have Tesla Cybertruck and Ferrari F1 car that can turn into transformer robots! Built with Opus 5.5 and Astra, in @threejs and webgpu\". The clip shows both vehicles driving in a desert, unfolding into walking robots and folding back. The author is still building it, and the post does not say which model did which part.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/a18-opus55-astra-transforming-cars-scottstts.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/a18-opus55-astra-transforming-cars-scottstts.jpg",
+    "rel_img": "assets/images/a18-opus55-astra-transforming-cars-scottstts.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/a18-opus55-astra-transforming-cars-scottstts.mp4",
+    "code_url": "https://github.com/scottstts/Transformers",
+    "code_label": "scottstts/Transformers",
+    "demo_url": "https://transformer.scottsun.io",
+    "demo_label": "Transformer",
+    "model": "Claude Opus 5.5 and GPT-6 Astra (both named by the author; the split of work is not stated)",
+    "tools": "Three.js; WebGPU"
+  },
+  {
+    "order_index": 177,
     "id": "M21",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -4325,7 +4450,7 @@
     "tools": "Tripo, Blender"
   },
   {
-    "order_index": 173,
+    "order_index": 178,
     "id": "M22",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -4350,7 +4475,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 174,
+    "order_index": 179,
     "id": "M46",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -4375,7 +4500,7 @@
     "tools": "Higgsfield; Blender"
   },
   {
-    "order_index": 175,
+    "order_index": 180,
     "id": "M47",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -4400,7 +4525,7 @@
     "tools": "No tool named"
   },
   {
-    "order_index": 176,
+    "order_index": 181,
     "id": "M89",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -4425,7 +4550,7 @@
     "tools": "Blender; claude.ai"
   },
   {
-    "order_index": 177,
+    "order_index": 182,
     "id": "A09",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -4450,7 +4575,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 178,
+    "order_index": 183,
     "id": "A11",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -4475,7 +4600,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 179,
+    "order_index": 184,
     "id": "A12",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -4500,7 +4625,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 180,
+    "order_index": 185,
     "id": "A15",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -4525,7 +4650,7 @@
     "tools": "Canvas 2D; Web Audio; Claude Code"
   },
   {
-    "order_index": 181,
+    "order_index": 186,
     "id": "X11",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -4550,7 +4675,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 182,
+    "order_index": 187,
     "id": "M90",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -4575,7 +4700,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 183,
+    "order_index": 188,
     "id": "M20",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -4600,7 +4725,7 @@
     "tools": "TouchDesigner"
   },
   {
-    "order_index": 184,
+    "order_index": 189,
     "id": "M52",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -4625,7 +4750,7 @@
     "tools": "Houdini"
   },
   {
-    "order_index": 185,
+    "order_index": 190,
     "id": "M03",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -4650,7 +4775,7 @@
     "tools": "Miomoto"
   },
   {
-    "order_index": 186,
+    "order_index": 191,
     "id": "A02",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -4675,7 +4800,7 @@
     "tools": "Blender; Scenario for Blender; M5 Max MacBook Pro"
   },
   {
-    "order_index": 187,
+    "order_index": 192,
     "id": "A08",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -4700,7 +4825,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 188,
+    "order_index": 193,
     "id": "A14",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -4725,7 +4850,7 @@
     "tools": "Blender; Scenario for Blender"
   },
   {
-    "order_index": 189,
+    "order_index": 194,
     "id": "A16",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -4750,7 +4875,32 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 190,
+    "order_index": 195,
+    "id": "A20",
+    "domain": "animation",
+    "subsection": "Procedural animation and motion graphics",
+    "rank_num": 3,
+    "rank": "rank-3",
+    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
+    "rank_title": "Rank 3: Demonstration Media Only",
+    "title": "A Three.js journey through the human body",
+    "author": "Pankaj Kumar (@pankajkumar_dev)",
+    "source_url": "https://x.com/pankajkumar_dev/status/2099045000944451974",
+    "platform": "X",
+    "desc": "Pankaj Kumar writes \"Asked GPT-6 Astra to build a journey inside the human body using Three.js.\" The clip moves through blood cells, the lungs, muscle fibres and neurons before pulling back to a full skeleton. The author says the first version needed fixes to black artifacts, the body and the phase titles. It is an illustration, not an anatomically validated model.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/a20-astra-human-body-journey-pankajkumar-dev.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/a20-astra-human-body-journey-pankajkumar-dev.jpg",
+    "rel_img": "assets/images/a20-astra-human-body-journey-pankajkumar-dev.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/a20-astra-human-body-journey-pankajkumar-dev.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "GPT-6 Astra",
+    "tools": "Three.js"
+  },
+  {
+    "order_index": 196,
     "id": "M28",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -4775,7 +4925,7 @@
     "tools": "three.js, WebGL"
   },
   {
-    "order_index": 191,
+    "order_index": 197,
     "id": "M29",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -4800,7 +4950,7 @@
     "tools": "twigl.app (WebGL)"
   },
   {
-    "order_index": 192,
+    "order_index": 198,
     "id": "A01",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -4825,7 +4975,57 @@
     "tools": "Three.js; WebGL"
   },
   {
-    "order_index": 193,
+    "order_index": 199,
+    "id": "A17",
+    "domain": "animation",
+    "subsection": "Interactive and shader animation",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "Bouncy jelly and the Jelly Baby game in Three.js and WebGPU",
+    "author": "Scott (@scottstts)",
+    "source_url": "https://x.com/scottstts/status/2096008241104711698",
+    "platform": "X",
+    "desc": "Scott writes \"Asked Astra to make a delicious and bouncy jelly in @threejs and webgpu\". The clip shows pink, green and amber jelly blobs squashing and wobbling under the cursor on a page titled Soft Matter. A day later the author turned it into a game and published the source.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/a17-astra-bouncy-jelly-scottstts.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/a17-astra-bouncy-jelly-scottstts.jpg",
+    "rel_img": "assets/images/a17-astra-bouncy-jelly-scottstts.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/a17-astra-bouncy-jelly-scottstts.mp4",
+    "code_url": "https://github.com/scottstts/Jelly-Baby",
+    "code_label": "scottstts/Jelly-Baby",
+    "demo_url": "https://jelly.scottsun.io",
+    "demo_label": "Jelly Baby",
+    "model": "GPT-6 Astra (named Astra by the author)",
+    "tools": "Three.js; WebGPU"
+  },
+  {
+    "order_index": 200,
+    "id": "A19",
+    "domain": "animation",
+    "subsection": "Interactive and shader animation",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "Object Lab: scroll-driven 3D product scenes",
+    "author": "Tahsin Safa Elmal\u0131 (@SafaElmali)",
+    "source_url": "https://x.com/SafaElmali/status/2098818394187301224",
+    "platform": "X",
+    "desc": "Tahsin Safa Elmal\u0131 writes \"I built Object Lab: 9 interactive 3D experiments\" and \"Built with GPT-6 Astra and Three.js.\" The clip scrolls through scenes of drink cans, a keyboard, a wristwatch and a sports car, each moving as the page scrolls. The repository now holds fifteen experiments and credits its outside assets in a separate file.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/a19-astra-object-lab-safaelmali.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/a19-astra-object-lab-safaelmali.jpg",
+    "rel_img": "assets/images/a19-astra-object-lab-safaelmali.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/a19-astra-object-lab-safaelmali.mp4",
+    "code_url": "https://github.com/SafaElmali/interactive-3d-lab",
+    "code_label": "SafaElmali/interactive-3d-lab",
+    "demo_url": "https://object-lab-3d.netlify.app",
+    "demo_label": "Object Lab",
+    "model": "GPT-6 Astra",
+    "tools": "Three.js"
+  },
+  {
+    "order_index": 201,
     "id": "A03",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -4850,7 +5050,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 194,
+    "order_index": 202,
     "id": "A07",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -4875,7 +5075,7 @@
     "tools": "Three.js; Airsup"
   },
   {
-    "order_index": 195,
+    "order_index": 203,
     "id": "A04",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -4900,7 +5100,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 196,
+    "order_index": 204,
     "id": "A13",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -4925,7 +5125,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 197,
+    "order_index": 205,
     "id": "A05",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -4950,7 +5150,7 @@
     "tools": "Cowork"
   },
   {
-    "order_index": 198,
+    "order_index": 206,
     "id": "A06",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -4975,7 +5175,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 199,
+    "order_index": 207,
     "id": "A10",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -5000,7 +5200,7 @@
     "tools": "Three.js; TSL"
   },
   {
-    "order_index": 200,
+    "order_index": 208,
     "id": "M30",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -5025,7 +5225,7 @@
     "tools": "Higgsfield, Seedance 2.5"
   },
   {
-    "order_index": 201,
+    "order_index": 209,
     "id": "M40",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -5050,7 +5250,7 @@
     "tools": "Higgsfield; Blender; After Effects"
   },
   {
-    "order_index": 202,
+    "order_index": 210,
     "id": "M45",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -5075,7 +5275,7 @@
     "tools": "Blender; FLORA"
   },
   {
-    "order_index": 203,
+    "order_index": 211,
     "id": "M70",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -5100,7 +5300,7 @@
     "tools": "Blender; MCP; Magnific; MiniMax H3 named as an example"
   },
   {
-    "order_index": 204,
+    "order_index": 212,
     "id": "M76",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -5125,7 +5325,7 @@
     "tools": "Codex; Blender"
   },
   {
-    "order_index": 205,
+    "order_index": 213,
     "id": "M83",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
