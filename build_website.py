@@ -1040,8 +1040,19 @@ def convert_paper_html(bib_urls=None):
                 
             combined += f"\n\n% --- {s} ---\n\n" + content
             
-    combined = combined.replace(r"\astra", "GPT-6 Astra")
     combined = combined.replace(r"\astra{}", "GPT-6 Astra")
+    combined = combined.replace(r"\astra", "GPT-6 Astra")
+    
+    preamble_path = os.path.join(WORKSPACE, "preamble.tex")
+    if os.path.exists(preamble_path):
+        with open(preamble_path, encoding="utf-8") as pf:
+            for line in pf:
+                m = re.match(r'\\newcommand\{\\([a-zA-Z0-9]+)\}\{([^}]+)\}', line.strip())
+                if m:
+                    mac_name = m.group(1)
+                    mac_val = re.sub(r'\\xspace\b', '', m.group(2)).strip()
+                    combined = combined.replace(f"\\{mac_name}{{}}", mac_val)
+                    combined = combined.replace(f"\\{mac_name}", mac_val)
     
     cmd = [
         "pandoc",
