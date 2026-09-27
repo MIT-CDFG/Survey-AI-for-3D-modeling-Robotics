@@ -339,14 +339,16 @@ def resolve_latex_refs(html):
                 
     # 4. Standardize appendix headings
     html = re.sub(
-        r'<h1[^>]*id="app:eval-protocols"[^>]*>\s*<span class="header-section-number">[^<]+</span>\s*(.*?)</h1>',
-        r'<h1 id="app:eval-protocols"><span class="header-section-number">Appendix A ·</span> \1</h1>',
-        html
+        r'<h1[^>]*id="app:eval-protocols"[^>]*>\s*<span[^>]*class="header-section-number"[^>]*>[^<]+</span>\s*(.*?)</h1>',
+        r'<h1 id="app:eval-protocols" class="appendix-heading"><span class="header-section-number">Appendix A ·</span> Evaluation protocols and linked components</h1>',
+        html,
+        flags=re.DOTALL
     )
     html = re.sub(
-        r'<h1[^>]*id="app:archive-notes"[^>]*>\s*<span class="header-section-number">[^<]+</span>\s*(.*?)</h1>',
-        r'<h1 id="app:archive-notes"><span class="header-section-number">Appendix B ·</span> \1</h1>',
-        html
+        r'<h1[^>]*id="app:archive-notes"[^>]*>\s*<span[^>]*class="header-section-number"[^>]*>[^<]+</span>\s*(.*?)</h1>',
+        r'<h1 id="app:archive-notes" class="appendix-heading"><span class="header-section-number">Appendix B ·</span> Notes on the archive</h1>',
+        html,
+        flags=re.DOTALL
     )
     
     return html
@@ -1064,8 +1066,18 @@ def convert_paper_html(bib_urls=None):
     out = re.sub(r'<h4[^>]*>\s*<span[^>]*class="header-section-number"[^>]*>[^<]+</span>\s*', '<h4>', out)
     # Enhance executive keybox callouts with prominent semantic title
     out = re.sub(r'<div class="keybox">\s*<p><span>(.*?)</span></p>', r'<div class="keybox">\n<h3 class="keybox-title">\1</h3>', out)
-    # Ensure Section 9 methods anchor matches TOC and preserves sec:intro-scope
-    out = out.replace('id="sec:intro-scope"', 'id="sec:intro-methods"><span id="sec:intro-scope"></span>')
+    # Ensure Section 10 methods anchor matches TOC and preserves sec:intro-scope without stray '>'
+    out = re.sub(
+        r'<h1([^>]*)\bid="sec:intro-scope"([^>]*)>',
+        r'<h1\1id="sec:intro-methods"\2><span id="sec:intro-scope"></span>',
+        out
+    )
+    # Ensure Executive summary anchor matches TOC
+    out = re.sub(
+        r'<h1([^>]*)\bid="executive-summary"([^>]*)>',
+        r'<h1\1id="sec:summary"\2><span id="executive-summary"></span>',
+        out
+    )
     # Clean run-in lead paragraphs
     out = out.replace('<p><strong>Source scope.</strong>', '<p class="no-indent"><strong>Source scope.</strong>')
     
@@ -1890,17 +1902,17 @@ def build_full_html():
             <li><a href="#sec:summary">Executive Summary</a></li>
             <li><a href="#sec:intro">1. Introduction</a></li>
             <li><a href="#sec:related">2. Related Work</a></li>
-            <li><a href="#sec:technology">3. Interfaces & Feedback</a></li>
-            <li><a href="#sec:capabilities">4. Emerging Capabilities</a></li>
-            <li><a href="#sec:evaluation">5. Empirical Evaluation</a></li>
-            <li><a href="#sec:opportunities">6. Strategic Opportunities</a></li>
-            <li><a href="#sec:risks">7. Risks & Limitations</a></li>
+            <li><a href="#sec:technology">3. Harnesses, Tool Interfaces, and Feedback</a></li>
+            <li><a href="#sec:capabilities">4. Capabilities</a></li>
+            <li><a href="#sec:evaluation">5. Evaluation</a></li>
+            <li><a href="#sec:opportunities">6. Opportunities</a></li>
+            <li><a href="#sec:risks">7. Risks and Limitations</a></li>
             <li><a href="#sec:recommendations">8. Recommendations</a></li>
             <li><a href="#sec:conclusion">9. Conclusion</a></li>
-            <li><a href="#sec:intro-methods">10. Materials & Methods</a></li>
-            <li><a href="#app:eval-protocols">Appendix A: Protocols</a></li>
-            <li><a href="#app:archive-notes">Appendix B: Archive Notes</a></li>
-            <li><a href="#app:cases">Appendix C: Post Index</a></li>
+            <li><a href="#sec:intro-methods">10. Materials and Methods</a></li>
+            <li><a href="#app:eval-protocols">Appendix A: Evaluation Protocols and Linked Components</a></li>
+            <li><a href="#app:archive-notes">Appendix B: Notes on the Archive</a></li>
+            <li><a href="#app:cases">Appendix C: Index of Archived Posts</a></li>
             <li><a href="#references">References</a></li>
             <li><a href="#citation-box">BibTeX Citation</a></li>
           </ul>
@@ -1922,7 +1934,7 @@ def build_full_html():
       <div class="stats-container">
         <h2 class="panel-section-title">Empirical Benchmark & Corpus Statistics Dashboard</h2>
         <p class="panel-section-desc">
-          A systematic quantitative synthesis summarizing empirical evaluations across 307+ community reports, an evidentiary classification matrix, and standardized benchmark comparisons in 3D reconstruction, parametric CAD, and embodied robotics.
+          A systematic quantitative synthesis summarizing empirical evaluations across 328 community reports, an evidentiary classification matrix, and standardized benchmark comparisons in 3D reconstruction, parametric CAD, and embodied robotics.
         </p>
 
         <!-- Metric Summary Cards -->
@@ -2750,20 +2762,21 @@ def build_full_html():
       // 2. Paper Reader TOC Sidebar in Full Paper View
       var htmlView = document.getElementById('view-html');
       if (htmlView && htmlView.classList.contains('active')) {{
-        var headings = Array.from(document.querySelectorAll('.paper-article h1, .paper-article h2, .paper-article h3, .paper-article section[id], .paper-article div[id]'));
+        var tocLinks = Array.from(document.querySelectorAll('.toc-links a'));
         var activeId = null;
-        for (var j = 0; j < headings.length; j++) {{
-          var h = headings[j];
-          var id = h.getAttribute('id');
-          if (!id) continue;
-          var hRect = h.getBoundingClientRect();
-          if (hRect.top <= navHeight + 70) {{
-            activeId = id;
+        for (var j = 0; j < tocLinks.length; j++) {{
+          var targetId = (tocLinks[j].getAttribute('href') || '').replace(/^#/, '');
+          if (!targetId) continue;
+          var el = document.getElementById(targetId);
+          if (!el) continue;
+          var rect = el.getBoundingClientRect();
+          if (rect.top <= navHeight + 80) {{
+            activeId = targetId;
           }}
         }}
 
         if (activeId) {{
-          document.querySelectorAll('.toc-links a').forEach(function(a) {{
+          tocLinks.forEach(function(a) {{
             var href = a.getAttribute('href') || '';
             if (href === '#' + activeId) {{
               a.classList.add('active');

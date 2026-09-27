@@ -212,17 +212,17 @@
             <li><a href="#sec:summary">Executive Summary</a></li>
             <li><a href="#sec:intro">1. Introduction</a></li>
             <li><a href="#sec:related">2. Related Work</a></li>
-            <li><a href="#sec:technology">3. Interfaces & Feedback</a></li>
-            <li><a href="#sec:capabilities">4. Emerging Capabilities</a></li>
-            <li><a href="#sec:evaluation">5. Empirical Evaluation</a></li>
-            <li><a href="#sec:opportunities">6. Strategic Opportunities</a></li>
-            <li><a href="#sec:risks">7. Risks & Limitations</a></li>
+            <li><a href="#sec:technology">3. Harnesses, Tool Interfaces, and Feedback</a></li>
+            <li><a href="#sec:capabilities">4. Capabilities</a></li>
+            <li><a href="#sec:evaluation">5. Evaluation</a></li>
+            <li><a href="#sec:opportunities">6. Opportunities</a></li>
+            <li><a href="#sec:risks">7. Risks and Limitations</a></li>
             <li><a href="#sec:recommendations">8. Recommendations</a></li>
             <li><a href="#sec:conclusion">9. Conclusion</a></li>
-            <li><a href="#sec:intro-methods">10. Materials & Methods</a></li>
-            <li><a href="#app:eval-protocols">Appendix A: Protocols</a></li>
-            <li><a href="#app:archive-notes">Appendix B: Archive Notes</a></li>
-            <li><a href="#app:cases">Appendix C: Post Index</a></li>
+            <li><a href="#sec:intro-methods">10. Materials and Methods</a></li>
+            <li><a href="#app:eval-protocols">Appendix A: Evaluation Protocols and Linked Components</a></li>
+            <li><a href="#app:archive-notes">Appendix B: Notes on the Archive</a></li>
+            <li><a href="#app:cases">Appendix C: Index of Archived Posts</a></li>
             <li><a href="#references">References</a></li>
             <li><a href="#citation-box">BibTeX Citation</a></li>
           </ul>
@@ -263,7 +263,7 @@ mode and feedback mechanism, identify applications where these models
 already alter practice, and outline the open problems in physical
 safety, attribution and evaluation that must be resolved before
 real-world adoption.</p>
-<h1 class="unnumbered" id="executive-summary">Executive summary</h1>
+<h1 class="unnumbered" id="sec:summary"><span id="executive-summary"></span>Executive summary</h1>
 <p><span id="sec:summary" data-label="sec:summary"></span></p>
 <p>With the latest generation of frontier models, AI outputs have moved
 from unstructured meshes and images to the formats engineers work in:
@@ -5885,7 +5885,7 @@ governing the future of general-purpose embodied intelligence <span
 class="citation"
 data-cites="zhu2026astrabeyond goldberg2026inversephysics">(Zhu 2026b;
 Goldberg 2026b)</span>.</p>
-<h1 data-number="10" id="sec:intro-methods"><span id="sec:intro-scope"></span>><span
+<h1 data-number="10" id="sec:intro-methods"><span id="sec:intro-scope"></span><span
 class="header-section-number">10</span> Materials and methods</h1>
 <p><span id="sec:intro-methods"
 data-label="sec:intro-methods"></span></p>
@@ -6040,9 +6040,7 @@ pipelines.</p>
 developments. Detailed preservation notes, licensing audits, and
 archival limitations are compiled in Section <a href="#sec:risk-assessment" class="academic-ref-link">7.7</a> and Appendix <a href="#app:archive-notes" class="academic-ref-link">B</a>,
 and the complete post inventory is indexed in Appendix <a href="#app:cases" class="academic-ref-link">C</a>.</p>
-<h1 data-number="11" id="app:eval-protocols"><span
-class="header-section-number">11</span> Evaluation protocols and linked
-components</h1>
+<h1 id="app:eval-protocols" class="appendix-heading"><span class="header-section-number">Appendix A ·</span> Evaluation protocols and linked components</h1>
 <p>Table <a href="#tab:eval-protocols" class="academic-ref-link">6</a> retains the settings, budgets,
 source-access qualifications and code links accompanying the main
 evaluation tables. Entries reflect each source’s respective release or
@@ -6436,8 +6434,7 @@ suite.</td>
   </div>
   
 </div>
-<h1 data-number="12" id="app:archive-notes"><span
-class="header-section-number">12</span> Notes on the archive</h1>
+<h1 id="app:archive-notes" class="appendix-heading"><span class="header-section-number">Appendix B ·</span> Notes on the archive</h1>
 <p>The archive contains 328 posts covering 232 archival groups and one
 separate coverage group across recent community releases. Recent
 expansions added verified cases in 3D modeling, parametric CAD and
@@ -11727,7 +11724,7 @@ href="https://github.com/zjwzcx/Awesome-Astra-Embodied-AI">https://github.com/zj
       <div class="stats-container">
         <h2 class="panel-section-title">Empirical Benchmark & Corpus Statistics Dashboard</h2>
         <p class="panel-section-desc">
-          A systematic quantitative synthesis summarizing empirical evaluations across 307+ community reports, an evidentiary classification matrix, and standardized benchmark comparisons in 3D reconstruction, parametric CAD, and embodied robotics.
+          A systematic quantitative synthesis summarizing empirical evaluations across 328 community reports, an evidentiary classification matrix, and standardized benchmark comparisons in 3D reconstruction, parametric CAD, and embodied robotics.
         </p>
 
         <!-- Metric Summary Cards -->
@@ -18664,20 +18661,21 @@ href="https://github.com/zjwzcx/Awesome-Astra-Embodied-AI">https://github.com/zj
       // 2. Paper Reader TOC Sidebar in Full Paper View
       var htmlView = document.getElementById('view-html');
       if (htmlView && htmlView.classList.contains('active')) {
-        var headings = Array.from(document.querySelectorAll('.paper-article h1, .paper-article h2, .paper-article h3, .paper-article section[id], .paper-article div[id]'));
+        var tocLinks = Array.from(document.querySelectorAll('.toc-links a'));
         var activeId = null;
-        for (var j = 0; j < headings.length; j++) {
-          var h = headings[j];
-          var id = h.getAttribute('id');
-          if (!id) continue;
-          var hRect = h.getBoundingClientRect();
-          if (hRect.top <= navHeight + 70) {
-            activeId = id;
+        for (var j = 0; j < tocLinks.length; j++) {
+          var targetId = (tocLinks[j].getAttribute('href') || '').replace(/^#/, '');
+          if (!targetId) continue;
+          var el = document.getElementById(targetId);
+          if (!el) continue;
+          var rect = el.getBoundingClientRect();
+          if (rect.top <= navHeight + 80) {
+            activeId = targetId;
           }
         }
 
         if (activeId) {
-          document.querySelectorAll('.toc-links a').forEach(function(a) {
+          tocLinks.forEach(function(a) {
             var href = a.getAttribute('href') || '';
             if (href === '#' + activeId) {
               a.classList.add('active');
