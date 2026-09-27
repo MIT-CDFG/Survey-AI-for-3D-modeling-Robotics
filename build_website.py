@@ -1092,7 +1092,16 @@ def add_intrinsic_image_sizes(html):
         if not size or not size[0] or not size[1]:
             return tag
         return tag[:4] + ' width="%d" height="%d"' % size + tag[4:]
-    return re.sub(r'<img\b[^>]*>', repl, html)
+    html = re.sub(r'<img\b[^>]*>', repl, html)
+
+    # Vector figures keep the size they have in the PDF relative to the text width
+    # (fairmeta \textwidth = 16 cm = 605 px), instead of their intrinsic pixel size.
+    def vector_wrap(m):
+        pct = min(100.0, int(m.group(2)) / 605.0 * 100.0)
+        return (f'<div class="figure-img-wrap figure-img-wrap--vector" style="width: {pct:.1f}%;">'
+                + m.group(1))
+    return re.sub(r'<div class="figure-img-wrap">(\s*<img width="(\d+)" height="\d+" src="assets/figures/[^"]+\.svg")',
+                  vector_wrap, html)
 
 
 def normalize_latex_tables_for_pandoc(tex):
@@ -2009,8 +2018,8 @@ def build_full_html():
   <!-- Academic Citation Metadata -->
   <meta name="citation_title" content="On the Opportunities and Risks of Frontier Models for 3D Modeling, Computational Design and Robotics">
   <meta name="citation_author" content="Dou, Zhiyang">
-  <meta name="citation_author" content="Watanabe, Akihisa">
   <meta name="citation_author" content="Meindl, Jamison">
+  <meta name="citation_author" content="Watanabe, Akihisa">
   <meta name="citation_author" content="Deng, Anna">
   <meta name="citation_author" content="Huang, Tianyu">
   <meta name="citation_author" content="Sadalski, Igor">
@@ -2494,7 +2503,7 @@ def build_full_html():
         </div>
         <pre class="bibtex-code" id="bibtex-code">@article{{dou2026frontier3drobotics,
   title={{On the Opportunities and Risks of Frontier Models for 3D Modeling, Computational Design and Robotics}},
-  author={{Dou, Zhiyang and Watanabe, Akihisa and Meindl, Jamison and Deng, Anna and Huang, Tianyu and Sadalski, Igor and Liang, Harrison and Guo, Minghao and Jones, Benjamin Tod and Matusik, Wojciech}},
+  author={{Dou, Zhiyang and Meindl, Jamison and Watanabe, Akihisa and Deng, Anna and Huang, Tianyu and Sadalski, Igor and Liang, Harrison and Guo, Minghao and Jones, Benjamin Tod and Matusik, Wojciech}},
   journal={{MIT CSAIL Research Report}},
   year={{2026}},
   month={{September}},

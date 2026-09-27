@@ -4167,8 +4167,14 @@ img.zoomable:focus-visible,
   }
 }
 
-/* Vector figures fill the text column like \linewidth in the PDF */
-.figure-main .figure-img-wrap img[src$=".svg"] {
+/* Vector figures: the frame takes the width the figure has in the PDF (set inline
+   by the build) and the drawing fills it */
+.academic-figure .figure-img-wrap--vector {
+  display: block;
+  margin: 0 auto;
+}
+
+.figure-img-wrap--vector img {
   width: 100%;
   height: auto;
 }

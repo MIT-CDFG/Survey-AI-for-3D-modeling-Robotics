@@ -17,8 +17,8 @@
   <!-- Academic Citation Metadata -->
   <meta name="citation_title" content="On the Opportunities and Risks of Frontier Models for 3D Modeling, Computational Design and Robotics">
   <meta name="citation_author" content="Dou, Zhiyang">
-  <meta name="citation_author" content="Watanabe, Akihisa">
   <meta name="citation_author" content="Meindl, Jamison">
+  <meta name="citation_author" content="Watanabe, Akihisa">
   <meta name="citation_author" content="Deng, Anna">
   <meta name="citation_author" content="Huang, Tianyu">
   <meta name="citation_author" content="Sadalski, Igor">
@@ -381,12 +381,11 @@ goal-directed planning. Today, frontier multimodal large language models
 task-specific fine-tuning, interface directly with engineering software
 to generate structured 3D scenes, synthesize native parametric CAD
 assemblies, and operate robotic controllers <span class="citation-group">(<a href="#ref-krcha2026locomotive" class="citation-link" data-refs="ref-krcha2026locomotive" title="[135] View in References">Krcha
-2026b</a>; <a href="#ref-senet2026robotarm" class="citation-link" data-refs="ref-senet2026robotarm" title="[223] View in References">Senet 2026a</a>; <a href="#ref-chooi2026bowllinkedin" class="citation-link" data-refs="ref-chooi2026bowllinkedin" title="[40] View in References">Chooi 2026a</a>)</span>. Current example workflows
-couple frontier models with commercial and open-source tools: procedural
-Blender <a href="#ref-blender" class="citation-link" data-refs="ref-blender" title="[25] View in References">(Blender Foundation
-2026)</a> objects, parametric SolidWorks <a href="#ref-solidworks" class="citation-link" data-refs="ref-solidworks" title="[46] View in References">(Dassault Systèmes 2026)</a> assemblies via
-MecAgent <a href="#ref-mecagent2026robotarm" class="citation-link" data-refs="ref-mecagent2026robotarm" title="[163] View in References">(MecAgent 2026a)</a>, and solid
-bodies validated by commercial geometry kernels such as CGM <span class="citation-group">(<a href="#ref-cgm" class="citation-link" data-refs="ref-cgm" title="[234] View in References">Spatial
+2026b</a>; <a href="#ref-senet2026robotarm" class="citation-link" data-refs="ref-senet2026robotarm" title="[223] View in References">Senet 2026a</a>; <a href="#ref-chooi2026bowllinkedin" class="citation-link" data-refs="ref-chooi2026bowllinkedin" title="[40] View in References">Chooi 2026a</a>)</span>. For example, models build
+procedural objects in Blender <a href="#ref-blender" class="citation-link" data-refs="ref-blender" title="[25] View in References">(Blender Foundation 2026)</a> and parametric
+SolidWorks <a href="#ref-solidworks" class="citation-link" data-refs="ref-solidworks" title="[46] View in References">(Dassault
+Systèmes 2026)</a> assemblies through MecAgent <a href="#ref-mecagent2026robotarm" class="citation-link" data-refs="ref-mecagent2026robotarm" title="[163] View in References">(MecAgent 2026a)</a>, with solid
+bodies validated by commercial geometry kernels <span class="citation-group">(<a href="#ref-cgm" class="citation-link" data-refs="ref-cgm" title="[234] View in References">Spatial
 (Dassault Systèmes) 2026</a>; <a href="#ref-krcha2026locomotive" class="citation-link" data-refs="ref-krcha2026locomotive" title="[135] View in References">Krcha 2026b</a>; <a href="#ref-senet2026robotarm" class="citation-link" data-refs="ref-senet2026robotarm" title="[223] View in References">Senet 2026a</a>; <a href="#ref-varghese2026turbofan" class="citation-link" data-refs="ref-varghese2026turbofan" title="[264] View in References">Varghese
 2026</a>)</span>.</p>
 <p>This survey examines frontier model workflows across 3D modeling,
@@ -397,53 +396,48 @@ scope covers industrial design and mechanical CAD: procedural part
 generation, constraint solving, and iterative editing of multi-body
 assemblies and product prototypes. In animation, we analyze skeletal
 character rigging, procedural motion graphics, WebGL shaders, and
-previsualization pipelines. We treat public community demonstrations as
-an observational user study: practitioners repeatedly test frontier
-models on spatial orientation, 3D perception, and coordinate reasoning,
-providing real-world capabilities and failure modes that complement
-laboratory benchmarks (Section <a href="#sec:intro-methods" class="academic-ref-link">10</a>).</p>
-<p>Because public demonstrations and vendor technical reports appear
-before formal peer review, we record available claims alongside their
-execution environments, missing protocols, and reproducibility limits
-(Tables <a href="#tab:eval-3d" class="academic-ref-link">3</a>, <a href="#tab:eval-robot" class="academic-ref-link">4</a>, and <a href="#tab:speed" class="academic-ref-link">5</a>).
+previsualization pipelines. Because public demonstrations and vendor
+technical reports appear before formal peer review, we record available
+claims alongside their execution environments, missing protocols, and
+reproducibility limits (Tables <a href="#tab:eval-3d" class="academic-ref-link">3</a>, <a href="#tab:eval-robot" class="academic-ref-link">4</a>, and <a href="#tab:speed" class="academic-ref-link">5</a>).
 While GPT-6 Astra is the most extensively documented system in this
 recent record, comparative evaluations against other frontier model
 families—including Anthropic Claude <a href="#ref-anthropic2024claude" class="citation-link" data-refs="ref-anthropic2024claude" title="[15] View in References">(Anthropic 2024)</a>, Google
 Gemini <a href="#ref-geminiteam2024gemini" class="citation-link" data-refs="ref-geminiteam2024gemini" title="[79] View in References">(Gemini
 Team, Google 2023)</a>, xAI Grok <a href="#ref-xai2024grok" class="citation-link" data-refs="ref-xai2024grok" title="[281] View in References">(<span class="nocase">xAI</span> 2024)</a>,
 and Moonshot Kimi <a href="#ref-moonshot2024kimi" class="citation-link" data-refs="ref-moonshot2024kimi" title="[172] View in References">(Moonshot AI 2024)</a>—bound
-conclusions regarding frontier models generally. Aligning reported
-results with their evaluation conditions reveals comparisons that hold
-tasks and interfaces constant, enabling quantitative evaluation of
-model-level progress.</p>
-<p>On benchmark evaluations with fixed software interfaces, performance
-gains are pronounced. In CAD modeling, Parametric CAD Bench v2 reports
-mean rewards rising from 68.66% for GPT-5.6 Terra and 70.34% for GPT-5.6
-Sol to 84.78% for GPT-6 Astra on 100 native FreeCAD tasks with Codex at
-maximum effort <a href="#ref-parametric2026cadbenchv2" class="citation-link" data-refs="ref-parametric2026cadbenchv2" title="[189] View in References">(Parametric CAD Bench
-2026)</a>. In robotics, RoboDojo Average Score increases from 1.13
-for GPT-5.5 to 28.97 for GPT-6 Astra across 42 simulated manipulation
-tasks evaluated via RoboProbe L3 under identical single-seed
-conditions <a href="#ref-zhang2026gpt6astrarobodojo" class="citation-link" data-refs="ref-zhang2026gpt6astrarobodojo" title="[309] View in References">(W. Zhang et al. 2026)</a>,
-reflecting higher intermediate process reward across multi-stage
-tasks.</p>
-<p><span id="sec:intro-observation"
-data-label="sec:intro-observation"></span> These fixed-interface
-comparisons clarify the impact of model substitutions, but the resulting
-metrics characterize the complete integrated system rather than the
-model in isolation. The software environment governs available actions
-and observable error signals, and each metric captures only its specific
-target property. Throughout this survey, we use <em>harness</em> to
-denote the software layer interfacing a model with an external
+conclusions regarding frontier models generally.</p>
+<p><strong>Conventions.</strong> Two distinctions recur throughout this
+survey and shape how its results should be read. We use <em>harness</em>
+to denote the software layer interfacing a model with an external
 application or robot, <em>computer use</em> to denote operating an
 application’s graphical user interface, and <em>tool server</em> to
 denote an execution server exposing callable application programming
-interfaces (such as Model Context Protocol servers). We also distinguish
-<em>offline development</em>, in which the model produces an artifact
-such as a CAD file, simulation, or controller that is checked before
-deployment, from <em>online operation</em>, in which the model selects
-actions while the task is running.</p>
-<p>We summarize our contributions below:</p>
+interfaces (such as Model Context Protocol servers). The harness
+determines which actions a model can take and which errors it can
+observe. We also distinguish <em>offline development</em>, in which the
+model produces an artifact such as a CAD file, simulation, or controller
+that is checked before deployment, from <em>online operation</em>, in
+which the model selects actions while the task is running.</p>
+<p><strong>Key findings.</strong> The record supports three key
+findings. First, frontier models are now effective drafting tools for 3D
+and CAD work: on 100 native FreeCAD tasks with a fixed harness, mean
+reward rises from 70.34% for GPT-5.6 Sol to 84.78% for GPT-6 Astra <a href="#ref-parametric2026cadbenchv2" class="citation-link" data-refs="ref-parametric2026cadbenchv2" title="[189] View in References">(Parametric CAD
+Bench 2026)</a>, although no benchmark yet tests tolerances or
+manufacturability (Section <a href="#sec:risk-engineering" class="academic-ref-link">7.3</a>). Second, in robotics,
+models are most effective in offline development. Multi-second inference
+latency rules out fast closed-loop control, and online action selection
+succeeds on coarse manipulation but rarely on precise, contact-rich
+tasks <span class="citation-group">(<a href="#ref-menon2026astrarobotarms" class="citation-link" data-refs="ref-menon2026astrarobotarms" title="[165] View in References">Menon
+et al. 2026</a>; <a href="#ref-zhang2026gpt6astrarobodojo" class="citation-link" data-refs="ref-zhang2026gpt6astrarobodojo" title="[309] View in References">W. Zhang et al. 2026</a>)</span>. Third, reported performance
+depends on the harness as well as the model, so benchmark results
+describe complete model-and-harness systems. Comparisons that hold the
+task and harness fixed isolate model progress: on RoboDojo, progress
+scores across 42 simulated manipulation tasks rise from 1.13 for GPT-5.5
+to 28.97 out of 100 for GPT-6 Astra <a href="#ref-zhang2026gpt6astrarobodojo" class="citation-link" data-refs="ref-zhang2026gpt6astrarobodojo" title="[309] View in References">(W. Zhang et al.
+2026)</a>.</p>
+<div class="keybox">
+<h3 class="keybox-title">Contributions of this survey</h3>
 <ul>
 <li><p><strong>A verified record of current evidence.</strong> We
 collect 328 public posts describing 232 cases, check each against
@@ -466,24 +460,18 @@ model developers, including evaluation protocols that fix the model,
 harness, and compute budget and that report costs, failed attempts, and
 physical validation (Section <a href="#sec:recommendations" class="academic-ref-link">8</a>).</p></li>
 </ul>
+</div>
 <p><span id="sec:intro-overview" data-label="sec:intro-overview"></span>
 <strong>Roadmap.</strong> Section <a href="#sec:related" class="academic-ref-link">2</a>
-reviews foundational related work in procedural scene modeling,
-generative CAD, and language-directed robot control. Section <a href="#sec:technology" class="academic-ref-link">3</a> examines interface paradigms,
-execution harnesses, and feedback mechanisms (Table <a href="#tab:workflow-comparison" class="academic-ref-link">2</a>). Section <a href="#sec:capabilities" class="academic-ref-link">4</a> analyzes empirical capabilities
-across 3D modeling, industrial design/CAD, robot control, and
-animation/dynamic motion. Section <a href="#sec:evaluation" class="academic-ref-link">5</a>
-synthesizes benchmark outcomes, task completion criteria, spatial
-grounding properties, and system attribution methodologies. Section <a href="#sec:opportunities" class="academic-ref-link">6</a> charts emerging applications in
-agentic engineering and real-to-sim pipelines, while Section <a href="#sec:risks" class="academic-ref-link">7</a> addresses reliability bottlenecks,
-computational overhead, manufacturing validity, cyber-physical safety,
-intellectual provenance, and educational implications. Finally, Sections <a href="#sec:recommendations" class="academic-ref-link">8</a> and <a href="#sec:conclusion" class="academic-ref-link">9</a>
-outline concrete guidelines for researchers, practitioners, and
-benchmark developers, followed by archival collection methods in Section <a href="#sec:intro-methods" class="academic-ref-link">10</a>.</p>
+reviews related work, and Section <a href="#sec:technology" class="academic-ref-link">3</a>
+describes harnesses, interfaces, and feedback (Table <a href="#tab:workflow-comparison" class="academic-ref-link">2</a>). Section <a href="#sec:capabilities" class="academic-ref-link">4</a> surveys capabilities in 3D
+modeling, CAD, robot control, and animation, and Section <a href="#sec:evaluation" class="academic-ref-link">5</a> analyzes benchmark results. Sections <a href="#sec:opportunities" class="academic-ref-link">6</a> and <a href="#sec:risks" class="academic-ref-link">7</a>
+discuss opportunities and risks, Section <a href="#sec:recommendations" class="academic-ref-link">8</a> gives recommendations, and Section <a href="#sec:intro-methods" class="academic-ref-link">10</a> describes how
+the record was collected and checked.</p>
 
     <figure class="academic-figure figure-main" id="fig:roadmap">
-      <div class="figure-img-wrap">
-        <img width="608" height="306" src="assets/figures/fig1_roadmap.svg" alt="Figure 1: Structure of this report" class="zoomable" loading="lazy">
+      <div class="figure-img-wrap figure-img-wrap--vector" style="width: 100.0%;">
+        <img width="624" height="308" src="assets/figures/fig1_roadmap.svg" alt="Figure 1: Structure of this report" class="zoomable" loading="lazy">
       </div>
       <figcaption>
         <strong>Figure 1: Structure of this report.</strong> Section 3 describes the software interfaces the demonstrations depend on and the difference between offline development and online operation. Section 4 covers 3D modeling, industrial design and CAD, robot control, and animation/motion, outlined in the colors used for the four domains throughout the report. Section 5 presents reconstruction and CAD evaluations before robotics, including comparisons with earlier models and the community interpretations and open questions in Section 5.5; Section 6 sets out the opportunities, Section 7 the risks, limitations, research and ethics questions and the limits of this assessment, and Section 8 the recommendations; Section 10 at the end of the report describes how the archive was built and checked. Box numbers are section numbers.
@@ -1010,7 +998,7 @@ chunks <a href="#ref-robocurve2026roboharm" class="citation-link" data-refs="re
 al. 2026)</a>.</p>
 
     <figure class="academic-figure figure-main" id="fig:loop">
-      <div class="figure-img-wrap">
+      <div class="figure-img-wrap figure-img-wrap--vector" style="width: 90.6%;">
         <img width="548" height="202" src="assets/figures/fig2_loop.svg" alt="Figure 2: The loop this report analyzes" class="zoomable" loading="lazy">
       </div>
       <figcaption>
@@ -17822,7 +17810,7 @@ href="https://github.com/zjwzcx/Awesome-Astra-Embodied-AI">https://github.com/zj
         </div>
         <pre class="bibtex-code" id="bibtex-code">@article{dou2026frontier3drobotics,
   title={On the Opportunities and Risks of Frontier Models for 3D Modeling, Computational Design and Robotics},
-  author={Dou, Zhiyang and Watanabe, Akihisa and Meindl, Jamison and Deng, Anna and Huang, Tianyu and Sadalski, Igor and Liang, Harrison and Guo, Minghao and Jones, Benjamin Tod and Matusik, Wojciech},
+  author={Dou, Zhiyang and Meindl, Jamison and Watanabe, Akihisa and Deng, Anna and Huang, Tianyu and Sadalski, Igor and Liang, Harrison and Guo, Minghao and Jones, Benjamin Tod and Matusik, Wojciech},
   journal={MIT CSAIL Research Report},
   year={2026},
   month={September},
