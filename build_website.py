@@ -395,9 +395,19 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
                     gid, rank_raw, ptype, desc, author, platform, date, cite_key, code_col = m.groups()
                     gid = gid.strip()
                     url = bib_urls.get(cite_key, "#")
-                    code_match = re.search(r"\\href\{([^}]+)\}\{([^}]+)\}", code_col)
-                    code_url = code_match.group(1) if code_match else extra_code_urls.get(gid, "")
-                    code_label = code_match.group(2) if code_match else ("code" if code_url else "")
+                    code_matches = re.findall(r"\\href\{([^}]+)\}\{([^}]+)\}", code_col)
+                    if code_matches:
+                        code_links_list = [(cm[0].strip(), cm[1].strip()) for cm in code_matches]
+                        code_url = code_links_list[0][0]
+                        code_label = code_links_list[0][1]
+                    elif extra_code_urls.get(gid):
+                        code_links_list = [(extra_code_urls[gid], "code")]
+                        code_url = extra_code_urls[gid]
+                        code_label = "code"
+                    else:
+                        code_links_list = []
+                        code_url = ""
+                        code_label = "" 
                     
                     if "1" in rank_raw or gid in rank1_gids:
                         rank_num = 1
@@ -421,6 +431,7 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
                         "cite_key": cite_key.strip(),
                         "code_url": code_url,
                         "code_label": code_label,
+                        "code_links_list": code_links_list,
                         "url": url
                     })
 
@@ -445,7 +456,12 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
             desc_html = desc
             plat_html = plat
 
-        if code_url:
+        if r.get("code_links_list"):
+            code_html = " ".join([
+                f'<a href="{cu}" target="_blank" rel="noopener noreferrer" class="post-code-link" title="Open verified repository">{cl or "code"} ↗</a>'
+                for cu, cl in r["code_links_list"]
+            ])
+        elif code_url:
             code_html = f'<a href="{code_url}" target="_blank" rel="noopener noreferrer" class="post-code-link" title="Open verified repository">{code_label or "code"} ↗</a>'
         elif rank_num == 2:
             code_html = f'<a href="{url}" target="_blank" rel="noopener noreferrer" class="post-interactive-link" title="Open interactive web application">interactive demo ↗</a>'
@@ -647,12 +663,17 @@ def get_gallery_items(cases, readme_text=None):
                 # Extract code url & label
                 code_url = ""
                 code_label = "Code"
+                code_url2 = ""
+                code_label2 = ""
                 code_val = fields.get("Code", "")
                 if code_val:
-                    cm = re.search(r"\[(.*?)\]\((.*?)\)", code_val)
-                    if cm:
-                        code_label = cm.group(1).strip()
-                        code_url = cm.group(2).strip()
+                    cms = re.findall(r"\[(.*?)\]\((.*?)\)", code_val)
+                    if cms:
+                        code_label = cms[0][0].strip()
+                        code_url = cms[0][1].strip()
+                        if len(cms) > 1:
+                            code_label2 = cms[1][0].strip()
+                            code_url2 = cms[1][1].strip()
                         
                 # Extract demo url & label
                 demo_url = ""
@@ -726,6 +747,8 @@ def get_gallery_items(cases, readme_text=None):
                     "video_url": video_url,
                     "code_url": code_url,
                     "code_label": code_label,
+                    "code_url2": code_url2,
+                    "code_label2": code_label2,
                     "demo_url": demo_url,
                     "demo_label": demo_label,
                     "model": model_name,
@@ -1338,6 +1361,9 @@ def render_tile_html(item):
     source_url = item.get("source_url", "#")
     has_link = source_url and source_url != "#"
     code_url = item.get("code_url", "")
+    code_label = item.get("code_label", "Code")
+    code_url2 = item.get("code_url2", "")
+    code_label2 = item.get("code_label2", "")
     demo_url = item.get("demo_url", "")
     video_url = item.get("video_url", "")
     rank_num = item["rank_num"]
@@ -1357,7 +1383,26 @@ def render_tile_html(item):
 
     # Action Buttons per Rank
     if rank_num == 1:
-        actions_html = f'''
+        if code_url2:
+            lbl1 = "TheOffice" if "TheOffice" in code_url else "Code 1"
+            lbl2 = "SpongeBob" if "SpongeBob" in code_url2 else "Code 2"
+            actions_html = f'''
+        <div class="tile-action-btns">
+          <a href="{code_url}" target="_blank" rel="noopener noreferrer" class="tile-btn btn-code" title="View {lbl1} repository on GitHub">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+            <span>{lbl1}</span> ↗
+          </a>
+          <a href="{code_url2}" target="_blank" rel="noopener noreferrer" class="tile-btn btn-code" title="View {lbl2} repository on GitHub">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+            <span>{lbl2}</span> ↗
+          </a>
+          <a href="{source_url}" target="_blank" rel="noopener noreferrer" class="tile-btn btn-post" title="Open source post on {item['platform']}">
+            <span>Post</span> ↗
+          </a>
+        </div>
+        '''
+        else:
+            actions_html = f'''
         <div class="tile-action-btns">
           <a href="{code_url or source_url}" target="_blank" rel="noopener noreferrer" class="tile-btn btn-code" title="View implementation code repository on GitHub">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
@@ -1402,8 +1447,10 @@ def render_tile_html(item):
     safe_tools = item.get('tools', '').replace("'", "\\'")
     safe_sub = sub_text.replace("'", "\\'")
 
+    safe_code2 = code_url2.replace("'", "\'")
+    safe_label2 = code_label2.replace("'", "\'")
     video_badge = '<span class="tile-badge-video" title="Direct video playback available">▶ Video</span>' if video_url else ''
-    onclick_js = f"openShowcaseModal('{item['img_url']}', '{item['id']}', '{safe_title}', '{safe_author}', '{safe_source}', '{safe_platform}', '{safe_rank_lbl}', '{rank_class}', '{safe_code}', '{safe_demo}', '{safe_video}', '{safe_model}', '{safe_tools}', '{safe_sub}')"
+    onclick_js = f"openShowcaseModal('{item['img_url']}', '{item['id']}', '{safe_title}', '{safe_author}', '{safe_source}', '{safe_platform}', '{safe_rank_lbl}', '{rank_class}', '{safe_code}', '{safe_demo}', '{safe_video}', '{safe_model}', '{safe_tools}', '{safe_sub}', '{safe_code2}', '{safe_label2}')"
 
     remote_fallback = item.get('remote_img', '')
     rel_img_val = item.get('rel_img', '')
@@ -2180,7 +2227,11 @@ def build_full_html():
       <div class="modal-actions" id="lightbox-actions">
         <a id="lightbox-code-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-lightbox-code" style="display:none;" title="View Implementation Code on GitHub">
           <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-          <span>View Implementation Code ↗</span>
+          <span id="lightbox-code-label">View Implementation Code ↗</span>
+        </a>
+        <a id="lightbox-code-link2" href="#" target="_blank" rel="noopener noreferrer" class="btn-lightbox-code" style="display:none;" title="View Secondary Code Repository on GitHub">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          <span id="lightbox-code-label2">View Secondary Code ↗</span>
         </a>
         <a id="lightbox-demo-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-lightbox-source btn-interactive" style="display:none;" title="Open Interactive Demo">
           <span>Launch Interactive Demo ↗</span>
@@ -2391,7 +2442,7 @@ def build_full_html():
       }}
     }}
 
-    function openShowcaseModal(imgUrl, id, title, author, sourceUrl, platform, rankLabel, rankClass, codeUrl, demoUrl, videoUrl, model, tools, subsection) {{
+    function openShowcaseModal(imgUrl, id, title, author, sourceUrl, platform, rankLabel, rankClass, codeUrl, demoUrl, videoUrl, model, tools, subsection, codeUrl2, codeLabel2) {{
       var m = document.getElementById('lightbox-modal');
       var img = document.getElementById('lightbox-img');
       var video = document.getElementById('lightbox-video');
