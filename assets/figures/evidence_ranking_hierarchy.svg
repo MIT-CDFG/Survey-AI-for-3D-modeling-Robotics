@@ -34,11 +34,11 @@
     
     <!-- Feature Pill 1 -->
     <rect x="420" y="14" width="118" height="20" rx="10" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="0.8"/>
-    <text x="479" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" fill="#750014" text-anchor="middle">✓ Full Reproducibility</text>
+    <text x="479" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" fill="#750014" text-anchor="middle">✓ Code Provided</text>
     
     <!-- Description Line -->
-    <text x="18" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#475569">Public source code, scripts, or GitHub repository allowing complete end-to-end execution.</text>
-    <text x="18" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#750014">Criteria: Video / Execution Demo + Verifiable Source Code / CAD Harness</text>
+    <text x="18" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#475569">Public source code, scripts, or GitHub repository provided for independent verification.</text>
+    <text x="18" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#750014">Criteria: Video / Execution Demo + Source Code / CAD Harness Provided</text>
   </g>
 
   <!-- TIER 2 (Intermediate: Demo + Live URL / Interactive Viewer) -->

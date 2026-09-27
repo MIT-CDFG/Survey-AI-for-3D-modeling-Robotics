@@ -413,7 +413,7 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
                     
                     if "1" in rank_raw or gid in rank1_gids:
                         rank_num = 1
-                        rank_badge = '<span class="badge-rank rank-1" title="Rank 1: Full Reproducibility (Demo + Implementation Code)">Rank 1 · Code</span>'
+                        rank_badge = '<span class="badge-rank rank-1" title="Rank 1: Code Provided (Demo + Implementation Code)">Rank 1 · Code</span>'
                     elif "2" in rank_raw or gid in rank2_gids:
                         rank_num = 2
                         rank_badge = '<span class="badge-rank rank-2" title="Rank 2: Interactive Verification (Demo + Interactive Web Link)">Rank 2 · Interactive</span>'
@@ -489,7 +489,7 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
     <section class="appendix-section" id="app:cases">
       <h1 class="appendix-heading"><span class="header-section-number">Appendix C ·</span> Index of archived posts</h1>
       <p><a href="#tab:index" class="academic-ref-link">Table 7</a> lists the core catalog of archived community posts in source-list order, systematically classified under our <strong>Evidence Ranking &amp; Reproducibility Hierarchy</strong> across three audit tiers:
-      <strong>Rank 1 (Full Reproducibility · Demo + Implementation Code, 33 groups)</strong>,
+      <strong>Rank 1 (Code Provided · Demo + Implementation Code, 34 groups)</strong>,
       <strong>Rank 2 (Interactive Verification · Demo + Interactive Web Link, 17 groups)</strong>, and
       <strong>Rank 3 (Demonstration Only · Recorded Media Only, 173 groups)</strong>.
       The third column, Type, designates the post role: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. The Code / Demo column provides direct links to verified code repositories or interactive web applications where released.</p>
@@ -1883,7 +1883,7 @@ def build_full_html():
               </div>
               <div class="pillar-tagline">Ranking Samples by Open Verifiability</div>
               <p>
-                For researchers focused on empirical evaluation, we examine the openness and reproducibility artifacts of each archived post. We classify and stratify samples based on accessible verifiability: whether model weights and codebases are deposited, whether interactive web environments or execution logs are accessible, and whether inference telemetry is disclosed. This grounds our three-tier reproducibility hierarchy (Tier 1–3), cleanly distinguishing code-verified implementations and interactive environments from isolated demonstration clips.
+                For researchers focused on empirical evaluation, we examine the openness and reproducibility artifacts of each archived post. We classify and stratify samples based on accessible verifiability: whether model weights and codebases are deposited, whether interactive web environments or execution logs are accessible, and whether inference telemetry is disclosed. This grounds our three-tier reproducibility hierarchy (Tier 1–3), cleanly distinguishing code-provided implementations and interactive environments from isolated demonstration clips.
               </p>
               <div class="pillar-caveat-note">
                 <strong>Empirical Scope &amp; Caveat</strong>
@@ -2065,14 +2065,14 @@ def build_full_html():
             <div class="ranking-tier-card tier-1" onclick="setRankFilter('rank-1')" title="Click to filter by Rank 1 showcases">
               <div class="tier-card-header">
                 <span class="tier-pill-badge pill-t1">RANK 1 · HIGHEST</span>
-                <span class="tier-tag-pill">Full Reproducibility</span>
+                <span class="tier-tag-pill">Code Provided</span>
               </div>
               <h4 class="tier-card-title">Demo + Implementation Code</h4>
-              <p class="tier-card-desc">Showcases providing both an execution demo and verified source code, Python scripts, CAD kernel harnesses, or GitHub repositories for end-to-end auditability and execution.</p>
+              <p class="tier-card-desc">Showcases providing both an execution demo and source code, Python scripts, CAD kernel harnesses, or GitHub repositories available for inspection and verification.</p>
               <ul class="tier-criteria-list">
                 <li><span class="check-icon">✓</span> Publicly accessible code repository / script</li>
                 <li><span class="check-icon">✓</span> Runnable CAD kernel or robot control harness</li>
-                <li><span class="check-icon">✓</span> End-to-end reproducible pipeline</li>
+                <li><span class="check-icon">✓</span> Code provided for independent verification</li>
               </ul>
             </div>
 
