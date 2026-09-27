@@ -4773,6 +4773,27 @@ class="citation" data-cites="robocurve2026roboharm">(Sun et al.
 coupled with formal statistical confidence intervals, provides the
 robotics community with the rigorous experimental scaffolding necessary
 for verifiable safety claims.</p>
+<h4>Token budget as an
+operational reproducibility metric.</h4>
+<p>Beyond static code deposits and passive README documentation, the
+emergence of autonomous coding and reasoning agents introduces a
+fundamentally operational paradigm for assessing empirical
+reproducibility: measuring the <em>inference token budget</em> required
+for an independent foundation model to reproduce an engineering artifact
+from public text and documentation. Because an autonomous agent executes
+strictly on the instructions, tool schemas, dependency manifests, and
+coordinate conventions provided by the authors, any missing package
+version, tacit coordinate transformation, or ambiguous prompt parameter
+forces the model into iterative error-recovery loops, backtracking, and
+speculative repairs—rapidly consuming tens of thousands or millions of
+tokens, or failing entirely. Conversely, when developers document their
+pipeline with mathematical and procedural completeness, an agent can
+synthesize the target CAD assembly, digital twin, or robot controller in
+a streamlined, minimal-token run. In this operational framing, token
+expenditure becomes an objective, quantifiable proxy for specification
+clarity and procedural transparency, incentivizing researchers to
+articulate prompt chains, software harnesses, and physical constraints
+with unambiguous precision.</p>
 <h2 data-number="6.5" id="sec:opp-access"><span
 class="header-section-number">6.5</span> Access and participation</h2>
 <p>Natural language interfaces and multimodal reasoning lower the
@@ -5495,6 +5516,26 @@ execution logs, prompt disclosures, and dependency audits are essential
 to ensure that researchers retain epistemic responsibility for the
 correctness and physical safety of their results, rather than treating
 the model as an infallible black box.</p>
+<h4>Confounding factors in
+agentic reproducibility metrics.</h4>
+<p>While evaluating scientific reproducibility through autonomous
+agentic replication establishes a powerful incentive for procedural
+clarity (Section <a href="#sec:opp-evaluation" class="academic-ref-link">6.4</a>), it introduces distinct
+methodological risks. Specifically, treating the token budget required
+for an autonomous model to reproduce an experiment as a gold standard
+risks conflating documentation clarity with the stochastic cognitive
+limitations of the evaluating model. An agent may consume excessive
+tokens or fail to replicate an otherwise sound experiment due to spatial
+perception hallucinations, multi-turn reasoning degradation, or brittle
+API tool execution rather than deficient human documentation.
+Furthermore, enforcing token-budgeted autonomous replication as a
+gatekeeping threshold risks penalizing exploratory research that depends
+on bespoke physical testbeds, non-standardized hardware sensors, or
+nuanced manual craftsmanship that cannot yet be mapped into a
+standardized agent execution harness. Peer-review frameworks adopting
+agentic replication must therefore rigorously decouple documentation
+omissions from the evolving capabilities and failure modes of the
+evaluating models.</p>
 <h4>Education, pedagogy, and
 skill preservation.</h4>
 <p>Delegating parametric CAD modeling, kinematic solving, or robot
@@ -5678,7 +5719,11 @@ class="math inline"><em>N</em></span> trials. Transparently disclosing
 tool-call transcripts and execution harnesses under permissive licenses
 is essential to ensure external replicability and address emerging
 authorship norms <a href="#ref-fieldsmedalists2026declaration" class="citation-link" title="[71, 145, 158] View in References">(Fields
-Medalists 2026; Lin 2026; Malik 2026)</a>.</p>
+Medalists 2026; Lin 2026; Malik 2026)</a>. Where feasible, authors
+should stress-test reported workflows by verifying whether an autonomous
+agent can reproduce the target pipeline within a bounded token budget,
+treating autonomous replication efficiency as an empirical check on
+instruction clarity and dependency completeness (Sections <a href="#sec:opp-evaluation" class="academic-ref-link">6.4</a> and <a href="#sec:risk-ethics" class="academic-ref-link">7.6</a>).</p>
 <h4>For educators and academic
 institutions.</h4>
 <p>Preserve foundational pedagogical training in first-principles
@@ -5710,7 +5755,11 @@ streams, joint torques, and full trajectory logs, decoupling high-level
 semantic reasoning from low-level controller execution. Furthermore,
 suites should monitor tool-use logs to detect evaluation gaming or
 external engine leakage <a href="#ref-valentine2026chess" class="citation-link" title="[264, 186] View in References">(Valentine
-2026a; OpenAI 2026b)</a>.</p>
+2026a; OpenAI 2026b)</a>. Benchmark creators should also pilot
+token-budgeted autonomous replication protocols, quantifying how many
+inference tokens an independent agent consumes to reconstruct a
+published model or policy from scratch as a measure of methodological
+clarity.</p>
 <h4>For foundation model
 developers.</h4>
 <p>Benchmark frontier models on contact-rich, precision manipulation
