@@ -1847,7 +1847,7 @@ def build_full_html():
               </div>
               <div class="pillar-tagline">Horizon Scanning Beyond Publication Lag</div>
               <p>
-                In an era where frontier foundation model capabilities evolve so rapidly that traditional academic publishing cycles often lag behind public community breakthroughs, this platform establishes a centralized, high-velocity empirical synthesis repository. We aggregate distributed findings to provide researchers and engineers with timely, comprehensive visibility into ongoing developments across 3D generation, parametric CAD, and embodied robotics—anchoring these observations in rigorous, objective evaluations of strategic opportunities and critical safety boundaries.
+                In an era where frontier foundation model capabilities evolve rapidly, traditional academic publishing cycles could lag behind public community developments and empirical findings. This platform establishes a centralized, high-velocity empirical synthesis repository to provide researchers and engineers with timely visibility into ongoing developments across 3D generation, parametric CAD, and embodied robotics—anchoring these observations in objective evaluations of strategic opportunities and critical safety boundaries.
               </p>
             </div>
 
@@ -1871,7 +1871,7 @@ def build_full_html():
               </div>
               <div class="pillar-tagline">Ranking Samples by Open Verifiability</div>
               <p>
-                For researchers focused on rigorous empirical evaluation, we conduct an in-depth audit of the openness and reproducibility of each archived post. We rank and stratify samples based on concrete verifiability: whether model weights and codebases are deposited, whether interactive web environments or execution logs are accessible, and whether inference telemetry is disclosed. This grounds our four-tier evidentiary taxonomy (Tier 1–4), cleanly demarcating verified, repeatable milestones from isolated demonstration clips.
+                For researchers focused on empirical evaluation, we examine the openness and reproducibility artifacts of each archived post. We classify and stratify samples based on accessible verifiability: whether model weights and codebases are deposited, whether interactive web environments or execution logs are accessible, and whether inference telemetry is disclosed. This grounds our three-tier reproducibility hierarchy (Tier 1–3), cleanly distinguishing code-verified implementations and interactive environments from isolated demonstration clips.
               </p>
               <div class="pillar-caveat-note">
                 <strong>Empirical Scope &amp; Caveat</strong>
@@ -1985,7 +1985,7 @@ def build_full_html():
               <td>{robot_count} Showcases</td>
               <td>{(robot_count / total_count * 100):.1f}%</td>
               <td>Isaac Sim / MuJoCo controllers, SO-101 desktop manipulation, bimanual piano (R01–R42)</td>
-              <td><span class="badge-tier tier-2">Tier 2 &amp; 4 (Simulation Parity; Latency Bound)</span></td>
+              <td><span class="badge-tier tier-2">Tier 1 &amp; 3 (Simulation Parity; Latency Bound)</span></td>
             </tr>
             <tr>
               <td><strong>Animation &amp; Dynamic Workflows</strong></td>
@@ -2000,26 +2000,26 @@ def build_full_html():
         <!-- Benchmark Comparison Section (Dynamically generated from README) -->
         {benchmarks_section_html}
 
-        <!-- 4-Tier Evidentiary Taxonomy -->
-        <h3 class="subsection-title" style="margin-top:2.5rem;">3. Four-Tier Evidentiary Classification Matrix</h3>
+        <!-- Evidentiary Standards for Claims -->
+        <h3 class="subsection-title" style="margin-top:2.5rem;">3. Four Evidentiary Standards for Empirical Claims</h3>
         <div class="tier-matrix-grid">
           <div class="tier-card t1">
-            <div class="tier-badge">Tier 1 · Established</div>
+            <div class="tier-badge">Standard · Established</div>
             <h4>Independently Reproduced with Open Code</h4>
             <p>Verified by independent academic teams with open model weights, fixed API seeds, and deterministic evaluation scripts providing multi-seed confidence intervals (e.g., BVB, Parametric CAD Bench v2).</p>
           </div>
           <div class="tier-card t2">
-            <div class="tier-badge">Tier 2 · Partial</div>
+            <div class="tier-badge">Standard · Partial</div>
             <h4>Technical Reports & Disclosed Telemetry</h4>
             <p>Conducted on standardized benchmarks and reported in vendor whitepapers or closed dashboards, but lacking full end-to-end rollouts or raw environment traces (e.g., PhysBrain 1.5, Blueprint-Bench 2).</p>
           </div>
           <div class="tier-card t3">
-            <div class="tier-badge">Tier 3 · Not Established</div>
+            <div class="tier-badge">Standard · Not Established</div>
             <h4>Single Social Media Demonstration Clips</h4>
             <p>Curated single-take screen recordings lacking full prompt histories, retry attempts, and complete execution toolchains, subject to significant survivor and selection bias.</p>
           </div>
           <div class="tier-card t4">
-            <div class="tier-badge">Tier 4 · Absent / Refuted</div>
+            <div class="tier-badge">Standard · Absent / Refuted</div>
             <h4>Physical Transfer Failures & Safety Boundaries</h4>
             <p>Direct deployment to physical hardware encountering operational bottlenecks: joint overheating, mechanical collisions, DFM tolerance failures, and RoboHarm physical safety refusal failures.</p>
           </div>
