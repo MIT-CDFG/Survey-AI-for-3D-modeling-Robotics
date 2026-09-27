@@ -79,6 +79,121 @@ def latex_to_unicode(text):
     return text
 
 
+# Figures the website keeps even where the paper comments out their \input (the
+# report roadmap is dropped from the PDF but stays on the site).
+WEBSITE_KEEP_FIGURES = ("fig1_roadmap",)
+
+
+def keep_website_figures(text):
+    for name in WEBSITE_KEEP_FIGURES:
+        text = re.sub(r'(?m)^[ \t]*%[ \t]*(\\input\{figures/' + re.escape(name) + r'\})', r'\1', text)
+    return text
+
+
+def active_latex(text):
+    """LaTeX source with comments removed (an unescaped % comments out the rest of the line)."""
+    return "\n".join(re.sub(r'(?<!\\)%.*', '', line) for line in text.split("\n"))
+
+
+def _read_workspace_tex(rel):
+    path = os.path.join(WORKSPACE, rel if rel.endswith(".tex") else rel + ".tex")
+    if not os.path.exists(path):
+        return ""
+    with open(path, encoding="utf-8") as f:
+        return f.read()
+
+
+def compute_label_numbers():
+    """Number figures, tables, sections and appendices the way LaTeX does, walking the
+    paper's active sources from main.tex. Commented-out figures or sections drop out and
+    everything after them renumbers, so the site always matches the compiled paper."""
+    numbers = {}
+    state = {"fig": 0, "tab": 0, "sec": 0, "sub": 0, "appendix": False, "ctx": None}
+    token = re.compile(r'\\(beginappendix)\b|\\input\{([^}]+)\}|\\(section|subsection)(\*?)\{'
+                       r'|\\begin\{(figure|table|longtable)\*?\}|\\end\{(figure|table|longtable)\*?\}'
+                       r'|\\caption\{|\\label\{([^}]+)\}')
+
+    def walk(text):
+        env = []  # [kind, caption context]
+        for m in token.finditer(active_latex(keep_website_figures(text))):
+            if m.group(1):
+                state["appendix"], state["sec"], state["sub"] = True, 0, 0
+            elif m.group(2):
+                if m.group(2).startswith(("sec/", "figures/")):
+                    walk(_read_workspace_tex(m.group(2)))
+            elif m.group(3):
+                if m.group(4):
+                    if m.group(3) == "section":
+                        state["ctx"] = None
+                    continue
+                if m.group(3) == "section":
+                    state["sec"] += 1
+                    state["sub"] = 0
+                    num = chr(64 + state["sec"]) if state["appendix"] else str(state["sec"])
+                else:
+                    state["sub"] += 1
+                    base = chr(64 + state["sec"]) if state["appendix"] else str(state["sec"])
+                    num = f"{base}.{state['sub']}"
+                state["ctx"] = ("Appendix" if state["appendix"] and m.group(3) == "section" else "Section", num)
+            elif m.group(5):
+                env.append([m.group(5), None])
+            elif m.group(6):
+                if env:
+                    env.pop()
+            elif m.group(0).startswith("\\caption"):
+                if env:
+                    if env[-1][0] == "figure":
+                        state["fig"] += 1
+                        env[-1][1] = ("Figure", str(state["fig"]))
+                    else:
+                        state["tab"] += 1
+                        env[-1][1] = ("Table", str(state["tab"]))
+            elif m.group(7):
+                ctx = env[-1][1] if env and env[-1][1] else state["ctx"]
+                if ctx:
+                    numbers[m.group(7)] = ctx
+
+    walk(_read_workspace_tex("main.tex"))
+    return numbers
+
+
+def latex_caption(rel):
+    r"""The \caption{...} argument of a figure/table file, comments and \label removed."""
+    text = active_latex(_read_workspace_tex(rel))
+    i = text.find("\\caption{")
+    if i < 0:
+        return ""
+    i += len("\\caption{")
+    depth, j = 1, i
+    while j < len(text) and depth:
+        depth += {"{": 1, "}": -1}.get(text[j], 0)
+        j += 1
+    return re.sub(r"\\label\{[^}]*\}", "", text[i:j - 1]).strip()
+
+
+def caption_title_split(caption_html):
+    """Split a rendered caption into its lead phrase (shown in bold after 'Figure N:')
+    and the rest: up to the first colon or sentence end, stopping before a citation."""
+    depth = 0
+    i = 0
+    n = len(caption_html)
+    while i < n:
+        ch = caption_html[i]
+        if ch == "<":
+            if caption_html.startswith('<span class="citation"', i) or caption_html.startswith('<a ', i) and 'citation' in caption_html[i:i + 80]:
+                return caption_html[:i].rstrip(), caption_html[i:]
+            i = caption_html.find(">", i) + 1 or n
+            continue
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth = max(0, depth - 1)
+        elif depth == 0 and ch in ".:" and (i + 1 == n or caption_html[i + 1] in " \n"):
+            return caption_html[:i + 1], caption_html[i + 1:].lstrip()
+        i += 1
+    return caption_html, ""
+
+
 def clean_desc_text(text):
     if not text:
         return ""
@@ -359,15 +474,7 @@ def resolve_latex_refs(html):
     html = re.sub(r'\[((?:fig|tab|sec|app):[^\]]+)\]', replace_stray_bracket, html)
     
     # 3. Clean up Table captions to ensure bold numbering
-    table_captions = {
-        "tab:agentic-tools": "Table 1",
-        "tab:workflow-comparison": "Table 2",
-        "tab:eval-3d": "Table 3",
-        "tab:eval-robot": "Table 4",
-        "tab:speed": "Table 5",
-        "tab:eval-protocols": "Table 6",
-        "tab:index": "Table 7",
-    }
+    table_captions = {k: f"Table {v[1]}" for k, v in LABEL_DATA.items() if v[0] == "Table"}
     for tab_id, tab_label in table_captions.items():
         pattern = re.compile(rf'(<div id="{tab_id}"[^>]*>\s*<table[^>]*>\s*<caption>)(.*?)</caption>', re.DOTALL)
         m = pattern.search(html)
@@ -394,7 +501,7 @@ def resolve_latex_refs(html):
     
     return html
 
-def build_appendix_c_html(bib_urls, gallery_items=None):
+def build_appendix_c_html(bib_urls, gallery_items=None, intro_html="", caption_html=""):
     if gallery_items is None:
         local_gal = os.path.join(WEBSITE_DIR, "assets/gallery.json")
         ws_gal = os.path.join(WORKSPACE, "website/assets/gallery.json")
@@ -528,12 +635,8 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
 
     return f"""
     <section class="appendix-section" id="app:cases">
-      <h1 class="appendix-heading"><span class="header-section-number">Appendix C ·</span> Index of archived posts</h1>
-      <p><a href="#tab:index" class="academic-ref-link">Table 7</a> lists the core catalog of archived community posts in source-list order, systematically classified under our <strong>Evidence Ranking &amp; Reproducibility Hierarchy</strong> across three audit tiers:
-      <strong>Rank 1 (Code Provided · Demo + Implementation Code, 34 groups)</strong>,
-      <strong>Rank 2 (Interactive Verification · Demo + Interactive Web Link, 17 groups)</strong>, and
-      <strong>Rank 3 (Demonstration Only · Recorded Media Only, 173 groups)</strong>.
-      The third column, Type, designates the post role: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. The Code / Demo column provides direct links to verified code repositories or interactive web applications where released.</p>
+      <h1 class="appendix-heading"><span class="header-section-number">Appendix {LABEL_DATA.get("app:cases", ("Appendix", "C"))[1]} ·</span> Index of archived posts</h1>
+      {intro_html}
 
       <div class="gallery-callout-panel">
         <div class="callout-header">
@@ -552,7 +655,7 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
       </div>
 
       <div class="academic-table-card" id="tab:index">
-        <div class="table-caption"><strong>Table 7: Index of archived posts, classified by Evidence Ranking.</strong> Type: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. Total {CORPUS["posts"]} records spanning {CORPUS["groups"]} archival groups across the living survey.</div>
+        <div class="table-caption"><strong>Table {LABEL_DATA.get("tab:index", ("Table", "7"))[1]}:</strong> {caption_html}</div>
         <div class="table-scroll-container">
           <table class="academic-table post-index-table">
             <thead>
@@ -564,7 +667,7 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
                 <th style="width: 150px;">Author</th>
                 <th style="width: 90px;">Platform</th>
                 <th style="width: 95px;">Date</th>
-                <th style="width: 110px;">Code / Demo</th>
+                <th style="width: 110px;">Code / Link</th>
               </tr>
             </thead>
             <tbody>
@@ -988,7 +1091,7 @@ def enhance_academic_tables(content):
 
     return pattern.sub(repl, content)
 
-def build_latex_gallery_figure_html(fig_id, fig_num_str, title, tex_file, caption_text, domain_key, gallery_data_by_id):
+def build_latex_gallery_figure_html(fig_id, fig_num_str, caption_html, tex_file, domain_key, gallery_data_by_id):
     tex_path = os.path.join(WORKSPACE, tex_file)
     content = ""
     if os.path.exists(tex_path):
@@ -1027,7 +1130,7 @@ def build_latex_gallery_figure_html(fig_id, fig_num_str, title, tex_file, captio
         {cards_str}
       </div>
       <figcaption>
-        <strong>Figure {fig_num_str}: {title}.</strong> {caption_text}
+        {caption_html}
       </figcaption>
       <div class="gallery-figure-actions">
         <button class="btn-callout-switch" onclick="openArchiveDomain('{domain_key}')">
@@ -1142,6 +1245,13 @@ def convert_paper_html(bib_urls=None):
     if bib_urls is None:
         bib_urls = parse_bib_urls()
 
+    # Figure / table / section numbers follow the paper's current sources
+    computed = compute_label_numbers()
+    changed = {k: (LABEL_DATA.get(k), v) for k, v in computed.items() if LABEL_DATA.get(k) not in (None, v)}
+    if changed:
+        print("Numbering updated from the paper:", ", ".join(f"{k} {a[1]}->{b[1]}" for k, (a, b) in changed.items()))
+    LABEL_DATA.update(computed)
+
     sections = [
         "sec/0_abstract.tex",
         "sec/0_summary.tex",
@@ -1168,22 +1278,32 @@ def convert_paper_html(bib_urls=None):
                 content = remove_macro(content, author)
             content = unwrap_macro(content, "revision")
             
-            # Map input figures to unique replacement tokens
-            content = content.replace(r"\input{figures/fig1_roadmap}", "\n\n@@FIG_ROADMAP@@\n\n")
-            content = content.replace(r"\input{figures/fig_loop}", "\n\n@@FIG_LOOP@@\n\n")
-            content = content.replace(r"\input{figures/gallery_3d}", "\n\n@@FIG_GALLERY_3D@@\n\n")
-            content = content.replace(r"\input{figures/gallery_3d-b}", "\n\n@@FIG_GALLERY_3D_B@@\n\n")
-            content = content.replace(r"\input{figures/detail_3d}", "\n\n@@FIG_DETAIL_3D@@\n\n")
-            content = content.replace(r"\input{figures/gallery_cad}", "\n\n@@FIG_GALLERY_CAD@@\n\n")
-            content = content.replace(r"\input{figures/detail_cad}", "\n\n@@FIG_DETAIL_CAD@@\n\n")
-            content = content.replace(r"\input{figures/gallery_robot}", "\n\n@@FIG_GALLERY_ROBOT@@\n\n")
-            content = content.replace(r"\input{figures/detail_robot}", "\n\n@@FIG_DETAIL_ROBOT@@\n\n")
-            
+            # Active \input{figures/...} lines become a figure token plus the figure's LaTeX
+            # caption between markers, so pandoc renders the caption in the paper's context
+            # (citations, cross-references). Commented-out figures stay commented out.
+            def figure_token(m):
+                name = m.group(2)
+                cap = latex_caption(f"figures/{name}")
+                key = name.replace("_", "")
+                return (f"{m.group(1)}\n\n@@FIG-{key}@@\n\n"
+                        f"@@CAPBEGIN-{key}@@ {cap} @@CAPEND-{key}@@\n\n")
+            content = keep_website_figures(content)
+            content = re.sub(r'(?m)^((?:[^%\n]|\\%)*?)\\input\{figures/([^}]+)\}', figure_token, content)
+
             if s == "sec/0_abstract.tex":
                 content = "\\section*{Abstract}\\label{abstract}\n" + content
                 
             combined += f"\n\n% --- {s} ---\n\n" + content
             
+    # Appendix C: its prose comes from sec/a_case_index.tex; the table itself is built from data
+    case_index_tex = active_latex(_read_workspace_tex("sec/a_case_index.tex"))
+    m_intro = re.search(r'\\label\{app:cases\}(.*?)\\begin\{(?:footnotesize|longtable)\}', case_index_tex, re.S)
+    if m_intro:
+        combined += f"\n\n@@APPCBEGIN@@\n\n{m_intro.group(1).strip()}\n\n@@APPCEND@@\n\n"
+    combined += f"\n\n@@APPCCAPBEGIN@@ {latex_caption('sec/a_case_index')} @@APPCCAPEND@@\n\n"
+
+    # text-mode symbols pandoc's LaTeX reader drops silently
+    combined = combined.replace(r"\texttimes{}", "×").replace(r"\texttimes", "×")
     combined = combined.replace(r"\astra{}", "GPT-6 Astra")
     combined = combined.replace(r"\astra", "GPT-6 Astra")
     
@@ -1255,125 +1375,70 @@ def convert_paper_html(bib_urls=None):
         except Exception as e:
             print("Notice: could not pre-load gallery.json:", e)
 
-    # Define exact semantic HTML figure blocks matching the PDF
-    fig_roadmap_html = """
-    <figure class="academic-figure figure-main" id="fig:roadmap">
-      <div class="figure-img-wrap">
-        <img src="assets/figures/fig1_roadmap.svg" alt="Figure 1: Structure of this report" class="zoomable" loading="lazy">
-      </div>
+    # Figure captions rendered by pandoc from the LaTeX sources (see figure_token above)
+    captions = {}
+    for m in re.finditer(r'<p>\s*@@CAPBEGIN-([A-Za-z0-9-]+)@@\s*(.*?)\s*@@CAPEND-\1@@\s*</p>', out, re.S):
+        captions[m.group(1)] = m.group(2).strip()
+    out = re.sub(r'<p>\s*@@CAPBEGIN-([A-Za-z0-9-]+)@@.*?@@CAPEND-\1@@\s*</p>', '', out, flags=re.S)
+
+    def fig_number(fig_id):
+        return LABEL_DATA.get(fig_id, ("Figure", "?"))[1]
+
+    def figcaption(key, fig_id):
+        title, rest = caption_title_split(captions.get(key, ""))
+        return f'<strong>Figure {fig_number(fig_id)}: {title}</strong> {rest}'.strip()
+
+    def main_figure(key, fig_id, body):
+        return f"""
+    <figure class="academic-figure figure-main" id="{fig_id}">
+      {body}
       <figcaption>
-        <strong>Figure 1: Structure of this report.</strong> Section 3 describes the software interfaces the demonstrations depend on and the difference between offline development and online operation. Section 4 covers 3D modeling, industrial design and CAD, robot control, and animation/motion, outlined in the colors used for the four domains throughout the report. Section 5 presents reconstruction and CAD evaluations before robotics, including comparisons with earlier models and the community interpretations and open questions in Section 5.5; Section 6 sets out the opportunities, Section 7 the risks, limitations, research and ethics questions and the limits of this assessment, and Section 8 the recommendations; Section 10 at the end of the report describes how the archive was built and checked. Box numbers are section numbers.
+        {figcaption(key, fig_id)}
       </figcaption>
     </figure>
     """
 
-    fig_loop_html = """
-    <figure class="academic-figure figure-main" id="fig:loop">
-      <div class="figure-img-wrap">
-        <img src="assets/figures/fig2_loop.svg" alt="Figure 2: The loop this report analyzes" class="zoomable" loading="lazy">
-      </div>
-      <figcaption>
-        <strong>Figure 2: The loop this report analyzes.</strong> A task and its inputs reach the model, which either decides the next action or writes code; software or a controller executes that decision; and what the interface returns becomes the next input. The three colored boxes name the checks that feedback consists of in each domain, and the execution limits bound how long a loop may run. Whether the loop closes before deployment or during execution separates offline development from online operation, a distinction used throughout Sections 2, 3, and 4. A capability claim reaches only as far as the check that observed it, which is why a valid solid can still fail a design specification and an accurate scene can still be unsuitable for contact simulation.
-      </figcaption>
-    </figure>
-    """
-
-    fig_gallery_3d_html = build_latex_gallery_figure_html(
-        "fig:gallery-3d", "3",
-        "Gallery of archived 3D modeling groups (panel 1 of 2)",
-        "figures/gallery_3d.tex",
-        "Gallery of archived 3D modeling groups, panel 1 of 2: 43 tiles here, 90 of the 96 archival groups in this domain overall. One still per group; video frames sampled at 30% of each clip; posted images and YouTube thumbnails used directly; every tile cropped to 16:9. Each tile names the group identifier, the source post and the archive's short title. Stills identify reported outputs; they do not document complete runs or validate the artifacts, and the rights remain with their authors.",
-        "3d",
-        gallery_data_by_id
-    )
-
-    fig_gallery_3d_b_html = build_latex_gallery_figure_html(
-        "fig:gallery-3d-b", "4",
-        "Gallery of archived 3D modeling groups (panel 2 of 2)",
-        "figures/gallery_3d-b.tex",
-        "Gallery of archived 3D modeling groups, panel 2 of 2: 47 tiles here, completing the 90 groups shown in the two panels. Stills identify reported outputs; they do not document complete runs or validate the artifacts, and the rights remain with their authors.",
-        "3d",
-        gallery_data_by_id
-    )
-
-    fig_detail_3d_html = """
-    <figure class="academic-figure figure-main" id="fig:detail-3d">
-      <div class="figure-img-wrap">
-        <img src="assets/figures/kitchen_input_output.png" alt="Figure 5: Input and output details from Dou's kitchen viewer" class="zoomable" loading="lazy" style="max-width: min(720px, 100%);">
-      </div>
-      <figcaption>
-        <strong>Figure 5: Input and output details from Dou’s kitchen viewer (M32)</strong> <a href="#ref-dou2026kitchentwin" class="citation-link" data-refs="ref-dou2026kitchentwin" title="View in References">(Dou, 2026b)</a>. The phone-video inset at lower left and modeled scene let the reader compare the refrigerator, counters and island as retained scene objects. The view is cropped from one posted frame. This view does not establish dimensional agreement, complete room reconstruction or validated contact and physical parameters; the author's reported weaknesses in thin and shiny objects, draft objects and room shell remain.
-      </figcaption>
-    </figure>
-    """
-
-    fig_gallery_cad_html = build_latex_gallery_figure_html(
-        "fig:gallery-cad", "6",
-        "Gallery of archived industrial design and CAD groups",
-        "figures/gallery_cad.tex",
-        "Gallery of archived industrial design and CAD groups: 17 tiles here, 17 of the 18 archival groups in this domain overall. One still per group; video frames sampled at 30% of each clip; posted images and YouTube thumbnails used directly; every tile cropped to 16:9. Each tile names the group identifier, the source post and the archive's short title. Stills identify reported outputs; they do not document complete runs or validate the artifacts, and the rights remain with their authors.",
-        "cad",
-        gallery_data_by_id
-    )
-
-    fig_detail_cad_html = """
-    <figure class="academic-figure figure-main" id="fig:detail-cad">
-      <div class="figure-subfigures-grid">
+    def subfigures(items):
+        cells = "".join(f"""
         <div class="subfigure">
-          <img src="assets/figures/turbofan_front.jpg" alt="Fan and nacelle" class="zoomable" loading="lazy">
-          <div class="subcaption">(a) Fan and nacelle</div>
-        </div>
-        <div class="subfigure">
-          <img src="assets/figures/turbofan_hot_section.jpg" alt="Hot-section cutaway" class="zoomable" loading="lazy">
-          <div class="subcaption">(b) Hot-section cutaway</div>
-        </div>
-      </div>
-      <figcaption>
-        <strong>Figure 7: A turbofan built as a solid B-rep model from one prompt (I04)</strong> <a href="#ref-varghese2026turbofan" class="citation-link" data-refs="ref-varghese2026turbofan" title="View in References">(Varghese, 2026)</a>. Varghese connected a GPT-6 Astra (medium) session to the CGM modeling kernel through James Gray's MCP server and asked for a detailed turbofan; he reports “511 solid bodies”, “11,200 faces” and “2,296 blades and vanes”, export to XCGM and STEP, and that “all the bodies pass CGM's BREP checker”, in under 30 minutes. The two images are among the presentation renders the author says the model also produced, so they show the model's own depiction of its output rather than a kernel view. He calls it “an illustrative model, not an OEM design”; B-rep validity and the selected clearance checks he ran do not establish aerodynamic function or manufacturability, and the figures are author-reported.
-      </figcaption>
-    </figure>
-    """
+          <img src="{src}" alt="{html_escape(alt)}" class="zoomable" loading="lazy">
+          <div class="subcaption">{sub}</div>
+        </div>""" for src, alt, sub in items)
+        return f'<div class="figure-subfigures-grid">{cells}\n      </div>'
 
-    fig_gallery_robot_html = build_latex_gallery_figure_html(
-        "fig:gallery-robot", "8",
-        "Gallery of archived robot control groups",
-        "figures/gallery_robot.tex",
-        "Gallery of archived robot control groups: 29 tiles here, 29 of the 31 archival groups in this domain overall. One still per group; video frames sampled at 30% of each clip; posted images and YouTube thumbnails used directly; every tile cropped to 16:9. Each tile names the group identifier, the source post and the archive's short title. Stills identify reported outputs; they do not document complete runs or validate the artifacts, and the rights remain with their authors.",
-        "robotics",
-        gallery_data_by_id
-    )
+    figure_html = {
+        "fig1roadmap": main_figure("fig1roadmap", "fig:roadmap", """<div class="figure-img-wrap">
+        <img src="assets/figures/fig1_roadmap.svg" alt="Structure of this report" class="zoomable" loading="lazy">
+      </div>"""),
+        "figloop": main_figure("figloop", "fig:loop", """<div class="figure-img-wrap">
+        <img src="assets/figures/fig2_loop.svg" alt="The loop this report analyzes" class="zoomable" loading="lazy">
+      </div>"""),
+        "detail3d": main_figure("detail3d", "fig:detail-3d", """<div class="figure-img-wrap">
+        <img src="assets/figures/kitchen_input_output.png" alt="Input and output details from Dou's kitchen viewer" class="zoomable" loading="lazy" style="max-width: min(720px, 100%);">
+      </div>"""),
+        "detailcad": main_figure("detailcad", "fig:detail-cad", subfigures([
+            ("assets/figures/turbofan_front.jpg", "Fan and nacelle", "(a) Fan and nacelle"),
+            ("assets/figures/turbofan_hot_section.jpg", "Hot-section cutaway", "(b) Hot-section cutaway")])),
+        "detailrobot": main_figure("detailrobot", "fig:detail-robot", subfigures([
+            ("assets/figures/enpire_demo.png", "Human demonstration", "(a) Human demonstration"),
+            ("assets/figures/enpire_exec.png", "Robot execution", "(b) Robot execution, played at 8×")])),
+    }
+    for key, fig_id, tex_file, domain in (
+        ("gallery3d", "fig:gallery-3d", "figures/gallery_3d.tex", "3d"),
+        ("gallery3d-b", "fig:gallery-3d-b", "figures/gallery_3d-b.tex", "3d"),
+        ("gallerycad", "fig:gallery-cad", "figures/gallery_cad.tex", "cad"),
+        ("galleryrobot", "fig:gallery-robot", "figures/gallery_robot.tex", "robotics"),
+    ):
+        figure_html[key] = build_latex_gallery_figure_html(
+            fig_id, fig_number(fig_id), figcaption(key, fig_id), tex_file, domain, gallery_data_by_id)
 
-    fig_detail_robot_html = """
-    <figure class="academic-figure figure-main" id="fig:detail-robot">
-      <div class="figure-subfigures-grid">
-        <div class="subfigure">
-          <img src="assets/figures/enpire_demo.png" alt="Human demonstration" class="zoomable" loading="lazy">
-          <div class="subcaption">(a) Human demonstration</div>
-        </div>
-        <div class="subfigure">
-          <img src="assets/figures/enpire_exec.png" alt="Robot execution" class="zoomable" loading="lazy">
-          <div class="subcaption">(b) Robot execution, played at 8×</div>
-        </div>
-      </div>
-      <figcaption>
-        <strong>Figure 9: Physical in-context learning through the ENPIRE harness (R03)</strong> <a href="#ref-zhang2026enpire" class="citation-link" data-refs="ref-zhang2026enpire" title="View in References">(Zhang, 2026b)</a>. (a) A person places a yellow cup on the table in front of the bimanual arms; (b) the arms reproduce the task, with the source's 8× playback overlay visible. The authors state that the model “outputs target EE and the harness does the IK”, and that the cameras run at 30 Hz while “GPT-6 is queried much less often than that”; the long waits were edited out of the clip. The pair shows the input and the reported output of one run. It does not show the complete run, the number of attempts, or a completion count, and the edited timing means the clip cannot be used to measure model decision latency.
-      </figcaption>
-    </figure>
-    """
-
-    for token, rep in [
-        ("@@FIG_ROADMAP@@", fig_roadmap_html),
-        ("@@FIG_LOOP@@", fig_loop_html),
-        ("@@FIG_GALLERY_3D@@", fig_gallery_3d_html),
-        ("@@FIG_GALLERY_3D_B@@", fig_gallery_3d_b_html),
-        ("@@FIG_DETAIL_3D@@", fig_detail_3d_html),
-        ("@@FIG_GALLERY_CAD@@", fig_gallery_cad_html),
-        ("@@FIG_DETAIL_CAD@@", fig_detail_cad_html),
-        ("@@FIG_GALLERY_ROBOT@@", fig_gallery_robot_html),
-        ("@@FIG_DETAIL_ROBOT@@", fig_detail_robot_html),
-    ]:
-        out = out.replace(f"<p>{token}</p>", rep)
-        out = out.replace(token, rep)
+    for key, rep_html in figure_html.items():
+        token = f"@@FIG-{key}@@"
+        out = out.replace(f"<p>{token}</p>", rep_html)
+        out = out.replace(token, rep_html)
+    leftover = re.findall(r'@@FIG-([A-Za-z0-9-]+)@@', out)
+    if leftover:
+        print("Notice: no website layout for figure(s):", ", ".join(sorted(set(leftover))))
 
     # Ensure References heading and numbered references list
     refs_heading = ""
@@ -1529,7 +1594,16 @@ def convert_paper_html(bib_urls=None):
         out = "".join(res)
         
     # Append Appendix C before References, followed by References heading immediately preceding <div id="refs"
-    appendix_c_html = build_appendix_c_html(bib_urls)
+    appc_intro_html, appc_caption_html = "", ""
+    m_appc = re.search(r'<p>\s*@@APPCBEGIN@@\s*</p>(.*?)<p>\s*@@APPCEND@@\s*</p>', out, re.S)
+    if m_appc:
+        appc_intro_html = m_appc.group(1).strip()
+        out = out[:m_appc.start()] + out[m_appc.end():]
+    m_cap = re.search(r'<p>\s*@@APPCCAPBEGIN@@\s*(.*?)\s*@@APPCCAPEND@@\s*</p>', out, re.S)
+    if m_cap:
+        appc_caption_html = m_cap.group(1).strip()
+        out = out[:m_cap.start()] + out[m_cap.end():]
+    appendix_c_html = build_appendix_c_html(bib_urls, intro_html=appc_intro_html, caption_html=appc_caption_html)
     if '<div id="refs"' in out:
         out = out.replace('<div id="refs"', appendix_c_html + '\n\n' + refs_heading + '<div id="refs"')
     else:

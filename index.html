@@ -471,13 +471,26 @@ the record was collected and checked.</p>
 
     <figure class="academic-figure figure-main" id="fig:roadmap">
       <div class="figure-img-wrap figure-img-wrap--vector" style="width: 100.0%;">
-        <img width="624" height="308" src="assets/figures/fig1_roadmap.svg" alt="Figure 1: Structure of this report" class="zoomable" loading="lazy">
+        <img width="624" height="308" src="assets/figures/fig1_roadmap.svg" alt="Structure of this report" class="zoomable" loading="lazy">
       </div>
       <figcaption>
-        <strong>Figure 1: Structure of this report.</strong> Section 3 describes the software interfaces the demonstrations depend on and the difference between offline development and online operation. Section 4 covers 3D modeling, industrial design and CAD, robot control, and animation/motion, outlined in the colors used for the four domains throughout the report. Section 5 presents reconstruction and CAD evaluations before robotics, including comparisons with earlier models and the community interpretations and open questions in Section 5.5; Section 6 sets out the opportunities, Section 7 the risks, limitations, research and ethics questions and the limits of this assessment, and Section 8 the recommendations; Section 10 at the end of the report describes how the archive was built and checked. Box numbers are section numbers.
+        <strong>Figure 1: Structure of this report.</strong> Section <a href="#sec:technology" class="academic-ref-link">3</a> describes the software interfaces
+the demonstrations depend on and the difference between offline
+development and online operation. Section <a href="#sec:capabilities" class="academic-ref-link">4</a>
+covers 3D modeling, industrial design and CAD, robot control, and
+animation/motion, outlined in the colors used for the four domains
+throughout the report. Section <a href="#sec:evaluation" class="academic-ref-link">5</a>
+presents reconstruction and CAD evaluations before robotics, including
+comparisons with earlier models and the community interpretations and
+open questions in Section <a href="#sec:eval-field" class="academic-ref-link">5.5</a>;
+Section <a href="#sec:opportunities" class="academic-ref-link">6</a> sets out the opportunities, Section <a href="#sec:risks" class="academic-ref-link">7</a> the risks, limitations, research and
+ethics questions and the limits of this assessment, and Section <a href="#sec:recommendations" class="academic-ref-link">8</a> the recommendations; Section <a href="#sec:intro-methods" class="academic-ref-link">10</a> at the end of
+the report describes how the archive was built and checked. Box numbers
+are section numbers.
       </figcaption>
     </figure>
     
+
 <h1 data-number="2" id="sec:related"><span
 class="header-section-number">2</span> Related Work</h1>
 <p><span id="sec:intro-related"
@@ -999,13 +1012,24 @@ al. 2026)</a>.</p>
 
     <figure class="academic-figure figure-main" id="fig:loop">
       <div class="figure-img-wrap figure-img-wrap--vector" style="width: 90.6%;">
-        <img width="548" height="202" src="assets/figures/fig2_loop.svg" alt="Figure 2: The loop this report analyzes" class="zoomable" loading="lazy">
+        <img width="548" height="202" src="assets/figures/fig2_loop.svg" alt="The loop this report analyzes" class="zoomable" loading="lazy">
       </div>
       <figcaption>
-        <strong>Figure 2: The loop this report analyzes.</strong> A task and its inputs reach the model, which either decides the next action or writes code; software or a controller executes that decision; and what the interface returns becomes the next input. The three colored boxes name the checks that feedback consists of in each domain, and the execution limits bound how long a loop may run. Whether the loop closes before deployment or during execution separates offline development from online operation, a distinction used throughout Sections 2, 3, and 4. A capability claim reaches only as far as the check that observed it, which is why a valid solid can still fail a design specification and an accurate scene can still be unsuitable for contact simulation.
+        <strong>Figure 2: The loop this report analyzes.</strong> A task and its
+inputs reach the model, which either decides the next action or writes
+code; software or a controller executes that decision; and what the
+interface returns becomes the next input. The three colored boxes name
+the checks that feedback consists of in each domain, and the execution
+limits bound how long a loop may run. Whether the loop closes before
+deployment or during execution separates offline development from online
+operation, a distinction used throughout Sections <a href="#sec:technology" class="academic-ref-link">3</a>, <a href="#sec:capabilities" class="academic-ref-link">4</a>, and <a href="#sec:evaluation" class="academic-ref-link">5</a>.
+A capability claim reaches only as far as the check that observed it,
+which is why a valid solid can still fail a design specification and an
+accurate scene can still be unsuitable for contact simulation.
       </figcaption>
     </figure>
     
+
 <p>Here, real-to-sim denotes synthesizing a simulation environment from
 physical observations, such as video walkthroughs, multi-view
 photographs, point-cloud scans, or recorded robot demonstrations.
@@ -1604,7 +1628,14 @@ in the two panels.</p>
         </div>
       </div>
       <figcaption>
-        <strong>Figure 3: Gallery of archived 3D modeling groups (panel 1 of 2).</strong> Gallery of archived 3D modeling groups, panel 1 of 2: 43 tiles here, 90 of the 96 archival groups in this domain overall. One still per group; video frames sampled at 30% of each clip; posted images and YouTube thumbnails used directly; every tile cropped to 16:9. Each tile names the group identifier, the source post and the archive's short title. Stills identify reported outputs; they do not document complete runs or validate the artifacts, and the rights remain with their authors.
+        <strong>Figure 3: Gallery of archived 3D modeling groups, panel
+1 of 2:</strong> 43 tiles here, 90 of the 96 archival groups in this domain
+overall. One still per group; video frames sampled at 30% of each clip;
+posted images and YouTube thumbnails used directly; every tile cropped
+to 16:9. Each tile names the group identifier, the source post and the
+archive’s short title. Stills identify reported outputs; they do not
+document complete runs or validate the artifacts, and the rights remain
+with their authors.
       </figcaption>
       <div class="gallery-figure-actions">
         <button class="btn-callout-switch" onclick="openArchiveDomain('3d')">
@@ -1613,6 +1644,7 @@ in the two panels.</p>
       </div>
     </figure>
     
+
 
     <figure class="academic-figure figure-gallery-figure" id="fig:gallery-3d-b">
       <div class="gallery-tiles-header">
@@ -2139,7 +2171,15 @@ in the two panels.</p>
         </div>
       </div>
       <figcaption>
-        <strong>Figure 4: Gallery of archived 3D modeling groups (panel 2 of 2).</strong> Gallery of archived 3D modeling groups, panel 2 of 2: 47 tiles here, completing the 90 groups shown in the two panels. Stills identify reported outputs; they do not document complete runs or validate the artifacts, and the rights remain with their authors.
+        <strong>Figure 4: Gallery of archived 3D modeling groups,
+panel 2 of 2:</strong> 47 tiles here, 90 of the 96 archival groups in this domain
+overall. One still per group; video frames sampled at 30% of each clip;
+posted images and YouTube thumbnails used directly; every tile cropped
+to 16:9. Each tile names the group identifier, the source post and the
+archive’s short title. Model identities in the cross-model tiles are
+author-attributed and unverified. Stills identify reported outputs; they
+do not document complete runs or validate the artifacts, and the rights
+remain with their authors.
       </figcaption>
       <div class="gallery-figure-actions">
         <button class="btn-callout-switch" onclick="openArchiveDomain('3d')">
@@ -2148,6 +2188,7 @@ in the two panels.</p>
       </div>
     </figure>
     
+
 <h4>Reconstruction from photos,
 drawings and maps.</h4>
 <p>Reconstructed houses support manual geometry edits and import into a
@@ -2272,13 +2313,22 @@ camera frame and the reconstructed interactive viewer.</p>
 
     <figure class="academic-figure figure-main" id="fig:detail-3d">
       <div class="figure-img-wrap">
-        <img width="1280" height="720" src="assets/figures/kitchen_input_output.png" alt="Figure 5: Input and output details from Dou's kitchen viewer" class="zoomable" loading="lazy" style="max-width: min(720px, 100%);">
+        <img width="1280" height="720" src="assets/figures/kitchen_input_output.png" alt="Input and output details from Dou's kitchen viewer" class="zoomable" loading="lazy" style="max-width: min(720px, 100%);">
       </div>
       <figcaption>
-        <strong>Figure 5: Input and output details from Dou’s kitchen viewer (M32)</strong> <a href="#ref-dou2026kitchentwin" class="citation-link" data-refs="ref-dou2026kitchentwin" title="View in References">(Dou, 2026b)</a>. The phone-video inset at lower left and modeled scene let the reader compare the refrigerator, counters and island as retained scene objects. The view is cropped from one posted frame. This view does not establish dimensional agreement, complete room reconstruction or validated contact and physical parameters; the author's reported weaknesses in thin and shiny objects, draft objects and room shell remain.
+        <strong>Figure 5: Input and output details from Dou’s kitchen
+viewer (M32)</strong> <a href="#ref-dou2026kitchentwin" class="citation-link" data-refs="ref-dou2026kitchentwin" title="[55] View in References">(Dou
+2026b)</a>. The phone-video inset at lower left and modeled scene let
+the reader compare the refrigerator, counters and island as retained
+scene objects. The view is cropped from one posted frame. This view does
+not establish dimensional agreement, complete room reconstruction or
+validated contact and physical parameters; the author’s reported
+weaknesses in thin and shiny objects, draft objects and room shell
+remain.
       </figcaption>
     </figure>
     
+
 <p>Guo reports real-to-sim from robot demonstrations: given multi-view
 RGB and recorded robot actions, the model calibrates cameras, builds
 object assets, performs physics system identification, runs MuJoCo and
@@ -2508,7 +2558,14 @@ the author reports building from one prompt.</p>
         </div>
       </div>
       <figcaption>
-        <strong>Figure 6: Gallery of archived industrial design and CAD groups.</strong> Gallery of archived industrial design and CAD groups: 17 tiles here, 17 of the 18 archival groups in this domain overall. One still per group; video frames sampled at 30% of each clip; posted images and YouTube thumbnails used directly; every tile cropped to 16:9. Each tile names the group identifier, the source post and the archive's short title. Stills identify reported outputs; they do not document complete runs or validate the artifacts, and the rights remain with their authors.
+        <strong>Figure 6: Gallery of archived industrial design and CAD
+groups:</strong> 17 tiles here, 17 of the 18 archival groups in this domain
+overall. One still per group; video frames sampled at 30% of each clip;
+posted images and YouTube thumbnails used directly; every tile cropped
+to 16:9. Each tile names the group identifier, the source post and the
+archive’s short title. Stills identify reported outputs; they do not
+document complete runs or validate the artifacts, and the rights remain
+with their authors.
       </figcaption>
       <div class="gallery-figure-actions">
         <button class="btn-callout-switch" onclick="openArchiveDomain('cad')">
@@ -2517,6 +2574,7 @@ the author reports building from one prompt.</p>
       </div>
     </figure>
     
+
 
     <figure class="academic-figure figure-main" id="fig:detail-cad">
       <div class="figure-subfigures-grid">
@@ -2530,10 +2588,22 @@ the author reports building from one prompt.</p>
         </div>
       </div>
       <figcaption>
-        <strong>Figure 7: A turbofan built as a solid B-rep model from one prompt (I04)</strong> <a href="#ref-varghese2026turbofan" class="citation-link" data-refs="ref-varghese2026turbofan" title="View in References">(Varghese, 2026)</a>. Varghese connected a GPT-6 Astra (medium) session to the CGM modeling kernel through James Gray's MCP server and asked for a detailed turbofan; he reports “511 solid bodies”, “11,200 faces” and “2,296 blades and vanes”, export to XCGM and STEP, and that “all the bodies pass CGM's BREP checker”, in under 30 minutes. The two images are among the presentation renders the author says the model also produced, so they show the model's own depiction of its output rather than a kernel view. He calls it “an illustrative model, not an OEM design”; B-rep validity and the selected clearance checks he ran do not establish aerodynamic function or manufacturability, and the figures are author-reported.
+        <strong>Figure 7: A turbofan built as a solid B-rep model from
+one prompt (I04)</strong> <a href="#ref-varghese2026turbofan" class="citation-link" data-refs="ref-varghese2026turbofan" title="[264] View in References">(Varghese 2026)</a>. Varghese
+connected a GPT-6 Astra (medium) session to the CGM modeling kernel
+through James Gray’s MCP server and asked for a detailed turbofan; he
+reports “511 solid bodies”, “11,200 faces” and “2,296 blades and vanes”,
+export to XCGM and STEP, and that “all the bodies pass CGM’s BREP
+checker”, in under 30 minutes. The two images are among the presentation
+renders the author says the model also produced, so they show the
+model’s own depiction of its output rather than a kernel view. He calls
+it “an illustrative model, not an OEM design”; B-rep validity and the
+selected clearance checks he ran do not establish aerodynamic function
+or manufacturability, and the figures are author-reported.
       </figcaption>
     </figure>
     
+
 <h4>Parametric assemblies in
 commercial CAD.</h4>
 <p>The two MecAgent assemblies retain feature trees and intended-axis
@@ -2943,7 +3013,13 @@ demonstration and the arms’ execution from one ENPIRE run.</p>
         </div>
       </div>
       <figcaption>
-        <strong>Figure 8: Gallery of archived robot control groups.</strong> Gallery of archived robot control groups: 29 tiles here, 29 of the 31 archival groups in this domain overall. One still per group; video frames sampled at 30% of each clip; posted images and YouTube thumbnails used directly; every tile cropped to 16:9. Each tile names the group identifier, the source post and the archive's short title. Stills identify reported outputs; they do not document complete runs or validate the artifacts, and the rights remain with their authors.
+        <strong>Figure 8: Gallery of archived robot control groups:</strong> 29 tiles here, 29 of the 31 archival groups in this domain overall. One
+still per group; video frames sampled at 30% of each clip; posted images
+and YouTube thumbnails used directly; every tile cropped to 16:9. Each
+tile names the group identifier, the source post and the archive’s short
+title. Stills identify reported outputs; they do not document complete
+runs or validate the artifacts, and the rights remain with their
+authors.
       </figcaption>
       <div class="gallery-figure-actions">
         <button class="btn-callout-switch" onclick="openArchiveDomain('robotics')">
@@ -2952,6 +3028,7 @@ demonstration and the arms’ execution from one ENPIRE run.</p>
       </div>
     </figure>
     
+
 
     <figure class="academic-figure figure-main" id="fig:detail-robot">
       <div class="figure-subfigures-grid">
@@ -2965,10 +3042,23 @@ demonstration and the arms’ execution from one ENPIRE run.</p>
         </div>
       </div>
       <figcaption>
-        <strong>Figure 9: Physical in-context learning through the ENPIRE harness (R03)</strong> <a href="#ref-zhang2026enpire" class="citation-link" data-refs="ref-zhang2026enpire" title="View in References">(Zhang, 2026b)</a>. (a) A person places a yellow cup on the table in front of the bimanual arms; (b) the arms reproduce the task, with the source's 8× playback overlay visible. The authors state that the model “outputs target EE and the harness does the IK”, and that the cameras run at 30 Hz while “GPT-6 is queried much less often than that”; the long waits were edited out of the clip. The pair shows the input and the reported output of one run. It does not show the complete run, the number of attempts, or a completion count, and the edited timing means the clip cannot be used to measure model decision latency.
+        <strong>Figure 9: Physical in-context learning through the
+ENPIRE harness (R03)</strong> <a href="#ref-zhang2026enpire" class="citation-link" data-refs="ref-zhang2026enpire" title="[308] View in References">(Zhang 2026b)</a>. (a) A person places a
+yellow cup on the table in front of the bimanual arms; (b) the arms
+reproduce the task, with the source’s 8× playback overlay visible. The
+authors state that the model “outputs target EE and the harness does the
+IK” <a href="#ref-zhang2026enpirereply" class="citation-link" data-refs="ref-zhang2026enpirereply" title="[307] View in References">(Zhang
+2026a)</a>, and that the cameras run at 30 Hz while “GPT-6 is queried
+much less often than that”; the long waits were edited out of the
+clip <a href="#ref-xiao2026camerarate" class="citation-link" data-refs="ref-xiao2026camerarate" title="[283] View in References">(Xiao
+2026b)</a>. The pair shows the input and the reported output of one
+run. It does not show the complete run, the number of attempts, or a
+completion count, and the edited timing means the clip cannot be used to
+measure model decision latency.
       </figcaption>
     </figure>
     
+
 <h4>Manipulation through
 end-effector targets.</h4>
 <p>Contact conditions distinguish the placement tasks completed through
@@ -6206,13 +6296,44 @@ Effects <a href="#ref-aftereffects" class="citation-link" data-refs="ref-aftere
 2026a)</a>, Zillow <a href="#ref-zillow" class="citation-link" data-refs="ref-zillow" title="[314] View in References">(Zillow
 2026)</a> and LeRobot <a href="#ref-lerobot" class="citation-link" data-refs="ref-lerobot" title="[111] View in References">(Hugging Face 2026)</a>.</p>
 
+
+
     <section class="appendix-section" id="app:cases">
       <h1 class="appendix-heading"><span class="header-section-number">Appendix C ·</span> Index of archived posts</h1>
-      <p><a href="#tab:index" class="academic-ref-link">Table 7</a> lists the core catalog of archived community posts in source-list order, systematically classified under our <strong>Evidence Ranking &amp; Reproducibility Hierarchy</strong> across three audit tiers:
-      <strong>Rank 1 (Code Provided · Demo + Implementation Code, 34 groups)</strong>,
-      <strong>Rank 2 (Interactive Verification · Demo + Interactive Web Link, 17 groups)</strong>, and
-      <strong>Rank 3 (Demonstration Only · Recorded Media Only, 173 groups)</strong>.
-      The third column, Type, designates the post role: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. The Code / Demo column provides direct links to verified code repositories or interactive web applications where released.</p>
+      <p>Table <a href="#tab:index" class="academic-ref-link">7</a> lists the core catalog of
+archived community posts in source-list order, systematically classified
+under our <strong>Evidence Ranking &amp; Reproducibility
+Hierarchy</strong> into three audit tiers:</p>
+<ul>
+<li><p><strong>Rank 1 (Highest · Code Provided, 34 groups)</strong>:
+Showcases providing both an execution demo and source code, Python
+scripts, CAD kernel harnesses, or GitHub repositories available for
+inspection and verification.</p></li>
+<li><p><strong>Rank 2 (Intermediate · Interactive Verification, 18
+groups)</strong>: Showcases providing an execution demo accompanied by a
+live, inspectable web application, 3D interactive viewer, or public
+cloud CAD project link (e.g., Onshape, Twigl, ChatGPT Sites) for direct
+runtime inspection.</p></li>
+<li><p><strong>Rank 3 (Baseline · Demonstration Only, 180
+groups)</strong>: Recorded demonstration media, animations, or screen
+captures without public code repositories or hosted interactive runtime
+environments, retained for empirical horizon scanning.</p></li>
+</ul>
+<p>The Type column designates the entry role: C = core original
+demonstration, F = technical follow-up by the original author, S =
+supplementary technical analysis by the author. In accordance with
+strict academic attribution standards, our index records only original
+technical contributions and verified author follow-ups, excluding
+third-party social media reshares or aggregator reposts. The Code / Link
+column provides direct links to verified code repositories or
+interactive web viewers where available; a blank cell indicates no
+standalone repository or viewer is public. All primary demonstration
+media, runnable reproduction harnesses, and benchmark datasets across
+the expanded 232 archival groups are publicly archived and continuously
+maintained in the companion open-source repository <a href="#ref-dou2026awesomeastra" class="citation-link" data-refs="ref-dou2026awesomeastra" title="[54] View in References">(Dou 2026a)</a> at
+<a
+href="https://github.com/Frank-ZY-Dou/awesome-ai-3d-modeling-robotics"
+class="uri">https://github.com/Frank-ZY-Dou/awesome-ai-3d-modeling-robotics</a>.</p>
 
       <div class="gallery-callout-panel">
         <div class="callout-header">
@@ -6231,7 +6352,8 @@ Effects <a href="#ref-aftereffects" class="citation-link" data-refs="ref-aftere
       </div>
 
       <div class="academic-table-card" id="tab:index">
-        <div class="table-caption"><strong>Table 7: Index of archived posts, classified by Evidence Ranking.</strong> Type: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. Total 328 records spanning 232 archival groups across the living survey.</div>
+        <div class="table-caption"><strong>Table 7:</strong> Index of archived posts, classified by Evidence
+Ranking.</div>
         <div class="table-scroll-container">
           <table class="academic-table post-index-table">
             <thead>
@@ -6243,7 +6365,7 @@ Effects <a href="#ref-aftereffects" class="citation-link" data-refs="ref-aftere
                 <th style="width: 150px;">Author</th>
                 <th style="width: 90px;">Platform</th>
                 <th style="width: 95px;">Date</th>
-                <th style="width: 110px;">Code / Demo</th>
+                <th style="width: 110px;">Code / Link</th>
               </tr>
             </thead>
             <tbody>
