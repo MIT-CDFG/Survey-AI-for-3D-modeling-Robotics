@@ -471,9 +471,9 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
     <section class="appendix-section" id="app:cases">
       <h1 class="appendix-heading"><span class="header-section-number">Appendix C ·</span> Index of archived posts</h1>
       <p><a href="#tab:index" class="academic-ref-link">Table 7</a> lists the core catalog of archived community posts in source-list order, systematically classified under our <strong>Evidence Ranking &amp; Reproducibility Hierarchy</strong> across three audit tiers:
-      <strong>Rank 1 (Full Reproducibility · Demo + Implementation Code, 30 groups)</strong>,
-      <strong>Rank 2 (Interactive Verification · Demo + Interactive Web Link, 16 groups)</strong>, and
-      <strong>Rank 3 (Demonstration Only · Recorded Media Only, 168 groups)</strong>.
+      <strong>Rank 1 (Full Reproducibility · Demo + Implementation Code, 33 groups)</strong>,
+      <strong>Rank 2 (Interactive Verification · Demo + Interactive Web Link, 17 groups)</strong>, and
+      <strong>Rank 3 (Demonstration Only · Recorded Media Only, 173 groups)</strong>.
       The third column, Type, designates the post role: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. The Code / Demo column provides direct links to verified code repositories or interactive web applications where released.</p>
 
       <div class="gallery-callout-panel">
@@ -493,7 +493,7 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
       </div>
 
       <div class="academic-table-card" id="tab:index">
-        <div class="table-caption"><strong>Table 7: Index of archived posts, classified by Evidence Ranking.</strong> Type: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. Total 285 records spanning 214 archival groups across the living survey.</div>
+        <div class="table-caption"><strong>Table 7: Index of archived posts, classified by Evidence Ranking.</strong> Type: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. Total 307 records spanning 223 archival groups across the living survey.</div>
         <div class="table-scroll-container">
           <table class="academic-table post-index-table">
             <thead>
@@ -1651,7 +1651,7 @@ def build_full_html():
   <meta name="citation_publication_date" content="2026/09/22">
   {meta_pdf_citation}
   
-  <meta name="description" content="A systematic empirical survey analyzing over 285 community demonstrations, technical reports, and benchmark evaluations of frontier multimodal models in 3D modeling, parametric CAD, and embodied robotics.">
+  <meta name="description" content="A systematic empirical survey analyzing over 307 community demonstrations, technical reports, and benchmark evaluations of frontier multimodal models in 3D modeling, parametric CAD, and embodied robotics.">
 
   <!-- Cloudflare Web Analytics (Optional: paste beacon token from dash.cloudflare.com) -->
   <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "YOUR_CLOUDFLARE_BEACON_TOKEN"}}'></script> -->
@@ -1812,7 +1812,7 @@ def build_full_html():
               </div>
               <div class="pillar-tagline">Demonstrations as a Distributed User Study</div>
               <p>
-                Rather than treating community posts as anecdotal marketing demonstrations, we analyze the corpus of over 285 publicly documented showcases and developer reports as an extensive, distributed "crowdsourced user study." This framing captures how models operate when prompted across diverse geometry kernels (CGM, Open CASCADE), DCC software (Blender), physics simulators (Isaac Sim, MuJoCo, Genesis), and physical robot hardware—revealing real-world workflow friction, prompt overhead, and boundary failures that static benchmarks miss.
+                Rather than treating community posts as anecdotal marketing demonstrations, we analyze the corpus of over 307 publicly documented showcases and developer reports as an extensive, distributed "crowdsourced user study." This framing captures how models operate when prompted across diverse geometry kernels (CGM, Open CASCADE), DCC software (Blender), physics simulators (Isaac Sim, MuJoCo, Genesis), and physical robot hardware—revealing real-world workflow friction, prompt overhead, and boundary failures that static benchmarks miss.
               </p>
             </div>
 
@@ -1875,7 +1875,7 @@ def build_full_html():
       <div class="stats-container">
         <h2 class="panel-section-title">Empirical Benchmark & Corpus Statistics Dashboard</h2>
         <p class="panel-section-desc">
-          A systematic quantitative synthesis summarizing empirical evaluations across 285+ community reports, an evidentiary classification matrix, and standardized benchmark comparisons in 3D reconstruction, parametric CAD, and embodied robotics.
+          A systematic quantitative synthesis summarizing empirical evaluations across 307+ community reports, an evidentiary classification matrix, and standardized benchmark comparisons in 3D reconstruction, parametric CAD, and embodied robotics.
         </p>
 
         <!-- Metric Summary Cards -->
@@ -1923,28 +1923,28 @@ def build_full_html():
               <td><strong>3D Scene &amp; Mesh Modeling</strong></td>
               <td>{m_count} Showcases</td>
               <td>{(m_count / total_count * 100):.1f}%</td>
-              <td>Procedural Blender scripts, NeRF/3DGS representations, architectural scans (M01–M108)</td>
+              <td>Procedural Blender scripts, NeRF/3DGS representations, architectural scans (M01–M110, X01–X23)</td>
               <td><span class="badge-tier tier-1">Tier 1 &amp; 2 (Established / Partial)</span></td>
             </tr>
             <tr>
               <td><strong>Industrial Design &amp; Parametric CAD</strong></td>
               <td>{cad_count} Showcases</td>
               <td>{(cad_count / total_count * 100):.1f}%</td>
-              <td>FreeCAD / SolidWorks / Onshape feature trees, 511-solid turbofan assembly (I01–I25)</td>
+              <td>FreeCAD / SolidWorks / Onshape feature trees, 511-solid turbofan assembly (I01–I27)</td>
               <td><span class="badge-tier tier-2">Tier 2 (Code Verified; DFM Pending)</span></td>
             </tr>
             <tr>
               <td><strong>Embodied Robot Control</strong></td>
               <td>{robot_count} Showcases</td>
               <td>{(robot_count / total_count * 100):.1f}%</td>
-              <td>Isaac Sim / MuJoCo controllers, SO-101 desktop manipulation, bimanual piano (R01–R39)</td>
+              <td>Isaac Sim / MuJoCo controllers, SO-101 desktop manipulation, bimanual piano (R01–R42)</td>
               <td><span class="badge-tier tier-2">Tier 2 &amp; 4 (Simulation Parity; Latency Bound)</span></td>
             </tr>
             <tr>
               <td><strong>Animation &amp; Dynamic Workflows</strong></td>
               <td>{anim_count} Showcases</td>
               <td>{(anim_count / total_count * 100):.1f}%</td>
-              <td>Character rigging, procedural motion graphics, interactive shaders, previs (A01–A20, M20–M83)</td>
+              <td>Character rigging, procedural motion graphics, interactive shaders, previs (A01–A21, M20–M83)</td>
               <td><span class="badge-tier tier-1">Tier 1 &amp; 3 (Interactive / Video Previs)</span></td>
             </tr>
           </tbody>
