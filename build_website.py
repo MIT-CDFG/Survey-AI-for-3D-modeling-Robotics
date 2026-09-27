@@ -13,7 +13,10 @@ import glob
 import json
 import subprocess
 import time
+import unicodedata
+import urllib.parse
 import urllib.request
+from html import escape as html_escape
 
 WEBSITE_DIR = os.path.dirname(os.path.abspath(__file__))
 # Auto-detect astra-paper workspace root
@@ -38,6 +41,44 @@ ICON_DOWNLOAD = '<svg class="btn-icon-svg" width="14" height="14" viewBox="0 0 2
 ICON_BIBTEX = '<svg class="btn-icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>'
 
 
+def read_corpus_counts():
+    """Corpus size from the paper's preamble (\numposts, \numgroups) so the site
+    never drifts from the paper when the archive grows."""
+    counts = {"posts": "328", "groups": "232"}
+    path = os.path.join(WORKSPACE, "preamble.tex")
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            text = f.read()
+        for key, macro in (("posts", "numposts"), ("groups", "numgroups")):
+            m = re.search(r'\\newcommand\{\\' + macro + r'\}\{(\d+)', text)
+            if m:
+                counts[key] = m.group(1)
+    return counts
+
+
+CORPUS = read_corpus_counts()
+
+
+_LATEX_ACCENTS = {"'": "\u0301", "`": "\u0300", "^": "\u0302", '"': "\u0308", "~": "\u0303",
+                  "=": "\u0304", ".": "\u0307", "u": "\u0306", "v": "\u030C", "H": "\u030B",
+                  "c": "\u0327", "k": "\u0328", "r": "\u030A"}
+
+
+def latex_to_unicode(text):
+    r"""Decode the LaTeX accent and symbol macros used in author names
+    (Mu{\v{s}}i{\'c} -> Mušić, Elmal{\i} -> Elmalı, \textbar -> |)."""
+    if not text or "\\" not in text:
+        return text
+    text = re.sub(r"\\textbar\\?\s?", "| ", text)
+    text = re.sub(r"\{\\i\}|\\i\b", "ı", text)
+    def accent(m):
+        letter = m.group(2) or m.group(3)
+        return unicodedata.normalize("NFC", letter + _LATEX_ACCENTS[m.group(1)])
+    text = re.sub(r"""\\([\'`^"~=.uvHckr])(?:\{\s*([A-Za-zı])\s*\}|\s*([A-Za-zı]))""", accent, text)
+    text = re.sub(r"\{([^{}\\]*)\}", r"\1", text)
+    return text
+
+
 def clean_desc_text(text):
     if not text:
         return ""
@@ -51,7 +92,7 @@ def clean_desc_text(text):
         else:
             text = text.lstrip("[").rstrip("]")
     text = text.replace("]", "").replace("[", "")
-    return text.strip()
+    return latex_to_unicode(text.strip())
 
 def parse_bib_urls():
     bib_urls = {}
@@ -116,7 +157,7 @@ def parse_case_index(bib_urls=None):
                             "key": key,
                             "rank_raw": rank_raw.strip(),
                             "desc": clean_desc_text(desc),
-                            "author": author.strip().replace(r"\_", "_"),
+                            "author": latex_to_unicode(author.strip().replace(r"\_", "_")),
                             "platform": platform.strip(),
                             "date": date.strip(),
                             "url": url,
@@ -427,7 +468,7 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
                         "rank_badge": rank_badge,
                         "type": ptype.strip(),
                         "desc": clean_desc_text(desc),
-                        "author": author.strip().replace(r"\_", "_"),
+                        "author": latex_to_unicode(author.strip().replace(r"\_", "_")),
                         "platform": platform.strip(),
                         "date": date.strip(),
                         "cite_key": cite_key.strip(),
@@ -511,7 +552,7 @@ def build_appendix_c_html(bib_urls, gallery_items=None):
       </div>
 
       <div class="academic-table-card" id="tab:index">
-        <div class="table-caption"><strong>Table 7: Index of archived posts, classified by Evidence Ranking.</strong> Type: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. Total 307 records spanning 223 archival groups across the living survey.</div>
+        <div class="table-caption"><strong>Table 7: Index of archived posts, classified by Evidence Ranking.</strong> Type: C = core entry, F = technical follow-up, S = supplementary entry, R = repost or commentary. Total {CORPUS["posts"]} records spanning {CORPUS["groups"]} archival groups across the living survey.</div>
         <div class="table-scroll-container">
           <table class="academic-table post-index-table">
             <thead>
@@ -857,7 +898,8 @@ def build_benchmarks_section_html(readme_text):
             <span>2.1 Robotics &amp; Embodied Control Evaluations (23 Benchmark Suites)</span>
             <span style="font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 4px; background: #e0f2fe; color: #0369a1;">Isaac Sim · MuJoCo · Real Hardware</span>
           </h4>
-          <div class="table-container" style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 2rem;">
+          <div class="table-scroll-hint" aria-hidden="true">Swipe sideways to see every column →</div>
+          <div class="table-container">
             {robotics_table}
           </div>
 
@@ -865,7 +907,8 @@ def build_benchmarks_section_html(readme_text):
             <span>2.2 3D Reconstruction, CAD &amp; Spatial Intelligence (7 Benchmark Suites)</span>
             <span style="font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 4px; background: #fef3c7; color: #b45309;">CadQuery · B-rep · Spatial VQA</span>
           </h4>
-          <div class="table-container" style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 2rem;">
+          <div class="table-scroll-hint" aria-hidden="true">Swipe sideways to see every column →</div>
+          <div class="table-container">
             {cad_table}
           </div>
 
@@ -962,9 +1005,9 @@ def build_latex_gallery_figure_html(fig_id, fig_num_str, title, tex_file, captio
         author_short = author.split('(')[0].strip() if author else gid
         
         cards_html.append(f'''
-        <div class="gallery-tile-card" onclick="switchView('view-gallery'); filterGallery('{domain_key}');" title="{gid}: {title_text}">
+        <div class="gallery-tile-card" role="button" tabindex="0" onclick="openArchiveCase('{gid}', '{domain_key}')" title="{html_escape(gid + ': ' + title_text)} (open in Case Archive)">
           <div class="gallery-tile-thumb-wrap">
-            <img src="assets/gallery/{img}" alt="{gid}: {title_text}" loading="lazy" class="zoomable">
+            <img src="assets/gallery/{img}" alt="{html_escape(gid + ': ' + title_text)}" loading="lazy">
             <span class="gallery-tile-gid">{gid}</span>
           </div>
           <div class="gallery-tile-meta">
@@ -987,12 +1030,104 @@ def build_latex_gallery_figure_html(fig_id, fig_num_str, title, tex_file, captio
         <strong>Figure {fig_num_str}: {title}.</strong> {caption_text}
       </figcaption>
       <div class="gallery-figure-actions">
-        <button class="btn-callout-switch" onclick="switchView('view-gallery'); filterGallery('{domain_key}');">
+        <button class="btn-callout-switch" onclick="openArchiveDomain('{domain_key}')">
           <span>Explore All {domain_key.upper()} Showcases in Interactive Gallery →</span>
         </button>
       </div>
     </figure>
     '''
+
+def _intrinsic_image_size(path):
+    """Return (width, height) in CSS px for local PNG/JPEG/SVG files, or None."""
+    try:
+        with open(path, 'rb') as f:
+            head = f.read(64 * 1024)
+    except OSError:
+        return None
+    if head[:8] == b'\x89PNG\r\n\x1a\n' and head[12:16] == b'IHDR':
+        return int.from_bytes(head[16:20], 'big'), int.from_bytes(head[20:24], 'big')
+    if head[:2] == b'\xff\xd8':
+        i = 2
+        while i + 9 < len(head):
+            if head[i] != 0xFF:
+                i += 1
+                continue
+            marker = head[i + 1]
+            seg_len = int.from_bytes(head[i + 2:i + 4], 'big')
+            if marker in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+                return int.from_bytes(head[i + 7:i + 9], 'big'), int.from_bytes(head[i + 5:i + 7], 'big')
+            i += 2 + seg_len
+        return None
+    if path.lower().endswith('.svg'):
+        text = head.decode('utf-8', 'ignore')
+        tag = re.search(r'<svg\b[^>]*>', text)
+        if not tag:
+            return None
+        unit_px = {'': 1.0, 'px': 1.0, 'pt': 4 / 3, 'in': 96.0, 'cm': 96 / 2.54, 'mm': 96 / 25.4}
+        dims = []
+        for attr in ('width', 'height'):
+            m = re.search(r'\b' + attr + r'="([\d.]+)(px|pt|in|cm|mm)?"', tag.group(0))
+            if m:
+                dims.append(float(m.group(1)) * unit_px[m.group(2) or ''])
+        if len(dims) == 2:
+            return round(dims[0]), round(dims[1])
+        vb = re.search(r'viewBox="[\d.\-]+[ ,]+[\d.\-]+[ ,]+([\d.]+)[ ,]+([\d.]+)"', tag.group(0))
+        if vb:
+            return round(float(vb.group(1))), round(float(vb.group(2)))
+    return None
+
+
+def add_intrinsic_image_sizes(html):
+    """Stamp width/height on local <img> tags so lazy images reserve their space.
+    Without this, figures that load while the reader jumps through the paper push
+    anchor targets down and TOC links land in the wrong place."""
+    def repl(m):
+        tag = m.group(0)
+        if re.search(r'\swidth=', tag):
+            return tag
+        src = re.search(r'\ssrc="([^"]+)"', tag)
+        if not src or '://' in src.group(1):
+            return tag
+        size = _intrinsic_image_size(os.path.join(WEBSITE_DIR, src.group(1)))
+        if not size or not size[0] or not size[1]:
+            return tag
+        return tag[:4] + ' width="%d" height="%d"' % size + tag[4:]
+    return re.sub(r'<img\b[^>]*>', repl, html)
+
+
+def normalize_latex_tables_for_pandoc(tex):
+    r"""Rewrite table constructs that pandoc's LaTeX reader mangles.
+
+    - `>{\raggedright\arraybackslash}` column prefixes make pandoc drop the first
+      token of every cell ("288 videos" -> "videos", "0.497 (rank 3)" -> "(rank 3)")
+      and blank every \multicolumn row. HTML cells are left-aligned anyway.
+    - longtable \endfirsthead/\endhead/\endfoot blocks become duplicated header and
+      empty body rows; keep the first header and move the \endlastfoot notes to the end.
+    - `\\*` (no page break) row ends leak a literal "*".
+    """
+    tex = re.sub(r'>\{\\raggedright\\arraybackslash\}', '', tex)
+    tex = tex.replace('\\arraybackslash', '')
+
+    def fix_longtable(m):
+        body = m.group(0)
+        if '\\endfirsthead' in body and '\\endlastfoot' in body:
+            head, rest = body.split('\\endfirsthead', 1)
+            if '\\endhead' in rest:
+                rest = rest.split('\\endhead', 1)[1]
+            if '\\endfoot' in rest:
+                rest = rest.split('\\endfoot', 1)[1]
+            lastfoot, rest = rest.split('\\endlastfoot', 1)
+            lastfoot = lastfoot.replace('\\bottomrule', '').replace('\\midrule', '')
+            rest = rest.replace('\\end{longtable}', lastfoot + '\n\\end{longtable}')
+            body = head + rest
+        return body
+
+    tex = re.sub(r'\\begin\{longtable\}.*?\\end\{longtable\}', fix_longtable, tex, flags=re.S)
+    # \multicolumn{N}{@{}p{\linewidth}@{}}{...} -> plain left-aligned span
+    tex = re.sub(r'\\multicolumn\{(\d+)\}\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}', r'\\multicolumn{\1}{l}', tex)
+    tex = re.sub(r'\\\\\*', r'\\\\', tex)
+    return tex
+
 
 def convert_paper_html(bib_urls=None):
     if bib_urls is None:
@@ -1054,6 +1189,8 @@ def convert_paper_html(bib_urls=None):
                     combined = combined.replace(f"\\{mac_name}{{}}", mac_val)
                     combined = combined.replace(f"\\{mac_name}", mac_val)
     
+    combined = normalize_latex_tables_for_pandoc(combined)
+
     cmd = [
         "pandoc",
         "-f", "latex",
@@ -1089,6 +1226,11 @@ def convert_paper_html(bib_urls=None):
         r'<h1\1id="sec:summary"\2><span id="executive-summary"></span>',
         out
     )
+    # Drop pandoc label spans whose id now lives on the heading itself (duplicate ids)
+    heading_ids = set(re.findall(r'<h[1-6][^>]*\bid="([^"]+)"', out))
+    out = re.sub(r'<span id="([^"]+)"\s+data-label="\1"></span>',
+                 lambda m: '' if m.group(1) in heading_ids else m.group(0), out)
+    out = re.sub(r'<p>\s*</p>', '', out)
     # Clean run-in lead paragraphs
     out = out.replace('<p><strong>Source scope.</strong>', '<p class="no-indent"><strong>Source scope.</strong>')
     
@@ -1148,10 +1290,10 @@ def convert_paper_html(bib_urls=None):
     fig_detail_3d_html = """
     <figure class="academic-figure figure-main" id="fig:detail-3d">
       <div class="figure-img-wrap">
-        <img src="assets/figures/kitchen_input_output.png" alt="Figure 5: Input and output details from Dou's kitchen viewer" class="zoomable" loading="lazy" style="max-width: 720px;">
+        <img src="assets/figures/kitchen_input_output.png" alt="Figure 5: Input and output details from Dou's kitchen viewer" class="zoomable" loading="lazy" style="max-width: min(720px, 100%);">
       </div>
       <figcaption>
-        <strong>Figure 5: Input and output details from Dou’s kitchen viewer (M32)</strong> (Dou, 2026b). The phone-video inset at lower left and modeled scene let the reader compare the refrigerator, counters and island as retained scene objects. The view is cropped from one posted frame. This view does not establish dimensional agreement, complete room reconstruction or validated contact and physical parameters; the author's reported weaknesses in thin and shiny objects, draft objects and room shell remain.
+        <strong>Figure 5: Input and output details from Dou’s kitchen viewer (M32)</strong> <a href="#ref-dou2026kitchentwin" class="citation-link" data-refs="ref-dou2026kitchentwin" title="View in References">(Dou, 2026b)</a>. The phone-video inset at lower left and modeled scene let the reader compare the refrigerator, counters and island as retained scene objects. The view is cropped from one posted frame. This view does not establish dimensional agreement, complete room reconstruction or validated contact and physical parameters; the author's reported weaknesses in thin and shiny objects, draft objects and room shell remain.
       </figcaption>
     </figure>
     """
@@ -1178,7 +1320,7 @@ def convert_paper_html(bib_urls=None):
         </div>
       </div>
       <figcaption>
-        <strong>Figure 7: A turbofan built as a solid B-rep model from one prompt (I04)</strong> (Varghese, 2026). Varghese connected a GPT-6 Astra (medium) session to the CGM modeling kernel through James Gray's MCP server and asked for a detailed turbofan; he reports “511 solid bodies”, “11,200 faces” and “2,296 blades and vanes”, export to XCGM and STEP, and that “all the bodies pass CGM's BREP checker”, in under 30 minutes. The two images are among the presentation renders the author says the model also produced, so they show the model's own depiction of its output rather than a kernel view. He calls it “an illustrative model, not an OEM design”; B-rep validity and the selected clearance checks he ran do not establish aerodynamic function or manufacturability, and the figures are author-reported.
+        <strong>Figure 7: A turbofan built as a solid B-rep model from one prompt (I04)</strong> <a href="#ref-varghese2026turbofan" class="citation-link" data-refs="ref-varghese2026turbofan" title="View in References">(Varghese, 2026)</a>. Varghese connected a GPT-6 Astra (medium) session to the CGM modeling kernel through James Gray's MCP server and asked for a detailed turbofan; he reports “511 solid bodies”, “11,200 faces” and “2,296 blades and vanes”, export to XCGM and STEP, and that “all the bodies pass CGM's BREP checker”, in under 30 minutes. The two images are among the presentation renders the author says the model also produced, so they show the model's own depiction of its output rather than a kernel view. He calls it “an illustrative model, not an OEM design”; B-rep validity and the selected clearance checks he ran do not establish aerodynamic function or manufacturability, and the figures are author-reported.
       </figcaption>
     </figure>
     """
@@ -1205,7 +1347,7 @@ def convert_paper_html(bib_urls=None):
         </div>
       </div>
       <figcaption>
-        <strong>Figure 9: Physical in-context learning through the ENPIRE harness (R03)</strong> (Zhang, 2026b). (a) A person places a yellow cup on the table in front of the bimanual arms; (b) the arms reproduce the task, with the source's 8× playback overlay visible. The authors state that the model “outputs target EE and the harness does the IK”, and that the cameras run at 30 Hz while “GPT-6 is queried much less often than that”; the long waits were edited out of the clip. The pair shows the input and the reported output of one run. It does not show the complete run, the number of attempts, or a completion count, and the edited timing means the clip cannot be used to measure model decision latency.
+        <strong>Figure 9: Physical in-context learning through the ENPIRE harness (R03)</strong> <a href="#ref-zhang2026enpire" class="citation-link" data-refs="ref-zhang2026enpire" title="View in References">(Zhang, 2026b)</a>. (a) A person places a yellow cup on the table in front of the bimanual arms; (b) the arms reproduce the task, with the source's 8× playback overlay visible. The authors state that the model “outputs target EE and the harness does the IK”, and that the cameras run at 30 Hz while “GPT-6 is queried much less often than that”; the long waits were edited out of the clip. The pair shows the input and the reported output of one run. It does not show the complete run, the number of attempts, or a completion count, and the edited timing means the clip cannot be used to measure model decision latency.
       </figcaption>
     </figure>
     """
@@ -1248,11 +1390,71 @@ def convert_paper_html(bib_urls=None):
 
         out = re.sub(r'<div id="ref-[^"]+" class="csl-entry"[^>]*>', add_ref_number, out)
 
+        # key -> (plain entry text, year label such as "2026b") for matching grouped citations
+        ref_labels = {}
+        for m in re.finditer(r'<div id="ref-([^"]+)" class="csl-entry"[^>]*>(.*?)</div>', out, re.S):
+            text = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', m.group(2))).strip()
+            text = re.sub(r'^\[\d+\]\s*', '', text)
+            year = re.search(r'\b(\d{4}[a-z]?)\b', text)
+            ref_labels[m.group(1)] = (text[:year.start()] if year else text, year.group(1) if year else '')
+
+        def split_citation_units(inner, keys):
+            """Map each rendered "Author Year" unit of a grouped citation to its key.
+            Returns [(unit_html, key, separator_after)] or None when ambiguous."""
+            pieces = re.split(r'(;\s+)', inner)
+            units = []
+            for i, part in enumerate(pieces[0::2]):
+                sub = re.split(r'(,\s+)', part)
+                texts, subseps = [sub[0]], []
+                for sp, t in zip(sub[1::2], sub[2::2]):
+                    if re.fullmatch(r'\d{4}[a-z]?', re.sub(r'<[^>]+>', '', t).strip()):
+                        texts.append(t)
+                        subseps.append(sp)
+                    else:
+                        texts[-1] += sp + t
+                outer_sep = pieces[1::2][i] if i < len(pieces[1::2]) else ''
+                for j, t in enumerate(texts):
+                    units.append([t, subseps[j] if j < len(subseps) else outer_sep])
+            if len(units) != len(keys):
+                return None
+            remaining = list(keys)
+            author = ''
+            out_units = []
+            for t, sep in units:
+                plain = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', t)).strip()
+                ym = re.search(r'(\d{4}[a-z]?)$', plain)
+                if not ym:
+                    return None
+                if plain[:ym.start()].strip():
+                    # first real name word: skip initials ("W.", "Z. J.") and "et al."
+                    tokens = plain[:ym.start()].lower().replace('et al.', ' ').split()
+                    initials = [w[0] for w in tokens if re.fullmatch(r'[a-z]\.', w)]
+                    words = [w for w in tokens if not re.fullmatch(r'[a-z]\.', w)]
+                    author = words[0].lstrip('@') if words else ''
+                same_year = [k for k in remaining if ref_labels.get(k, ('', ''))[1] == ym.group(1)]
+                hits = [k for k in same_year if author and
+                        re.match(re.escape(author) + r'\b', ref_labels[k][0].lower().lstrip('@ '))]
+                if not hits:
+                    hits = [k for k in same_year if author and author in ref_labels[k][0].lower()]
+                if len(hits) > 1 and initials:
+                    # "W. Zhang et al." vs "Z. J. Zhang et al.": compare with the given name
+                    hits = [k for k in hits
+                            if re.match(re.escape(author) + r'[^,]*,\s*' + initials[0],
+                                        ref_labels[k][0].lower().lstrip('@'))]
+                if len(hits) != 1:
+                    return None
+                remaining.remove(hits[0])
+                out_units.append((t, hits[0], sep))
+            return out_units
+
         # Convert in-text citation spans to clickable links jumping to the reference
         pos = 0
         res = []
+        # pandoc wraps long lines, so the tag may read '<span\nclass="citation"'
+        citation_open = re.compile(r'<span\s+class="citation"')
         while True:
-            idx = out.find('<span class="citation"', pos)
+            m_open = citation_open.search(out, pos)
+            idx = m_open.start() if m_open else -1
             if idx == -1:
                 res.append(out[pos:])
                 break
@@ -1287,12 +1489,27 @@ def convert_paper_html(bib_urls=None):
             if depth == 0 and cites_match:
                 content = out[content_start:content_end]
                 keys = cites_match.group(1).split()
-                first_key = keys[0]
-                matched_nums = [str(cite_map[k]) for k in keys if k in cite_map]
-                if matched_nums:
-                    num_label = f"[{', '.join(matched_nums)}]"
-                    target_id = f"ref-{first_key}" if not first_key.startswith('ref-') else first_key
-                    res.append(f'<a href="#{target_id}" class="citation-link" title="{num_label} View in References">{content}</a>')
+                matched = [k for k in keys if k in cite_map]
+                if matched:
+                    def ref_id(k):
+                        return k if k.startswith('ref-') else f"ref-{k}"
+                    # "(A 2026; B 2026)": give every work its own link so a click
+                    # highlights exactly the entry the reader chose
+                    lead, inner, trail = '', content, ''
+                    if inner.startswith('(') and inner.endswith(')'):
+                        lead, inner, trail = '(', inner[1:-1], ')'
+                    units = split_citation_units(inner, keys) if len(keys) > 1 and len(matched) == len(keys) else None
+                    if units:
+                        group = []
+                        for part, k, sep in units:
+                            group.append(f'<a href="#{ref_id(k)}" class="citation-link" data-refs="{ref_id(k)}" '
+                                         f'title="[{cite_map[k]}] View in References">{part}</a>{sep}')
+                        res.append(f'<span class="citation-group">{lead}{"".join(group)}{trail}</span>')
+                    else:
+                        num_label = f"[{', '.join(str(cite_map[k]) for k in matched)}]"
+                        data_refs = " ".join(ref_id(k) for k in matched)
+                        res.append(f'<a href="#{ref_id(matched[0])}" class="citation-link" data-refs="{data_refs}" '
+                                   f'title="{num_label} View in References">{content}</a>')
                 else:
                     res.append(out[idx:curr])
                 pos = curr
@@ -1402,7 +1619,7 @@ def render_tile_html(item):
         desc_html = f'{item["title"]}'
 
     if sub_badge:
-        author_html = f'{author_html} <span class="tile-subcat-sep">·</span> {sub_badge}'
+        author_html = f'{author_html} <span class="tile-subcat-wrap"><span class="tile-subcat-sep">·</span> {sub_badge}</span>'
 
     # Action Buttons per Rank
     if rank_num == 1:
@@ -1425,12 +1642,20 @@ def render_tile_html(item):
         </div>
         '''
         else:
+            code_href = code_url or source_url
+            code_host = urllib.parse.urlparse(code_href).netloc.replace('www.', '')
+            code_title = ("View implementation code on GitHub" if code_host.endswith('github.com')
+                          else f"View implementation code on {code_host}")
+            demo_btn = (f'''
+          <a href="{demo_url}" target="_blank" rel="noopener noreferrer" class="tile-btn btn-interactive" title="Open the interactive demo">
+            <span>Demo</span> ↗
+          </a>''' if demo_url else '')
             actions_html = f'''
         <div class="tile-action-btns">
-          <a href="{code_url or source_url}" target="_blank" rel="noopener noreferrer" class="tile-btn btn-code" title="View implementation code repository on GitHub">
+          <a href="{code_href}" target="_blank" rel="noopener noreferrer" class="tile-btn btn-code" title="{code_title}">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
             <span>Code</span> ↗
-          </a>
+          </a>{demo_btn}
           <a href="{source_url}" target="_blank" rel="noopener noreferrer" class="tile-btn btn-post" title="Open source post on {item['platform']}">
             <span>Post</span> ↗
           </a>
@@ -1470,17 +1695,18 @@ def render_tile_html(item):
     safe_tools = item.get('tools', '').replace("'", "\\'")
     safe_sub = sub_text.replace("'", "\\'")
 
-    safe_code2 = code_url2.replace("'", "\'")
-    safe_label2 = code_label2.replace("'", "\'")
+    safe_code2 = code_url2.replace("'", "\\'")
+    safe_label2 = code_label2.replace("'", "\\'")
     video_badge = '<span class="tile-badge-video" title="Direct video playback available">▶ Video</span>' if video_url else ''
     onclick_js = f"openShowcaseModal('{item['img_url']}', '{item['id']}', '{safe_title}', '{safe_author}', '{safe_source}', '{safe_platform}', '{safe_rank_lbl}', '{rank_class}', '{safe_code}', '{safe_demo}', '{safe_video}', '{safe_model}', '{safe_tools}', '{safe_sub}', '{safe_code2}', '{safe_label2}')"
 
     remote_fallback = item.get('remote_img', '')
     rel_img_val = item.get('rel_img', '')
-    onerror_attr = f' onerror="if(this.src.indexOf(\\\'frank-zy-dou.github.io\\\')===-1 && \\\'{rel_img_val}\\\'){{this.src=\\\'{remote_fallback}\\\';}}"' if rel_img_val else ''
+    onerror_attr = (f' onerror="this.onerror=null;if(this.src.indexOf(\'frank-zy-dou.github.io\')===-1){{this.src=\'{remote_fallback}\';}}"'
+                    if rel_img_val and remote_fallback else '')
 
     if item['img_url']:
-        media_wrap_html = f"""<div class="tile-img-wrap" onclick="{onclick_js}">
+        media_wrap_html = f"""<div class="tile-img-wrap" role="button" tabindex="0" aria-label="Open preview of {item['id']}" onclick="{onclick_js}">
         <img src="{item['img_url']}" alt="{item['id']}" loading="lazy"{onerror_attr}>
         <div class="tile-badges-overlay">
           <span class="tile-badge-id">{item['id']}</span>
@@ -1489,7 +1715,7 @@ def render_tile_html(item):
         {video_badge}
       </div>"""
     else:
-        media_wrap_html = f"""<div class="tile-img-wrap tile-img-text-only" onclick="{onclick_js}">
+        media_wrap_html = f"""<div class="tile-img-wrap tile-img-text-only" role="button" tabindex="0" aria-label="Open preview of {item['id']}" onclick="{onclick_js}">
         <div class="tile-text-only-placeholder">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;margin-bottom:6px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
           <span style="font-size:0.75rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-muted,#888);">Text Commentary Only</span>
@@ -1500,8 +1726,12 @@ def render_tile_html(item):
         </div>
       </div>"""
 
+    search_blob = " ".join(str(v) for v in [
+        item['id'], item['author'], item['platform'], sub_text, item['title'], item['desc'],
+        item.get('model', ''), item.get('tools', '')] if v).lower()
+
     return f"""
-    <div class="gallery-tile {domain_class} {rank_class}" data-domain="{item['domain']}" data-rank="{item['rank']}" data-rank-num="{item['rank_num']}" data-order="{item['order_index']}" data-id="{item['id']}" data-author="{item['author']}" data-desc="{item['title']} {item['desc']}">
+    <div class="gallery-tile {domain_class} {rank_class}" data-domain="{item['domain']}" data-rank="{item['rank']}" data-rank-num="{item['rank_num']}" data-order="{item['order_index']}" data-id="{item['id']}" data-author="{html_escape(item['author'])}" data-desc="{html_escape(item['title'] + ' ' + item['desc'])}" data-search="{html_escape(search_blob)}">
       {media_wrap_html}
       <div class="tile-meta">
         <div class="tile-author">{author_html}</div>
@@ -1568,7 +1798,7 @@ def build_gallery_sidebar_html(gallery_items):
     sidebar_html.append('''
       </nav>
       <div class="sidebar-extra-section" style="margin-top: 1.25rem; padding-top: 0.85rem; border-top: 1px solid var(--border-subtle);">
-        <a href="#benchmarks" class="sidebar-domain-head" onclick="switchView('view-stats', false); setTimeout(function(){ var el = document.getElementById('benchmarks-section') || document.getElementById('view-stats'); if(el) el.scrollIntoView({behavior:'smooth'}); }, 100); return false;" style="color: var(--mit-red); display: flex; align-items: center; justify-content: space-between; text-decoration: none; font-weight: 600;">
+        <a href="#benchmarks" class="sidebar-domain-head" onclick="openBenchmarks(event)" style="color: var(--mit-red); display: flex; align-items: center; justify-content: space-between; text-decoration: none; font-weight: 600;">
           <span>Quantitative Benchmarks ↗</span>
           <span class="sidebar-domain-count">30 Suites</span>
         </a>
@@ -1630,6 +1860,66 @@ def build_gallery_sections_html(gallery_items):
 
     return "\n".join(html)
 
+PAPER_TOC_ENTRIES = [
+    ("abstract", "Abstract"),
+    ("sec:summary", "Executive Summary"),
+    ("sec:intro", "1. Introduction"),
+    ("sec:related", "2. Related Work"),
+    ("sec:technology", "3. Harnesses, Tool Interfaces, and Feedback"),
+    ("sec:capabilities", "4. Capabilities"),
+    ("sec:evaluation", "5. Evaluation"),
+    ("sec:opportunities", "6. Opportunities"),
+    ("sec:risks", "7. Risks and Limitations"),
+    ("sec:recommendations", "8. Recommendations"),
+    ("sec:conclusion", "9. Conclusion"),
+    ("sec:intro-methods", "10. Materials and Methods"),
+    ("app:eval-protocols", "Appendix A: Evaluation Protocols and Linked Components"),
+    ("app:archive-notes", "Appendix B: Notes on the Archive"),
+    ("app:cases", "Appendix C: Index of Archived Posts"),
+    ("references", "References"),
+    ("citation-box", "BibTeX Citation"),
+]
+
+
+def build_paper_toc_html(paper_html):
+    """Two-level TOC: the curated top-level labels above, plus every numbered
+    subsection (h2) found under each section in the rendered paper."""
+    subsections = {}
+    current = None
+    for m in re.finditer(r'<h([12])\b([^>]*)>(.*?)</h\1>', paper_html, re.S):
+        idm = re.search(r'\bid="([^"]+)"', m.group(2))
+        if m.group(1) == '1':
+            current = idm.group(1) if idm else None
+        elif current and idm:
+            label = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', m.group(3))).strip()
+            subsections.setdefault(current, []).append((idm.group(1), label))
+
+    items = []
+    for sec_id, label in PAPER_TOC_ENTRIES:
+        subs = subsections.get(sec_id, [])
+        sub_html = ''
+        if subs:
+            sub_html = '<ul class="toc-sub-list">' + ''.join(
+                f'<li><a href="#{sid}" class="toc-sub-link">{html_escape(text)}</a></li>' for sid, text in subs
+            ) + '</ul>'
+        items.append(
+            f'<li class="toc-section{" has-subs" if subs else ""}" data-section="{sec_id}">'
+            f'<a href="#{sec_id}" class="toc-sec-link">{html_escape(label)}</a>{sub_html}</li>'
+        )
+    return '<ul class="toc-links">\n' + '\n'.join(items) + '\n</ul>'
+
+def case_id_ranges(gallery_items, domain, prefixes):
+    """'M01–M112, X01–X24' for the given domain, computed from the archive so the
+    Benchmark overview never lists stale case ranges."""
+    parts = []
+    for prefix in prefixes:
+        nums = sorted(int(m.group(1)) for it in gallery_items if it.get('domain') == domain
+                      for m in [re.fullmatch(prefix + r'(\d+)', str(it.get('id', '')))] if m)
+        if nums:
+            parts.append(f"{prefix}{nums[0]:02d}–{prefix}{nums[-1]:02d}")
+    return ", ".join(parts)
+
+
 def build_full_html():
     readme_text = fetch_awesome_readme()
     if not readme_text:
@@ -1643,7 +1933,8 @@ def build_full_html():
     gallery_items = get_gallery_items(cases, readme_text)
     gallery_sidebar_html = build_gallery_sidebar_html(gallery_items)
     gallery_sections_html = build_gallery_sections_html(gallery_items)
-    paper_html = convert_paper_html(bib_urls)
+    paper_html = add_intrinsic_image_sizes(convert_paper_html(bib_urls))
+    paper_toc_html = build_paper_toc_html(paper_html)
     benchmarks_section_html = build_benchmarks_section_html(readme_text)
     
     total_count = len(gallery_items)
@@ -1704,6 +1995,15 @@ def build_full_html():
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#750014">
+  <link rel="icon" href="assets/logos/mit_logo.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://mit-cdfg.github.io/Survey-AI-for-3D-modeling-Robotics/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="MIT CSAIL CDFG">
+  <meta property="og:title" content="On the Opportunities and Risks of Frontier Models for 3D Modeling, Computational Design and Robotics">
+  <meta property="og:description" content="A systematic empirical survey analyzing over {CORPUS["posts"]} community demonstrations, technical reports, and benchmark evaluations of frontier multimodal models in 3D modeling, parametric CAD, and embodied robotics.">
+  <meta property="og:url" content="https://mit-cdfg.github.io/Survey-AI-for-3D-modeling-Robotics/">
+  <meta name="twitter:card" content="summary">
   <title>On the Opportunities and Risks of Frontier Models for 3D Modeling, Computational Design and Robotics | MIT CSAIL</title>
   
   <!-- Academic Citation Metadata -->
@@ -1721,7 +2021,7 @@ def build_full_html():
   <meta name="citation_publication_date" content="2026/09/22">
   {meta_pdf_citation}
   
-  <meta name="description" content="A systematic empirical survey analyzing over 307 community demonstrations, technical reports, and benchmark evaluations of frontier multimodal models in 3D modeling, parametric CAD, and embodied robotics.">
+  <meta name="description" content="A systematic empirical survey analyzing over {CORPUS["posts"]} community demonstrations, technical reports, and benchmark evaluations of frontier multimodal models in 3D modeling, parametric CAD, and embodied robotics.">
 
   <!-- Cloudflare Web Analytics (Optional: paste beacon token from dash.cloudflare.com) -->
   <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "YOUR_CLOUDFLARE_BEACON_TOKEN"}}'></script> -->
@@ -1737,7 +2037,7 @@ def build_full_html():
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=20260924-reads">
+  <link rel="stylesheet" href="css/style.css?v=20260927-layout">
 </head>
 <body id="top">
 
@@ -1748,7 +2048,7 @@ def build_full_html():
   <header class="top-nav-bar">
     <div class="nav-inner">
       <div class="nav-brand">
-        <a href="#abstract" class="brand-link" title="MIT CSAIL CDFG · Frontier 3D &amp; Robotics Survey">
+        <a href="#view-html" class="brand-link" onclick="switchView('view-html'); return false;" title="MIT CSAIL CDFG · Frontier 3D &amp; Robotics Survey">
           <svg class="mit-brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 28" height="24" width="46" aria-label="MIT Logo">
             <rect x="0" y="0" width="6" height="28" fill="#A31F34"/>
             <rect x="9.6" y="9.6" width="6" height="18.4" fill="#A31F34"/>
@@ -1768,16 +2068,16 @@ def build_full_html():
       </div>
 
       <!-- Main View Tabs (PDF / HTML / Statistics / Gallery) -->
-      <nav class="view-switcher" role="tablist">
-        <button class="view-tab-btn active" data-view="view-html" role="tab" aria-selected="true">
+      <nav class="view-switcher" role="tablist" aria-label="Site sections">
+        <button class="view-tab-btn active" id="tab-view-html" aria-controls="view-html" data-view="view-html" role="tab" aria-selected="true">
           {ICON_PAPER}
           <span class="tab-label-text"><span class="tab-label-full">Full Paper</span><span class="tab-label-short">Paper</span></span>
         </button>
-        <button class="view-tab-btn" data-view="view-stats" role="tab" aria-selected="false">
+        <button class="view-tab-btn" id="tab-view-stats" aria-controls="view-stats" data-view="view-stats" role="tab" aria-selected="false">
           {ICON_STATS}
           <span class="tab-label-text"><span class="tab-label-full">Benchmark</span><span class="tab-label-short">Benchmark</span></span>
         </button>
-        <button class="view-tab-btn" data-view="view-gallery" role="tab" aria-selected="false">
+        <button class="view-tab-btn" id="tab-view-gallery" aria-controls="view-gallery" data-view="view-gallery" role="tab" aria-selected="false">
           {ICON_GALLERY}
           <span class="tab-label-text"><span class="tab-label-full">Case Archive</span><span class="tab-label-short">Archive</span></span> <span class="badge-count">{len(gallery_items)}</span>
         </button>
@@ -1804,7 +2104,8 @@ def build_full_html():
     <!-- ====================================================================
          VIEW 1: HTML FULL PAPER (Unabridged LaTeX Content in HTML5)
          ==================================================================== -->
-    <section id="view-html" class="view-panel active">
+    <section id="view-html" class="view-panel active" role="tabpanel" aria-labelledby="tab-view-html">
+      <div class="html-reader-layout">
 
       <!-- Paper Header Block (Scoped strictly to Full Paper View) -->
       <header class="academic-header">
@@ -1824,7 +2125,7 @@ def build_full_html():
             <svg height="15" width="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
             <span>GitHub Repository</span>
           </a>
-          <button class="{hero_read_pill_class}" onclick="switchView('view-html')">
+          <button class="{hero_read_pill_class}" onclick="readFullPaper()">
             {ICON_PAPER}
             <span>Read Full Paper</span>
           </button>
@@ -1882,7 +2183,7 @@ def build_full_html():
               </div>
               <div class="pillar-tagline">Demonstrations as a Distributed User Study</div>
               <p>
-                Rather than treating community posts as anecdotal marketing demonstrations, we analyze the corpus of over 307 publicly documented showcases and developer reports as an extensive, distributed "crowdsourced user study." This framing captures how models operate when prompted across diverse geometry kernels (CGM, Open CASCADE), DCC software (Blender), physics simulators (Isaac Sim, MuJoCo, Genesis), and physical robot hardware—revealing real-world workflow friction, prompt overhead, and boundary failures that static benchmarks miss.
+                Rather than treating community posts as anecdotal marketing demonstrations, we analyze the corpus of over {CORPUS["posts"]} publicly documented showcases and developer reports as an extensive, distributed "crowdsourced user study." This framing captures how models operate when prompted across diverse geometry kernels (CGM, Open CASCADE), DCC software (Blender), physics simulators (Isaac Sim, MuJoCo, Genesis), and physical robot hardware—revealing real-world workflow friction, prompt overhead, and boundary failures that static benchmarks miss.
               </p>
             </div>
 
@@ -1904,29 +2205,14 @@ def build_full_html():
           </div>
         </section>
       </header>
-      <div class="html-reader-layout">
-        <!-- Floating / Sticky Table of Contents -->
-        <aside class="toc-pane">
-          <div class="toc-title">Table of Contents</div>
-          <ul class="toc-links">
-            <li><a href="#abstract">Abstract</a></li>
-            <li><a href="#sec:summary">Executive Summary</a></li>
-            <li><a href="#sec:intro">1. Introduction</a></li>
-            <li><a href="#sec:related">2. Related Work</a></li>
-            <li><a href="#sec:technology">3. Harnesses, Tool Interfaces, and Feedback</a></li>
-            <li><a href="#sec:capabilities">4. Capabilities</a></li>
-            <li><a href="#sec:evaluation">5. Evaluation</a></li>
-            <li><a href="#sec:opportunities">6. Opportunities</a></li>
-            <li><a href="#sec:risks">7. Risks and Limitations</a></li>
-            <li><a href="#sec:recommendations">8. Recommendations</a></li>
-            <li><a href="#sec:conclusion">9. Conclusion</a></li>
-            <li><a href="#sec:intro-methods">10. Materials and Methods</a></li>
-            <li><a href="#app:eval-protocols">Appendix A: Evaluation Protocols and Linked Components</a></li>
-            <li><a href="#app:archive-notes">Appendix B: Notes on the Archive</a></li>
-            <li><a href="#app:cases">Appendix C: Index of Archived Posts</a></li>
-            <li><a href="#references">References</a></li>
-            <li><a href="#citation-box">BibTeX Citation</a></li>
-          </ul>
+
+        <!-- Sticky Table of Contents (same geometry and style as the Case Archive directory) -->
+        <aside class="toc-pane" id="paper-toc-sidebar" aria-label="Table of contents">
+          <div class="sidebar-header">
+            <div class="sidebar-tag">Paper Contents</div>
+            <div class="sidebar-title">Table of Contents</div>
+          </div>
+          {paper_toc_html}
         </aside>
 
         <!-- Main Full Paper Body (Strictly Centered Measure) -->
@@ -1941,11 +2227,11 @@ def build_full_html():
     <!-- ====================================================================
          VIEW 2: STATISTICS DASHBOARD
          ==================================================================== -->
-    <section id="view-stats" class="view-panel">
+    <section id="view-stats" class="view-panel" role="tabpanel" aria-labelledby="tab-view-stats">
       <div class="stats-container">
         <h2 class="panel-section-title">Empirical Benchmark & Corpus Statistics Dashboard</h2>
         <p class="panel-section-desc">
-          A systematic quantitative synthesis summarizing empirical evaluations across 328 community reports, an evidentiary classification matrix, and standardized benchmark comparisons in 3D reconstruction, parametric CAD, and embodied robotics.
+          A systematic quantitative synthesis summarizing empirical evaluations across {CORPUS["posts"]} community reports, an evidentiary classification matrix, and standardized benchmark comparisons in 3D reconstruction, parametric CAD, and embodied robotics.
         </p>
 
         <!-- Metric Summary Cards -->
@@ -1978,6 +2264,7 @@ def build_full_html():
 
         <!-- Domain Distribution Table -->
         <h3 class="subsection-title">1. Domain Coverage &amp; Evidentiary Tier Distribution</h3>
+        <div class="table-container">
         <table class="academic-table">
           <thead>
             <tr>
@@ -1993,32 +2280,33 @@ def build_full_html():
               <td><strong>3D Scene &amp; Mesh Modeling</strong></td>
               <td>{m_count} Showcases</td>
               <td>{(m_count / total_count * 100):.1f}%</td>
-              <td>Procedural Blender scripts, NeRF/3DGS representations, architectural scans (M01–M110, X01–X23)</td>
+              <td>Procedural Blender scripts, NeRF/3DGS representations, architectural scans ({case_id_ranges(gallery_items, '3d', ['M', 'X'])})</td>
               <td><span class="badge-tier tier-1">Tier 1 &amp; 2 (Established / Partial)</span></td>
             </tr>
             <tr>
               <td><strong>Industrial Design &amp; Parametric CAD</strong></td>
               <td>{cad_count} Showcases</td>
               <td>{(cad_count / total_count * 100):.1f}%</td>
-              <td>FreeCAD / SolidWorks / Onshape feature trees, 511-solid turbofan assembly (I01–I27)</td>
+              <td>FreeCAD / SolidWorks / Onshape feature trees, 511-solid turbofan assembly ({case_id_ranges(gallery_items, 'cad', ['I'])})</td>
               <td><span class="badge-tier tier-2">Tier 2 (Code Verified; DFM Pending)</span></td>
             </tr>
             <tr>
               <td><strong>Embodied Robot Control</strong></td>
               <td>{robot_count} Showcases</td>
               <td>{(robot_count / total_count * 100):.1f}%</td>
-              <td>Isaac Sim / MuJoCo controllers, SO-101 desktop manipulation, bimanual piano (R01–R42)</td>
+              <td>Isaac Sim / MuJoCo controllers, SO-101 desktop manipulation, bimanual piano ({case_id_ranges(gallery_items, 'robotics', ['R'])})</td>
               <td><span class="badge-tier tier-2">Tier 1 &amp; 3 (Simulation Parity; Latency Bound)</span></td>
             </tr>
             <tr>
               <td><strong>Animation &amp; Dynamic Workflows</strong></td>
               <td>{anim_count} Showcases</td>
               <td>{(anim_count / total_count * 100):.1f}%</td>
-              <td>Character rigging, procedural motion graphics, interactive shaders, previs (A01–A21, M20–M83)</td>
+              <td>Character rigging, procedural motion graphics, interactive shaders, previs ({case_id_ranges(gallery_items, 'animation', ['A', 'M'])})</td>
               <td><span class="badge-tier tier-1">Tier 1 &amp; 3 (Interactive / Video Previs)</span></td>
             </tr>
           </tbody>
         </table>
+        </div>
 
         <!-- Benchmark Comparison Section (Dynamically generated from README) -->
         {benchmarks_section_html}
@@ -2053,7 +2341,7 @@ def build_full_html():
     <!-- ====================================================================
          VIEW 3: VISUAL CASE ARCHIVE ({total_count} Verified Showcases)
          ==================================================================== -->
-    <section id="view-gallery" class="view-panel">
+    <section id="view-gallery" class="view-panel" role="tabpanel" aria-labelledby="tab-view-gallery">
       <div class="gallery-page-layout">
         <!-- Sticky Showcase Directory Sidebar (目录侧栏) -->
         {gallery_sidebar_html}
@@ -2073,7 +2361,7 @@ def build_full_html():
           
           <div class="ranking-rules-grid">
             <!-- TIER 1 -->
-            <div class="ranking-tier-card tier-1" onclick="setRankFilter('rank-1')" title="Click to filter by Rank 1 showcases">
+            <div class="ranking-tier-card tier-1" role="button" tabindex="0" aria-pressed="false" data-rank="rank-1" onclick="selectRankCard('rank-1')" title="Click to filter by Rank 1 showcases">
               <div class="tier-card-header">
                 <span class="tier-pill-badge pill-t1">RANK 1 · HIGHEST</span>
                 <span class="tier-tag-pill">Code Provided</span>
@@ -2088,7 +2376,7 @@ def build_full_html():
             </div>
 
             <!-- TIER 2 -->
-            <div class="ranking-tier-card tier-2" onclick="setRankFilter('rank-2')" title="Click to filter by Rank 2 showcases">
+            <div class="ranking-tier-card tier-2" role="button" tabindex="0" aria-pressed="false" data-rank="rank-2" onclick="selectRankCard('rank-2')" title="Click to filter by Rank 2 showcases">
               <div class="tier-card-header">
                 <span class="tier-pill-badge pill-t2">RANK 2 · INTERMEDIATE</span>
                 <span class="tier-tag-pill">Interactive Verification</span>
@@ -2103,7 +2391,7 @@ def build_full_html():
             </div>
 
             <!-- TIER 3 -->
-            <div class="ranking-tier-card tier-3" onclick="setRankFilter('rank-3')" title="Click to filter by Rank 3 showcases">
+            <div class="ranking-tier-card tier-3" role="button" tabindex="0" aria-pressed="false" data-rank="rank-3" onclick="selectRankCard('rank-3')" title="Click to filter by Rank 3 showcases">
               <div class="tier-card-header">
                 <span class="tier-pill-badge pill-t3">RANK 3 · BASELINE</span>
                 <span class="tier-tag-pill">Demonstration Only</span>
@@ -2124,19 +2412,19 @@ def build_full_html():
           <!-- Row 1: Evidence Ranking Hierarchy Filter -->
           <div class="filter-row" style="margin-bottom: 0.85rem; padding-bottom: 0.85rem; border-bottom: 1px solid var(--border-subtle);">
             <div class="filter-label">Evidence Rank:</div>
-            <div class="filter-pills" role="tablist">
-              <button class="filter-pill rank-pill active" data-rank="all" onclick="setRankFilter('all')">
+            <div class="filter-pills" role="group" aria-label="Filter by evidence rank">
+              <button class="filter-pill rank-pill active" aria-pressed="true" data-rank="all" onclick="setRankFilter('all')">
                 All Ranks ({total_count})
               </button>
-              <button class="filter-pill rank-pill pill-r1" data-rank="rank-1" onclick="setRankFilter('rank-1')">
+              <button class="filter-pill rank-pill pill-r1" aria-pressed="false" data-rank="rank-1" onclick="setRankFilter('rank-1')">
                 <span class="rank-dot dot-r1"></span>
-                <span>Rank 1 · Code Released ({r1_count})</span>
+                <span>Rank 1 · Code Provided ({r1_count})</span>
               </button>
-              <button class="filter-pill rank-pill pill-r2" data-rank="rank-2" onclick="setRankFilter('rank-2')">
+              <button class="filter-pill rank-pill pill-r2" aria-pressed="false" data-rank="rank-2" onclick="setRankFilter('rank-2')">
                 <span class="rank-dot dot-r2"></span>
                 <span>Rank 2 · Interactive Demo ({r2_count})</span>
               </button>
-              <button class="filter-pill rank-pill pill-r3" data-rank="rank-3" onclick="setRankFilter('rank-3')">
+              <button class="filter-pill rank-pill pill-r3" aria-pressed="false" data-rank="rank-3" onclick="setRankFilter('rank-3')">
                 <span class="rank-dot dot-r3"></span>
                 <span>Rank 3 · Demonstration Only ({r3_count})</span>
               </button>
@@ -2146,20 +2434,20 @@ def build_full_html():
           <!-- Row 2: Research Domain Filter -->
           <div class="filter-row">
             <div class="filter-label">Domain Scope:</div>
-            <div class="filter-pills" role="tablist">
-              <button class="filter-pill domain-pill active" data-domain="all" onclick="setDomainFilter('all')">
+            <div class="filter-pills" role="group" aria-label="Filter by domain">
+              <button class="filter-pill domain-pill active" aria-pressed="true" data-domain="all" onclick="setDomainFilter('all')">
                 All Domains ({total_count})
               </button>
-              <button class="filter-pill domain-pill" data-domain="3d" onclick="setDomainFilter('3d')">
+              <button class="filter-pill domain-pill" aria-pressed="false" data-domain="3d" onclick="setDomainFilter('3d')">
                 3D Modeling &amp; Scenes ({m_count})
               </button>
-              <button class="filter-pill domain-pill" data-domain="cad" onclick="setDomainFilter('cad')">
+              <button class="filter-pill domain-pill" aria-pressed="false" data-domain="cad" onclick="setDomainFilter('cad')">
                 Parametric CAD ({cad_count})
               </button>
-              <button class="filter-pill domain-pill" data-domain="robotics" onclick="setDomainFilter('robotics')">
+              <button class="filter-pill domain-pill" aria-pressed="false" data-domain="robotics" onclick="setDomainFilter('robotics')">
                 Embodied Robotics ({robot_count})
               </button>
-              <button class="filter-pill domain-pill" data-domain="animation" onclick="setDomainFilter('animation')">
+              <button class="filter-pill domain-pill" aria-pressed="false" data-domain="animation" onclick="setDomainFilter('animation')">
                 Animation &amp; Motion ({anim_count})
               </button>
             </div>
@@ -2168,7 +2456,7 @@ def build_full_html():
           <!-- Search Input, Sort Selector & Live Counter Row -->
           <div class="gallery-search-wrap">
             <div class="search-input-wrap">
-              <input type="text" id="gallery-search" placeholder="Search by ID (e.g. M28, R08, I04), author, platform, or keyword..." oninput="searchGallery()">
+              <input type="search" id="gallery-search" aria-label="Search the case archive" placeholder="Search by ID (e.g. M28, R08, I04), author, platform, or keyword..." oninput="searchGallery()">
             </div>
             <div class="gallery-sort-wrap" style="display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-sans); font-size: 0.85rem;">
               <label for="gallery-sort" style="color: var(--ink-secondary); font-weight: 600;">Sort:</label>
@@ -2178,10 +2466,15 @@ def build_full_html():
                 <option value="id">Case ID (A–Z)</option>
               </select>
             </div>
-            <div class="filter-status-text">
+            <div class="filter-status-text" aria-live="polite">
               Showing <strong id="gallery-visible-count">{total_count}</strong> of {total_count} showcases
             </div>
           </div>
+        </div>
+
+        <div class="gallery-empty-state" id="gallery-empty-state" hidden>
+          <p>No showcases match the current filters.</p>
+          <button type="button" class="filter-pill" onclick="resetGalleryFilters()">Reset filters</button>
         </div>
 
         <!-- Archival Sections Grouped by Domain and Subsection -->
@@ -2218,10 +2511,10 @@ def build_full_html():
         <strong>Computational Design and Fabrication Group (CDFG)</strong> · MIT CSAIL · Cambridge, MA, USA
       </p>
       <p style="margin-top: 0.4rem;">
-        <a href="https://cdfg.csail.mit.edu/" target="_blank">Group Homepage</a> · 
+        <a href="https://cdfg.mit.edu/" target="_blank" rel="noopener noreferrer">Group Homepage</a> · 
         <a href="https://github.com/Frank-ZY-Dou/awesome-ai-3d-modeling-robotics" target="_blank" rel="noopener noreferrer">GitHub Repository</a> · 
         {footer_pdf_link}
-        <a href="#top" onclick="switchView('view-html')">Back to Top</a>
+        <a href="#top" onclick="window.scrollTo({{top: 0, behavior: 'smooth'}}); return false;">Back to Top</a>
       </p>
       <p style="margin-top: 0.6rem; font-size: 0.8rem; color: var(--ink-muted);">
         Curated survey dataset & video archive open-sourced at <a href="https://github.com/Frank-ZY-Dou/awesome-ai-3d-modeling-robotics" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Frank-ZY-Dou/awesome-ai-3d-modeling-robotics</a>. © 2026 MIT CSAIL CDFG.
@@ -2236,17 +2529,18 @@ def build_full_html():
   </main>
 
   <!-- Fullscreen Lightbox Modal -->
-  <div class="modal" id="lightbox-modal">
-    <button class="modal-close" onclick="closeLightbox()">&times;</button>
+  <div class="modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Case preview" aria-hidden="true">
+    <button class="modal-close" type="button" aria-label="Close preview" onclick="closeLightbox()">&times;</button>
     <div class="modal-inner">
-      <video id="lightbox-video" controls autoplay loop playsinline style="display: none; max-width: 100%; max-height: 68vh; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.4);"></video>
-      <img src="" alt="Full view" id="lightbox-img" style="max-width: 100%; max-height: 68vh; border-radius: 6px; object-fit: contain;">
+      <video id="lightbox-video" class="modal-media" controls autoplay loop playsinline style="display: none;"></video>
+      <img src="" alt="" id="lightbox-img" class="modal-media">
+      <div id="lightbox-textonly" class="modal-textonly" hidden>Text commentary only: open the original post to read it.</div>
       <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.75rem;">
         <span class="tile-badge-id" id="lightbox-id-badge" style="display: none;"></span>
         <span class="tile-badge-rank" id="lightbox-rank-badge" style="display: none;"></span>
       </div>
       <div class="modal-caption" id="lightbox-caption" style="text-align: center; margin-top: 0.5rem;"></div>
-      <div class="modal-meta" id="lightbox-meta" style="margin-top: 0.35rem; font-size: 0.85rem; color: var(--ink-secondary); text-align: center;"></div>
+      <div class="modal-meta" id="lightbox-meta"></div>
       <div class="modal-actions" id="lightbox-actions">
         <a id="lightbox-code-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-lightbox-code" style="display:none;" title="View Implementation Code on GitHub">
           <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
@@ -2266,19 +2560,60 @@ def build_full_html():
     </div>
   </div>
 
+  <!-- Tablet / phone contents button and drawer -->
+  <button type="button" class="contents-fab" id="contents-fab" aria-controls="contents-drawer" aria-expanded="false" hidden>
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+    <span class="contents-fab-label">Contents</span>
+  </button>
+  <div class="contents-drawer" id="contents-drawer" role="dialog" aria-modal="true" aria-labelledby="contents-drawer-title" hidden>
+    <div class="contents-drawer-backdrop" data-close-drawer></div>
+    <div class="contents-drawer-sheet">
+      <div class="contents-drawer-head">
+        <div>
+          <div class="sidebar-tag" id="contents-drawer-tag"></div>
+          <div class="sidebar-title" id="contents-drawer-title">Contents</div>
+        </div>
+        <button type="button" class="contents-drawer-close" aria-label="Close" data-close-drawer>&times;</button>
+      </div>
+      <div class="contents-drawer-body" id="contents-drawer-body"></div>
+    </div>
+  </div>
+
   <!-- Toast Notification -->
-  <div id="toast">BibTeX copied to clipboard!</div>
+  <div id="toast" role="status" aria-live="polite">BibTeX copied to clipboard!</div>
 
   <!-- Main View Switcher & Gallery Search Logic -->
   <script>
+    // Jump without animation even though the page sets scroll-behavior: smooth.
+    // Older Safari rejects behavior:'instant', so fall back to a plain scrollTo.
+    function jumpTo(y) {{
+      try {{
+        window.scrollTo({{ top: y, behavior: 'instant' }});
+      }} catch (err) {{
+        var root = document.documentElement;
+        var prev = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        window.scrollTo(0, y);
+        root.style.scrollBehavior = prev;
+      }}
+    }}
+
+    var viewScroll = {{}};
+    function currentViewId() {{
+      var p = document.querySelector('.view-panel.active');
+      return p ? p.id : 'view-html';
+    }}
+
     function switchView(viewId, updateHash, skipScrollTop) {{
+      var target = document.getElementById(viewId);
+      if (!target || !target.classList.contains('view-panel')) return;
+      var prev = currentViewId();
+      if (updateHash !== false && location.hash !== '#' + viewId) pushHistory('#' + viewId);
+      if (prev !== viewId) viewScroll[prev] = window.pageYOffset;
       document.querySelectorAll('.view-panel').forEach(function(el) {{
         el.classList.remove('active');
       }});
-      var target = document.getElementById(viewId);
-      if (target) {{
-        target.classList.add('active');
-      }}
+      target.classList.add('active');
 
       document.querySelectorAll('.view-tab-btn').forEach(function(btn) {{
         if (btn.getAttribute('data-view') === viewId) {{
@@ -2290,17 +2625,12 @@ def build_full_html():
         }}
       }});
 
-      if (updateHash !== false) {{
-        if (history.replaceState) {{
-          history.replaceState(null, null, '#' + viewId);
-        }} else {{
-          window.location.hash = viewId;
-        }}
-      }}
-      
       if (!skipScrollTop) {{
-        window.scrollTo({{ top: 0, behavior: 'smooth' }});
+        // return to where the reader left this view (top when re-selecting the current one);
+        // never animate through the other view's content
+        jumpTo(prev === viewId ? 0 : (viewScroll[viewId] || 0));
       }}
+      closeContentsDrawer();
       setTimeout(updateScrollspy, 60);
     }}
 
@@ -2310,18 +2640,45 @@ def build_full_html():
         switchView(v);
       }});
     }});
+    (function() {{
+      var tablist = document.querySelector('.view-switcher');
+      if (!tablist) return;
+      tablist.addEventListener('keydown', function(e) {{
+        var tabs = Array.from(tablist.querySelectorAll('.view-tab-btn'));
+        var i = tabs.indexOf(document.activeElement);
+        if (i < 0) return;
+        var n = null;
+        if (e.key === 'ArrowRight') n = (i + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === 'Home') n = 0;
+        else if (e.key === 'End') n = tabs.length - 1;
+        if (n === null) return;
+        e.preventDefault();
+        tabs[n].focus();
+        tabs[n].click();
+      }});
+    }})();
 
     var activeDomain = 'all';
     var activeRank = 'all';
 
+    function selectRankCard(rank) {{
+      setRankFilter(activeRank === rank ? 'all' : rank);
+      var controls = document.querySelector('.gallery-controls-card');
+      if (controls) scrollToAnchor(controls, true);
+    }}
+
     function setRankFilter(rank) {{
       activeRank = rank;
+      document.querySelectorAll('.ranking-tier-card').forEach(function(c) {{
+        var on = c.getAttribute('data-rank') === rank;
+        c.classList.toggle('active', on);
+        c.setAttribute('aria-pressed', on ? 'true' : 'false');
+      }});
       document.querySelectorAll('.filter-pill.rank-pill').forEach(function(p) {{
-        if (p.getAttribute('data-rank') === rank) {{
-          p.classList.add('active');
-        }} else {{
-          p.classList.remove('active');
-        }}
+        var on = p.getAttribute('data-rank') === rank;
+        p.classList.toggle('active', on);
+        p.setAttribute('aria-pressed', on ? 'true' : 'false');
       }});
       applyGalleryFilters();
     }}
@@ -2329,11 +2686,9 @@ def build_full_html():
     function setDomainFilter(domain) {{
       activeDomain = domain;
       document.querySelectorAll('.filter-pill.domain-pill').forEach(function(p) {{
-        if (p.getAttribute('data-domain') === domain) {{
-          p.classList.add('active');
-        }} else {{
-          p.classList.remove('active');
-        }}
+        var on = p.getAttribute('data-domain') === domain;
+        p.classList.toggle('active', on);
+        p.setAttribute('aria-pressed', on ? 'true' : 'false');
       }});
       applyGalleryFilters();
     }}
@@ -2358,7 +2713,7 @@ def build_full_html():
           }} else if (sortBy === 'id') {{
             var idA = a.getAttribute('data-id') || '';
             var idB = b.getAttribute('data-id') || '';
-            return idA.localeCompare(idB);
+            return idA.localeCompare(idB, undefined, {{ numeric: true, sensitivity: 'base' }});
           }} else {{
             var oA = parseInt(a.getAttribute('data-order') || '0', 10);
             var oB = parseInt(b.getAttribute('data-order') || '0', 10);
@@ -2382,13 +2737,12 @@ def build_full_html():
       tiles.forEach(function(t) {{
         var d = t.getAttribute('data-domain');
         var r = t.getAttribute('data-rank');
-        var id = (t.getAttribute('data-id') || '').toLowerCase();
-        var author = (t.getAttribute('data-author') || '').toLowerCase();
-        var desc = (t.getAttribute('data-desc') || '').toLowerCase();
+        var haystack = (t.getAttribute('data-search') ||
+          [t.getAttribute('data-id'), t.getAttribute('data-author'), t.getAttribute('data-desc')].join(' ')).toLowerCase();
 
         var matchesDomain = (activeDomain === 'all' || d === activeDomain);
         var matchesRank = (activeRank === 'all' || r === activeRank);
-        var matchesSearch = (!q || id.indexOf(q) !== -1 || author.indexOf(q) !== -1 || desc.indexOf(q) !== -1);
+        var matchesSearch = (!q || q.split(/\\s+/).every(function(term) {{ return haystack.indexOf(term) !== -1; }}));
 
         if (matchesDomain && matchesRank && matchesSearch) {{
           t.style.display = 'flex';
@@ -2463,6 +2817,67 @@ def build_full_html():
       if (countEl) {{
         countEl.innerText = visibleCount;
       }}
+      var emptyEl = document.getElementById('gallery-empty-state');
+      if (emptyEl) emptyEl.hidden = visibleCount !== 0;
+    }}
+
+    function resetGalleryFilters(domain) {{
+      var search = document.getElementById('gallery-search');
+      if (search) search.value = '';
+      activeRank = 'all';
+      document.querySelectorAll('.filter-pill.rank-pill').forEach(function(p) {{
+        var on = p.getAttribute('data-rank') === 'all';
+        p.classList.toggle('active', on);
+        p.setAttribute('aria-pressed', on ? 'true' : 'false');
+      }});
+      document.querySelectorAll('.ranking-tier-card').forEach(function(c) {{
+        c.classList.remove('active');
+        c.setAttribute('aria-pressed', 'false');
+      }});
+      setDomainFilter(domain || 'all');
+    }}
+
+    // Entry points from the paper's archived-case figure panels
+    function openArchiveDomain(domain) {{
+      pushHistory('#domain-' + domain);
+      switchView('view-gallery', false, true);
+      resetGalleryFilters(domain);
+      setTimeout(function() {{
+        var sec = document.getElementById('domain-' + domain);
+        if (!sec) return;
+        highlightSidebarTarget('domain-' + domain);
+        settleOnAnchor(sec);
+      }}, 30);
+    }}
+
+    function openArchiveCase(caseId, domain) {{
+      switchView('view-gallery', true, true);
+      resetGalleryFilters(domain);
+      var tile = null;
+      document.querySelectorAll('.gallery-tile').forEach(function(t) {{
+        if (!tile && (t.getAttribute('data-id') || '').toUpperCase() === String(caseId).toUpperCase()) tile = t;
+      }});
+      if (!tile) {{
+        openArchiveDomain(domain);
+        return;
+      }}
+      setTimeout(function() {{
+        var r = tile.getBoundingClientRect();
+        jumpTo(Math.max(0, Math.round(r.top + window.pageYOffset - (window.innerHeight - r.height) / 2)));
+        tile.classList.remove('tile-flash');
+        void tile.offsetWidth;
+        tile.classList.add('tile-flash');
+        var opener = tile.querySelector('.tile-img-wrap');
+        if (opener) opener.focus({{ preventScroll: true }});
+        updateScrollspy();
+      }}, 60);
+    }}
+    var filterGallery = openArchiveDomain; // legacy name kept for old links
+
+    function readFullPaper() {{
+      switchView('view-html', true, true);
+      var start = document.getElementById('abstract');
+      if (start) scrollToAnchor(start, true);
     }}
 
     function openShowcaseModal(imgUrl, id, title, author, sourceUrl, platform, rankLabel, rankClass, codeUrl, demoUrl, videoUrl, model, tools, subsection, codeUrl2, codeLabel2) {{
@@ -2477,6 +2892,9 @@ def build_full_html():
       var demoLink = document.getElementById('lightbox-demo-link');
       var sourceLink = document.getElementById('lightbox-source-link');
 
+      var textOnly = document.getElementById('lightbox-textonly');
+      if (textOnly) textOnly.hidden = !!(videoUrl || imgUrl);
+      img.alt = title ? String(title).replace(/<[^>]+>/g, '') : '';
       if (videoUrl && videoUrl !== '') {{
         video.src = videoUrl;
         video.style.display = 'block';
@@ -2490,25 +2908,31 @@ def build_full_html():
           video.src = '';
           video.style.display = 'none';
         }}
-        img.src = imgUrl;
-        img.style.display = 'block';
+        if (imgUrl) {{
+          img.src = imgUrl;
+          img.style.display = 'block';
+        }} else {{
+          img.removeAttribute('src');
+          img.style.display = 'none';
+        }}
       }}
 
-      if (badge && rankLabel) {{
-        badge.innerText = rankLabel;
+      if (badge) {{
+        badge.innerText = rankLabel || '';
         badge.className = 'tile-badge-rank ' + (rankClass || '');
-        badge.style.display = 'inline-block';
+        badge.style.display = rankLabel ? 'inline-block' : 'none';
       }}
-      if (idBadge && id) {{
-        idBadge.innerText = id;
-        idBadge.style.display = 'inline-block';
+      if (idBadge) {{
+        idBadge.innerText = id || '';
+        idBadge.style.display = id ? 'inline-block' : 'none';
       }}
 
-      var authorLine = author;
-      if (platform) authorLine += ' · ' + platform;
-      if (subsection) authorLine += ' · <span style="color:var(--mit-red); font-weight:600;">' + subsection + '</span>';
+      var authorLine = author || '';
+      if (platform) authorLine += (authorLine ? ' · ' : '') + platform;
+      if (subsection) authorLine += ' · <span class="modal-caption-subsection">' + subsection + '</span>';
 
-      cap.innerHTML = '<strong style="font-size:1.05rem;">' + title + '</strong><div style="font-size:0.88rem; color:var(--ink-secondary); margin-top:0.2rem;">' + authorLine + '</div>';
+      cap.innerHTML = '<strong style="font-size:1.05rem;">' + title + '</strong>' +
+        (authorLine ? '<div class="modal-caption-sub">' + authorLine + '</div>' : '');
       
       var metaStr = '';
       if (model) metaStr += '<span><strong>Model:</strong> ' + model + '</span>';
@@ -2524,6 +2948,18 @@ def build_full_html():
           codeLink.style.display = 'inline-flex';
         }} else {{
           codeLink.style.display = 'none';
+        }}
+      }}
+
+      var codeLink2 = document.getElementById('lightbox-code-link2');
+      var codeLabel2El = document.getElementById('lightbox-code-label2');
+      if (codeLink2) {{
+        if (codeUrl2) {{
+          codeLink2.href = codeUrl2;
+          if (codeLabel2El) codeLabel2El.textContent = (codeLabel2 || 'Secondary Code') + ' ↗';
+          codeLink2.style.display = 'inline-flex';
+        }} else {{
+          codeLink2.style.display = 'none';
         }}
       }}
 
@@ -2546,21 +2982,42 @@ def build_full_html():
         }}
       }}
 
+      if (!m.classList.contains('active')) {{
+        lightboxReturnFocus = document.activeElement;
+        document.documentElement.classList.add('modal-open');
+        // phone back gesture should close the viewer, not leave the page
+        saveHistoryState();
+        try {{
+          history.pushState({{ view: currentViewId(), y: Math.round(window.pageYOffset), overlay: 'lightbox' }}, '', location.href);
+        }} catch (err) {{}}
+      }}
       m.classList.add('active');
+      m.setAttribute('aria-hidden', 'false');
+      var closeBtn = m.querySelector('.modal-close');
+      if (closeBtn) closeBtn.focus({{ preventScroll: true }});
     }}
+    var lightboxReturnFocus = null;
 
     function openLightbox(src, caption, url, platform, rankLabel, codeUrl, rankClass) {{
-      openShowcaseModal(src, '', caption, '', url, platform, rankLabel, rankClass, codeUrl, '', '', '', '', '');
+      openShowcaseModal(src, '', caption, '', url, platform, rankLabel, rankClass, codeUrl, '', '', '', '', '', '', '');
     }}
 
     function closeLightbox() {{
+      var m = document.getElementById('lightbox-modal');
+      if (!m.classList.contains('active')) return;
       var v = document.getElementById('lightbox-video');
       if (v) {{
         v.pause();
-        v.src = '';
+        v.removeAttribute('src');
+        v.load();
         v.style.display = 'none';
       }}
-      document.getElementById('lightbox-modal').classList.remove('active');
+      m.classList.remove('active');
+      m.setAttribute('aria-hidden', 'true');
+      document.documentElement.classList.remove('modal-open');
+      if (history.state && history.state.overlay === 'lightbox') history.back();
+      if (lightboxReturnFocus && lightboxReturnFocus.focus) lightboxReturnFocus.focus({{ preventScroll: true }});
+      lightboxReturnFocus = null;
     }}
 
     document.getElementById('lightbox-modal').addEventListener('click', function(e) {{
@@ -2568,7 +3025,38 @@ def build_full_html():
     }});
 
     document.addEventListener('keydown', function(e) {{
-      if (e.key === 'Escape') closeLightbox();
+      var m = document.getElementById('lightbox-modal');
+      var open = m && m.classList.contains('active');
+      if (open && e.key === 'Escape') {{
+        closeLightbox();
+        return;
+      }}
+      if (open && e.key === 'Tab') {{
+        // keep keyboard focus inside the dialog
+        var f = Array.from(m.querySelectorAll('button, a[href], video[controls]')).filter(function(x) {{
+          return x.offsetParent !== null;
+        }});
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) {{ e.preventDefault(); last.focus(); }}
+        else if (!e.shiftKey && document.activeElement === last) {{ e.preventDefault(); first.focus(); }}
+        return;
+      }}
+      // Enter / Space on div-based controls (tiles, ranking cards)
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.getAttribute &&
+          e.target.getAttribute('role') === 'button' && e.target.tagName !== 'BUTTON') {{
+        e.preventDefault();
+        e.target.click();
+      }}
+    }});
+
+    // Paper figures open in the same viewer
+    document.querySelectorAll('.academic-figure:not(.figure-gallery-figure) img.zoomable').forEach(function(im) {{
+      im.setAttribute('tabindex', '0');
+      im.setAttribute('role', 'button');
+      im.addEventListener('click', function() {{
+        openLightbox(im.currentSrc || im.src, im.getAttribute('alt') || '', '', '', '', '', '');
+      }});
     }});
 
     // Precise Anchor Navigation & Scrollspy Management
@@ -2623,12 +3111,10 @@ def build_full_html():
 
       window.scrollTo({{
         top: targetY,
-        behavior: 'smooth'
+        behavior: scrollBehavior(true)
       }});
 
-      if (history.replaceState) {{
-        history.replaceState(null, null, '#' + targetId);
-      }}
+      if (location.hash !== '#' + targetId) pushHistory('#' + targetId);
 
       setTimeout(function() {{
         isManualJumping = false;
@@ -2653,12 +3139,10 @@ def build_full_html():
 
       window.scrollTo({{
         top: targetY,
-        behavior: 'smooth'
+        behavior: scrollBehavior(true)
       }});
 
-      if (history.replaceState) {{
-        history.replaceState(null, null, '#view-gallery');
-      }}
+      if (location.hash !== '#view-gallery') pushHistory('#view-gallery');
 
       setTimeout(function() {{
         isManualJumping = false;
@@ -2668,7 +3152,24 @@ def build_full_html():
 
     // Dual Scrollspy for Showcase Directory Sidebar and Paper TOC Sidebar
     var scrollspyTicking = false;
+
+    // Scroll a sidebar (not the window) so its active entry stays in view
+    function keepSidebarLinkVisible(link) {{
+      if (!link) return;
+      var pane = link.closest('.toc-pane, .gallery-toc-sidebar');
+      if (!pane || pane.scrollHeight <= pane.clientHeight + 1) return;
+      var pr = pane.getBoundingClientRect();
+      var lr = link.getBoundingClientRect();
+      if (lr.top < pr.top + 8) {{
+        pane.scrollTop -= (pr.top + 8 - lr.top);
+      }} else if (lr.bottom > pr.bottom - 8) {{
+        pane.scrollTop += (lr.bottom - pr.bottom + 8);
+      }}
+    }}
+
     function updateScrollspy() {{
+      scrollspyTicking = false;
+      updateContentsFab();
       if (isManualJumping) return;
 
       var nav = document.querySelector('.top-nav-bar');
@@ -2752,6 +3253,7 @@ def build_full_html():
           document.querySelectorAll('.sidebar-sub-link').forEach(function(link) {{
             if (link.getAttribute('data-sub-slug') === slug) {{
               link.classList.add('active');
+              keepSidebarLinkVisible(link);
             }} else {{
               link.classList.remove('active');
             }}
@@ -2770,80 +3272,374 @@ def build_full_html():
         }}
       }}
 
-      // 2. Paper Reader TOC Sidebar in Full Paper View
+      // 2. Paper Reader TOC Sidebar in Full Paper View (sections + subsections)
       var htmlView = document.getElementById('view-html');
       if (htmlView && htmlView.classList.contains('active')) {{
-        var tocLinks = Array.from(document.querySelectorAll('.toc-links a'));
-        var activeId = null;
-        for (var j = 0; j < tocLinks.length; j++) {{
-          var targetId = (tocLinks[j].getAttribute('href') || '').replace(/^#/, '');
-          if (!targetId) continue;
-          var el = document.getElementById(targetId);
-          if (!el) continue;
-          var rect = el.getBoundingClientRect();
-          if (rect.top <= navHeight + 80) {{
-            activeId = targetId;
-          }}
-        }}
-
-        if (activeId) {{
-          tocLinks.forEach(function(a) {{
-            var href = a.getAttribute('href') || '';
-            if (href === '#' + activeId) {{
-              a.classList.add('active');
-            }} else {{
-              a.classList.remove('active');
-            }}
+        var line = navHeight + 80;
+        var atEnd = (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 4);
+        var secLinks = Array.from(document.querySelectorAll('.toc-pane .toc-sec-link'));
+        var activeSec = null;
+        secLinks.forEach(function(a) {{
+          var t = document.getElementById((a.getAttribute('href') || '').slice(1));
+          if (!t) return;
+          var top = t.getBoundingClientRect().top;
+          // at the very end of the page, short trailing sections never reach the line
+          if (top <= line || (atEnd && top < window.innerHeight)) activeSec = a;
+        }});
+        var activeSubLink = null;
+        if (activeSec) {{
+          activeSec.parentElement.querySelectorAll('.toc-sub-link').forEach(function(a) {{
+            var t = document.getElementById((a.getAttribute('href') || '').slice(1));
+            if (t && t.getBoundingClientRect().top <= line) activeSubLink = a;
           }});
         }}
+        document.querySelectorAll('.toc-pane .toc-section').forEach(function(li) {{
+          li.classList.toggle('expanded', !!activeSec && li === activeSec.parentElement);
+        }});
+        secLinks.forEach(function(a) {{ a.classList.toggle('active', a === activeSec); }});
+        document.querySelectorAll('.toc-pane .toc-sub-link').forEach(function(a) {{
+          a.classList.toggle('active', a === activeSubLink);
+        }});
+        document.querySelectorAll('.toc-pane a').forEach(function(a) {{
+          if (a === (activeSubLink || activeSec)) a.setAttribute('aria-current', 'location');
+          else a.removeAttribute('aria-current');
+        }});
+        keepSidebarLinkVisible(activeSubLink || activeSec);
       }}
-
-      scrollspyTicking = false;
     }}
 
-    window.addEventListener('DOMContentLoaded', function() {{
-      var h = window.location.hash;
-      if (h) {{
-        var cleanId = h.replace(/^#/, '');
-        if (cleanId === 'benchmarks' || cleanId === 'benchmark') {{
-          switchView('view-stats', false);
-          setTimeout(function() {{
-            var el = document.getElementById('benchmarks-section') || document.getElementById('view-stats');
-            if (el) el.scrollIntoView({{behavior: 'smooth'}});
-          }}, 120);
-        }} else if (cleanId.startsWith('sub-') || cleanId.startsWith('domain-')) {{
-          switchView('view-gallery', false, true);
-          setTimeout(function() {{
-            handleSidebarJump(null, cleanId);
-          }}, 120);
-        }} else if (document.getElementById(cleanId)) {{
-          switchView(cleanId, false);
+    // Hash routing: #view-*, #benchmarks, archive anchors (#domain-*, #sub-*) and any
+    // element inside a view panel (paper sections, figures, references ...)
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function scrollBehavior(smooth) {{
+      return smooth && !reduceMotion.matches ? 'smooth' : 'auto';
+    }}
+
+    function scrollToAnchor(el, smooth) {{
+      var nav = document.querySelector('.top-nav-bar');
+      var navHeight = nav ? nav.offsetHeight : 54;
+      // reference entries sit a little lower so the highlighted item has context above it
+      var offset = el.classList.contains('csl-entry') ? Math.max(navHeight + 12, Math.round(window.innerHeight * 0.3)) : navHeight + 12;
+      var y = Math.max(0, Math.round(el.getBoundingClientRect().top + window.pageYOffset - offset));
+      if (smooth && !reduceMotion.matches) window.scrollTo({{ top: y, behavior: 'smooth' }});
+      else jumpTo(y);
+    }}
+
+    // Reference highlighting: the entry a citation points to stays highlighted (with a short
+    // pulse on arrival) until another citation is followed, plus a link back to the citation.
+    var highlightedRefs = [];
+    function clearReferenceHighlight() {{
+      highlightedRefs.forEach(function(el) {{
+        el.classList.remove('ref-highlight', 'ref-pulse');
+        var back = el.querySelector('.ref-backlink');
+        if (back) back.parentNode.removeChild(back);
+      }});
+      highlightedRefs = [];
+    }}
+
+    function highlightReferences(ids, sourceLink) {{
+      clearReferenceHighlight();
+      ids.forEach(function(id) {{
+        var el = document.getElementById(id);
+        if (el && el.classList.contains('csl-entry')) highlightedRefs.push(el);
+      }});
+      highlightedRefs.forEach(function(el, i) {{
+        el.classList.add('ref-highlight');
+        void el.offsetWidth;
+        el.classList.add('ref-pulse');
+        if (sourceLink && i === 0) {{
+          var back = document.createElement('button');
+          back.type = 'button';
+          back.className = 'ref-backlink';
+          back.textContent = '\u21A9 Back to text';
+          back.setAttribute('aria-label', 'Back to the citation in the text');
+          back.addEventListener('click', function(ev) {{
+            ev.preventDefault();
+            ev.stopPropagation();
+            returnToCitation(sourceLink);
+          }});
+          el.appendChild(back);
         }}
+      }});
+    }}
+
+    function returnToCitation(link) {{
+      var r = link.getBoundingClientRect();
+      jumpTo(Math.max(0, Math.round(r.top + window.pageYOffset - window.innerHeight / 3)));
+      link.classList.remove('cite-return-flash');
+      void link.offsetWidth;
+      link.classList.add('cite-return-flash');
+      link.focus({{ preventScroll: true }});
+    }}
+
+    // Content above a deep-link target can still shift while the page finishes loading;
+    // re-align a few times unless the reader has started scrolling on their own.
+    var userInteractedSinceRoute = false;
+    ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function(evt) {{
+      window.addEventListener(evt, function() {{ userInteractedSinceRoute = true; }}, {{ passive: true }});
+    }});
+    function settleOnAnchor(el) {{
+      userInteractedSinceRoute = false;
+      [0, 250, 800, 1600].forEach(function(delay) {{
+        setTimeout(function() {{
+          if (!userInteractedSinceRoute) scrollToAnchor(el, false);
+        }}, delay);
+      }});
+    }}
+
+    function routeToHash(hash, fromLoad) {{
+      var id = (hash || '').replace(/^#/, '');
+      try {{ id = decodeURIComponent(id); }} catch (err) {{}}
+      if (!id || id === 'top') return;
+
+      if (id === 'benchmarks' || id === 'benchmark') {{
+        switchView('view-stats', false, true);
+        setTimeout(function() {{
+          var bench = document.getElementById('benchmarks-section') || document.getElementById('view-stats');
+          if (bench) scrollToAnchor(bench, !fromLoad);
+        }}, 60);
+        return;
       }}
+
+      var el = document.getElementById(id);
+      if (!el) return;
+
+      if (el.classList.contains('view-panel')) {{
+        switchView(id, false, true);
+        if (fromLoad) {{
+          // the browser's own fragment scroll runs after this; keep the view at its top
+          userInteractedSinceRoute = false;
+          [0, 120, 400].forEach(function(delay) {{
+            setTimeout(function() {{
+              if (!userInteractedSinceRoute) jumpTo(0);
+            }}, delay);
+          }});
+        }}
+        return;
+      }}
+
+      if (id.indexOf('sub-') === 0 || id.indexOf('domain-') === 0) {{
+        switchView('view-gallery', false, true);
+        if (fromLoad) {{
+          highlightSidebarTarget(id);
+          settleOnAnchor(el);
+        }} else {{
+          setTimeout(function() {{ handleSidebarJump(null, id); }}, 60);
+        }}
+        return;
+      }}
+
+      var panel = el.closest('.view-panel');
+      var needsSwitch = panel && !panel.classList.contains('active');
+      if (needsSwitch) switchView(panel.id, false, true);
+      if (el.classList.contains('csl-entry')) highlightReferences([id], null);
+      if (fromLoad) {{
+        settleOnAnchor(el);
+      }} else if (needsSwitch) {{
+        setTimeout(function() {{ scrollToAnchor(el, false); }}, 60);
+      }}
+    }}
+
+    // In-page links (TOC, cross-references, citations): a long smooth scroll through a
+    // 100k px paper is slow and lets lazy content shift the target, so jump directly
+    // when the target is far away, animate only short hops, then re-align.
+    document.addEventListener('click', function(e) {{
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+      if (!a || a.hasAttribute('onclick')) return;
+      var id = a.getAttribute('href').slice(1);
+      try {{ id = decodeURIComponent(id); }} catch (err) {{}}
+      if (!id || id === 'top') return;
+      var el = document.getElementById(id);
+      if (!el || el.classList.contains('view-panel')) return;
+      var panel = el.closest('.view-panel');
+      e.preventDefault();
+      if (location.hash !== '#' + id) pushHistory('#' + id);
+      if (panel && !panel.classList.contains('active')) {{
+        // link into another view (e.g. the brand logo or an archive note pointing at the paper)
+        switchView(panel.id, false, true);
+        if (el.classList.contains('csl-entry')) highlightReferences([id], null);
+        settleOnAnchor(el);
+        return;
+      }}
+      var far = Math.abs(el.getBoundingClientRect().top) > window.innerHeight * 1.5;
+      scrollToAnchor(el, !far);
+      if (far) settleOnAnchor(el);
+      if (el.classList.contains('csl-entry')) {{
+        highlightReferences((a.getAttribute('data-refs') || id).split(/\\s+/), a);
+      }}
+    }});
+
+    // Browser history: every view switch and in-page jump is an entry, and each entry
+    // remembers its view and scroll offset so Back/Forward return to the same spot.
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    function saveHistoryState() {{
+      try {{
+        var overlay = history.state && history.state.overlay;
+        var st = {{ view: currentViewId(), y: Math.round(window.pageYOffset) }};
+        if (overlay) st.overlay = overlay;
+        history.replaceState(st, '', location.href);
+      }} catch (err) {{}}
+    }}
+    function pushHistory(hash) {{
+      saveHistoryState();
+      try {{ history.pushState({{ view: null, y: null }}, '', hash); }} catch (err) {{}}
+    }}
+    var historySaveTimer = null;
+    window.addEventListener('scroll', function() {{
+      clearTimeout(historySaveTimer);
+      historySaveTimer = setTimeout(saveHistoryState, 400);
+    }}, {{ passive: true }});
+
+    var lastPopstateAt = 0;
+    window.addEventListener('popstate', function(e) {{
+      lastPopstateAt = Date.now();
+      closeLightbox();
+      closeContentsDrawer();
+      var st = e.state;
+      if (st && st.view) {{
+        if (st.view !== currentViewId()) switchView(st.view, false, true);
+        jumpTo(st.y || 0);
+        var hid = location.hash.slice(1);
+        var hel = hid && document.getElementById(hid);
+        if (hel && hel.classList.contains('csl-entry')) highlightReferences([hid], null);
+      }} else if (location.hash && location.hash !== '#top') {{
+        routeToHash(location.hash, true);
+      }} else {{
+        switchView('view-html', false, true);
+        jumpTo(0);
+      }}
+      setTimeout(updateScrollspy, 60);
+    }});
+
+    window.addEventListener('DOMContentLoaded', function() {{
+      routeToHash(window.location.hash, true);
+      saveHistoryState();
       setTimeout(updateScrollspy, 100);
     }});
 
     window.addEventListener('hashchange', function() {{
-      var h = window.location.hash;
-      if (h) {{
-        var cleanId = h.replace(/^#/, '');
-        if (cleanId === 'benchmarks' || cleanId === 'benchmark') {{
-          switchView('view-stats', false);
-          setTimeout(function() {{
-            var el = document.getElementById('benchmarks-section') || document.getElementById('view-stats');
-            if (el) el.scrollIntoView({{behavior: 'smooth'}});
-          }}, 120);
-        }}
-      }}
+      // fragment navigations also fire popstate, which already routed them
+      if (Date.now() - lastPopstateAt < 300) return;
+      routeToHash(window.location.hash, false);
     }});
+
+    function openBenchmarks(e) {{
+      if (e) e.preventDefault();
+      pushHistory('#benchmarks');
+      switchView('view-stats', false, true);
+      var bench = document.getElementById('benchmarks-section');
+      if (bench) settleOnAnchor(bench);
+    }}
+
+    // Tablet / phone: once the in-flow table of contents (paper) or directory (archive) has
+    // scrolled away, a floating button reopens it as a drawer.
+    var drawerQuery = window.matchMedia('(max-width: 1200px)');
+    function activeSidebar() {{
+      var v = currentViewId();
+      if (v === 'view-html') return document.getElementById('paper-toc-sidebar');
+      if (v === 'view-gallery') return document.getElementById('gallery-toc-sidebar');
+      return null;
+    }}
+    function updateContentsFab() {{
+      var fab = document.getElementById('contents-fab');
+      if (!fab) return;
+      var side = activeSidebar();
+      var show = false;
+      if (side && drawerQuery.matches) {{
+        var r = side.getBoundingClientRect();
+        show = r.bottom < 0 || r.top > window.innerHeight;
+      }}
+      fab.hidden = !show;
+      if (show) {{
+        fab.querySelector('.contents-fab-label').textContent = currentViewId() === 'view-gallery' ? 'Directory' : 'Contents';
+      }}
+    }}
+    function openContentsDrawer() {{
+      var side = activeSidebar();
+      var drawer = document.getElementById('contents-drawer');
+      if (!side || !drawer) return;
+      var body = document.getElementById('contents-drawer-body');
+      body.innerHTML = '';
+      Array.from(side.children).forEach(function(child) {{
+        if (child.classList.contains('sidebar-header')) return;
+        var c = child.cloneNode(true);
+        c.removeAttribute('id');
+        c.querySelectorAll('[id]').forEach(function(x) {{ x.removeAttribute('id'); }});
+        body.appendChild(c);
+      }});
+      var tag = side.querySelector('.sidebar-tag');
+      var title = side.querySelector('.sidebar-title');
+      document.getElementById('contents-drawer-tag').textContent = tag ? tag.textContent : '';
+      document.getElementById('contents-drawer-title').textContent = title ? title.textContent : 'Contents';
+      drawer.hidden = false;
+      document.documentElement.classList.add('modal-open');
+      document.getElementById('contents-fab').setAttribute('aria-expanded', 'true');
+      var act = body.querySelector('.toc-sub-link.active, .toc-sec-link.active, .sidebar-sub-link.active');
+      if (act) body.scrollTop = Math.max(0, act.offsetTop - body.clientHeight / 3);
+      var closeBtn = drawer.querySelector('.contents-drawer-close');
+      if (closeBtn) closeBtn.focus({{ preventScroll: true }});
+    }}
+    function closeContentsDrawer() {{
+      var drawer = document.getElementById('contents-drawer');
+      if (!drawer || drawer.hidden) return;
+      drawer.hidden = true;
+      if (!document.getElementById('lightbox-modal').classList.contains('active')) {{
+        document.documentElement.classList.remove('modal-open');
+      }}
+      var fab = document.getElementById('contents-fab');
+      if (fab) fab.setAttribute('aria-expanded', 'false');
+    }}
+    (function() {{
+      var fab = document.getElementById('contents-fab');
+      var drawer = document.getElementById('contents-drawer');
+      if (!fab || !drawer) return;
+      fab.addEventListener('click', openContentsDrawer);
+      // capture phase: close before the link's own handler scrolls the page
+      drawer.addEventListener('click', function(e) {{
+        if (e.target.closest('[data-close-drawer]') || e.target.closest('a')) closeContentsDrawer();
+      }}, true);
+      document.addEventListener('keydown', function(e) {{
+        if (e.key === 'Escape') closeContentsDrawer();
+      }});
+      window.addEventListener('resize', updateContentsFab);
+      if (drawerQuery.addEventListener) drawerQuery.addEventListener('change', function() {{
+        closeContentsDrawer();
+        updateContentsFab();
+      }});
+    }})();
+
+    function showToast(msg) {{
+      var toast = document.getElementById('toast');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(function() {{ toast.classList.remove('show'); }}, 2500);
+    }}
 
     function copyBibtex() {{
       var code = document.getElementById('bibtex-code').innerText;
-      navigator.clipboard.writeText(code).then(function() {{
-        var toast = document.getElementById('toast');
-        toast.classList.add('show');
-        setTimeout(function() {{ toast.classList.remove('show'); }}, 2500);
-      }});
+      function legacyCopy() {{
+        var ta = document.createElement('textarea');
+        ta.value = code;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.top = '-1000px';
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = false;
+        try {{ ok = document.execCommand('copy'); }} catch (err) {{}}
+        document.body.removeChild(ta);
+        showToast(ok ? 'BibTeX copied to clipboard!' : 'Copy failed. Please select the BibTeX text manually.');
+      }}
+      if (navigator.clipboard && window.isSecureContext) {{
+        navigator.clipboard.writeText(code).then(function() {{
+          showToast('BibTeX copied to clipboard!');
+        }}, legacyCopy);
+      }} else {{
+        legacyCopy();
+      }}
     }}
 
     // Reading progress bar and scrollspy throttle
