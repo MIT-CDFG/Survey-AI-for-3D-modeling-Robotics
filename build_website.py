@@ -79,9 +79,9 @@ def latex_to_unicode(text):
     return text
 
 
-# Figures the website keeps even where the paper comments out their \input (the
-# report roadmap is dropped from the PDF but stays on the site).
-WEBSITE_KEEP_FIGURES = ("fig1_roadmap",)
+# Figures the website keeps even where the paper comments out their \input
+# (none: the site follows the paper's figure list).
+WEBSITE_KEEP_FIGURES = ()
 
 
 def keep_website_figures(text):
@@ -2130,7 +2130,7 @@ def build_full_html():
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=20260928-panels">
+  <link rel="stylesheet" href="css/style.css?v=20260928-headings">
 </head>
 <body id="top">
 

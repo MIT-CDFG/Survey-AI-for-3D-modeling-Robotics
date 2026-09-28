@@ -45,7 +45,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=20260928-panels">
+  <link rel="stylesheet" href="css/style.css?v=20260928-headings">
 </head>
 <body id="top">
 
@@ -466,29 +466,6 @@ describes harnesses, interfaces, and feedback (Table <a href="#tab:workflow-comp
 modeling, CAD, robot control, and animation, and Section <a href="#sec:evaluation" class="academic-ref-link">5</a> analyzes benchmark results. Sections <a href="#sec:opportunities" class="academic-ref-link">6</a> and <a href="#sec:risks" class="academic-ref-link">7</a>
 discuss opportunities and risks, Section <a href="#sec:recommendations" class="academic-ref-link">8</a> gives recommendations, and Section <a href="#sec:intro-methods" class="academic-ref-link">10</a> describes how
 the record was collected and checked.</p>
-
-    <figure class="academic-figure figure-main" id="fig:roadmap">
-      <div class="figure-img-wrap figure-img-wrap--vector" style="width: 100.0%;">
-        <img width="624" height="308" src="assets/figures/fig1_roadmap.svg" alt="Structure of this report" class="zoomable" loading="lazy">
-      </div>
-      <figcaption>
-        <strong>Figure 1: Structure of this report.</strong> Section <a href="#sec:technology" class="academic-ref-link">3</a> describes the software interfaces
-the demonstrations depend on and the difference between offline
-development and online operation. Section <a href="#sec:capabilities" class="academic-ref-link">4</a>
-covers 3D modeling, industrial design and CAD, robot control, and
-animation/motion, outlined in the colors used for the four domains
-throughout the report. Section <a href="#sec:evaluation" class="academic-ref-link">5</a>
-presents reconstruction and CAD evaluations before robotics, including
-comparisons with earlier models and the community interpretations and
-open questions in Section <a href="#sec:eval-field" class="academic-ref-link">5.5</a>;
-Section <a href="#sec:opportunities" class="academic-ref-link">6</a> sets out the opportunities, Section <a href="#sec:risks" class="academic-ref-link">7</a> the risks, limitations, research and
-ethics questions and the limits of this assessment, and Section <a href="#sec:recommendations" class="academic-ref-link">8</a> the recommendations; Section <a href="#sec:intro-methods" class="academic-ref-link">10</a> at the end of
-the report describes how the archive was built and checked. Box numbers
-are section numbers.
-      </figcaption>
-    </figure>
-    
-
 <h1 data-number="2" id="sec:related"><span
 class="header-section-number">2</span> Related Work</h1>
 <p><span id="sec:intro-related"
@@ -1003,7 +980,7 @@ operation</h2>
 before deployment. In online operation, it receives observations and
 selects subsequent actions during task execution. Local controllers may
 continue executing between model calls <span class="citation-group">(<a href="#ref-goldberg2026agenticrobotics" class="citation-link" data-refs="ref-goldberg2026agenticrobotics" title="[87] View in References">Goldberg
-2026a</a>; <a href="#ref-xiao2026camerarate" class="citation-link" data-refs="ref-xiao2026camerarate" title="[297] View in References">Xiao 2026b</a>; <a href="#ref-zhang2026enpirereply" class="citation-link" data-refs="ref-zhang2026enpirereply" title="[321] View in References">Zhang 2026a</a>)</span>. Figure <a href="#fig:loop" class="academic-ref-link">2</a>
+2026a</a>; <a href="#ref-xiao2026camerarate" class="citation-link" data-refs="ref-xiao2026camerarate" title="[297] View in References">Xiao 2026b</a>; <a href="#ref-zhang2026enpirereply" class="citation-link" data-refs="ref-zhang2026enpirereply" title="[321] View in References">Zhang 2026a</a>)</span>. Figure <a href="#fig:loop" class="academic-ref-link">1</a>
 draws the loop and the checks that close it in each domain. The kitchen
 digital-twin pipeline by Dou <a href="#ref-dou2026kitchentwin" class="citation-link" data-refs="ref-dou2026kitchentwin" title="[57] View in References">(Dou 2026b)</a> runs offline but
 produces scene assets rather than a controller; Goldberg’s
@@ -1022,7 +999,7 @@ MolmoAct2 joint-space action chunks <a href="#ref-robocurve2026roboharm" class=
         <img width="527" height="234" src="assets/figures/fig2_loop.svg" alt="The loop this report analyzes" class="zoomable" loading="lazy">
       </div>
       <figcaption>
-        <strong>Figure 2: The loop this report analyzes.</strong> A task reaches
+        <strong>Figure 1: The loop this report analyzes.</strong> A task reaches
 the model, which decides the next action or writes code; the harness
 executes it in software or on a controller and returns feedback that
 becomes the next input. The colored boxes show what that feedback
@@ -1151,12 +1128,12 @@ Krcha’s locomotive contains 3,295 editable objects reconstructed from a
 drawing, while the house accounts permit manual edits or import into
 another application <span class="citation-group">(<a href="#ref-krcha2026locomotive" class="citation-link" data-refs="ref-krcha2026locomotive" title="[138] View in References">Krcha
 2026c</a>, <a href="#ref-krcha2026house" class="citation-link" data-refs="ref-krcha2026house" title="[136] View in References">2026a</a>; <a href="#ref-ricouard2026housepass" class="citation-link" data-refs="ref-ricouard2026housepass" title="[215] View in References">Ricouard 2026d</a>)</span>. Most reported construction belongs
-to the offline development loop in Section <a href="#sec:tech-regimes" class="academic-ref-link">3.4</a>. The gallery (Figure <a href="#fig:gallery-3d" class="academic-ref-link">3</a>) shows 31 of the
+to the offline development loop in Section <a href="#sec:tech-regimes" class="academic-ref-link">3.4</a>. The gallery (Figure <a href="#fig:gallery-3d" class="academic-ref-link">2</a>) shows 31 of the
 120 cases in 3D modeling, grouped by category.</p>
 
     <figure class="academic-figure figure-gallery-figure" id="fig:gallery-3d">
       <div class="gallery-tiles-header">
-        <div class="gallery-tiles-tag">Archived Case Panel · Figure 3</div>
+        <div class="gallery-tiles-tag">Archived Case Panel · Figure 2</div>
         <div class="gallery-tiles-count">31 Archived Cases</div>
       </div>
       <div class="gallery-cat-heading">(a) Architecture and real-world reconstruction<span class="gallery-cat-count">6 of 39 cases</span></div><div class="gallery-tiles-grid">
@@ -1496,7 +1473,7 @@ to the offline development loop in Section <a href="#sec:tech-regimes" class="ac
           </div>
         </div></div>
       <figcaption>
-        <strong>Figure 3: Archived 3D modeling cases by category.</strong> Each
+        <strong>Figure 2: Archived 3D modeling cases by category.</strong> Each
 panel shows up to six cases from one category of the companion archive,
 taken in archive order, which lists cases with released code first and
 cases with live demonstrations second; together the panels show 31 of
@@ -1629,7 +1606,7 @@ assets are exported in MuJoCo XML Format (MJCF) <span class="citation-group">(<
 Unified Robot Description Format (URDF) <a href="#ref-urdf" class="citation-link" data-refs="ref-urdf" title="[189] View in References">(Open Robotics 2023)</a>. Alignment against the
 original frames gives a visible error signal, but thin or reflective
 objects and room shells still need refinement, and friction and mass
-remain unchecked <a href="#ref-dou2026kitchentwin" class="citation-link" data-refs="ref-dou2026kitchentwin" title="[57] View in References">(Dou 2026b)</a>. Figure <a href="#fig:detail-3d" class="academic-ref-link">4</a> shows the input
+remain unchecked <a href="#ref-dou2026kitchentwin" class="citation-link" data-refs="ref-dou2026kitchentwin" title="[57] View in References">(Dou 2026b)</a>. Figure <a href="#fig:detail-3d" class="academic-ref-link">3</a> shows the input
 camera frame and the reconstructed interactive viewer.</p>
 
     <figure class="academic-figure figure-main" id="fig:detail-3d">
@@ -1637,7 +1614,7 @@ camera frame and the reconstructed interactive viewer.</p>
         <img width="1280" height="720" src="assets/figures/kitchen_input_output.png" alt="Input and output details from Dou's kitchen viewer" class="zoomable" loading="lazy" style="max-width: min(720px, 100%);">
       </div>
       <figcaption>
-        <strong>Figure 4: Input video and reconstructed scene from the
+        <strong>Figure 3: Input video and reconstructed scene from the
 KitchenTwin real-to-sim pipeline (M32)</strong> <a href="#ref-dou2026kitchentwin" class="citation-link" data-refs="ref-dou2026kitchentwin" title="[57] View in References">(Dou 2026b)</a>. The phone-video
 inset (lower left) permits comparison with the reconstructed
 refrigerator, counters and island, which are retained as separate scene
@@ -1683,12 +1660,12 @@ and solid models validated by a geometry kernel. Both kinds of output
 can be edited, but neither has been shown to function or to be
 manufacturable. The examples include two SolidWorks assemblies and a
 turbofan of 511 kernel-checked solids <span class="citation-group">(<a href="#ref-senet2026robotarm" class="citation-link" data-refs="ref-senet2026robotarm" title="[234] View in References">Senet
-2026a</a>, <a href="#ref-senet2026turbojet" class="citation-link" data-refs="ref-senet2026turbojet" title="[235] View in References">2026b</a>; <a href="#ref-varghese2026turbofan" class="citation-link" data-refs="ref-varghese2026turbofan" title="[277] View in References">Varghese 2026</a>)</span>. The gallery (Figure <a href="#fig:gallery-cad" class="academic-ref-link">5</a>) shows 14 of the
+2026a</a>, <a href="#ref-senet2026turbojet" class="citation-link" data-refs="ref-senet2026turbojet" title="[235] View in References">2026b</a>; <a href="#ref-varghese2026turbofan" class="citation-link" data-refs="ref-varghese2026turbofan" title="[277] View in References">Varghese 2026</a>)</span>. The gallery (Figure <a href="#fig:gallery-cad" class="academic-ref-link">4</a>) shows 14 of the
 31 cases in industrial design and CAD, grouped by category.</p>
 
     <figure class="academic-figure figure-gallery-figure" id="fig:gallery-cad">
       <div class="gallery-tiles-header">
-        <div class="gallery-tiles-tag">Archived Case Panel · Figure 5</div>
+        <div class="gallery-tiles-tag">Archived Case Panel · Figure 4</div>
         <div class="gallery-tiles-count">14 Archived Cases</div>
       </div>
       <div class="gallery-cat-heading">(a) Parametric CAD and solid modeling<span class="gallery-cat-count">6 of 11 cases</span></div><div class="gallery-tiles-grid">
@@ -1844,8 +1821,8 @@ turbofan of 511 kernel-checked solids <span class="citation-group">(<a href="#r
           </div>
         </div></div>
       <figcaption>
-        <strong>Figure 5: Archived industrial design and CAD cases by
-category, 14 of the 31 cases in this domain.</strong> Panels and tiles follow Figure <a href="#fig:gallery-3d" class="academic-ref-link">3</a>. The stills
+        <strong>Figure 4: Archived industrial design and CAD cases by
+category, 14 of the 31 cases in this domain.</strong> Panels and tiles follow Figure <a href="#fig:gallery-3d" class="academic-ref-link">2</a>. The stills
 illustrate reported outputs only, and rights remain with the original
 authors.
       </figcaption>
@@ -1870,7 +1847,7 @@ authors.
         </div>
       </div>
       <figcaption>
-        <strong>Figure 6: A turbofan built as a solid B-rep model from
+        <strong>Figure 5: A turbofan built as a solid B-rep model from
 one prompt (I04)</strong> <a href="#ref-varghese2026turbofan" class="citation-link" data-refs="ref-varghese2026turbofan" title="[277] View in References">(Varghese 2026)</a>. Varghese
 connected a GPT-6 Astra (medium) session to the CGM modeling kernel
 through James Gray’s MCP server and asked for a detailed turbofan. The
@@ -1960,12 +1937,12 @@ measure task completion, including 19/20 bowl placements for GPT-6 Astra
 in Robocurve’s physical trials, separately from intermediate
 progress <span class="citation-group">(<a href="#ref-menon2026astrarobotarms" class="citation-link" data-refs="ref-menon2026astrarobotarms" title="[171] View in References">Menon
 et al. 2026</a>; <a href="#ref-zhang2026stationerybench" class="citation-link" data-refs="ref-zhang2026stationerybench" title="[325] View in References">Z. J. Zhang et al. 2026</a>; <a href="#ref-zhang2026gpt6astrarobodojo" class="citation-link" data-refs="ref-zhang2026gpt6astrarobodojo" title="[323] View in References">W. Zhang et al. 2026</a>)</span>. The
-gallery (Figure <a href="#fig:gallery-robot" class="academic-ref-link">7</a>) shows 27 of
+gallery (Figure <a href="#fig:gallery-robot" class="academic-ref-link">6</a>) shows 27 of
 the 50 cases in robot control, grouped by category.</p>
 
     <figure class="academic-figure figure-gallery-figure" id="fig:gallery-robot">
       <div class="gallery-tiles-header">
-        <div class="gallery-tiles-tag">Archived Case Panel · Figure 7</div>
+        <div class="gallery-tiles-tag">Archived Case Panel · Figure 6</div>
         <div class="gallery-tiles-count">27 Archived Cases</div>
       </div>
       <div class="gallery-cat-heading">(a) Manipulation evaluations<span class="gallery-cat-count">6 of 8 cases</span></div><div class="gallery-tiles-grid">
@@ -2262,8 +2239,8 @@ the 50 cases in robot control, grouped by category.</p>
           </div>
         </div></div>
       <figcaption>
-        <strong>Figure 7: Archived robot control cases by category,
-27 of the 50 cases in this domain.</strong> Panels and tiles follow Figure <a href="#fig:gallery-3d" class="academic-ref-link">3</a>; R39 is omitted
+        <strong>Figure 6: Archived robot control cases by category,
+27 of the 50 cases in this domain.</strong> Panels and tiles follow Figure <a href="#fig:gallery-3d" class="academic-ref-link">2</a>; R39 is omitted
 because its post contains no still of the run. The stills illustrate
 reported outputs only, and rights remain with the original authors.
       </figcaption>
@@ -2288,7 +2265,7 @@ reported outputs only, and rights remain with the original authors.
         </div>
       </div>
       <figcaption>
-        <strong>Figure 8: Physical in-context learning through the
+        <strong>Figure 7: Physical in-context learning through the
 ENPIRE harness (R03)</strong> <a href="#ref-zhang2026enpire" class="citation-link" data-refs="ref-zhang2026enpire" title="[322] View in References">(Zhang 2026b)</a>. (a) A person places a
 yellow cup on the table in front of the bimanual arms; (b) the arms
 reproduce the task, with the source’s 8× playback overlay visible. The
@@ -2438,12 +2415,12 @@ motion</h2>
 over time: rigged characters, procedural motion graphics, shaders, and
 animated layouts that guide video generation. It is the least evaluated
 of the four domains, with no standard benchmark in the record. The
-gallery (Figure <a href="#fig:gallery-anim" class="academic-ref-link">9</a>) shows 24 of
+gallery (Figure <a href="#fig:gallery-anim" class="academic-ref-link">8</a>) shows 24 of
 the 42 cases in animation, grouped by category.</p>
 
     <figure class="academic-figure figure-gallery-figure" id="fig:gallery-anim">
       <div class="gallery-tiles-header">
-        <div class="gallery-tiles-tag">Archived Case Panel · Figure 9</div>
+        <div class="gallery-tiles-tag">Archived Case Panel · Figure 8</div>
         <div class="gallery-tiles-count">24 Archived Cases</div>
       </div>
       <div class="gallery-cat-heading">(a) Rigging and character animation<span class="gallery-cat-count">6 of 10 cases</span></div><div class="gallery-tiles-grid">
@@ -2708,8 +2685,8 @@ the 42 cases in animation, grouped by category.</p>
           </div>
         </div></div>
       <figcaption>
-        <strong>Figure 9: Archived animation cases by category, 24 of
-the 42 cases in this domain.</strong> Panels and tiles follow Figure <a href="#fig:gallery-3d" class="academic-ref-link">3</a>. The stills
+        <strong>Figure 8: Archived animation cases by category, 24 of
+the 42 cases in this domain.</strong> Panels and tiles follow Figure <a href="#fig:gallery-3d" class="academic-ref-link">2</a>. The stills
 illustrate reported outputs only, and rights remain with the original
 authors.
       </figcaption>
@@ -3443,7 +3420,7 @@ model parameters. VSI-Bench: Visual-Spatial Intelligence Benchmark;
 properties.</h4>
 <p>A valid solid can still fail a design specification; a visually
 accurate scene can still be unsuitable for contact simulation. The
-relevant validation therefore depends on the intended use (Figure <a href="#fig:eval-cad" class="academic-ref-link">10</a>). Reconstruction and
+relevant validation therefore depends on the intended use (Figure <a href="#fig:eval-cad" class="academic-ref-link">9</a>). Reconstruction and
 CAD scores measure image agreement, geometry or specified edits <span class="citation-group">(<a href="#ref-normal2026cadarena" class="citation-link" data-refs="ref-normal2026cadarena" title="[226] View in References">Saini
 et al. 2026</a>; <a href="#ref-tang2026bvb" class="citation-link" data-refs="ref-tang2026bvb" title="[257] View in References">Tang et al. 2026</a>; <a href="#ref-benchcad2026leaderboard" class="citation-link" data-refs="ref-benchcad2026leaderboard" title="[20] View in References">BenchCAD 2026</a>)</span>; downstream tests
 must check the scene or solid against its application requirements (Section <a href="#sec:recommendations" class="academic-ref-link">8</a>).</p>
@@ -3460,7 +3437,7 @@ must check the scene or solid against its application requirements (Section <a h
         </div>
       </div>
       <figcaption>
-        <strong>Figure 10: Verification reported alongside native CAD
+        <strong>Figure 9: Verification reported alongside native CAD
 outputs (I26, I10).</strong> (a) Claude Opus 5.5, operating FreeCAD through an
 MCP server from Claude Code, assembles an F1 concept car from three
 concept images with a single parametric Python script; in the posted
@@ -3485,7 +3462,7 @@ benchmarks</h2>
 <p>Robot benchmarks distinguish intermediate task progress from
 completion and online action selection from offline controller
 development. Robocurve, for example, reports 19/20 completed bowl
-placements for GPT-6 Astra on physical hardware (Figure <a href="#fig:eval-robot" class="academic-ref-link">11</a>); StationeryBench
+placements for GPT-6 Astra on physical hardware (Figure <a href="#fig:eval-robot" class="academic-ref-link">10</a>); StationeryBench
 and RoboDojo report progress and completion separately <span class="citation-group">(<a href="#ref-menon2026astrarobotarms" class="citation-link" data-refs="ref-menon2026astrarobotarms" title="[171] View in References">Menon
 et al. 2026</a>; <a href="#ref-zhang2026stationerybench" class="citation-link" data-refs="ref-zhang2026stationerybench" title="[325] View in References">Z. J. Zhang et al. 2026</a>; <a href="#ref-zhang2026gpt6astrarobodojo" class="citation-link" data-refs="ref-zhang2026gpt6astrarobodojo" title="[323] View in References">W. Zhang et al. 2026</a>)</span>. Table <a href="#tab:eval-robot" class="academic-ref-link">4</a> collects the manipulation,
 navigation and controller-development results.</p>
@@ -3502,7 +3479,7 @@ navigation and controller-development results.</p>
         </div>
       </div>
       <figcaption>
-        <strong>Figure 11: Task completion and intermediate progress in
+        <strong>Figure 10: Task completion and intermediate progress in
 two of Robocurve’s physical evaluations (R01, R04).</strong> (a) Block-into-bowl
 task: GPT-6 Astra completes its trial at 1:40 of elapsed time, whereas
 Claude Fable 5.1 is still executing at 3:06; across 20 trials per model,
@@ -3551,7 +3528,7 @@ demonstrating sub-<span class="math inline">1%</span> dimensional
 agreement on a soda can while showing that functional articulation—such
 as linking corkscrew wings to an internal drivetrain—remains fragile; of
 the three models tested on the corkscrew, only Fable 5.1 linked the
-wings (Figure <a href="#fig:eval-real2sim" class="academic-ref-link">12</a>).</p>
+wings (Figure <a href="#fig:eval-real2sim" class="academic-ref-link">11</a>).</p>
 
     <figure class="academic-figure figure-main" id="fig:eval-real2sim">
       <div class="figure-subfigures-grid">
@@ -3569,7 +3546,7 @@ wings (Figure <a href="#fig:eval-real2sim" class="academic-ref-link">12</a>).</p
         </div>
       </div>
       <figcaption>
-        <strong>Figure 12: Simulation assets reconstructed from
+        <strong>Figure 11: Simulation assets reconstructed from
 approximately 20 iPhone captures (R33)</strong> <a href="#ref-manda2026real2simthread" class="citation-link" data-refs="ref-manda2026real2simthread" title="[163] View in References">(Manda Robotics 2026a)</a>. (a,
 b) All five models reproduce the dimensions of a Coke Zero can to within
 1%, although visual realism varies considerably; generation time and

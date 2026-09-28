@@ -4244,6 +4244,7 @@ img.zoomable:focus-visible,
   font-size: 0.95rem;
   color: var(--ink-primary, #1a1a1a);
   margin: 1.4rem 0 0.6rem;
+  padding: 0 1.15rem;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
