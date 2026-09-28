@@ -4236,3 +4236,33 @@ img.zoomable:focus-visible,
     }
   }
 }
+
+/* Category panels inside the paper's case-gallery figures */
+.gallery-cat-heading {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink-primary, #1a1a1a);
+  margin: 1.4rem 0 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.gallery-cat-heading:first-of-type { margin-top: 0.4rem; }
+.gallery-cat-count {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--ink-secondary);
+}
+.figure-gallery-figure .gallery-tiles-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  max-height: none;
+  overflow: visible;
+}
+@media (max-width: 900px) {
+  .figure-gallery-figure .gallery-tiles-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .figure-gallery-figure .gallery-tiles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

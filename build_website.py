@@ -1073,43 +1073,60 @@ def enhance_academic_tables(content):
     return pattern.sub(repl, content)
 
 def build_latex_gallery_figure_html(fig_id, fig_num_str, caption_html, tex_file, domain_key, gallery_data_by_id):
+    """One figure per domain; each \\gallerycat{heading}{count} row in the LaTeX starts a category panel."""
     tex_path = os.path.join(WORKSPACE, tex_file)
     content = ""
     if os.path.exists(tex_path):
         with open(tex_path, encoding='utf-8') as f:
             content = f.read()
 
-    imgs = re.findall(r'figures/gallery/([^}\s]+)', content)
-    cards_html = []
-    for img in imgs:
+    def tex_title(t):
+        t = t.replace("``", "\u201c").replace("''", "\u201d").replace("\\ ", " ")
+        t = t.replace("\\c{t}", "\u021b").replace("$\\pi_{0.5}$", "\u03c00.5")
+        return re.sub(r"\\[a-zA-Z]+\{([^{}]*)\}", r"\1", t).strip()
+
+    def card(img, short_title=None):
         gid = re.sub(r'\.(jpg|png)$', '', img, flags=re.I).upper()
         item = gallery_data_by_id.get(gid, {})
         author = item.get('author', '')
-        title_text = item.get('title', '')
+        title_text = short_title or item.get('title', '')
         author_short = author.split('(')[0].strip() if author else gid
-        
-        cards_html.append(f'''
+        return f'''
         <div class="gallery-tile-card" role="button" tabindex="0" onclick="openArchiveCase('{gid}', '{domain_key}')" title="{html_escape(gid + ': ' + title_text)} (open in Case Archive)">
           <div class="gallery-tile-thumb-wrap">
-            <img src="assets/gallery/{img}" alt="{html_escape(gid + ': ' + title_text)}" loading="lazy">
+            <img src="assets/panels/{img}" alt="{html_escape(gid + ': ' + title_text)}" loading="lazy">
             <span class="gallery-tile-gid">{gid}</span>
           </div>
           <div class="gallery-tile-meta">
             <div class="gallery-tile-author">{author_short}</div>
             <div class="gallery-tile-title">{title_text}</div>
           </div>
-        </div>''')
+        </div>'''
 
-    cards_str = "\n".join(cards_html)
+    groups = []
+    for seg in re.split(r'\\gallerycat\{', content)[1:]:
+        m = re.match(r'([^{}]*)\}\{([^{}]*)\}', seg)
+        imgs = re.findall(r'figures/gallery/([^}\s]+)', seg)
+        titles = [tex_title(t) for t in re.findall(r'\\gallerytitle\{(.*?)\}\s*(?=&|\\\\)', seg)]
+        groups.append((m.group(1).strip() if m else '', m.group(2).strip() if m else '',
+                       imgs, titles if len(titles) == len(imgs) else [None] * len(imgs)))
+    if not groups:
+        imgs = re.findall(r'figures/gallery/([^}\s]+)', content)
+        groups = [('', '', imgs, [None] * len(imgs))]
+    n_tiles = sum(len(g[2]) for g in groups)
+    panels = []
+    for heading, count, imgs, titles in groups:
+        head = (f'<div class="gallery-cat-heading">{html_escape(heading)}'
+                f'<span class="gallery-cat-count">{html_escape(count)}</span></div>') if heading else ''
+        panels.append(head + '<div class="gallery-tiles-grid">' + "\n".join(card(i, t) for i, t in zip(imgs, titles)) + '</div>')
+
     return f'''
     <figure class="academic-figure figure-gallery-figure" id="{fig_id}">
       <div class="gallery-tiles-header">
         <div class="gallery-tiles-tag">Archived Case Panel · Figure {fig_num_str}</div>
-        <div class="gallery-tiles-count">{len(imgs)} Archived Cases</div>
+        <div class="gallery-tiles-count">{n_tiles} Archived Cases</div>
       </div>
-      <div class="gallery-tiles-grid">
-        {cards_str}
-      </div>
+      {"".join(panels)}
       <figcaption>
         {caption_html}
       </figcaption>
@@ -1404,8 +1421,8 @@ def convert_paper_html(bib_urls=None):
             ("assets/figures/enpire_demo.png", "Human demonstration", "(a) Human demonstration"),
             ("assets/figures/enpire_exec.png", "Robot execution", "(b) Robot execution, played at 8×")])),
         "evalcad": main_figure("evalcad", "fig:eval-cad", subfigures([
-            ("assets/figures/eval_freecad_f1.jpg", "FreeCAD assembly and the agent's dimension check", "(a) FreeCAD assembly and the agent's dimension check"),
-            ("assets/figures/eval_fit_coupons.jpg", "Printable fit coupons", "(b) Printable fit coupons")])),
+            ("assets/figures/eval_freecad_f1.jpg", "FreeCAD assembly and dimensional self-check", "(a) FreeCAD assembly and dimensional self-check"),
+            ("assets/figures/eval_fit_coupons.jpg", "Joint clearance specimens", "(b) Joint clearance specimens")])),
         "evalrobot": main_figure("evalrobot", "fig:eval-robot", subfigures([
             ("assets/figures/eval_robocurve_bowl.jpg", "Block into bowl: GPT-6 Astra (top) and Fable 5.1", "(a) Block into bowl: GPT-6 Astra (top) and Fable 5.1"),
             ("assets/figures/eval_stationerybench.jpg", "StationeryBench: GPT-6 Astra (top) and MolmoAct2", "(b) StationeryBench: GPT-6 Astra (top) and MolmoAct2")])),
@@ -1416,9 +1433,9 @@ def convert_paper_html(bib_urls=None):
     }
     for key, fig_id, tex_file, domain in (
         ("gallery3d", "fig:gallery-3d", "figures/gallery_3d.tex", "3d"),
-        ("gallery3d-b", "fig:gallery-3d-b", "figures/gallery_3d-b.tex", "3d"),
         ("gallerycad", "fig:gallery-cad", "figures/gallery_cad.tex", "cad"),
         ("galleryrobot", "fig:gallery-robot", "figures/gallery_robot.tex", "robotics"),
+        ("galleryanim", "fig:gallery-anim", "figures/gallery_anim.tex", "animation"),
     ):
         figure_html[key] = build_latex_gallery_figure_html(
             fig_id, fig_number(fig_id), figcaption(key, fig_id), tex_file, domain, gallery_data_by_id)
@@ -2113,7 +2130,7 @@ def build_full_html():
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=20260928-mitlogo">
+  <link rel="stylesheet" href="css/style.css?v=20260928-panels">
 </head>
 <body id="top">
 
