@@ -240,6 +240,8 @@ def parse_case_index(bib_urls=None):
         "M28": "https://github.com/emollick/abyssal-living-deep",
         "M42": "https://github.com/per-simmons/blender-production",
         "M48": "https://github.com/openretriever/retriever",
+        "M110": "https://github.com/dgreenheck/tidewater",
+        "I26": "https://github.com/Sunwood-ai-labs/aurora-a1-freecad",
         "R01": "https://github.com/robocurve/inspect-robots",
         "R03": "https://github.com/NVlabs/ENPIRE",
         "R04": "https://github.com/robocurve/stationerybench",
@@ -250,6 +252,12 @@ def parse_case_index(bib_urls=None):
         "R18": "https://github.com/Hu-xiao-max/dexgpt",
         "R29": "https://github.com/anonymous-report-421/GPT-as-Policy",
         "R30": "https://github.com/nftechie/misalignment/tree/main/experiments/001",
+        "R42": "https://github.com/botrail/botrail/tree/main/examples/palletizing",
+        "R43": "https://github.com/botrail/botrail/tree/main/examples/assembly",
+        "R45": "https://github.com/showlab/Show-Harness",
+        "R46": "https://github.com/cheng-haha/GPT-Policy",
+        "R47": "https://github.com/bingaochen/Astra-on-RoboMME",
+        "A24": "https://github.com/SafaElmali/dualsense-studio",
     }
 
     # Parse sec/a_case_index.tex
@@ -514,14 +522,16 @@ def build_appendix_c_html(bib_urls, gallery_items=None, intro_html="", caption_h
     rows = []
     index_path = os.path.join(WORKSPACE, "sec/a_case_index.tex")
     
-    rank1_gids = {"A01", "A15", "I08", "I13", "M28", "M29", "M42", "M48", "M103", "R01", "R03", "R04", "R07", "R08", "R13", "R14", "R16", "R18", "R30", "R33", "R34", "R37"}
-    rank2_gids = {"A03", "A07", "I01", "I09", "I20", "M04", "M24", "M25", "M29", "M32", "M36", "M44", "M50", "M51", "M54", "M74", "M75", "M76", "M78", "M82", "M101", "R20", "R27", "X16"}
+    rank1_gids = {"A01", "A15", "A24", "I08", "I13", "I26", "M28", "M29", "M42", "M48", "M103", "M110", "R01", "R03", "R04", "R07", "R08", "R13", "R14", "R16", "R18", "R30", "R33", "R34", "R37", "R42", "R43", "R45", "R46", "R47"}
+    rank2_gids = {"A03", "A07", "I01", "I09", "I20", "M04", "M24", "M25", "M29", "M32", "M36", "M44", "M50", "M51", "M54", "M74", "M75", "M76", "M78", "M82", "M101", "M112", "R20", "R27", "R40", "X16"}
     extra_code_urls = {
         "M28": "https://github.com/emollick/abyssal-living-deep",
         "M42": "https://github.com/per-simmons/blender-production",
         "M48": "https://github.com/openretriever/retriever",
         "M103": "https://github.com/mike007jd/voxel-musou",
+        "M110": "https://github.com/dgreenheck/tidewater",
         "I08": "https://github.com/earthtojake/text-to-cad/tree/main/models/tendon_hand",
+        "I26": "https://github.com/Sunwood-ai-labs/aurora-a1-freecad",
         "R01": "https://github.com/robocurve/inspect-robots",
         "R03": "https://github.com/NVlabs/ENPIRE",
         "R04": "https://github.com/robocurve/stationerybench",
@@ -534,7 +544,13 @@ def build_appendix_c_html(bib_urls, gallery_items=None, intro_html="", caption_h
         "R30": "https://github.com/nftechie/misalignment/tree/main/experiments/001",
         "R34": "https://github.com/EmbodiedSWE/EmbodiedSWE",
         "R37": "https://github.com/robocurve/inspect-robots",
+        "R42": "https://github.com/botrail/botrail/tree/main/examples/palletizing",
+        "R43": "https://github.com/botrail/botrail/tree/main/examples/assembly",
+        "R45": "https://github.com/showlab/Show-Harness",
+        "R46": "https://github.com/cheng-haha/GPT-Policy",
+        "R47": "https://github.com/bingaochen/Astra-on-RoboMME",
         "A15": "https://github.com/sevenevesai/riso-windowseat",
+        "A24": "https://github.com/SafaElmali/dualsense-studio",
     }
     
     if os.path.exists(index_path):

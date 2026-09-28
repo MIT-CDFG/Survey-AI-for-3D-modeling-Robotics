@@ -4051,6 +4051,33 @@
   },
   {
     "order_index": 150,
+    "id": "R45",
+    "domain": "robotics",
+    "subsection": "Manipulation evaluations",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "Show-Harness: VLMs play real Franka and AgileX arms",
+    "author": "Zechen Bai (@ZechenBai)",
+    "source_url": "https://x.com/ZechenBai/status/2097879130356498603",
+    "platform": "X",
+    "desc": "Zechen Bai asks whether \"a strong robot policy\" could \"already be hiding inside your VLM\" and presents \"an Embodied Harness that lets VLMs play real robots\" that works \"like Claude Code for robotics.\" The video collects real-arm clips, including a two-arm clothing task and a chess move. The project page reports that models run through the harness succeed more often than the robot policies it is compared with, both on new tasks and when moved to a different robot.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r45-show-harness-vlm-plays-robots-zechenbai.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r45-show-harness-vlm-plays-robots-zechenbai.jpg",
+    "rel_img": "assets/images/r45-show-harness-vlm-plays-robots-zechenbai.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r45-show-harness-vlm-plays-robots-zechenbai.mp4",
+    "code_url": "https://github.com/showlab/Show-Harness",
+    "code_label": "showlab/Show-Harness",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://showlab.github.io/Show-Harness/",
+    "demo_label": "Show-Harness project page",
+    "model": "Multi-model (Gemini 3.1 Pro by default; GPT-5.6 Sol, Claude Opus 5, GPT-5.6 Luna and Gemini 3.6 Flash compared; fine-tuned Qwen3.5 and InternVL3.5)",
+    "tools": "Franka arm; AgileX Piper arms"
+  },
+  {
+    "order_index": 151,
     "id": "R05",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -4077,7 +4104,7 @@
     "tools": "MolmoAct2 dataset, Inspect Robots code"
   },
   {
-    "order_index": 151,
+    "order_index": 152,
     "id": "R29",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -4104,7 +4131,7 @@
     "tools": "MolmoSpaces-v1"
   },
   {
-    "order_index": 152,
+    "order_index": 153,
     "id": "R39",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4131,7 +4158,7 @@
     "tools": "Codex; SO-101; Insta360 camera; MuJoCo"
   },
   {
-    "order_index": 153,
+    "order_index": 154,
     "id": "R20",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4158,7 +4185,7 @@
     "tools": "robot hands (setting per the linked page)"
   },
   {
-    "order_index": 154,
+    "order_index": 155,
     "id": "R40",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4185,7 +4212,7 @@
     "tools": "Unitree G1; Isaac Sim; AMO; RTX 4090 laptop"
   },
   {
-    "order_index": 155,
+    "order_index": 156,
     "id": "R08",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4212,7 +4239,7 @@
     "tools": "SO-101 arm"
   },
   {
-    "order_index": 156,
+    "order_index": 157,
     "id": "R09",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4239,7 +4266,7 @@
     "tools": "LeRobot SO-101, third-person RGB camera"
   },
   {
-    "order_index": 157,
+    "order_index": 158,
     "id": "R10",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4266,7 +4293,7 @@
     "tools": "Wuji2 hand, third-person camera"
   },
   {
-    "order_index": 158,
+    "order_index": 159,
     "id": "R17",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4293,7 +4320,7 @@
     "tools": "Wuji hands (physical rollouts)"
   },
   {
-    "order_index": 159,
+    "order_index": 160,
     "id": "R25",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4320,7 +4347,7 @@
     "tools": "robot arm and keyboard (setting not stated in the post)"
   },
   {
-    "order_index": 160,
+    "order_index": 161,
     "id": "R19",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4347,7 +4374,7 @@
     "tools": "Vitrus robotics OS (physical robot)"
   },
   {
-    "order_index": 161,
+    "order_index": 162,
     "id": "R22",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4374,7 +4401,7 @@
     "tools": "mobile manipulator (not named in the post)"
   },
   {
-    "order_index": 162,
+    "order_index": 163,
     "id": "R31",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4401,7 +4428,7 @@
     "tools": "two RGB-D cameras; dual-arm setup (robot not named in the post)"
   },
   {
-    "order_index": 163,
+    "order_index": 164,
     "id": "R44",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4428,7 +4455,7 @@
     "tools": "robot arm and 3D printer"
   },
   {
-    "order_index": 164,
+    "order_index": 165,
     "id": "R03",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -4455,7 +4482,7 @@
     "tools": "ENPIRE, bimanual arms"
   },
   {
-    "order_index": 165,
+    "order_index": 166,
     "id": "R18",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -4482,7 +4509,7 @@
     "tools": "44-DOF dexterous hand (simulation)"
   },
   {
-    "order_index": 166,
+    "order_index": 167,
     "id": "R33",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -4509,7 +4536,34 @@
     "tools": "NVIDIA Isaac Sim; iPhone"
   },
   {
-    "order_index": 167,
+    "order_index": 168,
+    "id": "R46",
+    "domain": "robotics",
+    "subsection": "Learning from demonstration and real-to-sim",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "GPT-Policy: one demonstration per task on real dual robot arms",
+    "author": "code_z (@z_code68632)",
+    "source_url": "https://x.com/z_code68632/status/2098397364725895387",
+    "platform": "X",
+    "desc": "code_z writes \"Give it ONE demo per task, and it can control a real robot to unscrew a bottle cap, insert a plug into a power strip, clear obstacles, and even imitate a human dance.\" The clip shows a two-arm setup from a top camera and both wrist cameras across six labeled task types. The repository accompanies the paper In-Context Robot Learning with VLM Agents, whose figures are in [Benchmarks](#benchmarks).",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r46-gpt-policy-one-demo-tasks-z-code68632.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r46-gpt-policy-one-demo-tasks-z-code68632.jpg",
+    "rel_img": "assets/images/r46-gpt-policy-one-demo-tasks-z-code68632.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r46-gpt-policy-one-demo-tasks-z-code68632.mp4",
+    "code_url": "https://github.com/cheng-haha/GPT-Policy",
+    "code_label": "cheng-haha/GPT-Policy",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://cheng-haha.github.io/GPT-Policy/",
+    "demo_label": "GPT-Policy project page",
+    "model": "GPT-6 Astra",
+    "tools": "ARX X5 or I2RT/YAM arms; RealSense cameras"
+  },
+  {
+    "order_index": 169,
     "id": "R11",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -4536,7 +4590,7 @@
     "tools": "MuJoCo"
   },
   {
-    "order_index": 168,
+    "order_index": 170,
     "id": "R15",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -4563,7 +4617,7 @@
     "tools": "MuJoCo, Blender"
   },
   {
-    "order_index": 169,
+    "order_index": 171,
     "id": "R24",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -4590,7 +4644,7 @@
     "tools": "Blender, Newton, Unitree G1 (simulation)"
   },
   {
-    "order_index": 170,
+    "order_index": 172,
     "id": "R35",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -4617,7 +4671,7 @@
     "tools": "MuJoCo; Blender"
   },
   {
-    "order_index": 171,
+    "order_index": 173,
     "id": "R14",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4644,7 +4698,7 @@
     "tools": "MolmoAct2 sim_eval (simulation)"
   },
   {
-    "order_index": 172,
+    "order_index": 174,
     "id": "R16",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4671,7 +4725,7 @@
     "tools": "MuJoCo (simulation)"
   },
   {
-    "order_index": 173,
+    "order_index": 175,
     "id": "R07",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4698,7 +4752,7 @@
     "tools": "RoboDojo, RoboPianist"
   },
   {
-    "order_index": 174,
+    "order_index": 176,
     "id": "R42",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4725,7 +4779,7 @@
     "tools": "botrail"
   },
   {
-    "order_index": 175,
+    "order_index": 177,
     "id": "R43",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4752,7 +4806,34 @@
     "tools": "botrail"
   },
   {
-    "order_index": 176,
+    "order_index": 178,
+    "id": "R47",
+    "domain": "robotics",
+    "subsection": "Simulation control and training, painting, drones and full evaluations",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "Astra on RoboMME: an Astra planner with a small monitor and a \u03c00.5 VLA",
+    "author": "Bingao Chen (@bingao_chen)",
+    "source_url": "https://x.com/bingao_chen/status/2102148797786931563",
+    "platform": "X",
+    "desc": "Bingao Chen splits the work in three: Astra picks the next subtask, a fine-tuned \u03c00.5 VLA carries it out, and a small fine-tuned Qwen3-VL model checks when the subtask is done, so Astra is consulted only a few times per episode rather than before every move. The author reports \"79.13% success\" with \"3.63 Astra calls per episode\" on the RoboMME memory benchmark's official test episodes. The video pairs the results chart with simulated rollouts; the work is joint with Haoquan Fang and C. Karen Liu.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r47-astra-robomme-three-tier-bingao-chen.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r47-astra-robomme-three-tier-bingao-chen.jpg",
+    "rel_img": "assets/images/r47-astra-robomme-three-tier-bingao-chen.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r47-astra-robomme-three-tier-bingao-chen.mp4",
+    "code_url": "https://github.com/bingaochen/Astra-on-RoboMME",
+    "code_label": "bingaochen/Astra-on-RoboMME",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://bingaochen.github.io/Astra-on-RoboMME/",
+    "demo_label": "Astra on RoboMME blog",
+    "model": "GPT-6 Astra (planner), with a fine-tuned \u03c00.5 VLA and a fine-tuned Qwen3-VL-4B monitor",
+    "tools": "RoboMME; Codex"
+  },
+  {
+    "order_index": 179,
     "id": "R27",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4779,7 +4860,7 @@
     "tools": "Dual-ALOHA (setting per the linked demo page)"
   },
   {
-    "order_index": 177,
+    "order_index": 180,
     "id": "R12",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4806,7 +4887,7 @@
     "tools": "Isaac Lab, Sharpa hand (simulation)"
   },
   {
-    "order_index": 178,
+    "order_index": 181,
     "id": "R21",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4833,7 +4914,7 @@
     "tools": "Unitree G1 (simulation)"
   },
   {
-    "order_index": 179,
+    "order_index": 182,
     "id": "R26",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4860,7 +4941,7 @@
     "tools": "Isaac Sim, Unitree G1"
   },
   {
-    "order_index": 180,
+    "order_index": 183,
     "id": "R23",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4887,7 +4968,7 @@
     "tools": "Fusion 360, reinforcement learning (simulation)"
   },
   {
-    "order_index": 181,
+    "order_index": 184,
     "id": "R02",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4914,7 +4995,7 @@
     "tools": "SO-ARM101 (as identified in the AIToolHub.co share)"
   },
   {
-    "order_index": 182,
+    "order_index": 185,
     "id": "R06",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4941,7 +5022,7 @@
     "tools": "Drone-Bench"
   },
   {
-    "order_index": 183,
+    "order_index": 186,
     "id": "R28",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4968,7 +5049,7 @@
     "tools": "Kitchen simulation; revised harness and hardware setup (software not named)"
   },
   {
-    "order_index": 184,
+    "order_index": 187,
     "id": "R32",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4995,7 +5076,7 @@
     "tools": "MuJoCo (simulation); humanoid robot and whiteboard (simulation)"
   },
   {
-    "order_index": 185,
+    "order_index": 188,
     "id": "R41",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5022,7 +5103,7 @@
     "tools": "Claude Code; robot arm and whiteboard; MuJoCo (simulation); humanoid robot and whiteboard (simulation)"
   },
   {
-    "order_index": 186,
+    "order_index": 189,
     "id": "R36",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5049,7 +5130,7 @@
     "tools": "simulator not named; two robot arms (simulation)"
   },
   {
-    "order_index": 187,
+    "order_index": 190,
     "id": "R38",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5076,7 +5157,34 @@
     "tools": "C5R facility harness; Opentrons Flex; LC-MS"
   },
   {
-    "order_index": 188,
+    "order_index": 191,
+    "id": "R48",
+    "domain": "robotics",
+    "subsection": "Simulation control and training, painting, drones and full evaluations",
+    "rank_num": 3,
+    "rank": "rank-3",
+    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
+    "rank_title": "Rank 3: Demonstration Media Only",
+    "title": "Microduck robot trained in MuJoCo to break dance and spin",
+    "author": "Sebastian Lee",
+    "source_url": "https://www.linkedin.com/posts/sdlee20_i-prompted-astra-to-train-a-microduck-robot-activity-7510098086640254976-43g1",
+    "platform": "LinkedIn",
+    "desc": "Sebastian Lee writes \"I prompted Astra to train a microduck robot to break dance (and spin a lot).\" and that the policies \"were trained in MuJoCo and tested on different surface frictions, ideally to give them a chance of transferring to real.\" Guided by prompts such as \"start from standing\", Astra tuned the reward function until the robot pumped the spin with one leg while the other appeared to stabilize it. The clip shows the robot spinning and standing, then grids of simulated runs with a different friction in each cell; the author notes \"These are selected successful attempts, though, with some failures too.\" No physical robot is shown.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r48-astra-microduck-spin-mujoco-sebastian-lee.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r48-astra-microduck-spin-mujoco-sebastian-lee.jpg",
+    "rel_img": "assets/images/r48-astra-microduck-spin-mujoco-sebastian-lee.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r48-astra-microduck-spin-mujoco-sebastian-lee.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "GPT-6 Astra (named Astra by the author)",
+    "tools": "MuJoCo"
+  },
+  {
+    "order_index": 192,
     "id": "R13",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -5103,7 +5211,7 @@
     "tools": "I2RT YAM bimanual arms, Inspect Robots"
   },
   {
-    "order_index": 189,
+    "order_index": 193,
     "id": "R30",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -5130,7 +5238,7 @@
     "tools": "Discrete-action simulation; native APIs and a separate Claude Code follow-up"
   },
   {
-    "order_index": 190,
+    "order_index": 194,
     "id": "X08",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -5157,7 +5265,7 @@
     "tools": "none"
   },
   {
-    "order_index": 191,
+    "order_index": 195,
     "id": "A18",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5184,7 +5292,7 @@
     "tools": "Three.js; WebGPU"
   },
   {
-    "order_index": 192,
+    "order_index": 196,
     "id": "M21",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5211,7 +5319,7 @@
     "tools": "Tripo, Blender"
   },
   {
-    "order_index": 193,
+    "order_index": 197,
     "id": "M22",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5238,7 +5346,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 194,
+    "order_index": 198,
     "id": "M46",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5265,7 +5373,7 @@
     "tools": "Higgsfield; Blender"
   },
   {
-    "order_index": 195,
+    "order_index": 199,
     "id": "M47",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5292,7 +5400,7 @@
     "tools": "No tool named"
   },
   {
-    "order_index": 196,
+    "order_index": 200,
     "id": "M89",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5319,7 +5427,7 @@
     "tools": "Blender; claude.ai"
   },
   {
-    "order_index": 197,
+    "order_index": 201,
     "id": "A09",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5346,7 +5454,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 198,
+    "order_index": 202,
     "id": "A11",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5373,7 +5481,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 199,
+    "order_index": 203,
     "id": "A12",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5400,7 +5508,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 200,
+    "order_index": 204,
     "id": "A21",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5427,7 +5535,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 201,
+    "order_index": 205,
     "id": "A15",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5454,7 +5562,7 @@
     "tools": "Canvas 2D; Web Audio; Claude Code"
   },
   {
-    "order_index": 202,
+    "order_index": 206,
     "id": "X11",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5481,7 +5589,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 203,
+    "order_index": 207,
     "id": "M90",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5508,7 +5616,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 204,
+    "order_index": 208,
     "id": "M20",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5535,7 +5643,7 @@
     "tools": "TouchDesigner"
   },
   {
-    "order_index": 205,
+    "order_index": 209,
     "id": "M52",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5562,7 +5670,7 @@
     "tools": "Houdini"
   },
   {
-    "order_index": 206,
+    "order_index": 210,
     "id": "M03",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5589,7 +5697,7 @@
     "tools": "Miomoto"
   },
   {
-    "order_index": 207,
+    "order_index": 211,
     "id": "A02",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5616,7 +5724,7 @@
     "tools": "Blender; Scenario for Blender; M5 Max MacBook Pro"
   },
   {
-    "order_index": 208,
+    "order_index": 212,
     "id": "A08",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5643,7 +5751,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 209,
+    "order_index": 213,
     "id": "A14",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5670,7 +5778,7 @@
     "tools": "Blender; Scenario for Blender"
   },
   {
-    "order_index": 210,
+    "order_index": 214,
     "id": "A16",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5697,7 +5805,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 211,
+    "order_index": 215,
     "id": "A20",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5724,7 +5832,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 212,
+    "order_index": 216,
     "id": "A22",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5751,7 +5859,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 213,
+    "order_index": 217,
     "id": "M28",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -5778,7 +5886,7 @@
     "tools": "three.js, WebGL"
   },
   {
-    "order_index": 214,
+    "order_index": 218,
     "id": "M29",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -5805,7 +5913,7 @@
     "tools": "twigl.app (WebGL)"
   },
   {
-    "order_index": 215,
+    "order_index": 219,
     "id": "A01",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -5832,7 +5940,7 @@
     "tools": "Three.js; WebGL"
   },
   {
-    "order_index": 216,
+    "order_index": 220,
     "id": "A17",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -5859,7 +5967,7 @@
     "tools": "Three.js; WebGPU"
   },
   {
-    "order_index": 217,
+    "order_index": 221,
     "id": "A19",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -5886,7 +5994,34 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 218,
+    "order_index": 222,
+    "id": "A24",
+    "domain": "animation",
+    "subsection": "Interactive and shader animation",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "Interactive PS5 controller that mirrors a real one",
+    "author": "Tahsin Safa Elmal\u0131 (@SafaElmali)",
+    "source_url": "https://x.com/SafaElmali/status/2095989925627789490",
+    "platform": "X",
+    "desc": "Tahsin Safa Elmal\u0131 writes \"Built an interactive PS5 controller with GPT-6 Astra + Three.js\" and \"Rotate it, press buttons, drag the sticks, or connect a real controller to mirror your inputs.\" The phone-filmed clip shows the on-screen controller following a physical one, then changing color. The repository, since renamed DualSense Studio, has grown to include mazes and target practice; the same author made [Object Lab](#case-a19).",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/a24-astra-dualsense-controller-safaelmali.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/a24-astra-dualsense-controller-safaelmali.jpg",
+    "rel_img": "assets/images/a24-astra-dualsense-controller-safaelmali.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/a24-astra-dualsense-controller-safaelmali.mp4",
+    "code_url": "https://github.com/SafaElmali/dualsense-studio",
+    "code_label": "SafaElmali/dualsense-studio",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://dualsense.studio",
+    "demo_label": "DualSense Studio",
+    "model": "GPT-6 Astra",
+    "tools": "Three.js"
+  },
+  {
+    "order_index": 223,
     "id": "A03",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -5913,7 +6048,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 219,
+    "order_index": 224,
     "id": "A07",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -5940,7 +6075,7 @@
     "tools": "Three.js; Airsup"
   },
   {
-    "order_index": 220,
+    "order_index": 225,
     "id": "A04",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -5967,7 +6102,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 221,
+    "order_index": 226,
     "id": "A13",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -5994,7 +6129,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 222,
+    "order_index": 227,
     "id": "A05",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6021,7 +6156,7 @@
     "tools": "Cowork"
   },
   {
-    "order_index": 223,
+    "order_index": 228,
     "id": "A06",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6048,7 +6183,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 224,
+    "order_index": 229,
     "id": "A10",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6075,7 +6210,7 @@
     "tools": "Three.js; TSL"
   },
   {
-    "order_index": 225,
+    "order_index": 230,
     "id": "A23",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6102,7 +6237,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 226,
+    "order_index": 231,
     "id": "M30",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -6129,7 +6264,7 @@
     "tools": "Higgsfield, Seedance 2.5"
   },
   {
-    "order_index": 227,
+    "order_index": 232,
     "id": "M40",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -6156,7 +6291,7 @@
     "tools": "Higgsfield; Blender; After Effects"
   },
   {
-    "order_index": 228,
+    "order_index": 233,
     "id": "M45",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -6183,7 +6318,7 @@
     "tools": "Blender; FLORA"
   },
   {
-    "order_index": 229,
+    "order_index": 234,
     "id": "M70",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -6210,7 +6345,7 @@
     "tools": "Blender; MCP; Magnific; MiniMax H3 named as an example"
   },
   {
-    "order_index": 230,
+    "order_index": 235,
     "id": "M76",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -6237,7 +6372,7 @@
     "tools": "Codex; Blender"
   },
   {
-    "order_index": 231,
+    "order_index": 236,
     "id": "M83",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
