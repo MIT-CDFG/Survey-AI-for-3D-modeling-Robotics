@@ -622,12 +622,12 @@ def build_appendix_c_html(bib_urls, gallery_items=None, intro_html="", caption_h
       <div class="gallery-callout-panel">
         <div class="callout-header">
           <span class="callout-tag">Interactive Archive Explorer</span>
-          <h4>Explore All {len(gallery_items)} Showcases Filtered by Evidence Rank</h4>
+          <h4>Explore All {len(gallery_items)} Cases Filtered by Evidence Rank</h4>
         </div>
         <p>In addition to the printed registry below, the web portal provides an interactive tile gallery with instant filtering by Evidence Rank (Rank 1 Code, Rank 2 Interactive, Rank 3 Demo Only), domain scope (3D, CAD, Robotics, Animation), keyword search, and media lightboxes. All primary demonstration media, runnable reproduction harnesses, and benchmark datasets are publicly archived and continuously maintained in the companion open-source repository: <a href="https://github.com/Frank-ZY-Dou/awesome-ai-3d-modeling-robotics" target="_blank" rel="noopener noreferrer" style="color: var(--mit-red); font-weight: 600; text-decoration: underline;">Frank-ZY-Dou/awesome-ai-3d-modeling-robotics ↗</a>.</p>
         <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.75rem;">
           <button class="btn-callout-switch" onclick="switchView('view-gallery');">
-            <span>Explore Showcases in Interactive Gallery →</span>
+            <span>Explore Cases in Interactive Gallery →</span>
           </button>
           <a href="https://github.com/Frank-ZY-Dou/awesome-ai-3d-modeling-robotics" target="_blank" rel="noopener noreferrer" class="btn-callout-switch" style="background: transparent; color: var(--ink-primary); border: 1px solid var(--border-line); text-decoration: none;">
             <span>Open Repository on GitHub ↗</span>
@@ -641,7 +641,7 @@ def build_appendix_c_html(bib_urls, gallery_items=None, intro_html="", caption_h
           <table class="academic-table post-index-table">
             <thead>
               <tr>
-                <th style="width: 65px;">Group</th>
+                <th style="width: 65px;">Case</th>
                 <th style="width: 135px;">Evidence Rank</th>
                 <th style="width: 55px;">Type</th>
                 <th>Post Description / Excerpt</th>
@@ -1115,7 +1115,7 @@ def build_latex_gallery_figure_html(fig_id, fig_num_str, caption_html, tex_file,
       </figcaption>
       <div class="gallery-figure-actions">
         <button class="btn-callout-switch" onclick="openArchiveDomain('{domain_key}')">
-          <span>Explore All {domain_key.upper()} Showcases in Interactive Gallery →</span>
+          <span>Explore All {domain_key.upper()} Cases in Interactive Gallery →</span>
         </button>
       </div>
     </figure>
@@ -1615,7 +1615,7 @@ DOMAINS_CONFIG = [
         "badge": "Domain 01",
         "title": "3D Modeling & Spatial Synthesis",
         "short_title": "3D Modeling",
-        "desc": "{count} community and research showcases exploring automated asset generation, architectural reconstruction, character and material synthesis, world-building, and generative 3D workflows.",
+        "desc": "{count} community and research cases exploring automated asset generation, architectural reconstruction, character and material synthesis, world-building, and generative 3D workflows.",
         "sub_short_names": {
             "Architecture and real-world reconstruction": "Architecture & Recon",
             "Vehicles, products and environments": "Vehicles & Environments",
@@ -1630,7 +1630,7 @@ DOMAINS_CONFIG = [
         "badge": "Domain 02",
         "title": "Industrial Design & Parametric CAD",
         "short_title": "Industrial Design & CAD",
-        "desc": "{count} archived showcases covering B-rep solid modeling, feature trees, industrial design drafting, and algorithmic CAD kernel execution.",
+        "desc": "{count} archived cases covering B-rep solid modeling, feature trees, industrial design drafting, and algorithmic CAD kernel execution.",
         "sub_short_names": {
             "Parametric CAD and solid modeling": "Parametric Solid Modeling",
             "Product design and prototypes": "Product Design & Prototypes",
@@ -1642,7 +1642,7 @@ DOMAINS_CONFIG = [
         "badge": "Domain 03",
         "title": "Embodied Robotics & Physical Interaction",
         "short_title": "Embodied Robotics",
-        "desc": "{count} archived showcases spanning high-precision manipulation, dexterous multi-finger hands, real-to-sim transfer, physics simulation control, and physical safety evaluations.",
+        "desc": "{count} archived cases spanning high-precision manipulation, dexterous multi-finger hands, real-to-sim transfer, physics simulation control, and physical safety evaluations.",
         "sub_short_names": {
             "Manipulation evaluations": "Manipulation Evaluations",
             "Personal arms, dexterous hands and unseen robots": "Dexterous Arms & Hands",
@@ -1656,7 +1656,7 @@ DOMAINS_CONFIG = [
         "badge": "Domain 04",
         "title": "Animation & Motion Dynamics",
         "short_title": "Animation",
-        "desc": "{count} archived showcases focusing on character rigging, procedural motion graphics, interactive shaders, and animation-to-video previsualization workflows.",
+        "desc": "{count} archived cases focusing on character rigging, procedural motion graphics, interactive shaders, and animation-to-video previsualization workflows.",
         "sub_short_names": {
             "Rigging and character animation": "Rigging & Character Motion",
             "Procedural animation and motion graphics": "Procedural Motion Graphics",
@@ -1828,7 +1828,7 @@ def build_gallery_sidebar_html(gallery_items):
     sidebar_html.append('''
     <aside class="gallery-toc-sidebar" id="gallery-toc-sidebar">
       <div class="sidebar-header">
-        <div class="sidebar-tag">Showcase Directory</div>
+        <div class="sidebar-tag">Case Directory</div>
         <div class="sidebar-title">Archive Directory</div>
       </div>
       <a href="#view-gallery" class="sidebar-overview-link" onclick="jumpToGalleryOverview(event)" title="Jump to top filters and overview">
@@ -1907,7 +1907,7 @@ def build_gallery_sections_html(gallery_items):
               <h3 class="gallery-domain-title">{d_title}</h3>
             </div>
             <span class="domain-count-badge" id="domain-head-cnt-{d_id}">
-              <span class="domain-visible-cnt" id="cnt-domain-{d_id}">{d_total}</span> Showcases
+              <span class="domain-visible-cnt" id="cnt-domain-{d_id}">{d_total}</span> Cases
             </span>
           </div>
           <p class="domain-header-desc">{d_desc}</p>
@@ -2222,7 +2222,7 @@ def build_full_html():
                 <span class="mission-badge">Methodological Scope</span>
                 <h2 class="mission-title">Three Core Tenets Guiding This Survey & Archive</h2>
               </div>
-              <div class="mission-live-tag" title="This empirical survey and community showcase index are actively maintained and updated.">
+              <div class="mission-live-tag" title="This empirical survey and community case index are actively maintained and updated.">
                 <span class="live-dot"></span>
                 <span>Continuously Updated</span>
               </div>
@@ -2308,7 +2308,7 @@ def build_full_html():
         <div class="stat-summary-grid">
           <div class="stat-card">
             <div class="stat-val">{total_count}</div>
-            <div class="stat-desc">Archived Technical Showcases &amp; Reports</div>
+            <div class="stat-desc">Archived Cases</div>
           </div>
           <div class="stat-card">
             <div class="stat-val">4 Domains</div>
@@ -2339,7 +2339,7 @@ def build_full_html():
           <thead>
             <tr>
               <th>Research Domain</th>
-              <th>Showcases</th>
+              <th>Cases</th>
               <th>Share</th>
               <th>Representative Targets / Workflows</th>
               <th>Primary Evidentiary Tier</th>
@@ -2348,28 +2348,28 @@ def build_full_html():
           <tbody>
             <tr>
               <td><strong>3D Scene &amp; Mesh Modeling</strong></td>
-              <td>{m_count} Showcases</td>
+              <td>{m_count} Cases</td>
               <td>{(m_count / total_count * 100):.1f}%</td>
               <td>Procedural Blender scripts, NeRF/3DGS representations, architectural scans ({case_id_ranges(gallery_items, '3d', ['M', 'X'])})</td>
               <td><span class="badge-tier tier-1">Tier 1 &amp; 2 (Established / Partial)</span></td>
             </tr>
             <tr>
               <td><strong>Industrial Design &amp; Parametric CAD</strong></td>
-              <td>{cad_count} Showcases</td>
+              <td>{cad_count} Cases</td>
               <td>{(cad_count / total_count * 100):.1f}%</td>
               <td>FreeCAD / SolidWorks / Onshape feature trees, 511-solid turbofan assembly ({case_id_ranges(gallery_items, 'cad', ['I'])})</td>
               <td><span class="badge-tier tier-2">Tier 2 (Code Verified; DFM Pending)</span></td>
             </tr>
             <tr>
               <td><strong>Embodied Robot Control</strong></td>
-              <td>{robot_count} Showcases</td>
+              <td>{robot_count} Cases</td>
               <td>{(robot_count / total_count * 100):.1f}%</td>
               <td>Isaac Sim / MuJoCo controllers, SO-101 desktop manipulation, bimanual piano ({case_id_ranges(gallery_items, 'robotics', ['R'])})</td>
               <td><span class="badge-tier tier-2">Tier 1 &amp; 3 (Simulation Parity; Latency Bound)</span></td>
             </tr>
             <tr>
               <td><strong>Animation &amp; Dynamic Workflows</strong></td>
-              <td>{anim_count} Showcases</td>
+              <td>{anim_count} Cases</td>
               <td>{(anim_count / total_count * 100):.1f}%</td>
               <td>Character rigging, procedural motion graphics, interactive shaders, previs ({case_id_ranges(gallery_items, 'animation', ['A', 'M'])})</td>
               <td><span class="badge-tier tier-1">Tier 1 &amp; 3 (Interactive / Video Previs)</span></td>
@@ -2417,27 +2417,27 @@ def build_full_html():
         {gallery_sidebar_html}
 
         <div class="gallery-container">
-          <h2 class="panel-section-title">Visual Case Archive ({total_count} Verified Showcases)</h2>
+          <h2 class="panel-section-title">Visual Case Archive ({total_count} Verified Cases)</h2>
         <p class="panel-section-desc">
-          A systematic visual registry compiling all {total_count} multi-domain generation showcases documented across the survey appendix. The underlying dataset and raw demonstration media are actively maintained in the open-source repository: <a href="https://github.com/Frank-ZY-Dou/awesome-ai-3d-modeling-robotics" target="_blank" rel="noopener noreferrer" style="color: var(--mit-red); font-weight: 600; text-decoration: underline;">Frank-ZY-Dou/awesome-ai-3d-modeling-robotics ↗</a>.
+          A systematic visual registry compiling all {total_count} multi-domain cases documented across the survey appendix. The underlying dataset and raw demonstration media are actively maintained in the open-source repository: <a href="https://github.com/Frank-ZY-Dou/awesome-ai-3d-modeling-robotics" target="_blank" rel="noopener noreferrer" style="color: var(--mit-red); font-weight: 600; text-decoration: underline;">Frank-ZY-Dou/awesome-ai-3d-modeling-robotics ↗</a>.
         </p>
 
         <!-- Evidence Ranking & Reproducibility Protocol -->
         <div class="ranking-protocol-section">
           <div class="ranking-protocol-header">
             <h3 class="subsection-title" style="margin-bottom: 0.35rem;">Evidence Ranking &amp; Reproducibility Hierarchy</h3>
-            <p class="ranking-protocol-desc">A three-tier empirical audit protocol categorizing all {total_count} archive showcases by verification depth, code availability, and runtime inspectability. Click any card below to filter the archive directly.</p>
+            <p class="ranking-protocol-desc">A three-tier empirical audit protocol categorizing all {total_count} archived cases by verification depth, code availability, and runtime inspectability. Click any card below to filter the archive directly.</p>
           </div>
           
           <div class="ranking-rules-grid">
             <!-- TIER 1 -->
-            <div class="ranking-tier-card tier-1" role="button" tabindex="0" aria-pressed="false" data-rank="rank-1" onclick="selectRankCard('rank-1')" title="Click to filter by Rank 1 showcases">
+            <div class="ranking-tier-card tier-1" role="button" tabindex="0" aria-pressed="false" data-rank="rank-1" onclick="selectRankCard('rank-1')" title="Click to filter by Rank 1 cases">
               <div class="tier-card-header">
                 <span class="tier-pill-badge pill-t1">RANK 1 · HIGHEST</span>
                 <span class="tier-tag-pill">Code Provided</span>
               </div>
               <h4 class="tier-card-title">Demo + Implementation Code</h4>
-              <p class="tier-card-desc">Showcases providing both an execution demo and source code, Python scripts, CAD kernel harnesses, or GitHub repositories available for inspection and verification.</p>
+              <p class="tier-card-desc">Cases providing both an execution demo and source code, Python scripts, CAD kernel harnesses, or GitHub repositories available for inspection and verification.</p>
               <ul class="tier-criteria-list">
                 <li><span class="check-icon">✓</span> Publicly accessible code repository / script</li>
                 <li><span class="check-icon">✓</span> Runnable CAD kernel or robot control harness</li>
@@ -2446,13 +2446,13 @@ def build_full_html():
             </div>
 
             <!-- TIER 2 -->
-            <div class="ranking-tier-card tier-2" role="button" tabindex="0" aria-pressed="false" data-rank="rank-2" onclick="selectRankCard('rank-2')" title="Click to filter by Rank 2 showcases">
+            <div class="ranking-tier-card tier-2" role="button" tabindex="0" aria-pressed="false" data-rank="rank-2" onclick="selectRankCard('rank-2')" title="Click to filter by Rank 2 cases">
               <div class="tier-card-header">
                 <span class="tier-pill-badge pill-t2">RANK 2 · INTERMEDIATE</span>
                 <span class="tier-tag-pill">Interactive Verification</span>
               </div>
               <h4 class="tier-card-title">Demo + Interactive Web Link</h4>
-              <p class="tier-card-desc">Showcases providing an execution demo accompanied by a live, inspectable web application, 3D interactive viewer, or public cloud CAD project link (e.g. Onshape, Godot, Three.js) for runtime inspection.</p>
+              <p class="tier-card-desc">Cases providing an execution demo accompanied by a live, inspectable web application, 3D interactive viewer, or public cloud CAD project link (e.g. Onshape, Godot, Three.js) for runtime inspection.</p>
               <ul class="tier-criteria-list">
                 <li><span class="check-icon">✓</span> Publicly reachable interactive URL / viewer</li>
                 <li><span class="check-icon">✓</span> Online model inspection or live interaction</li>
@@ -2461,13 +2461,13 @@ def build_full_html():
             </div>
 
             <!-- TIER 3 -->
-            <div class="ranking-tier-card tier-3" role="button" tabindex="0" aria-pressed="false" data-rank="rank-3" onclick="selectRankCard('rank-3')" title="Click to filter by Rank 3 showcases">
+            <div class="ranking-tier-card tier-3" role="button" tabindex="0" aria-pressed="false" data-rank="rank-3" onclick="selectRankCard('rank-3')" title="Click to filter by Rank 3 cases">
               <div class="tier-card-header">
                 <span class="tier-pill-badge pill-t3">RANK 3 · BASELINE</span>
                 <span class="tier-tag-pill">Demonstration Only</span>
               </div>
               <h4 class="tier-card-title">Demonstration Media Only</h4>
-              <p class="tier-card-desc">Showcases providing recorded video clips, animations, or screen captures without public code repositories or hosted interactive runtime environments. Retained for empirical capability scanning.</p>
+              <p class="tier-card-desc">Cases providing recorded video clips, animations, or screen captures without public code repositories or hosted interactive runtime environments. Retained for empirical capability scanning.</p>
               <ul class="tier-criteria-list">
                 <li><span class="check-icon">✓</span> High-fidelity recorded demonstration media</li>
                 <li><span class="cross-icon">✗</span> No public code repository released</li>
@@ -2537,13 +2537,13 @@ def build_full_html():
               </select>
             </div>
             <div class="filter-status-text" aria-live="polite">
-              Showing <strong id="gallery-visible-count">{total_count}</strong> of {total_count} showcases
+              Showing <strong id="gallery-visible-count">{total_count}</strong> of {total_count} cases
             </div>
           </div>
         </div>
 
         <div class="gallery-empty-state" id="gallery-empty-state" hidden>
-          <p>No showcases match the current filters.</p>
+          <p>No cases match the current filters.</p>
           <button type="button" class="filter-pill" onclick="resetGalleryFilters()">Reset filters</button>
         </div>
 
