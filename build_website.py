@@ -1403,6 +1403,16 @@ def convert_paper_html(bib_urls=None):
         "detailrobot": main_figure("detailrobot", "fig:detail-robot", subfigures([
             ("assets/figures/enpire_demo.png", "Human demonstration", "(a) Human demonstration"),
             ("assets/figures/enpire_exec.png", "Robot execution", "(b) Robot execution, played at 8×")])),
+        "evalcad": main_figure("evalcad", "fig:eval-cad", subfigures([
+            ("assets/figures/eval_freecad_f1.jpg", "FreeCAD assembly and the agent's dimension check", "(a) FreeCAD assembly and the agent's dimension check"),
+            ("assets/figures/eval_fit_coupons.jpg", "Printable fit coupons", "(b) Printable fit coupons")])),
+        "evalrobot": main_figure("evalrobot", "fig:eval-robot", subfigures([
+            ("assets/figures/eval_robocurve_bowl.jpg", "Block into bowl: GPT-6 Astra (top) and Fable 5.1", "(a) Block into bowl: GPT-6 Astra (top) and Fable 5.1"),
+            ("assets/figures/eval_stationerybench.jpg", "StationeryBench: GPT-6 Astra (top) and MolmoAct2", "(b) StationeryBench: GPT-6 Astra (top) and MolmoAct2")])),
+        "evalreal2sim": main_figure("evalreal2sim", "fig:eval-real2sim", subfigures([
+            ("assets/figures/eval_real2sim_can_real.jpg", "Real can, GPT-6 Astra and Opus 5.5", "(a) Real can, GPT-6 Astra and Opus 5.5"),
+            ("assets/figures/eval_real2sim_can_models.jpg", "Fable 5.1, GPT-6 Sol and Gemini 3.8 Flash", "(b) Fable 5.1, GPT-6 Sol and Gemini 3.8 Flash"),
+            ("assets/figures/eval_real2sim_corkscrew.jpg", "Corkscrew by three models", "(c) Corkscrew by three models")])),
     }
     for key, fig_id, tex_file, domain in (
         ("gallery3d", "fig:gallery-3d", "figures/gallery_3d.tex", "3d"),
