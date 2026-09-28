@@ -1646,7 +1646,8 @@ DOMAINS_CONFIG = [
             "Vehicles, products and environments": "Vehicles & Environments",
             "Characters and materials": "Characters & Materials",
             "Game assets and playable worlds": "Game Assets & Worlds",
-            "Workflows and tooling": "Workflows & Tooling"
+            "Workflows and tooling": "Workflows & Tooling",
+            "Education and explanation": "Education & Explanation"
         }
     },
     {
