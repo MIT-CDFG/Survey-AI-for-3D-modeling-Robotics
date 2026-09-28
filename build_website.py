@@ -2073,7 +2073,7 @@ def build_full_html():
         <div class="pdf-download-bar">
           <div>
             <strong>Frontier_3D_Robotics_Paper_MIT.pdf</strong>
-            <span style="color: var(--ink-muted); margin-left: 0.5rem;">(85 Pages · Complete Survey Draft)</span>
+            <span style="color: var(--ink-muted); margin-left: 0.5rem;">(84 Pages · Complete Survey Report)</span>
           </div>
           <a href="assets/paper.pdf" download="Frontier_3D_Robotics_Paper_MIT.pdf" class="btn-pill btn-pill-primary">
             {ICON_DOWNLOAD}
@@ -2216,7 +2216,7 @@ def build_full_html():
         <div class="affiliation-row">
           <span><strong>Computational Design and Fabrication Group (CDFG)</strong> · MIT CSAIL</span>
           <span class="affil-divider">|</span>
-          <span class="status-badge">Working Draft & Empirical Horizon Scan</span>
+          <span class="status-badge">Living Survey & Empirical Horizon Scan</span>
         </div>
 
         <div class="action-pills-row">
@@ -2599,7 +2599,7 @@ def build_full_html():
   month={{September}},
   institution={{Computational Design and Fabrication Group (CDFG), MIT CSAIL}},
   url={{https://mit-cdfg.github.io/Survey-AI-for-3D-modeling-Robotics/}},
-  note={{Working draft, living survey}}
+  note={{Living survey}}
 }}</pre>
       </div>
     </section>

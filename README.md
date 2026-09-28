@@ -95,7 +95,7 @@ If you find this survey or archive useful for your research, please cite:
   month={September},
   institution={Computational Design and Fabrication Group (CDFG), MIT CSAIL},
   url={https://mit-cdfg.github.io/Survey-AI-for-3D-modeling-Robotics/},
-  note={Working draft, living survey}
+  note={Living survey}
 }
 ```
 
