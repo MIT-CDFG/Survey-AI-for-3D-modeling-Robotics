@@ -522,36 +522,7 @@ def build_appendix_c_html(bib_urls, gallery_items=None, intro_html="", caption_h
     rows = []
     index_path = os.path.join(WORKSPACE, "sec/a_case_index.tex")
     
-    rank1_gids = {"A01", "A15", "A24", "I08", "I13", "I26", "M28", "M29", "M42", "M48", "M103", "M110", "R01", "R03", "R04", "R07", "R08", "R13", "R14", "R16", "R18", "R30", "R33", "R34", "R37", "R42", "R43", "R45", "R46", "R47"}
-    rank2_gids = {"A03", "A07", "I01", "I09", "I20", "M04", "M24", "M25", "M29", "M32", "M36", "M44", "M50", "M51", "M54", "M74", "M75", "M76", "M78", "M82", "M101", "M112", "R20", "R27", "R40", "X16"}
-    extra_code_urls = {
-        "M28": "https://github.com/emollick/abyssal-living-deep",
-        "M42": "https://github.com/per-simmons/blender-production",
-        "M48": "https://github.com/openretriever/retriever",
-        "M103": "https://github.com/mike007jd/voxel-musou",
-        "M110": "https://github.com/dgreenheck/tidewater",
-        "I08": "https://github.com/earthtojake/text-to-cad/tree/main/models/tendon_hand",
-        "I26": "https://github.com/Sunwood-ai-labs/aurora-a1-freecad",
-        "R01": "https://github.com/robocurve/inspect-robots",
-        "R03": "https://github.com/NVlabs/ENPIRE",
-        "R04": "https://github.com/robocurve/stationerybench",
-        "R07": "https://github.com/RoboDojo-Benchmark/RoboDojo",
-        "R08": "https://github.com/openai/inspect-robots",
-        "R13": "https://github.com/robocurve/roboharm",
-        "R14": "https://github.com/allenai/molmoact2/tree/main/sim_eval",
-        "R18": "https://github.com/Hu-xiao-max/dexgpt",
-        "R29": "https://github.com/anonymous-report-421/GPT-as-Policy",
-        "R30": "https://github.com/nftechie/misalignment/tree/main/experiments/001",
-        "R34": "https://github.com/EmbodiedSWE/EmbodiedSWE",
-        "R37": "https://github.com/robocurve/inspect-robots",
-        "R42": "https://github.com/botrail/botrail/tree/main/examples/palletizing",
-        "R43": "https://github.com/botrail/botrail/tree/main/examples/assembly",
-        "R45": "https://github.com/showlab/Show-Harness",
-        "R46": "https://github.com/cheng-haha/GPT-Policy",
-        "R47": "https://github.com/bingaochen/Astra-on-RoboMME",
-        "A15": "https://github.com/sevenevesai/riso-windowseat",
-        "A24": "https://github.com/SafaElmali/dualsense-studio",
-    }
+    # Rank and links come only from the paper's table (sec/a_case_index.tex).
     
     if os.path.exists(index_path):
         with open(index_path, encoding="utf-8") as f:
@@ -566,19 +537,15 @@ def build_appendix_c_html(bib_urls, gallery_items=None, intro_html="", caption_h
                         code_links_list = [(cm[0].strip(), cm[1].strip()) for cm in code_matches]
                         code_url = code_links_list[0][0]
                         code_label = code_links_list[0][1]
-                    elif extra_code_urls.get(gid):
-                        code_links_list = [(extra_code_urls[gid], "code")]
-                        code_url = extra_code_urls[gid]
-                        code_label = "code"
                     else:
                         code_links_list = []
                         code_url = ""
                         code_label = "" 
                     
-                    if "1" in rank_raw or gid in rank1_gids:
+                    if "1" in rank_raw:
                         rank_num = 1
                         rank_badge = '<span class="badge-rank rank-1" title="Rank 1: Code Provided (Demo + Implementation Code)">Rank 1 · Code</span>'
-                    elif "2" in rank_raw or gid in rank2_gids:
+                    elif "2" in rank_raw:
                         rank_num = 2
                         rank_badge = '<span class="badge-rank rank-2" title="Rank 2: Interactive Verification (Demo + Interactive Web Link)">Rank 2 · Interactive</span>'
                     else:
@@ -624,15 +591,13 @@ def build_appendix_c_html(bib_urls, gallery_items=None, intro_html="", caption_h
 
         if r.get("code_links_list"):
             code_html = " ".join([
-                f'<a href="{cu}" target="_blank" rel="noopener noreferrer" class="post-code-link" title="Open verified repository">{cl or "code"} ↗</a>'
+                f'<a href="{cu}" target="_blank" rel="noopener noreferrer" class="post-code-link" title="{'Open live demo' if cl == 'demo' else 'Open linked code or resource'}">{cl or "code"} ↗</a>'
                 for cu, cl in r["code_links_list"]
             ])
         elif code_url:
             code_html = f'<a href="{code_url}" target="_blank" rel="noopener noreferrer" class="post-code-link" title="Open verified repository">{code_label or "code"} ↗</a>'
-        elif rank_num == 2:
-            code_html = f'<a href="{url}" target="_blank" rel="noopener noreferrer" class="post-interactive-link" title="Open interactive web application">interactive demo ↗</a>'
         else:
-            code_html = '<span class="text-muted">— (post only)</span>'
+            code_html = '<span class="text-muted">—</span>'
 
         table_rows_html.append(f"""
         <tr>
@@ -2097,7 +2062,7 @@ def build_full_html():
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#750014">
-  <link rel="icon" href="assets/logos/mit_logo.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/logos/mit_favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://mit-cdfg.github.io/Survey-AI-for-3D-modeling-Robotics/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="MIT CSAIL CDFG">
@@ -2138,7 +2103,7 @@ def build_full_html():
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=20260928-cards">
+  <link rel="stylesheet" href="css/style.css?v=20260928-mitlogo">
 </head>
 <body id="top">
 
@@ -2150,14 +2115,8 @@ def build_full_html():
     <div class="nav-inner">
       <div class="nav-brand">
         <a href="#view-html" class="brand-link" onclick="switchView('view-html'); return false;" title="MIT CSAIL CDFG · Frontier 3D &amp; Robotics Survey">
-          <svg class="mit-brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 28" height="24" width="46" aria-label="MIT Logo">
-            <rect x="0" y="0" width="6" height="28" fill="#A31F34"/>
-            <rect x="9.6" y="9.6" width="6" height="18.4" fill="#A31F34"/>
-            <rect x="19.2" y="0" width="6" height="28" fill="#A31F34"/>
-            <rect x="28.8" y="0" width="6" height="8" fill="#A31F34"/>
-            <rect x="28.8" y="9.6" width="6" height="18.4" fill="#8A8B8C"/>
-            <rect x="38.4" y="0" width="15.6" height="8" fill="#A31F34"/>
-            <rect x="38.4" y="9.6" width="6" height="18.4" fill="#A31F34"/>
+          <svg class="mit-brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 353.728 187.268" role="img" aria-label="MIT">
+            <path fill="#750014" transform="translate(-160 -160)" d="M160,347.268h41.615V160H160Z M222.422,305.653h41.615V160H222.422Z M284.845,347.268H326.46V160H284.845Z M347.268,160h41.615v41.615H347.268Z M347.268,347.267h41.617V222.423H347.268Z M409.691,160h104.037v41.614H409.691Z M409.691,347.268h41.615V222.423H409.691Z"/>
           </svg>
           <img src="assets/logos/csail_logo_cropped.png" alt="CSAIL" class="csail-brand-logo" height="24">
           <span class="brand-divider"></span>

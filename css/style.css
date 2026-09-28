@@ -223,11 +223,14 @@ code, pre, kbd, samp, tt {
   opacity: 0.88;
 }
 
+/* MIT brand: the standard logo is for digital use above 30 px tall, with clear
+   space equal to the width of its M (brand.mit.edu/logos-marks/mit-logo). */
 .mit-brand-logo {
-  height: 22px;
+  height: 32px;
   width: auto;
   display: block;
   flex-shrink: 0;
+  margin-right: 1.1rem;
 }
 
 .csail-brand-logo {
@@ -3496,10 +3499,11 @@ code, pre, kbd, samp, tt {
   }
 
   .mit-brand-logo {
-    height: 18px;
+    height: 30px;
     width: auto;
     display: block;
     flex-shrink: 0;
+    margin-right: 0;
   }
 
   .view-switcher {

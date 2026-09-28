@@ -1,9 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 28" width="108" height="56">
-  <rect x="0" y="0" width="6" height="28" fill="#A31F34"/>
-  <rect x="9.6" y="9.6" width="6" height="18.4" fill="#A31F34"/>
-  <rect x="19.2" y="0" width="6" height="28" fill="#A31F34"/>
-  <rect x="28.8" y="0" width="6" height="8" fill="#A31F34"/>
-  <rect x="28.8" y="9.6" width="6" height="18.4" fill="#8A8B8C"/>
-  <rect x="38.4" y="0" width="15.6" height="8" fill="#A31F34"/>
-  <rect x="38.4" y="9.6" width="6" height="18.4" fill="#A31F34"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 353.728 187.268" width="353.728" height="187.268" role="img" aria-label="MIT">
+  <!-- MIT logo: bar geometry from the official logo SVG on www.mit.edu; MIT Red #750014 per brand.mit.edu/color -->
+  <path fill="#750014" transform="translate(-160 -160)" d="M160,347.268h41.615V160H160Z M222.422,305.653h41.615V160H222.422Z M284.845,347.268H326.46V160H284.845Z M347.268,160h41.615v41.615H347.268Z M347.268,347.267h41.617V222.423H347.268Z M409.691,160h104.037v41.614H409.691Z M409.691,347.268h41.615V222.423H409.691Z"/>
 </svg>
