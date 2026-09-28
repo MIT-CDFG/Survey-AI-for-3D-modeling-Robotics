@@ -2659,14 +2659,12 @@ code, pre, kbd, samp, tt {
   font-weight: 700;
   color: var(--mit-red);
   margin-bottom: 0.25rem;
+  overflow-wrap: anywhere;
 }
 
 .tile-author-link {
   color: var(--mit-red);
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2rem;
   transition: color 0.15s ease;
 }
 
@@ -2675,9 +2673,11 @@ code, pre, kbd, samp, tt {
   color: #a31f34;
 }
 
+/* Long names with a handle wrap as text; "· X ↗" stays together. */
 .tile-platform {
   font-weight: 400;
   color: var(--ink-muted);
+  white-space: nowrap;
 }
 
 .tile-desc {
@@ -4072,8 +4072,22 @@ img.zoomable:focus-visible,
   white-space: nowrap;
 }
 
+/* Category sits on its own line under the author, so a wrapped line never
+   starts with a dangling separator. */
 .tile-subcat-wrap {
+  display: block;
+  margin-top: 0.1rem;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tile-subcat-wrap .tile-subcat-sep {
+  display: none;
+}
+
+.tile-subcat-wrap .tile-subcat-badge {
+  max-width: 100%;
 }
 
 .pill-btn {

@@ -1710,11 +1710,12 @@ def render_tile_html(item):
     sub_text = item.get("subsection", "")
     sub_badge = f'<span class="tile-subcat-badge" title="{sub_text}">{sub_text}</span>' if sub_text else ""
     
+    # &nbsp; keeps "· Platform" on the same line as the last word of the name.
     if has_link:
-        author_html = f'<a href="{source_url}" target="_blank" rel="noopener noreferrer" class="tile-author-link" title="Open original post on {item["platform"]}">{item["author"]} <span class="tile-platform">· {item["platform"]} ↗</span></a>'
+        author_html = f'<a href="{source_url}" target="_blank" rel="noopener noreferrer" class="tile-author-link" title="Open original post on {item["platform"]}">{item["author"]}&nbsp;<span class="tile-platform">· {item["platform"]} ↗</span></a>'
         desc_html = f'<a href="{source_url}" target="_blank" rel="noopener noreferrer" class="tile-desc-link" title="Open original post on {item["platform"]}">{item["title"]}</a>'
     else:
-        author_html = f'{item["author"]} <span class="tile-platform">· {item["platform"]}</span>'
+        author_html = f'{item["author"]}&nbsp;<span class="tile-platform">· {item["platform"]}</span>'
         desc_html = f'{item["title"]}'
 
     if sub_badge:
@@ -2136,7 +2137,7 @@ def build_full_html():
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=20260927-layout">
+  <link rel="stylesheet" href="css/style.css?v=20260928-cards">
 </head>
 <body id="top">
 
