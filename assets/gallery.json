@@ -136,6 +136,60 @@
   },
   {
     "order_index": 5,
+    "id": "M142",
+    "domain": "3d",
+    "subsection": "Architecture and real-world reconstruction",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "Floor-plan image to a 2D and 3D home planner in one HTML file",
+    "author": "WY (@akokoi1)",
+    "source_url": "https://x.com/akokoi1/status/2104520072014508316",
+    "platform": "X",
+    "desc": "The author writes (in Chinese) that Opus 5.5 built the project in about an hour from a single floor-plan image: it rebuilds the plan at the original dimensions, and in 2D furniture can be placed, rooms measured, walls removed or changed and floor materials swapped, before a transition to a 3D bird's-eye or walk-through view. The clip shows the 2D plan with its furniture list and the furnished flat in 3D. A day later the author released it as a single HTML file of more than 2,000 lines and added iPad support after children took to it as a renovation game. The repository has no license file.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m142-opus55-floorplan-planner-wy.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m142-opus55-floorplan-planner-wy.jpg",
+    "rel_img": "assets/images/m142-opus55-floorplan-planner-wy.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m142-opus55-floorplan-planner-wy.mp4",
+    "code_url": "https://github.com/wy51ai/floorplan-3d",
+    "code_label": "wy51ai/floorplan-3d",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://wy51ai.github.io/floorplan-3d/",
+    "demo_label": "floorplan-3d",
+    "model": "Claude Opus 5.5",
+    "tools": "Three.js"
+  },
+  {
+    "order_index": 6,
+    "id": "M143",
+    "domain": "3d",
+    "subsection": "Architecture and real-world reconstruction",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "Three procedural buildings ported from Blender geometry nodes to Three.js",
+    "author": "Chiro Visuals (@chirovisuals)",
+    "source_url": "https://x.com/chirovisuals/status/2104548658171834749",
+    "platform": "X",
+    "desc": "The author writes \"I used Opus 5.5 to build & port 3 procedural buildings from Blender geometry nodes to the web\" and \"The node graphs run live in three.js, a procedural city wraps around them, with light & camera presets.\" The clip shows a brick corner building whose shop count and awnings change with sliders, a tower block among white massing blocks and a street corner of the surrounding city. The repository includes the .blend files, states that the port is verified against Blender's evaluated geometry, and has a commit co-authored by Claude Opus 5.5. The Three.js account shared the page the next day.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m143-opus55-procedural-buildings-chirovisuals.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m143-opus55-procedural-buildings-chirovisuals.jpg",
+    "rel_img": "assets/images/m143-opus55-procedural-buildings-chirovisuals.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m143-opus55-procedural-buildings-chirovisuals.mp4",
+    "code_url": "https://github.com/achrefelouafi/ProceduralBuildingsThreeJS",
+    "code_label": "achrefelouafi/ProceduralBuildingsThreeJS",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://proceduralbuildings.chirostudio.xyz/",
+    "demo_label": "Procedural Building Configurator",
+    "model": "Claude Opus 5.5",
+    "tools": "Blender geometry nodes; Three.js; Blender MCP (named in the repository)"
+  },
+  {
+    "order_index": 7,
     "id": "M32",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -162,7 +216,7 @@
     "tools": "ViPE, Blender (small DSL), MJCF/URDF"
   },
   {
-    "order_index": 6,
+    "order_index": 8,
     "id": "M36",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -189,7 +243,7 @@
     "tools": "Granola; iPhone photos; rendering tools not stated"
   },
   {
-    "order_index": 7,
+    "order_index": 9,
     "id": "M50",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -216,7 +270,7 @@
     "tools": "Blender (named in an author reply: \"the model it created in Blender\")"
   },
   {
-    "order_index": 8,
+    "order_index": 10,
     "id": "M101",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -243,7 +297,7 @@
     "tools": "Claude Code"
   },
   {
-    "order_index": 9,
+    "order_index": 11,
     "id": "M112",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -270,7 +324,7 @@
     "tools": "Claude Code"
   },
   {
-    "order_index": 10,
+    "order_index": 12,
     "id": "M01",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -297,7 +351,7 @@
     "tools": "Blender, Unreal Engine"
   },
   {
-    "order_index": 11,
+    "order_index": 13,
     "id": "M09",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -324,7 +378,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 12,
+    "order_index": 14,
     "id": "M10",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -351,7 +405,7 @@
     "tools": "Unreal Engine"
   },
   {
-    "order_index": 13,
+    "order_index": 15,
     "id": "M12",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -378,7 +432,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 14,
+    "order_index": 16,
     "id": "M14",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -405,7 +459,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 15,
+    "order_index": 17,
     "id": "M17",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -432,7 +486,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 16,
+    "order_index": 18,
     "id": "M11",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -459,7 +513,7 @@
     "tools": "Blender, Unreal Engine 5"
   },
   {
-    "order_index": 17,
+    "order_index": 19,
     "id": "M44",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -486,7 +540,7 @@
     "tools": "No modeling tool named"
   },
   {
-    "order_index": 18,
+    "order_index": 20,
     "id": "M55",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -513,7 +567,7 @@
     "tools": "Blender; Codex in the attached document"
   },
   {
-    "order_index": 19,
+    "order_index": 21,
     "id": "M58",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -540,7 +594,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 20,
+    "order_index": 22,
     "id": "M62",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -567,7 +621,7 @@
     "tools": "No London-scene tools named"
   },
   {
-    "order_index": 21,
+    "order_index": 23,
     "id": "M66",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -594,7 +648,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 22,
+    "order_index": 24,
     "id": "M73",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -621,7 +675,7 @@
     "tools": "Blender; photogrammetry scan; procedural shaders"
   },
   {
-    "order_index": 23,
+    "order_index": 25,
     "id": "M77",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -648,7 +702,7 @@
     "tools": "Codex; Blender; Python"
   },
   {
-    "order_index": 24,
+    "order_index": 26,
     "id": "M84",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -675,7 +729,7 @@
     "tools": "Blender; drawing software not named"
   },
   {
-    "order_index": 25,
+    "order_index": 27,
     "id": "M86",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -702,7 +756,7 @@
     "tools": "Revit; Revit MCP"
   },
   {
-    "order_index": 26,
+    "order_index": 28,
     "id": "M91",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -729,7 +783,7 @@
     "tools": "Blender; Higgsfield; offline 3D browser viewer"
   },
   {
-    "order_index": 27,
+    "order_index": 29,
     "id": "M93",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -756,7 +810,7 @@
     "tools": "Three.js; TSL"
   },
   {
-    "order_index": 28,
+    "order_index": 30,
     "id": "X15",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -783,7 +837,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 29,
+    "order_index": 31,
     "id": "M96",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -810,7 +864,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 30,
+    "order_index": 32,
     "id": "M97",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -837,7 +891,7 @@
     "tools": "Three.js; Blender; M4 MacBook"
   },
   {
-    "order_index": 31,
+    "order_index": 33,
     "id": "X19",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -864,7 +918,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 32,
+    "order_index": 34,
     "id": "M98",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -891,7 +945,7 @@
     "tools": "Blender; Three.js"
   },
   {
-    "order_index": 33,
+    "order_index": 35,
     "id": "M99",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -918,7 +972,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 34,
+    "order_index": 36,
     "id": "M100",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -945,7 +999,7 @@
     "tools": "Blender; Unreal Engine"
   },
   {
-    "order_index": 35,
+    "order_index": 37,
     "id": "M102",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -972,7 +1026,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 36,
+    "order_index": 38,
     "id": "X23",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -999,7 +1053,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 37,
+    "order_index": 39,
     "id": "X24",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -1026,7 +1080,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 38,
+    "order_index": 40,
     "id": "M111",
     "domain": "3d",
     "subsection": "Architecture and real-world reconstruction",
@@ -1053,7 +1107,7 @@
     "tools": "Houdini; Houdini MCP"
   },
   {
-    "order_index": 39,
+    "order_index": 41,
     "id": "M106",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1080,7 +1134,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 40,
+    "order_index": 42,
     "id": "M107",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1107,7 +1161,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 41,
+    "order_index": 43,
     "id": "M71",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1134,7 +1188,7 @@
     "tools": "React; Three.js; shadcn/ui"
   },
   {
-    "order_index": 42,
+    "order_index": 44,
     "id": "M54",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1161,7 +1215,7 @@
     "tools": "Blender; GLB; Three.js; custom prompting workflow"
   },
   {
-    "order_index": 43,
+    "order_index": 45,
     "id": "M105",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1188,7 +1242,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 44,
+    "order_index": 46,
     "id": "M07",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1215,7 +1269,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 45,
+    "order_index": 47,
     "id": "M08",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1242,7 +1296,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 46,
+    "order_index": 48,
     "id": "M31",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1269,7 +1323,7 @@
     "tools": "Blender, Final Cut Pro, Affinity Photo"
   },
   {
-    "order_index": 47,
+    "order_index": 49,
     "id": "M05",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1296,7 +1350,7 @@
     "tools": "Blender, Unity, SynergyXR"
   },
   {
-    "order_index": 48,
+    "order_index": 50,
     "id": "M35",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1323,7 +1377,7 @@
     "tools": "Codex; Blender; custom workflow"
   },
   {
-    "order_index": 49,
+    "order_index": 51,
     "id": "M43",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1350,7 +1404,7 @@
     "tools": "Blender; ChatGPT"
   },
   {
-    "order_index": 50,
+    "order_index": 52,
     "id": "M49",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1377,7 +1431,7 @@
     "tools": "Houdini; MCP"
   },
   {
-    "order_index": 51,
+    "order_index": 53,
     "id": "M53",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1404,7 +1458,7 @@
     "tools": "Subdivision-surface modeling; Rhino visible in media (porschehull.3dm)"
   },
   {
-    "order_index": 52,
+    "order_index": 54,
     "id": "M56",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1431,7 +1485,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 53,
+    "order_index": 55,
     "id": "M59",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1458,7 +1512,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 54,
+    "order_index": 56,
     "id": "M61",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1485,7 +1539,7 @@
     "tools": "No tool named"
   },
   {
-    "order_index": 55,
+    "order_index": 57,
     "id": "M63",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1512,7 +1566,7 @@
     "tools": "Blender MCP"
   },
   {
-    "order_index": 56,
+    "order_index": 58,
     "id": "M64",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1539,7 +1593,7 @@
     "tools": "Browser-based code; no library named"
   },
   {
-    "order_index": 57,
+    "order_index": 59,
     "id": "M65",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1566,7 +1620,7 @@
     "tools": "SpeedTree; Unreal named in the requested target"
   },
   {
-    "order_index": 58,
+    "order_index": 60,
     "id": "M72",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1593,7 +1647,7 @@
     "tools": "Cinema4D; SDS; sweep objects"
   },
   {
-    "order_index": 59,
+    "order_index": 61,
     "id": "M75",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1620,7 +1674,7 @@
     "tools": "No modeling tool or library named"
   },
   {
-    "order_index": 60,
+    "order_index": 62,
     "id": "M78",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1647,7 +1701,7 @@
     "tools": "Codex"
   },
   {
-    "order_index": 61,
+    "order_index": 63,
     "id": "X10",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1674,7 +1728,7 @@
     "tools": "Claude Code"
   },
   {
-    "order_index": 62,
+    "order_index": 64,
     "id": "X04",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1701,7 +1755,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 63,
+    "order_index": 65,
     "id": "X05",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1728,7 +1782,7 @@
     "tools": "arena.ai"
   },
   {
-    "order_index": 64,
+    "order_index": 66,
     "id": "X06",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1755,7 +1809,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 65,
+    "order_index": 67,
     "id": "X07",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1782,7 +1836,7 @@
     "tools": "SVG; Three.js; arena.ai"
   },
   {
-    "order_index": 66,
+    "order_index": 68,
     "id": "M94",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1809,7 +1863,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 67,
+    "order_index": 69,
     "id": "X14",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1836,7 +1890,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 68,
+    "order_index": 70,
     "id": "X17",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1863,7 +1917,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 69,
+    "order_index": 71,
     "id": "X18",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1890,7 +1944,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 70,
+    "order_index": 72,
     "id": "X20",
     "domain": "3d",
     "subsection": "Vehicles, products and environments",
@@ -1917,7 +1971,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 71,
+    "order_index": 73,
     "id": "M16",
     "domain": "3d",
     "subsection": "Characters and materials",
@@ -1944,7 +1998,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 72,
+    "order_index": 74,
     "id": "M15",
     "domain": "3d",
     "subsection": "Characters and materials",
@@ -1971,7 +2025,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 73,
+    "order_index": 75,
     "id": "M60",
     "domain": "3d",
     "subsection": "Characters and materials",
@@ -1998,7 +2052,7 @@
     "tools": "creation software not stated"
   },
   {
-    "order_index": 74,
+    "order_index": 76,
     "id": "M103",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2025,7 +2079,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 75,
+    "order_index": 77,
     "id": "M108",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2052,7 +2106,7 @@
     "tools": "Three.js; Blender"
   },
   {
-    "order_index": 76,
+    "order_index": 78,
     "id": "M110",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2079,7 +2133,7 @@
     "tools": "WebGPU"
   },
   {
-    "order_index": 77,
+    "order_index": 79,
     "id": "M109",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2106,7 +2160,7 @@
     "tools": "Blender; image generation; Three.js"
   },
   {
-    "order_index": 78,
+    "order_index": 80,
     "id": "M04",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2133,7 +2187,7 @@
     "tools": "Meshy, Blender"
   },
   {
-    "order_index": 79,
+    "order_index": 81,
     "id": "M24",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2160,7 +2214,7 @@
     "tools": "three.js"
   },
   {
-    "order_index": 80,
+    "order_index": 82,
     "id": "M25",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2187,7 +2241,7 @@
     "tools": "ChatGPT Sites"
   },
   {
-    "order_index": 81,
+    "order_index": 83,
     "id": "M51",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2214,7 +2268,7 @@
     "tools": "Codex (gpt-6-astra medium); imagegen skill; img2threejs skill; Three.js; HTML5; TypeScript; Vite; Playwright"
   },
   {
-    "order_index": 82,
+    "order_index": 84,
     "id": "X16",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2241,7 +2295,7 @@
     "tools": "CNVS"
   },
   {
-    "order_index": 83,
+    "order_index": 85,
     "id": "X01",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2268,7 +2322,7 @@
     "tools": "Three.js, YouWare"
   },
   {
-    "order_index": 84,
+    "order_index": 86,
     "id": "M27",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2295,7 +2349,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 85,
+    "order_index": 87,
     "id": "M13",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2322,7 +2376,7 @@
     "tools": "Unreal Engine"
   },
   {
-    "order_index": 86,
+    "order_index": 88,
     "id": "M19",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2349,7 +2403,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 87,
+    "order_index": 89,
     "id": "M26",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2376,7 +2430,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 88,
+    "order_index": 90,
     "id": "M34",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2403,7 +2457,7 @@
     "tools": "Roblox; custom skill"
   },
   {
-    "order_index": 89,
+    "order_index": 91,
     "id": "M38",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2430,7 +2484,7 @@
     "tools": "Codex visible in the video; no creation tool named in the post"
   },
   {
-    "order_index": 90,
+    "order_index": 92,
     "id": "M41",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2457,7 +2511,7 @@
     "tools": "ChatGPT (Chat and Work); Blender; Unity/FBX in the prompt"
   },
   {
-    "order_index": 91,
+    "order_index": 93,
     "id": "M57",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2484,7 +2538,7 @@
     "tools": "Codex; img2threejs skill"
   },
   {
-    "order_index": 92,
+    "order_index": 94,
     "id": "M67",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2511,7 +2565,7 @@
     "tools": "Blender; image generation in the quoted earlier post"
   },
   {
-    "order_index": 93,
+    "order_index": 95,
     "id": "M68",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2538,7 +2592,7 @@
     "tools": "Voice prompts; no engine named"
   },
   {
-    "order_index": 94,
+    "order_index": 96,
     "id": "M69",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2565,7 +2619,7 @@
     "tools": "Unity; Unity skills; Unity CLI; Codex; computer use; Unity Asset Store city assets"
   },
   {
-    "order_index": 95,
+    "order_index": 97,
     "id": "M79",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2592,7 +2646,7 @@
     "tools": "Godot"
   },
   {
-    "order_index": 96,
+    "order_index": 98,
     "id": "M80",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2619,7 +2673,7 @@
     "tools": "Blender (named in the original title)"
   },
   {
-    "order_index": 97,
+    "order_index": 99,
     "id": "X02",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2646,7 +2700,7 @@
     "tools": "SVG in a browser"
   },
   {
-    "order_index": 98,
+    "order_index": 100,
     "id": "M88",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2673,7 +2727,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 99,
+    "order_index": 101,
     "id": "X12",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2700,7 +2754,7 @@
     "tools": "Higgsfield"
   },
   {
-    "order_index": 100,
+    "order_index": 102,
     "id": "X13",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2727,7 +2781,7 @@
     "tools": "Higgsfield"
   },
   {
-    "order_index": 101,
+    "order_index": 103,
     "id": "M92",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2754,7 +2808,7 @@
     "tools": "Higgsfield API"
   },
   {
-    "order_index": 102,
+    "order_index": 104,
     "id": "M95",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2781,7 +2835,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 103,
+    "order_index": 105,
     "id": "X21",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2808,7 +2862,7 @@
     "tools": "Higgsfield"
   },
   {
-    "order_index": 104,
+    "order_index": 106,
     "id": "X22",
     "domain": "3d",
     "subsection": "Game assets and playable worlds",
@@ -2835,7 +2889,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 105,
+    "order_index": 107,
     "id": "M82",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2862,7 +2916,7 @@
     "tools": "Three.js, YouWare"
   },
   {
-    "order_index": 106,
+    "order_index": 108,
     "id": "M23",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2889,7 +2943,7 @@
     "tools": "Blender MCP, Tripo"
   },
   {
-    "order_index": 107,
+    "order_index": 109,
     "id": "M02",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2916,7 +2970,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 108,
+    "order_index": 110,
     "id": "M06",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2943,7 +2997,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 109,
+    "order_index": 111,
     "id": "M33",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2970,7 +3024,7 @@
     "tools": "Blender MCP; Three.js; custom skill"
   },
   {
-    "order_index": 110,
+    "order_index": 112,
     "id": "M39",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -2997,7 +3051,7 @@
     "tools": "Tripo; Blender MCP"
   },
   {
-    "order_index": 111,
+    "order_index": 113,
     "id": "M81",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -3024,7 +3078,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 112,
+    "order_index": 114,
     "id": "X03",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -3051,7 +3105,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 113,
+    "order_index": 115,
     "id": "X09",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -3078,7 +3132,7 @@
     "tools": "arena (LMSYS)"
   },
   {
-    "order_index": 114,
+    "order_index": 116,
     "id": "M85",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -3105,7 +3159,7 @@
     "tools": "Blender, Rhino, Grasshopper, Revit, Unreal Engine (companion video description)"
   },
   {
-    "order_index": 115,
+    "order_index": 117,
     "id": "M87",
     "domain": "3d",
     "subsection": "Workflows and tooling",
@@ -3132,14 +3186,41 @@
     "tools": "Jev; HYPER3D MCP"
   },
   {
-    "order_index": 116,
+    "order_index": 118,
+    "id": "M144",
+    "domain": "3d",
+    "subsection": "Workflows and tooling",
+    "rank_num": 3,
+    "rank": "rank-3",
+    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
+    "rank_title": "Rank 3: Demonstration Media Only",
+    "title": "Snowy station diorama: Opus 5.5 blocks out a Blender scene and Tripo models replace the blockout",
+    "author": "KANA\uff5c\u6771\u4eacAI\u6620\u50cf (@KanaWorks_AI)",
+    "source_url": "https://x.com/KanaWorks_AI/status/2104823677951099309",
+    "platform": "X",
+    "desc": "The author writes (in Japanese) that Opus 5.5 first laid out the whole scene with white placeholder models through Blender MCP; 16 models, including the station building, a train, snowmen and props, were generated from images with Tripo at about 2 million polygons and 8K PBR textures each, imported into Blender to replace the placeholders and rendered in Cycles. The clip steps through the generated assets, the white blockout, the swap in Blender and the final render of a snowy station on a round base. The post is labelled \"PR\", the Japanese advertising label, and the clip ends with a Tripo promotion card carrying an invite code, which the archived copy omits.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m144-opus55-tripo-snow-station-kanaworks.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m144-opus55-tripo-snow-station-kanaworks.jpg",
+    "rel_img": "assets/images/m144-opus55-tripo-snow-station-kanaworks.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m144-opus55-tripo-snow-station-kanaworks.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "Claude Opus 5.5",
+    "tools": "Blender MCP; Tripo; Blender Cycles"
+  },
+  {
+    "order_index": 119,
     "id": "M113",
     "domain": "3d",
     "subsection": "Education and explanation",
-    "rank_num": 2,
-    "rank": "rank-2",
-    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
-    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
     "title": "Raptor 3 rocket engine you can take apart in the browser",
     "author": "Konstantin Saifoulline (@konstantinsaifo)",
     "source_url": "https://x.com/konstantinsaifo/status/2104094723887501736",
@@ -3149,8 +3230,8 @@
     "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m113-opus55-raptor3-engine-explainer-konstantin.jpg",
     "rel_img": "assets/images/m113-opus55-raptor3-engine-explainer-konstantin.jpg",
     "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m113-opus55-raptor3-engine-explainer-konstantin.mp4",
-    "code_url": "",
-    "code_label": "Code",
+    "code_url": "https://github.com/AirsupHQ/airsup-lab",
+    "code_label": "AirsupHQ/airsup-lab",
     "code_url2": "",
     "code_label2": "",
     "demo_url": "https://www.airsup.ai/lab/rocket-engine",
@@ -3159,14 +3240,14 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 117,
+    "order_index": 120,
     "id": "M114",
     "domain": "3d",
     "subsection": "Education and explanation",
-    "rank_num": 2,
-    "rank": "rank-2",
-    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
-    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
     "title": "Fusion reactor you can take apart in the browser",
     "author": "Konstantin Saifoulline (@konstantinsaifo)",
     "source_url": "https://x.com/konstantinsaifo/status/2104216976801587629",
@@ -3176,8 +3257,8 @@
     "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m114-opus55-fusion-reactor-explainer-konstantin.jpg",
     "rel_img": "assets/images/m114-opus55-fusion-reactor-explainer-konstantin.jpg",
     "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m114-opus55-fusion-reactor-explainer-konstantin.mp4",
-    "code_url": "",
-    "code_label": "Code",
+    "code_url": "https://github.com/AirsupHQ/airsup-lab",
+    "code_label": "AirsupHQ/airsup-lab",
     "code_url2": "",
     "code_label2": "",
     "demo_url": "https://www.airsup.ai/lab",
@@ -3186,14 +3267,14 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 118,
+    "order_index": 121,
     "id": "M115",
     "domain": "3d",
     "subsection": "Education and explanation",
-    "rank_num": 2,
-    "rank": "rank-2",
-    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
-    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
     "title": "Humanoid robot you can take apart in the browser, with actuator loads",
     "author": "Konstantin Saifoulline (@konstantinsaifo)",
     "source_url": "https://x.com/konstantinsaifo/status/2104279671181337087",
@@ -3203,8 +3284,8 @@
     "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m115-opus55-humanoid-robot-explainer-konstantin.jpg",
     "rel_img": "assets/images/m115-opus55-humanoid-robot-explainer-konstantin.jpg",
     "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m115-opus55-humanoid-robot-explainer-konstantin.mp4",
-    "code_url": "",
-    "code_label": "Code",
+    "code_url": "https://github.com/AirsupHQ/airsup-lab",
+    "code_label": "AirsupHQ/airsup-lab",
     "code_url2": "",
     "code_label2": "",
     "demo_url": "https://www.airsup.ai/lab/humanoid",
@@ -3213,7 +3294,736 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 119,
+    "order_index": 122,
+    "id": "M117",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Inside an AI data center: GPU racks, power, cooling and a live thermal map",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://x.com/RyanSael/status/2102740041621762166",
+    "platform": "X",
+    "desc": "Ryan Sael writes \"I asked Opus 5.5 to show me what's inside the buildings it runs in\" and \"it came up with this after 1 hour 53 minutes in one shot, $38.99 API cost\". The page is a cutaway of a data center with GPU racks, power, hot and cold aisles, liquid cooling and rooftop coolers, where a rack can be overloaded to make its GPUs throttle and the heat followed out through the roof on a thermal map. In follow-ups he posts the /usage screen, writes that Claude Code \"read trough my previous sessions\" to match his earlier style, and says he ran it on a subscription, so the $38.99 is the API-equivalent figure. Time and cost are the author's figures. His [lens lab](#case-m105) is listed separately.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m117-opus55-data-center-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m117-opus55-data-center-ryansael.jpg",
+    "rel_img": "assets/images/m117-opus55-data-center-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m117-opus55-data-center-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/data-center/",
+    "demo_label": "Inside an AI Data Center",
+    "model": "Claude Opus 5.5",
+    "tools": "Claude Code"
+  },
+  {
+    "order_index": 123,
+    "id": "M118",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Who Gets the Green? One intersection with adaptive signals",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/traffic",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. One city intersection runs as a live traffic simulation: a bus, a wave of cyclists or an ambulance can be added, and fixed signal timing compared with adaptive signals as the queues and crossings respond.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m118-opus55-traffic-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m118-opus55-traffic-ryansael.jpg",
+    "rel_img": "assets/images/m118-opus55-traffic-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m118-opus55-traffic-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/traffic",
+    "demo_label": "Who Gets the Green?",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 124,
+    "id": "M119",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Two Wheels, One Engine: a car differential, cut open",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/diff",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. A cut-open car differential sits on a desk: turning a corner, putting one wheel on ice or locking the differential shows the ring gear, the spider gears, the torque and both wheel speeds together.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m119-opus55-diff-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m119-opus55-diff-ryansael.jpg",
+    "rel_img": "assets/images/m119-opus55-diff-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m119-opus55-diff-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/diff",
+    "demo_label": "Two Wheels, One Engine",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 125,
+    "id": "M120",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "River Bend: a meandering river that migrates across its valley",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://x.com/RyanSael/status/2104916062475313655",
+    "platform": "X",
+    "desc": "Ryan Sael writes \"we can finally stop teaching geography with flat pictures\", linking the page, which is part of his Visual learning series. A river in a glass tank moves across its valley: fast water on the outside of each bend cuts the bank, slow water on the inside drops sand, and oxbow lakes form as the years run. The page describes one bend-migration model driving the water, the eroding bank and the point bars.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m120-opus55-river-bend-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m120-opus55-river-bend-ryansael.jpg",
+    "rel_img": "assets/images/m120-opus55-river-bend-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m120-opus55-river-bend-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/river-bend",
+    "demo_label": "River Bend",
+    "model": "Claude Opus 5.5 (series-level attribution; the post does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 126,
+    "id": "M121",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Heart Pump: one heartbeat, two circulation loops",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://x.com/RyanSael/status/2104796152554287276",
+    "platform": "X",
+    "desc": "Ryan Sael writes \"3D medical learning is solved.\", linking the page, which is part of his Visual learning series. A transparent heart on a lab console drives the two circuits to the lungs and to the body: the beat can be stepped through, one red cell followed and a valve jammed to show the blood running backwards.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m121-opus55-heart-pump-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m121-opus55-heart-pump-ryansael.jpg",
+    "rel_img": "assets/images/m121-opus55-heart-pump-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m121-opus55-heart-pump-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/heart-pump",
+    "demo_label": "Heart Pump",
+    "model": "Claude Opus 5.5 (series-level attribution; the post does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 127,
+    "id": "M122",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Speaker Cone: from signal to sound",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/speaker-cone",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. A cut-open woofer sits on a console: the signal can be scrubbed and switched between bass, a pure tone and a voice while the cone pushes rings of pressure through the air.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m122-opus55-speaker-cone-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m122-opus55-speaker-cone-ryansael.jpg",
+    "rel_img": "assets/images/m122-opus55-speaker-cone-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m122-opus55-speaker-cone-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/speaker-cone",
+    "demo_label": "Speaker Cone",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 128,
+    "id": "M123",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Prism Room: where white light splits",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/prism-room",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. An optical bench holds a white beam, a dense flint prism and a screen: the prism can be turned, the light tilted and a second prism added to bring the colours back to white, with rays traced through the glass's dispersion (the page names N-SF11 glass).",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m123-opus55-prism-room-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m123-opus55-prism-room-ryansael.jpg",
+    "rel_img": "assets/images/m123-opus55-prism-room-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m123-opus55-prism-room-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/prism-room",
+    "demo_label": "Prism Room",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 129,
+    "id": "M124",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Earthquake Tower: tune the sway",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/earthquake-tower",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. Two model towers stand on a shake table: the table's rhythm can be tuned, storeys braced and floors added to find the shaking that matches each building's own rhythm.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m124-opus55-earthquake-tower-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m124-opus55-earthquake-tower-ryansael.jpg",
+    "rel_img": "assets/images/m124-opus55-earthquake-tower-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m124-opus55-earthquake-tower-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/earthquake-tower",
+    "demo_label": "Earthquake Tower",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 130,
+    "id": "M125",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Siphon Lab: water climbs the wall",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/siphon-lab",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. Two tanks are joined by a clear tube over a stone pillar: the outlet can be moved above or below the waterline, the line primed and an air valve opened at the crest to show when the column holds or breaks. The page describes Bernoulli flow with losses.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m125-opus55-siphon-lab-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m125-opus55-siphon-lab-ryansael.jpg",
+    "rel_img": "assets/images/m125-opus55-siphon-lab-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m125-opus55-siphon-lab-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/siphon-lab",
+    "demo_label": "Siphon Lab",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 131,
+    "id": "M126",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Maglev Track: lift a train with magnets",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/maglev-track",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. A cut-away maglev carriage sits over its rail: magnets that pull from under the rail can be swapped for magnets that push off it, the coil current and the gap tuned, and the side guides switched off.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m126-opus55-maglev-track-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m126-opus55-maglev-track-ryansael.jpg",
+    "rel_img": "assets/images/m126-opus55-maglev-track-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m126-opus55-maglev-track-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/maglev-track",
+    "demo_label": "Maglev Track",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 132,
+    "id": "M127",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Hummingbird Wing: hover in a blink",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/hummingbird-wing",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. One wingbeat is slowed down in a glass flight tunnel: the wing sweeps forward, twists over at the turn and makes lift on the way back too, with the airflow and the forces shown.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m127-opus55-hummingbird-wing-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m127-opus55-hummingbird-wing-ryansael.jpg",
+    "rel_img": "assets/images/m127-opus55-hummingbird-wing-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m127-opus55-hummingbird-wing-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/hummingbird-wing",
+    "demo_label": "Hummingbird Wing",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 133,
+    "id": "M128",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Root Finder: how roots know which way is down",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/root-finder",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. A seedling grows in a rotating soil chamber: turning it shows the root tip curving down and the shoot curving up while the older bends stay put. The page names statoliths, auxin and microgravity.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m128-opus55-root-finder-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m128-opus55-root-finder-ryansael.jpg",
+    "rel_img": "assets/images/m128-opus55-root-finder-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m128-opus55-root-finder-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/root-finder",
+    "demo_label": "Root Finder",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 134,
+    "id": "M129",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Lightning Path: why a strike forks",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/lightning-path",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. A storm cloud, a grounded mast and a live electric field share a glass chamber: the stepped leader searches in branches, the mast reaches up to meet it and the return stroke follows.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m129-opus55-lightning-path-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m129-opus55-lightning-path-ryansael.jpg",
+    "rel_img": "assets/images/m129-opus55-lightning-path-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m129-opus55-lightning-path-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/lightning-path",
+    "demo_label": "Lightning Path",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 135,
+    "id": "M130",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Ice Cream Crystal: smooth or icy?",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/ice-cream-crystal",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. An ice cream churn sits on a lab console: the mix can be frozen slowly or fast and churned or left still, and a scoop magnified to see the ice crystals that make it smooth or icy. The page describes a crystal-population model.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m130-opus55-ice-cream-crystal-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m130-opus55-ice-cream-crystal-ryansael.jpg",
+    "rel_img": "assets/images/m130-opus55-ice-cream-crystal-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m130-opus55-ice-cream-crystal-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/ice-cream-crystal",
+    "demo_label": "Ice Cream Crystal",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 136,
+    "id": "M131",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Pendulum Rhythm: two pendulums drifting in and out of step",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/pendulum-rhythm",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. Two pendulums of different lengths start together, drift out of step and meet again: their lengths can be changed, the timeline scrubbed to each meeting and one of them pushed; a fifteen-pendulum wave is included.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m131-opus55-pendulum-rhythm-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m131-opus55-pendulum-rhythm-ryansael.jpg",
+    "rel_img": "assets/images/m131-opus55-pendulum-rhythm-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m131-opus55-pendulum-rhythm-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/pendulum-rhythm",
+    "demo_label": "Pendulum Rhythm",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 137,
+    "id": "M132",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Rocket Nozzle: turning heat into thrust",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/rocket-nozzle",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. A cut-away rocket engine stands on a test stand: hot gas can be scrubbed from the chamber through the throat, the throat reshaped to make the plume pinch or flare, and the walls the thrust acts on shown.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m132-opus55-rocket-nozzle-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m132-opus55-rocket-nozzle-ryansael.jpg",
+    "rel_img": "assets/images/m132-opus55-rocket-nozzle-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m132-opus55-rocket-nozzle-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/rocket-nozzle",
+    "demo_label": "Rocket Nozzle",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 138,
+    "id": "M133",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Soap Bubble: a film that finds the smallest surface",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/soap-bubble",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. A soap film spans a wire frame that can be twisted, with a ring pulled through it: the film settles on the smallest surface in interference colours and thins to black before it pops.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m133-opus55-soap-bubble-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m133-opus55-soap-bubble-ryansael.jpg",
+    "rel_img": "assets/images/m133-opus55-soap-bubble-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m133-opus55-soap-bubble-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/soap-bubble",
+    "demo_label": "Soap Bubble",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 139,
+    "id": "M134",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Aurora Chamber: solar wind and a model Earth",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/aurora-chamber",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. A stream of charged particles is aimed at a model Earth whose magnetic field bends them toward the poles, where they light green and purple curtains at the height their energy reaches.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m134-opus55-aurora-chamber-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m134-opus55-aurora-chamber-ryansael.jpg",
+    "rel_img": "assets/images/m134-opus55-aurora-chamber-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m134-opus55-aurora-chamber-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/aurora-chamber",
+    "demo_label": "Aurora Chamber",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 140,
+    "id": "M135",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Bike Brake: stop and still steer",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/bike-brake",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. The same bicycle brakes with a locked front wheel, a locked rear wheel or pulsing ABS on dry, wet, gravel or ice, comparing the stopping distance and whether the bike can still steer.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m135-opus55-bike-brake-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m135-opus55-bike-brake-ryansael.jpg",
+    "rel_img": "assets/images/m135-opus55-bike-brake-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m135-opus55-bike-brake-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/bike-brake",
+    "demo_label": "Bike Brake",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 141,
+    "id": "M136",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Tidal Clock: why two coasts do not peak together",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/tidal-clock",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. A low-poly Earth turns under the Moon's two tidal bulges while two small coasts rise and fall, showing springs and neaps and why their high tides arrive at different times.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m136-opus55-tidal-clock-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m136-opus55-tidal-clock-ryansael.jpg",
+    "rel_img": "assets/images/m136-opus55-tidal-clock-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m136-opus55-tidal-clock-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/tidal-clock",
+    "demo_label": "Tidal Clock",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 142,
+    "id": "M137",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Window Draft: the convection loop by a cold window",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/window-draft",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. A room is cut open with a cold window, a radiator and the convection loop between them: the window gap can be opened, the radiator moved and the temperature mapped to show why one corner feels colder.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m137-opus55-window-draft-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m137-opus55-window-draft-ryansael.jpg",
+    "rel_img": "assets/images/m137-opus55-window-draft-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m137-opus55-window-draft-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/window-draft",
+    "demo_label": "Window Draft",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 143,
+    "id": "M138",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Compass Field: the field around a magnet",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/compass-field",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. A compass can be dragged around a bar magnet on a glass table, iron filings sprinkled to reveal the field, and a second magnet added before guessing where the needle will point.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m138-opus55-compass-field-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m138-opus55-compass-field-ryansael.jpg",
+    "rel_img": "assets/images/m138-opus55-compass-field-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m138-opus55-compass-field-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/compass-field",
+    "demo_label": "Compass Field",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 144,
+    "id": "M139",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Skate Blade: grip on a thin edge",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/skate-blade",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. A figure skate leans onto its 4 mm blade: the rocker, the hollow grind and the bite of a carved turn are shown against a flat, skidding glide.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m139-opus55-skate-blade-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m139-opus55-skate-blade-ryansael.jpg",
+    "rel_img": "assets/images/m139-opus55-skate-blade-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m139-opus55-skate-blade-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/skate-blade",
+    "demo_label": "Skate Blade",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 145,
+    "id": "M140",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Cheat the Wind: a bike in a wind tunnel",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/wind-tunnel",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. A cyclist rides a trainer in a glass wind tunnel: the riding position, the frame and the wind speed can be changed while the wake, the pressure and the drag show as glowing ribbons of air.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m140-opus55-wind-tunnel-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m140-opus55-wind-tunnel-ryansael.jpg",
+    "rel_img": "assets/images/m140-opus55-wind-tunnel-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m140-opus55-wind-tunnel-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/wind-tunnel",
+    "demo_label": "Cheat the Wind",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 146,
+    "id": "M141",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "How the Internet Works: the half-second after you press Enter",
+    "author": "Ryan Sael (@RyanSael)",
+    "source_url": "https://sael.net/internet",
+    "platform": "sael.net",
+    "desc": "An interactive explainer from Ryan Sael's Visual learning series, published on his site without a separate post. One click is followed through a miniature world of DNS, handshakes, packets, Wi-Fi, routers, fibre, the ocean floor and a data center and back; the cable can be cut and the server moved.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m141-opus55-internet-ryansael.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m141-opus55-internet-ryansael.jpg",
+    "rel_img": "assets/images/m141-opus55-internet-ryansael.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m141-opus55-internet-ryansael.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://sael.net/internet",
+    "demo_label": "How the Internet Works",
+    "model": "Claude Opus 5.5 (series-level attribution; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 147,
+    "id": "M145",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Nuclear fission reactor you can take apart in the browser",
+    "author": "Konstantin Saifoulline (@konstantinsaifo)",
+    "source_url": "https://x.com/konstantinsaifo/status/2104864639821431100",
+    "platform": "X",
+    "desc": "The author writes \"I asked Claude Opus 5.5 to explain how a nuclear reactor works by building one you can take apart in your browser\" and invites viewers to \"pull the control rods, follow the chain reaction, then fire a pulse and watch it spike to over a gigawatt in a few thousandths of a second.\" The clip looks down into the blue-lit pool and through the core with its labelled parts. The post does not establish the technical accuracy of the explanations. The same author's [fusion reactor](#case-m114) is listed separately.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m145-opus55-fission-reactor-explainer-konstantin.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m145-opus55-fission-reactor-explainer-konstantin.jpg",
+    "rel_img": "assets/images/m145-opus55-fission-reactor-explainer-konstantin.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m145-opus55-fission-reactor-explainer-konstantin.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://www.airsup.ai/lab/fission-reactor",
+    "demo_label": "airsup lab: fission reactor",
+    "model": "Claude Opus 5.5",
+    "tools": "not stated in the post"
+  },
+  {
+    "order_index": 148,
+    "id": "M146",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Five-axis CNC machine cutting an impeller, in the browser",
+    "author": "Konstantin Saifoulline (@konstantinsaifo)",
+    "source_url": "https://x.com/konstantinsaifo/status/2104963500988916032",
+    "platform": "X",
+    "desc": "The author writes \"I asked Claude Opus 5.5 to explain how a 5-axis CNC machine works by building one you can take apart in your browser\" and \"It cuts an impeller out of a solid block while you watch. The table tilts and turns, chips fly, coolant sprays.\" A reply a minute later links the page. The clip shows the machining centre in a workshop, its spindle and tool changer, and the tilting table at work. The post does not establish the technical accuracy of the machining.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m146-opus55-five-axis-cnc-explainer-konstantin.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m146-opus55-five-axis-cnc-explainer-konstantin.jpg",
+    "rel_img": "assets/images/m146-opus55-five-axis-cnc-explainer-konstantin.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m146-opus55-five-axis-cnc-explainer-konstantin.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://www.airsup.ai/lab/cnc",
+    "demo_label": "airsup lab: 5-axis machining centre",
+    "model": "Claude Opus 5.5",
+    "tools": "not stated in the post"
+  },
+  {
+    "order_index": 149,
     "id": "M116",
     "domain": "3d",
     "subsection": "Education and explanation",
@@ -3240,7 +4050,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 120,
+    "order_index": 150,
     "id": "I26",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -3267,7 +4077,7 @@
     "tools": "Claude Code; FreeCAD; FreeCAD MCP"
   },
   {
-    "order_index": 121,
+    "order_index": 151,
     "id": "I02",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -3294,7 +4104,7 @@
     "tools": "SolidWorks 2026, MecAgent"
   },
   {
-    "order_index": 122,
+    "order_index": 152,
     "id": "I03",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -3321,7 +4131,7 @@
     "tools": "SolidWorks 2026, MecAgent"
   },
   {
-    "order_index": 123,
+    "order_index": 153,
     "id": "I04",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -3348,7 +4158,7 @@
     "tools": "CGM kernel, Python, MCP"
   },
   {
-    "order_index": 124,
+    "order_index": 154,
     "id": "I09",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -3375,7 +4185,7 @@
     "tools": "Adam harness; Onshape by PTC"
   },
   {
-    "order_index": 125,
+    "order_index": 155,
     "id": "I18",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -3402,7 +4212,7 @@
     "tools": "FreeCAD; FreeCAD MCP"
   },
   {
-    "order_index": 126,
+    "order_index": 156,
     "id": "I23",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -3429,7 +4239,7 @@
     "tools": "FreeCAD; FreeCAD MCP"
   },
   {
-    "order_index": 127,
+    "order_index": 157,
     "id": "I21",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -3456,7 +4266,7 @@
     "tools": "Adam harness; Onshape by PTC"
   },
   {
-    "order_index": 128,
+    "order_index": 158,
     "id": "I22",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -3483,7 +4293,7 @@
     "tools": "SolidWorks 2026; MecAgent"
   },
   {
-    "order_index": 129,
+    "order_index": 159,
     "id": "I28",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -3510,7 +4320,7 @@
     "tools": "NX CAM"
   },
   {
-    "order_index": 130,
+    "order_index": 160,
     "id": "I29",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -3537,7 +4347,7 @@
     "tools": "FreeCAD; FreeCAD MCP"
   },
   {
-    "order_index": 131,
+    "order_index": 161,
     "id": "I08",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3564,7 +4374,7 @@
     "tools": "text-to-cad"
   },
   {
-    "order_index": 132,
+    "order_index": 162,
     "id": "I13",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3591,7 +4401,7 @@
     "tools": "KiStack; T3CAD (author's T3Code fork); Bluetooth; microphones; IMU; LED; button"
   },
   {
-    "order_index": 133,
+    "order_index": 163,
     "id": "I20",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3618,7 +4428,7 @@
     "tools": "EasyEDA; tscircuit"
   },
   {
-    "order_index": 134,
+    "order_index": 164,
     "id": "I01",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3645,7 +4455,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 135,
+    "order_index": 165,
     "id": "I06",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3672,7 +4482,7 @@
     "tools": "Blender, macOS app"
   },
   {
-    "order_index": 136,
+    "order_index": 166,
     "id": "I07",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3699,7 +4509,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 137,
+    "order_index": 167,
     "id": "I05",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3726,7 +4536,7 @@
     "tools": ""
   },
   {
-    "order_index": 138,
+    "order_index": 168,
     "id": "I10",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3753,7 +4563,7 @@
     "tools": "STL; 3D printer (model not stated)"
   },
   {
-    "order_index": 139,
+    "order_index": 169,
     "id": "I11",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3780,7 +4590,7 @@
     "tools": "CAD tool not named; Blender"
   },
   {
-    "order_index": 140,
+    "order_index": 170,
     "id": "I12",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3807,7 +4617,7 @@
     "tools": "2D CAD (tool not named); Blender; Godot"
   },
   {
-    "order_index": 141,
+    "order_index": 171,
     "id": "I14",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3834,7 +4644,7 @@
     "tools": "Sentinel; Depence2 mentioned as comparison"
   },
   {
-    "order_index": 142,
+    "order_index": 172,
     "id": "I15",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3861,7 +4671,7 @@
     "tools": "YouTube reference video; modeling tool not named"
   },
   {
-    "order_index": 143,
+    "order_index": 173,
     "id": "I16",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3888,7 +4698,7 @@
     "tools": "Midjourney image; CAD software not named"
   },
   {
-    "order_index": 144,
+    "order_index": 174,
     "id": "I19",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3915,7 +4725,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 145,
+    "order_index": 175,
     "id": "I24",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3942,7 +4752,7 @@
     "tools": "Fusion 360; STEVE"
   },
   {
-    "order_index": 146,
+    "order_index": 176,
     "id": "I25",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3969,7 +4779,7 @@
     "tools": "BrickLink"
   },
   {
-    "order_index": 147,
+    "order_index": 177,
     "id": "I27",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -3996,7 +4806,7 @@
     "tools": "Claude Code; KiCad"
   },
   {
-    "order_index": 148,
+    "order_index": 178,
     "id": "I31",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -4023,7 +4833,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 149,
+    "order_index": 179,
     "id": "I17",
     "domain": "cad",
     "subsection": "BIM drafting",
@@ -4050,7 +4860,7 @@
     "tools": "Revit, BIM Pure Revit MCP, Notion"
   },
   {
-    "order_index": 150,
+    "order_index": 180,
     "id": "I30",
     "domain": "cad",
     "subsection": "BIM drafting",
@@ -4077,7 +4887,7 @@
     "tools": "Claude Code; Blender; JWW and DXF drawing formats"
   },
   {
-    "order_index": 151,
+    "order_index": 181,
     "id": "R01",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -4104,7 +4914,7 @@
     "tools": "Inspect Robots, IK solver"
   },
   {
-    "order_index": 152,
+    "order_index": 182,
     "id": "R04",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -4131,7 +4941,7 @@
     "tools": "Inspect Robots, I2RT YAM bimanual arms"
   },
   {
-    "order_index": 153,
+    "order_index": 183,
     "id": "R37",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -4158,7 +4968,7 @@
     "tools": "Inspect Robots; I2RT YAM bimanual arms"
   },
   {
-    "order_index": 154,
+    "order_index": 184,
     "id": "R34",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -4185,7 +4995,7 @@
     "tools": "EmbodiedSWE; Isaac Lab; bimanual Franka arms (simulation)"
   },
   {
-    "order_index": 155,
+    "order_index": 185,
     "id": "R45",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -4212,7 +5022,7 @@
     "tools": "Franka arm; AgileX Piper arms"
   },
   {
-    "order_index": 156,
+    "order_index": 186,
     "id": "R49",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -4239,7 +5049,7 @@
     "tools": "AirBot Play arms; Intel RealSense D405 cameras; SAM3"
   },
   {
-    "order_index": 157,
+    "order_index": 187,
     "id": "R05",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -4266,7 +5076,7 @@
     "tools": "MolmoAct2 dataset, Inspect Robots code"
   },
   {
-    "order_index": 158,
+    "order_index": 188,
     "id": "R29",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -4293,7 +5103,7 @@
     "tools": "MolmoSpaces-v1"
   },
   {
-    "order_index": 159,
+    "order_index": 189,
     "id": "R39",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4320,7 +5130,7 @@
     "tools": "Codex; SO-101; Insta360 camera; MuJoCo"
   },
   {
-    "order_index": 160,
+    "order_index": 190,
     "id": "R22",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4347,7 +5157,7 @@
     "tools": "mobile manipulator (not named in the post)"
   },
   {
-    "order_index": 161,
+    "order_index": 191,
     "id": "R20",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4374,7 +5184,7 @@
     "tools": "robot hands (setting per the linked page)"
   },
   {
-    "order_index": 162,
+    "order_index": 192,
     "id": "R40",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4401,7 +5211,7 @@
     "tools": "Unitree G1; Isaac Sim; AMO; RTX 4090 laptop"
   },
   {
-    "order_index": 163,
+    "order_index": 193,
     "id": "R08",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4428,7 +5238,7 @@
     "tools": "SO-101 arm"
   },
   {
-    "order_index": 164,
+    "order_index": 194,
     "id": "R09",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4455,7 +5265,7 @@
     "tools": "LeRobot SO-101, third-person RGB camera"
   },
   {
-    "order_index": 165,
+    "order_index": 195,
     "id": "R10",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4482,7 +5292,7 @@
     "tools": "Wuji2 hand, third-person camera"
   },
   {
-    "order_index": 166,
+    "order_index": 196,
     "id": "R17",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4509,7 +5319,7 @@
     "tools": "Wuji hand models in physics simulation"
   },
   {
-    "order_index": 167,
+    "order_index": 197,
     "id": "R25",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4536,7 +5346,7 @@
     "tools": "robot arm and keyboard (setting not stated in the post)"
   },
   {
-    "order_index": 168,
+    "order_index": 198,
     "id": "R19",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4563,7 +5373,7 @@
     "tools": "Vitrus robotics OS (physical robot)"
   },
   {
-    "order_index": 169,
+    "order_index": 199,
     "id": "R31",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4590,7 +5400,7 @@
     "tools": "two RGB-D cameras; dual-arm setup (robot not named in the post)"
   },
   {
-    "order_index": 170,
+    "order_index": 200,
     "id": "R44",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -4617,7 +5427,7 @@
     "tools": "robot arm and 3D printer"
   },
   {
-    "order_index": 171,
+    "order_index": 201,
     "id": "R03",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -4644,7 +5454,7 @@
     "tools": "ENPIRE, bimanual arms"
   },
   {
-    "order_index": 172,
+    "order_index": 202,
     "id": "R18",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -4671,7 +5481,7 @@
     "tools": "44-DOF dexterous hand (simulation)"
   },
   {
-    "order_index": 173,
+    "order_index": 203,
     "id": "R33",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -4698,7 +5508,7 @@
     "tools": "NVIDIA Isaac Sim; iPhone"
   },
   {
-    "order_index": 174,
+    "order_index": 204,
     "id": "R46",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -4725,7 +5535,7 @@
     "tools": "ARX X5 or I2RT/YAM arms; RealSense cameras"
   },
   {
-    "order_index": 175,
+    "order_index": 205,
     "id": "R11",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -4752,7 +5562,7 @@
     "tools": "MuJoCo"
   },
   {
-    "order_index": 176,
+    "order_index": 206,
     "id": "R15",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -4779,7 +5589,7 @@
     "tools": "MuJoCo, Blender"
   },
   {
-    "order_index": 177,
+    "order_index": 207,
     "id": "R24",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -4806,7 +5616,7 @@
     "tools": "Blender, Newton, Unitree G1 (simulation)"
   },
   {
-    "order_index": 178,
+    "order_index": 208,
     "id": "R35",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -4833,7 +5643,7 @@
     "tools": "MuJoCo; Blender"
   },
   {
-    "order_index": 179,
+    "order_index": 209,
     "id": "R14",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4860,7 +5670,7 @@
     "tools": "MolmoAct2 sim_eval (simulation)"
   },
   {
-    "order_index": 180,
+    "order_index": 210,
     "id": "R16",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4887,7 +5697,7 @@
     "tools": "MuJoCo (simulation)"
   },
   {
-    "order_index": 181,
+    "order_index": 211,
     "id": "R07",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4914,7 +5724,7 @@
     "tools": "RoboDojo, RoboPianist"
   },
   {
-    "order_index": 182,
+    "order_index": 212,
     "id": "R42",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4941,7 +5751,7 @@
     "tools": "botrail"
   },
   {
-    "order_index": 183,
+    "order_index": 213,
     "id": "R43",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4968,7 +5778,7 @@
     "tools": "botrail"
   },
   {
-    "order_index": 184,
+    "order_index": 214,
     "id": "R47",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -4995,7 +5805,7 @@
     "tools": "RoboMME; Codex"
   },
   {
-    "order_index": 185,
+    "order_index": 215,
     "id": "R27",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5022,7 +5832,7 @@
     "tools": "Dual-ALOHA (setting per the linked demo page)"
   },
   {
-    "order_index": 186,
+    "order_index": 216,
     "id": "R12",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5049,7 +5859,7 @@
     "tools": "Isaac Lab, Sharpa hand (simulation)"
   },
   {
-    "order_index": 187,
+    "order_index": 217,
     "id": "R21",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5076,7 +5886,7 @@
     "tools": "Unitree G1 (simulation)"
   },
   {
-    "order_index": 188,
+    "order_index": 218,
     "id": "R26",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5103,7 +5913,7 @@
     "tools": "Isaac Sim, Unitree G1"
   },
   {
-    "order_index": 189,
+    "order_index": 219,
     "id": "R23",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5130,7 +5940,7 @@
     "tools": "Fusion 360, reinforcement learning (simulation)"
   },
   {
-    "order_index": 190,
+    "order_index": 220,
     "id": "R02",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5157,7 +5967,7 @@
     "tools": "SO-ARM101 (as identified in the AIToolHub.co share)"
   },
   {
-    "order_index": 191,
+    "order_index": 221,
     "id": "R06",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5184,7 +5994,7 @@
     "tools": "Drone-Bench"
   },
   {
-    "order_index": 192,
+    "order_index": 222,
     "id": "R28",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5211,7 +6021,7 @@
     "tools": "Kitchen simulation; revised harness and hardware setup (software not named)"
   },
   {
-    "order_index": 193,
+    "order_index": 223,
     "id": "R32",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5238,7 +6048,7 @@
     "tools": "MuJoCo (simulation); humanoid robot and whiteboard (simulation)"
   },
   {
-    "order_index": 194,
+    "order_index": 224,
     "id": "R41",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5265,7 +6075,7 @@
     "tools": "Claude Code; robot arm and whiteboard; MuJoCo (simulation); humanoid robot and whiteboard (simulation)"
   },
   {
-    "order_index": 195,
+    "order_index": 225,
     "id": "R36",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5292,7 +6102,7 @@
     "tools": "simulator not named; two robot arms (simulation)"
   },
   {
-    "order_index": 196,
+    "order_index": 226,
     "id": "R38",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5319,7 +6129,7 @@
     "tools": "C5R facility harness; Opentrons Flex; LC-MS"
   },
   {
-    "order_index": 197,
+    "order_index": 227,
     "id": "R48",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting, drones and full evaluations",
@@ -5346,7 +6156,7 @@
     "tools": "MuJoCo"
   },
   {
-    "order_index": 198,
+    "order_index": 228,
     "id": "R13",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -5373,7 +6183,7 @@
     "tools": "I2RT YAM bimanual arms, Inspect Robots"
   },
   {
-    "order_index": 199,
+    "order_index": 229,
     "id": "R30",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -5400,7 +6210,7 @@
     "tools": "Discrete-action simulation; native APIs and a separate Claude Code follow-up"
   },
   {
-    "order_index": 200,
+    "order_index": 230,
     "id": "X08",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -5427,7 +6237,7 @@
     "tools": "none"
   },
   {
-    "order_index": 201,
+    "order_index": 231,
     "id": "A18",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5454,7 +6264,7 @@
     "tools": "Three.js; WebGPU"
   },
   {
-    "order_index": 202,
+    "order_index": 232,
     "id": "A21",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5481,7 +6291,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 203,
+    "order_index": 233,
     "id": "M21",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5508,7 +6318,7 @@
     "tools": "Tripo, Blender"
   },
   {
-    "order_index": 204,
+    "order_index": 234,
     "id": "M22",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5535,7 +6345,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 205,
+    "order_index": 235,
     "id": "M46",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5562,7 +6372,7 @@
     "tools": "Higgsfield; Blender"
   },
   {
-    "order_index": 206,
+    "order_index": 236,
     "id": "M47",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5589,7 +6399,7 @@
     "tools": "No tool named"
   },
   {
-    "order_index": 207,
+    "order_index": 237,
     "id": "M89",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5616,7 +6426,7 @@
     "tools": "Blender; claude.ai"
   },
   {
-    "order_index": 208,
+    "order_index": 238,
     "id": "A09",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5643,7 +6453,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 209,
+    "order_index": 239,
     "id": "A11",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5670,7 +6480,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 210,
+    "order_index": 240,
     "id": "A12",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -5697,7 +6507,34 @@
     "tools": "Blender"
   },
   {
-    "order_index": 211,
+    "order_index": 241,
+    "id": "A25",
+    "domain": "animation",
+    "subsection": "Rigging and character animation",
+    "rank_num": 3,
+    "rank": "rank-3",
+    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
+    "rank_title": "Rank 3: Demonstration Media Only",
+    "title": "Mesh to rigged animation: Astra rigs and animates, ImageGen draws the keyframes",
+    "author": "Thomas Guilcher-Trouche (@thomas_guilcher)",
+    "source_url": "https://x.com/thomas_guilcher/status/2101390478688079969",
+    "platform": "X",
+    "desc": "The author describes a way \"to animate 3D meshes with @OpenAI Astra (High) + ImageGen\": Astra rigs the mesh, ImageGen draws the animation keyframes and Astra animates the rig from them, with \"No manual keyframing.\" The first clip shows a bunny animated this way. On 2026-09-28 he writes \"Tried my ImageGen + Astra pipeline with other 3D meshes for rigging and animation\", with a rabbit, a fox, a deer and a frog in a four-panel clip. His X profile describes him as an Applied AI Architect at OpenAI.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/a25-astra-imagegen-rigging-guilcher.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/a25-astra-imagegen-rigging-guilcher.jpg",
+    "rel_img": "assets/images/a25-astra-imagegen-rigging-guilcher.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/a25-astra-imagegen-rigging-guilcher-1.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "GPT-6 Astra (named \"Astra (High)\" by the author) with ImageGen",
+    "tools": "ImageGen (as named by the author)"
+  },
+  {
+    "order_index": 242,
     "id": "A15",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5724,7 +6561,7 @@
     "tools": "Canvas 2D; Web Audio; Claude Code"
   },
   {
-    "order_index": 212,
+    "order_index": 243,
     "id": "X11",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5751,7 +6588,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 213,
+    "order_index": 244,
     "id": "M90",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5778,7 +6615,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 214,
+    "order_index": 245,
     "id": "M20",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5805,7 +6642,7 @@
     "tools": "TouchDesigner"
   },
   {
-    "order_index": 215,
+    "order_index": 246,
     "id": "M52",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5832,7 +6669,7 @@
     "tools": "Houdini"
   },
   {
-    "order_index": 216,
+    "order_index": 247,
     "id": "M03",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5859,7 +6696,7 @@
     "tools": "Miomoto"
   },
   {
-    "order_index": 217,
+    "order_index": 248,
     "id": "A02",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5886,7 +6723,7 @@
     "tools": "Blender; Scenario for Blender; M5 Max MacBook Pro"
   },
   {
-    "order_index": 218,
+    "order_index": 249,
     "id": "A08",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5913,7 +6750,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 219,
+    "order_index": 250,
     "id": "A14",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5940,7 +6777,7 @@
     "tools": "Blender; Scenario for Blender"
   },
   {
-    "order_index": 220,
+    "order_index": 251,
     "id": "A16",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5967,7 +6804,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 221,
+    "order_index": 252,
     "id": "A20",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -5994,7 +6831,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 222,
+    "order_index": 253,
     "id": "A22",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -6021,7 +6858,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 223,
+    "order_index": 254,
     "id": "M28",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6048,7 +6885,7 @@
     "tools": "three.js, WebGL"
   },
   {
-    "order_index": 224,
+    "order_index": 255,
     "id": "M29",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6075,7 +6912,7 @@
     "tools": "twigl.app (WebGL)"
   },
   {
-    "order_index": 225,
+    "order_index": 256,
     "id": "A01",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6102,7 +6939,7 @@
     "tools": "Three.js; WebGL"
   },
   {
-    "order_index": 226,
+    "order_index": 257,
     "id": "A17",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6129,7 +6966,7 @@
     "tools": "Three.js; WebGPU"
   },
   {
-    "order_index": 227,
+    "order_index": 258,
     "id": "A19",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6156,7 +6993,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 228,
+    "order_index": 259,
     "id": "A24",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6183,7 +7020,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 229,
+    "order_index": 260,
     "id": "A03",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6210,7 +7047,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 230,
+    "order_index": 261,
     "id": "A07",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6237,7 +7074,7 @@
     "tools": "Three.js; Airsup"
   },
   {
-    "order_index": 231,
+    "order_index": 262,
     "id": "A04",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6264,7 +7101,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 232,
+    "order_index": 263,
     "id": "A13",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6291,7 +7128,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 233,
+    "order_index": 264,
     "id": "A23",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6318,7 +7155,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 234,
+    "order_index": 265,
     "id": "A05",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6345,7 +7182,7 @@
     "tools": "Cowork"
   },
   {
-    "order_index": 235,
+    "order_index": 266,
     "id": "A06",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6372,7 +7209,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 236,
+    "order_index": 267,
     "id": "A10",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -6399,7 +7236,7 @@
     "tools": "Three.js; TSL"
   },
   {
-    "order_index": 237,
+    "order_index": 268,
     "id": "M30",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -6426,7 +7263,7 @@
     "tools": "Higgsfield, Seedance 2.5"
   },
   {
-    "order_index": 238,
+    "order_index": 269,
     "id": "M40",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -6453,7 +7290,7 @@
     "tools": "Higgsfield; Blender; After Effects"
   },
   {
-    "order_index": 239,
+    "order_index": 270,
     "id": "M45",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -6480,7 +7317,7 @@
     "tools": "Blender; FLORA"
   },
   {
-    "order_index": 240,
+    "order_index": 271,
     "id": "M70",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -6507,7 +7344,7 @@
     "tools": "Blender; MCP; Magnific; MiniMax H3 named as an example"
   },
   {
-    "order_index": 241,
+    "order_index": 272,
     "id": "M76",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -6534,7 +7371,7 @@
     "tools": "Codex; Blender"
   },
   {
-    "order_index": 242,
+    "order_index": 273,
     "id": "M83",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",

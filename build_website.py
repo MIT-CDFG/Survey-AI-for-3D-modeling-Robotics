@@ -757,6 +757,9 @@ def get_gallery_items(cases, readme_text=None):
                     platform = "Reddit"
                 elif "x.com" in source_url or "twitter.com" in source_url:
                     platform = "X"
+                elif source_url.startswith("http"):
+                    # a page on the author's own site (e.g. sael.net): show its host, not "X"
+                    platform = re.sub(r"^https?://(www\.)?", "", source_url).split("/")[0]
                     
                 # 3. Description text (the commentary / notes before the field line)
                 desc = ""
