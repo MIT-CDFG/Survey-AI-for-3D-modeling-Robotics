@@ -590,10 +590,11 @@ def build_appendix_c_html(bib_urls, gallery_items=None, intro_html="", caption_h
             plat_html = plat
 
         if r.get("code_links_list"):
-            code_html = " ".join([
-                f'<a href="{cu}" target="_blank" rel="noopener noreferrer" class="post-code-link" title="{'Open live demo' if cl == 'demo' else 'Open linked code or resource'}">{cl or "code"} ↗</a>'
-                for cu, cl in r["code_links_list"]
-            ])
+            links = []
+            for cu, cl in r["code_links_list"]:
+                tip = 'Open live demo' if cl == 'demo' else 'Open linked code or resource'
+                links.append(f'<a href="{cu}" target="_blank" rel="noopener noreferrer" class="post-code-link" title="{tip}">{cl or "code"} ↗</a>')
+            code_html = " ".join(links)
         elif code_url:
             code_html = f'<a href="{code_url}" target="_blank" rel="noopener noreferrer" class="post-code-link" title="Open verified repository">{code_label or "code"} ↗</a>'
         else:
