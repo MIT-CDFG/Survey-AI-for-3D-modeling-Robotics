@@ -1663,12 +1663,13 @@ DOMAINS_CONFIG = [
         "badge": "Domain 03",
         "title": "Embodied Robotics & Physical Interaction",
         "short_title": "Embodied Robotics",
-        "desc": "{count} archived cases spanning high-precision manipulation, dexterous multi-finger hands, real-to-sim transfer, physics simulation control, and physical safety evaluations.",
+        "desc": "{count} archived cases spanning high-precision manipulation, dexterous multi-finger hands, real-to-sim transfer, physics simulation control, navigation and mobile robots, and physical safety evaluations.",
         "sub_short_names": {
             "Manipulation evaluations": "Manipulation Evaluations",
             "Personal arms, dexterous hands and unseen robots": "Dexterous Arms & Hands",
             "Learning from demonstration and real-to-sim": "Demo & Real-to-Sim",
-            "Simulation control and training, painting, drones and full evaluations": "Simulation & Control",
+            "Simulation control and training, painting and full evaluations": "Simulation & Control",
+            "Navigation and mobile robots": "Navigation",
             "Safety evaluations and claims": "Safety Evaluations"
         }
     },
