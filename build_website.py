@@ -2124,7 +2124,7 @@ def build_full_html():
   <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "YOUR_CLOUDFLARE_BEACON_TOKEN"}}'></script> -->
 
   <!-- Live Readers & Visitor Counter -->
-  <script src="js/reads-counter.js?v=20260924-compact" defer></script>
+  <script src="js/reads-counter.js?v=20261001-d1" defer></script>
   
   <!-- SIGGRAPH Font Set (ACM SIGGRAPH / acmart style: Linux Libertine, Linux Biolinum, Inconsolata) -->
   <link rel="preload" href="fonts/LibertinusSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>

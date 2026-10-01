@@ -7,7 +7,7 @@ import worker, { PAGE_URL } from '../cloudflare/worker.js';
 const client = await readFile(new URL('../js/reads-counter.js', import.meta.url), 'utf8');
 const origin = 'https://mit-cdfg.github.io';
 const endpoint = 'https://survey-reads-counter.frankdou.workers.dev/hit';
-const valid = (reads) => ({ success: true, reads, page: PAGE_URL, source: 'busuanzi-page-pv' });
+const valid = (reads) => ({ success: true, reads, page: PAGE_URL, source: 'd1-page-pv' });
 const countIDs = ['nav-reads-count', 'footer-reads-count'];
 const badgeIDs = ['nav-reads-badge', 'footer-reads-badge'];
 const flush = () => new Promise(resolve => setImmediate(resolve));
@@ -75,7 +75,7 @@ test('zero is a valid page total, never replaced with the site total', async () 
 
 for (const data of [null, { success: false, reads: 0 }, valid(-1), valid(1.5),
   valid('231'), valid(Number.MAX_SAFE_INTEGER + 1),
-  { ...valid(106), page: origin + '/' }, { ...valid(343), source: 'busuanzi-site-pv' }]) {
+  { ...valid(106), page: origin + '/' }, { ...valid(343), source: 'busuanzi-page-pv' }]) {
   test('reject invalid or wrong-source totals: ' + JSON.stringify(data), async () => {
     const page = browser({ fetch: async () => Response.json(data) });
     await flush();
@@ -136,37 +136,37 @@ function request({ method = 'POST', path = '/hit', referer, requestOrigin = orig
   return new Request('https://counter.example' + path, { method, headers });
 }
 
-function mockUpstream(t, payload) {
-  return t.mock.method(globalThis, 'fetch', async (url, options) => {
-    assert.equal(new URL(url).origin, 'https://busuanzi.ibruce.info');
-    assert.equal(options.headers.Referer, PAGE_URL);
-    assert.equal(options.headers.Accept, '*/*');
-    assert.equal(options.redirect, 'manual');
-    assert.equal(options.headers.Cookie, undefined);
-    const callback = new URL(url).searchParams.get('jsonpCallback');
-    return new Response('try{' + callback + '(' + JSON.stringify(payload) + ');}catch(e){}');
-  });
+function mockDB(views) {
+  const calls = [];
+  const env = { DB: { prepare(sql) {
+    calls.push(sql);
+    return { bind(page) {
+      assert.equal(page, PAGE_URL);
+      return { async first() {
+        if (views instanceof Error) throw views;
+        if (typeof views === 'number' && Number.isInteger(views)) views += 1;
+        return views === null ? null : { views };
+      } };
+    } };
+  } } };
+  return { env, calls };
 }
 
-test('desktop, Safari origin-only, and no-referrer requests reach the SAME existing page key', async t => {
-  const upstream = mockUpstream(t, { page_pv: 235, site_pv: 344 });
-  for (const referer of [PAGE_URL, origin + '/', undefined]) {
-    const response = await worker.fetch(request({ referer }));
+test('desktop, Safari origin-only, and no-referrer requests increment the SAME page row', async () => {
+  const db = mockDB(1800);
+  for (const [i, referer] of [PAGE_URL, origin + '/', undefined].entries()) {
+    const response = await worker.fetch(request({ referer }), db.env);
     assert.equal(response.status, 200);
-    assert.deepEqual(await response.json(), valid(235));
+    assert.deepEqual(await response.json(), valid(1801 + i));
     assert.equal(response.headers.get('Access-Control-Allow-Origin'), origin);
     assert.equal(response.headers.get('Cache-Control'), 'no-store');
   }
-  assert.equal(upstream.mock.calls.length, 3);
+  assert.equal(db.calls.length, 3);
+  assert.match(db.calls[0], /SET views = views \+ 1 .* RETURNING views/);
 });
 
-test('the Worker preserves zero instead of substituting site-wide traffic', async t => {
-  mockUpstream(t, { page_pv: 0, site_pv: 344 });
-  assert.deepEqual(await (await worker.fetch(request())).json(), valid(0));
-});
-
-test('health checks, preflights, and invalid requests never increment the upstream counter', async t => {
-  const upstream = mockUpstream(t, { page_pv: 999 });
+test('health checks, preflights, and invalid requests never touch the counter', async () => {
+  const db = mockDB(999);
   for (const [options, status] of [
     [{ method: 'GET', path: '/health', requestOrigin: null }, 200],
     [{ method: 'OPTIONS' }, 204],
@@ -175,41 +175,24 @@ test('health checks, preflights, and invalid requests never increment the upstre
     [{ requestOrigin: 'https://other.example' }, 403],
     [{ path: '/hit?url=https://other.example' }, 404],
     [{ path: '/other' }, 404]
-  ]) assert.equal((await worker.fetch(request(options))).status, status);
-  assert.equal(upstream.mock.calls.length, 0);
+  ]) assert.equal((await worker.fetch(request(options), db.env)).status, status);
+  assert.equal(db.calls.length, 0);
 });
 
-test('missing/invalid page_pv never falls back to site_pv', async t => {
-  for (const payload of [{ site_pv: 344 }, { page_pv: -1 }, { page_pv: '235' }, { page_pv: 1.5 }]) {
-    const upstream = mockUpstream(t, payload);
-    const response = await worker.fetch(request());
+test('a missing row, invalid count, or database error fails without a false zero', async () => {
+  for (const views of [null, -2, '235', 1.5, new Error('D1 unavailable')]) {
+    const db = mockDB(views);
+    const response = await worker.fetch(request(), db.env);
     assert.equal(response.status, 502);
     assert.equal('reads' in await response.json(), false);
-    upstream.mock.restore();
-  }
-});
-
-test('malformed JSONP, network errors, and upstream HTTP errors fail without false zero or retry', async t => {
-  for (const outcome of [new Response('invalid'), new Response('', { status: 500 }), new Error('Offline'),
-    new Response(null, { status: 302, headers: { Location: 'https://other.example' } }),
-    new Response('globalThis.untrustedScriptExecuted = true;')]) {
-    const upstream = t.mock.method(globalThis, 'fetch', async () => {
-      if (outcome instanceof Error) throw outcome;
-      return outcome;
-    });
-    const response = await worker.fetch(request());
-    assert.equal(response.status, 502);
-    assert.equal('reads' in await response.json(), false);
-    assert.equal(upstream.mock.calls.length, 1);
-    assert.equal(globalThis.untrustedScriptExecuted, undefined);
-    upstream.mock.restore();
+    assert.equal(db.calls.length, 1);
   }
 });
 
 test('published HTML and generator both retain versioned counter script and honest loading placeholders', async () => {
   for (const name of ['index.html', 'build_website.py']) {
     const html = await readFile(new URL('../' + name, import.meta.url), 'utf8');
-    assert.match(html, /js\/reads-counter\.js\?v=20260924-compact/);
+    assert.match(html, /js\/reads-counter\.js\?v=20261001-d1/);
     for (const id of countIDs) assert.match(html, new RegExp('id="' + id + '"[^>]*>&mdash;'));
     for (const id of badgeIDs) assert.match(html, new RegExp('id="' + id + '" data-reads-state="loading"'));
   }

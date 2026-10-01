@@ -4,6 +4,11 @@ compatibility_date = "2026-09-24"
 workers_dev = true
 preview_urls = false
 
-# Busuanzi retains the existing count; this Worker needs no KV/D1 binding.
+# Page-view total lives in our own D1 database (table page_views, see schema.sql).
+[[d1_databases]]
+binding = "DB"
+database_name = "survey-reads"
+database_id = "70ae102f-7269-49ed-a984-107da19ef9de"
+
 [observability]
 enabled = false

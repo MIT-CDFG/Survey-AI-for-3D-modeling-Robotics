@@ -56,7 +56,7 @@
       })
       .then(function (data) {
         if (!data || data.success !== true || data.page !== PAGE_URL ||
-            data.source !== 'busuanzi-page-pv' ||
+            data.source !== 'd1-page-pv' ||
             !Number.isSafeInteger(data.reads) || data.reads < 0) {
           throw new Error('Invalid counter response');
         }
