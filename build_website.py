@@ -1978,6 +1978,7 @@ PAPER_TOC_ENTRIES = [
     ("sec:recommendations", "8. Recommendations"),
     ("sec:conclusion", "9. Conclusion"),
     ("sec:intro-methods", "10. Materials and Methods"),
+    ("acknowledgements", "Acknowledgements"),
     ("app:eval-protocols", "Appendix A: Evaluation Protocols and Linked Components"),
     ("app:archive-notes", "Appendix B: Notes on the Archive"),
     ("app:cases", "Appendix C: Index of Archived Posts"),
