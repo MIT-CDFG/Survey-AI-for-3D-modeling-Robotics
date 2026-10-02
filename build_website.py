@@ -1270,6 +1270,7 @@ def convert_paper_html(bib_urls=None):
         "sec/6_recommendations.tex",
         "sec/7_conclusion.tex",
         "sec/8_methods.tex",
+        "sec/9_acknowledgements.tex",
         "sec/a_protocols.tex",
         "sec/a_archive_note.tex",
     ]
