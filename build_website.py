@@ -1270,7 +1270,6 @@ def convert_paper_html(bib_urls=None):
         "sec/6_recommendations.tex",
         "sec/7_conclusion.tex",
         "sec/8_methods.tex",
-        "sec/9_acknowledgements.tex",
         "sec/a_protocols.tex",
         "sec/a_archive_note.tex",
     ]
@@ -1307,6 +1306,9 @@ def convert_paper_html(bib_urls=None):
     if m_intro:
         combined += f"\n\n@@APPCBEGIN@@\n\n{m_intro.group(1).strip()}\n\n@@APPCEND@@\n\n"
     combined += f"\n\n@@APPCCAPBEGIN@@ {latex_caption('sec/a_case_index')} @@APPCCAPEND@@\n\n"
+    # Acknowledgements sit next to the References, as in the paper: here after Appendix C
+    ack_tex = active_latex(_read_workspace_tex("sec/9_acknowledgements.tex")).strip()
+    combined += f"\n\n@@ACKBEGIN@@\n\n{ack_tex}\n\n@@ACKEND@@\n\n"
 
     # text-mode symbols pandoc's LaTeX reader drops silently
     combined = combined.replace(r"\texttimes{}", "×").replace(r"\texttimes", "×")
@@ -1619,11 +1621,16 @@ def convert_paper_html(bib_urls=None):
     if m_cap:
         appc_caption_html = m_cap.group(1).strip()
         out = out[:m_cap.start()] + out[m_cap.end():]
+    ack_html = ""
+    m_ack = re.search(r'<p>\s*@@ACKBEGIN@@\s*</p>(.*?)<p>\s*@@ACKEND@@\s*</p>', out, re.S)
+    if m_ack:
+        ack_html = m_ack.group(1).strip()
+        out = out[:m_ack.start()] + out[m_ack.end():]
     appendix_c_html = build_appendix_c_html(bib_urls, intro_html=appc_intro_html, caption_html=appc_caption_html)
     if '<div id="refs"' in out:
-        out = out.replace('<div id="refs"', appendix_c_html + '\n\n' + refs_heading + '<div id="refs"')
+        out = out.replace('<div id="refs"', appendix_c_html + '\n\n' + ack_html + '\n\n' + refs_heading + '<div id="refs"')
     else:
-        out += "\n\n" + appendix_c_html
+        out += "\n\n" + appendix_c_html + "\n\n" + ack_html
         if refs_heading:
             out += "\n\n" + refs_heading
 
@@ -1978,10 +1985,10 @@ PAPER_TOC_ENTRIES = [
     ("sec:recommendations", "8. Recommendations"),
     ("sec:conclusion", "9. Conclusion"),
     ("sec:intro-methods", "10. Materials and Methods"),
-    ("acknowledgements", "Acknowledgements"),
     ("app:eval-protocols", "Appendix A: Evaluation Protocols and Linked Components"),
     ("app:archive-notes", "Appendix B: Notes on the Archive"),
     ("app:cases", "Appendix C: Index of Archived Posts"),
+    ("acknowledgements", "Acknowledgements"),
     ("references", "References"),
     ("citation-box", "BibTeX Citation"),
 ]
