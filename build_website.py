@@ -741,13 +741,15 @@ def get_gallery_items(cases, readme_text=None):
                 title = re.sub(r"^\*\*(.*?)\*\*$", r"\1", parts[0]).strip() if parts else f"Case {gid}"
                 
                 author_raw = parts[1] if len(parts) > 1 else ""
-                author_m = re.search(r"\[(.*?)\]\((.*?)\)", author_raw)
-                if author_m:
-                    author = author_m.group(1).strip()
-                    source_url = author_m.group(2).strip()
+                author_links = re.findall(r"\[(.*?)\]\((.*?)\)", author_raw)
+                if author_links:
+                    author = author_links[0][0].strip()
+                    source_url = author_links[0][1].strip()
                 else:
                     author = author_raw.split(",")[0].strip() or "Community Contributor"
                     source_url = preview_href or "#"
+                # further authors on the same head line (e.g. X05, X07, M168) are credited too
+                coauthors = [(n.strip(), u.strip()) for n, u in author_links[1:]]
                     
                 platform = "X"
                 if "linkedin.com" in source_url:
@@ -869,6 +871,7 @@ def get_gallery_items(cases, readme_text=None):
                     "rank_title": rank_title,
                     "title": title,
                     "author": author,
+                    "coauthors": coauthors,
                     "source_url": source_url,
                     "platform": platform,
                     "desc": desc,
@@ -1715,6 +1718,8 @@ def render_tile_html(item):
     else:
         author_html = f'{item["author"]}&nbsp;<span class="tile-platform">· {item["platform"]}</span>'
         desc_html = f'{item["title"]}'
+    for co_name, co_url in item.get("coauthors", []):
+        author_html += f' and <a href="{co_url}" target="_blank" rel="noopener noreferrer" class="tile-author-link" title="Open original post on {item["platform"]}">{co_name}&nbsp;<span class="tile-platform">· {item["platform"]} ↗</span></a>'
 
     if sub_badge:
         author_html = f'{author_html} <span class="tile-subcat-wrap"><span class="tile-subcat-sep">·</span> {sub_badge}</span>'
@@ -1782,7 +1787,8 @@ def render_tile_html(item):
 
     safe_title = item['title'].replace("'", "\\'").replace('"', '&quot;')
     safe_desc = item['desc'].replace("'", "\\'").replace('"', '&quot;')
-    safe_author = item['author'].replace("'", "\\'").replace('"', '&quot;')
+    all_authors = " and ".join([item['author']] + [n for n, _ in item.get('coauthors', [])])
+    safe_author = all_authors.replace("'", "\\'").replace('"', '&quot;')
     safe_source = source_url.replace("'", "\\'")
     safe_platform = item['platform'].replace("'", "\\'")
     safe_code = code_url.replace("'", "\\'")
@@ -1825,7 +1831,7 @@ def render_tile_html(item):
       </div>"""
 
     search_blob = " ".join(str(v) for v in [
-        item['id'], item['author'], item['platform'], sub_text, item['title'], item['desc'],
+        item['id'], all_authors, item['platform'], sub_text, item['title'], item['desc'],
         item.get('model', ''), item.get('tools', '')] if v).lower()
 
     return f"""
