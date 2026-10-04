@@ -1306,7 +1306,7 @@ def convert_paper_html(bib_urls=None):
     if m_intro:
         combined += f"\n\n@@APPCBEGIN@@\n\n{m_intro.group(1).strip()}\n\n@@APPCEND@@\n\n"
     combined += f"\n\n@@APPCCAPBEGIN@@ {latex_caption('sec/a_case_index')} @@APPCCAPEND@@\n\n"
-    # Acknowledgements sit next to the References, as in the paper: here after Appendix C
+    # Acknowledgements: placed after the References list, before the BibTeX citation card
     ack_tex = active_latex(_read_workspace_tex("sec/9_acknowledgements.tex")).strip()
     combined += f"\n\n@@ACKBEGIN@@\n\n{ack_tex}\n\n@@ACKEND@@\n\n"
 
@@ -1628,11 +1628,13 @@ def convert_paper_html(bib_urls=None):
         out = out[:m_ack.start()] + out[m_ack.end():]
     appendix_c_html = build_appendix_c_html(bib_urls, intro_html=appc_intro_html, caption_html=appc_caption_html)
     if '<div id="refs"' in out:
-        out = out.replace('<div id="refs"', appendix_c_html + '\n\n' + ack_html + '\n\n' + refs_heading + '<div id="refs"')
+        out = out.replace('<div id="refs"', appendix_c_html + '\n\n' + refs_heading + '<div id="refs"')
     else:
-        out += "\n\n" + appendix_c_html + "\n\n" + ack_html
+        out += "\n\n" + appendix_c_html
         if refs_heading:
             out += "\n\n" + refs_heading
+    # the acknowledgements close the paper: after the References list, before the BibTeX citation card
+    out += "\n\n" + ack_html
 
     # Enhance academic tables to full-width responsive cards with top captions
     out = enhance_academic_tables(out)
@@ -1988,8 +1990,8 @@ PAPER_TOC_ENTRIES = [
     ("app:eval-protocols", "Appendix A: Evaluation Protocols and Linked Components"),
     ("app:archive-notes", "Appendix B: Notes on the Archive"),
     ("app:cases", "Appendix C: Index of Archived Posts"),
-    ("acknowledgements", "Acknowledgements"),
     ("references", "References"),
+    ("acknowledgements", "Acknowledgements"),
     ("citation-box", "BibTeX Citation"),
 ]
 
