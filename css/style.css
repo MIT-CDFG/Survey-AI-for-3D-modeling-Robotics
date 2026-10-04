@@ -4267,3 +4267,58 @@ img.zoomable:focus-visible,
 @media (max-width: 520px) {
   .figure-gallery-figure .gallery-tiles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* ===== LLM tools category (gallery): tools are not cases, so no rank colours ===== */
+.tool-head-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--bg-surface-elevated);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.tool-kind-badge {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.5rem;
+  border-radius: 3px;
+  background: #e7eef8;
+  color: #1d4a85;
+}
+.tile-badge-rank.tool-kind-badge { background: rgba(231, 238, 248, 0.95); color: #1d4a85; }
+.tool-name { font-weight: 700; }
+.tool-desc { font-size: 0.86rem; }
+.tool-cases {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0.4rem 0 0.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+}
+.tool-cases-label { color: var(--ink-muted); font-weight: 600; margin-right: 0.15rem; }
+.tool-case-chip {
+  padding: 0.06rem 0.4rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 3px;
+  color: var(--mit-red);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-decoration: none;
+}
+.tool-case-chip:hover { background: var(--mit-red-soft); }
+.tool-code-note {
+  margin: 0.25rem 0 0.1rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--ink-secondary);
+}
+.tool-code-note a { color: inherit; text-decoration: underline; }
+.tool-desc a { color: inherit; text-decoration: underline; }
+.tools-domain-section .domain-label-badge { background: #1d4a85; }
+.tools-count-text { color: var(--ink-muted); }

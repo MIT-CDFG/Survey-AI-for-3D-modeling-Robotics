@@ -1855,7 +1855,162 @@ def render_tile_html(item):
     </div>
     """
 
-def build_gallery_sidebar_html(gallery_items):
+# ---------------------------------------------------------------------------
+# LLM tools: the archive's tool table, CAD and BIM tooling list and Resources,
+# shown as their own gallery category. Tools are not cases: no rank, not counted.
+# ---------------------------------------------------------------------------
+ARCHIVE_PAGES = "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/"
+TOOL_GROUPS = [
+    # (group title, sidebar label, kinds from the README tool table)
+    ("MCP servers", "MCP Servers", ["MCP server"]),
+    ("Coding agents, CLIs and skills", "Coding Agents & Skills", ["coding agent, CLI or skills"]),
+    ("Application plug-ins and add-ins", "Plug-ins & Add-ins", ["application plug-in or add-in"]),
+    ("Computer use", "Computer Use", ["computer use"]),
+    ("Robot harnesses and operating layers", "Robot Harnesses", ["robot harness or operating layer"]),
+    ("Simulators and engines", "Simulators & Engines", ["simulator or engine"]),
+    ("Vendor agentic modes", "Vendor Agentic Modes", ["vendor agentic mode"]),
+    ("AI design applications", "AI Design Apps", ["AI-native CAD application", "vendor AI design platform"]),
+    ("CAD and BIM tooling", "CAD & BIM Tooling", ["CAD and BIM tooling"]),
+    ("Resources", "Resources", ["Resources"]),
+]
+
+
+def md_inline_html(text):
+    """Escape a README cell and turn its inline markdown (links, `code`, **bold**) into HTML."""
+    out, pos = [], 0
+    for m in re.finditer(r'\[([^\]]+)\]\(([^)\s]+)\)', text):
+        out.append(html_escape(text[pos:m.start()]))
+        label, url = m.group(1), m.group(2)
+        if url.startswith("assets/"):
+            url = ARCHIVE_PAGES + url
+        if url.startswith("#"):
+            out.append(f'<span class="tool-inline-ref">{html_escape(label)}</span>')
+        else:
+            out.append(f'<a href="{html_escape(url)}" target="_blank" rel="noopener noreferrer">{html_escape(label)}</a>')
+        pos = m.end()
+    out.append(html_escape(text[pos:]))
+    s = "".join(out)
+    s = re.sub(r'`([^`]+)`', r'<code>\1</code>', s)
+    return re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', s)
+
+
+def parse_llm_tools(readme_text, gallery_items):
+    """Tools for LLM agents from the archive README, grouped by kind."""
+    lines = readme_text.split("\n")
+    case_domain = {str(it['id']).upper(): it['domain'] for it in gallery_items}
+
+    def block(head):
+        if head not in lines:
+            return []
+        a = lines.index(head)
+        b = next((k for k in range(a + 1, len(lines)) if lines[k].startswith("## ") or
+                  (head.startswith("### ") and lines[k].startswith("### "))), len(lines))
+        return lines[a + 1:b]
+
+    def links(cell):
+        return re.findall(r'\[([^\]]+)\]\(([^)\s]+)\)', cell)
+
+    tools = []
+    for l in block("### Agentic tools and integrations"):
+        if not l.startswith("| ") or l.startswith("| Tool |"):
+            continue
+        cells = [c.strip() for c in l.strip().strip("|").split(" | ")]
+        if len(cells) < 5:
+            continue
+        tool_cell, kind, exposes, cases_cell, code_cell = cells[:5]
+        parts = [p.strip() for p in tool_cell.split("<br>")]
+        name = re.sub(r'<a id="[^"]*"></a>', '', parts[0]).strip()
+        name_links = links(name)
+        name_url = name_links[0][1] if name_links else ""
+        name = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', name)
+        announce = next((u for t, u in links(tool_cell) if t.lower().startswith("vendor announcement")), "")
+        still = next((u for t, u in links(tool_cell) if t in ("still", "image") and u.startswith("assets/")), "")
+        code_links = links(code_cell)
+        code_url = next((u for t, u in code_links if "github.com" in u or "gitlab.com" in u), "")
+        page_url = name_url or next((u for t, u in code_links if u != code_url and u.startswith("http")), "")
+        tools.append({
+            "name": name, "kind": kind, "desc_html": md_inline_html(exposes), "desc_text": exposes,
+            "cases": [m.upper() for m in re.findall(r'\(#case-([a-z]+\d+)\)', cases_cell)],
+            "code_note_html": md_inline_html(code_cell) if code_cell.lower() != "none" else "",
+            "code_url": code_url, "page_url": page_url, "announce_url": announce,
+            "img_url": ARCHIVE_PAGES + still if still else "",
+        })
+
+    def bullet_tools(head, kind, skip=lambda s: False):
+        for l in block(head):
+            m = re.match(r'- \[([^\]]+)\]\(([^)\s]+)\):?\s*(.*)', l)
+            if not m or skip(l):
+                continue
+            name, url, desc = m.groups()
+            tools.append({
+                "name": name, "kind": kind, "desc_html": md_inline_html(desc), "desc_text": desc,
+                "cases": [c.upper() for c in re.findall(r'\(#case-([a-z]+\d+)\)', desc)],
+                "code_note_html": "",
+                "code_url": url if ("github.com" in url or "gitlab.com" in url) else "",
+                "page_url": "" if ("github.com" in url or "gitlab.com" in url) else url,
+                "announce_url": "", "img_url": "",
+            })
+
+    # OpenTheme and similar entries are FreeCAD resources, not tools for agents
+    bullet_tools("### CAD and BIM tooling", "CAD and BIM tooling", skip=lambda s: "rather than agent tooling" in s)
+    bullet_tools("## Resources", "Resources")
+
+    kind_to_group = {k: g for g, _, ks in TOOL_GROUPS for k in ks}
+    for i, t in enumerate(tools):
+        t["group"] = kind_to_group.get(t["kind"], t["kind"][:1].upper() + t["kind"][1:])
+        t["order_index"] = 10000 + i
+        t["case_links"] = [(c, case_domain[c]) for c in t["cases"] if c in case_domain]
+    return tools
+
+
+def render_tool_tile_html(tool):
+    short = next((s for g, s, _ in TOOL_GROUPS if g == tool["group"]), tool["group"])
+    name_html = (f'<a href="{html_escape(tool["page_url"] or tool["code_url"])}" target="_blank" rel="noopener noreferrer" class="tile-desc-link">{html_escape(tool["name"])}</a>'
+                 if (tool["page_url"] or tool["code_url"]) else html_escape(tool["name"]))
+    if tool["img_url"]:
+        media = f'''<div class="tile-img-wrap tool-img-wrap">
+        <img src="{html_escape(tool["img_url"])}" alt="{html_escape(tool["name"])}" loading="lazy">
+        <div class="tile-badges-overlay"><span class="tile-badge-id">Tool</span><span class="tile-badge-rank tool-kind-badge">{html_escape(short)}</span></div>
+      </div>'''
+    else:
+        media = f'<div class="tool-head-strip"><span class="tile-badge-id">Tool</span><span class="tool-kind-badge">{html_escape(short)}</span></div>'
+    cases_html = ""
+    if tool["case_links"]:
+        chips = "".join(f'<a href="#" class="tool-case-chip" onclick="openArchiveCase(\'{c}\', \'{d}\'); return false;" title="Open case {c}">{c}</a>'
+                        for c, d in tool["case_links"])
+        cases_html = f'<div class="tool-cases"><span class="tool-cases-label">Used in</span>{chips}</div>'
+    btns = []
+    if tool["code_url"]:
+        btns.append(f'<a href="{html_escape(tool["code_url"])}" target="_blank" rel="noopener noreferrer" class="tile-btn btn-code" title="Open the source repository"><span>Code</span> ↗</a>')
+    if tool["page_url"] and tool["page_url"] != tool["code_url"]:
+        btns.append(f'<a href="{html_escape(tool["page_url"])}" target="_blank" rel="noopener noreferrer" class="tile-btn btn-interactive" title="Open the tool\'s page"><span>Page</span> ↗</a>')
+    if tool["announce_url"]:
+        btns.append(f'<a href="{html_escape(tool["announce_url"])}" target="_blank" rel="noopener noreferrer" class="tile-btn btn-post" title="Open the vendor announcement"><span>Announcement</span> ↗</a>')
+    note_html = f'<div class="tool-code-note">{tool["code_note_html"]}</div>' if tool["code_note_html"] else ""
+    search_blob = " ".join([tool["name"], tool["kind"], tool["group"], tool["desc_text"], " ".join(tool["cases"])]).lower()
+    return f"""
+    <div class="gallery-tile tool-tile cat-tools" data-domain="tools" data-rank="tool" data-rank-num="9" data-order="{tool['order_index']}" data-id="{html_escape(tool['name'])}" data-author="{html_escape(tool['kind'])}" data-desc="{html_escape(tool['name'] + ' ' + tool['desc_text'])}" data-search="{html_escape(search_blob)}">
+      {media}
+      <div class="tile-meta">
+        <div class="tile-author tool-name">{name_html}</div>
+        <div class="tile-desc tool-desc">{tool['desc_html']}</div>
+        {cases_html}
+        {note_html}
+        <div class="tile-footer"><div class="tile-action-btns">{''.join(btns)}</div></div>
+      </div>
+    </div>
+    """
+
+
+def group_llm_tools(llm_tools):
+    grouped = {}
+    for t in llm_tools:
+        grouped.setdefault(t["group"], []).append(t)
+    order = [g for g, _, _ in TOOL_GROUPS] + [g for g in grouped if g not in {x for x, _, _ in TOOL_GROUPS}]
+    return [(g, grouped[g]) for g in order if g in grouped]
+
+
+def build_gallery_sidebar_html(gallery_items, llm_tools=None):
     grouped = {}
     for item in gallery_items:
         d = item['domain']
@@ -1909,6 +2064,31 @@ def build_gallery_sidebar_html(gallery_items):
         </div>
         ''')
 
+    if llm_tools:
+        sidebar_html.append(f'''
+        <div class="sidebar-domain-group" data-domain="tools" id="nav-group-tools">
+          <a href="#domain-tools" class="sidebar-domain-head" data-domain="tools" onclick="handleSidebarJump(event, 'domain-tools')">
+            <span>LLM Tools</span>
+            <span class="sidebar-domain-count" id="badge-domain-tools">{len(llm_tools)}</span>
+          </a>
+          <ul class="sidebar-sub-list">
+        ''')
+        for g_title, items in group_llm_tools(llm_tools):
+            slug = "tools-" + slugify(g_title)
+            short = next((s for g, s, _ in TOOL_GROUPS if g == g_title), g_title)
+            sidebar_html.append(f'''
+            <li>
+              <a href="#sub-{slug}" class="sidebar-sub-link" data-sub-slug="sub-{slug}" data-domain="tools" onclick="handleSidebarJump(event, 'sub-{slug}')">
+                <span class="sub-name" title="{g_title}">{short}</span>
+                <span class="sub-cnt" id="badge-sub-{slug}">{len(items)}</span>
+              </a>
+            </li>
+            ''')
+        sidebar_html.append('''
+          </ul>
+        </div>
+        ''')
+
     sidebar_html.append('''
       </nav>
       <div class="sidebar-extra-section" style="margin-top: 1.25rem; padding-top: 0.85rem; border-top: 1px solid var(--border-subtle);">
@@ -1921,7 +2101,45 @@ def build_gallery_sidebar_html(gallery_items):
     ''')
     return "\n".join(sidebar_html)
 
-def build_gallery_sections_html(gallery_items):
+def build_gallery_sections_html(gallery_items, llm_tools=None):
+    html = [build_case_sections_html(gallery_items)]
+    if llm_tools:
+        n = len(llm_tools)
+        html.append(f'''
+        <section class="gallery-domain-section tools-domain-section" id="domain-tools" data-domain="tools">
+          <div class="gallery-domain-header">
+            <div class="domain-header-left">
+              <span class="domain-label-badge">Tools</span>
+              <h3 class="gallery-domain-title">Tools for LLM Agents</h3>
+            </div>
+            <span class="domain-count-badge" id="domain-head-cnt-tools">
+              <span class="domain-visible-cnt" id="cnt-domain-tools">{n}</span> Tools
+            </span>
+          </div>
+          <p class="domain-header-desc">{n} MCP servers, coding agents, plug-ins, robot harnesses, simulators, design applications and resources that models use in the archived cases, as listed in the companion archive. They are not cases: they carry no rank and are not counted in the case totals.</p>
+        ''')
+        for g_title, items in group_llm_tools(llm_tools):
+            slug = "tools-" + slugify(g_title)
+            html.append(f'''
+          <div class="gallery-subsection-block" id="sub-{slug}" data-domain="tools" data-sub-slug="sub-{slug}" data-sub="{g_title}">
+            <div class="gallery-subsection-header">
+              <h4 class="gallery-subsection-title">{g_title}</h4>
+              <span class="gallery-subsection-badge">
+                <span class="sub-visible-cnt" id="cnt-sub-{slug}">{len(items)}</span> tools
+              </span>
+            </div>
+            <div class="gallery-tiles-grid" id="grid-sub-{slug}">
+              {"".join(render_tool_tile_html(t) for t in items)}
+            </div>
+          </div>
+            ''')
+        html.append('''
+        </section>
+        ''')
+    return "\n".join(html)
+
+
+def build_case_sections_html(gallery_items):
     grouped = {}
     for item in gallery_items:
         d = item['domain']
@@ -2046,8 +2264,10 @@ def build_full_html():
     bib_urls = parse_bib_urls()
     cases = parse_case_index(bib_urls)
     gallery_items = get_gallery_items(cases, readme_text)
-    gallery_sidebar_html = build_gallery_sidebar_html(gallery_items)
-    gallery_sections_html = build_gallery_sections_html(gallery_items)
+    llm_tools = parse_llm_tools(readme_text, gallery_items)
+    tools_count = len(llm_tools)
+    gallery_sidebar_html = build_gallery_sidebar_html(gallery_items, llm_tools)
+    gallery_sections_html = build_gallery_sections_html(gallery_items, llm_tools)
     paper_html = add_intrinsic_image_sizes(convert_paper_html(bib_urls))
     paper_toc_html = build_paper_toc_html(paper_html)
     benchmarks_section_html = build_benchmarks_section_html(readme_text)
@@ -2152,7 +2372,7 @@ def build_full_html():
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=20260928-headings">
+  <link rel="stylesheet" href="css/style.css?v=20261004-tools">
 </head>
 <body id="top">
 
@@ -2559,6 +2779,9 @@ def build_full_html():
               <button class="filter-pill domain-pill" aria-pressed="false" data-domain="animation" onclick="setDomainFilter('animation')">
                 Animation &amp; Motion ({anim_count})
               </button>
+              <button class="filter-pill domain-pill tools-pill" aria-pressed="false" data-domain="tools" onclick="setDomainFilter('tools')" title="Tools that models use in the archived cases; not cases">
+                LLM Tools ({tools_count})
+              </button>
             </div>
           </div>
 
@@ -2576,7 +2799,7 @@ def build_full_html():
               </select>
             </div>
             <div class="filter-status-text" aria-live="polite">
-              Showing <strong id="gallery-visible-count">{total_count}</strong> of {total_count} cases
+              Showing <strong id="gallery-visible-count">{total_count}</strong> of {total_count} cases<span class="tools-count-text"> · <strong id="gallery-visible-tools">{tools_count}</strong> of {tools_count} tools</span>
             </div>
           </div>
         </div>
@@ -2840,6 +3063,7 @@ def build_full_html():
       var q = (document.getElementById('gallery-search').value || '').toLowerCase().trim();
       var tiles = document.querySelectorAll('.gallery-tile');
       var visibleCount = 0;
+      var toolCount = 0;  // tools are not cases: counted apart
       var subCounts = {{}};
       var domainCounts = {{}};
 
@@ -2855,7 +3079,7 @@ def build_full_html():
 
         if (matchesDomain && matchesRank && matchesSearch) {{
           t.style.display = 'flex';
-          visibleCount++;
+          if (d === 'tools') toolCount++; else visibleCount++;
           var parentBlock = t.closest('.gallery-subsection-block');
           if (parentBlock) {{
             var slug = parentBlock.getAttribute('data-sub-slug');
@@ -2926,8 +3150,10 @@ def build_full_html():
       if (countEl) {{
         countEl.innerText = visibleCount;
       }}
+      var toolsEl = document.getElementById('gallery-visible-tools');
+      if (toolsEl) toolsEl.innerText = toolCount;
       var emptyEl = document.getElementById('gallery-empty-state');
-      if (emptyEl) emptyEl.hidden = visibleCount !== 0;
+      if (emptyEl) emptyEl.hidden = (visibleCount + toolCount) !== 0;
     }}
 
     function resetGalleryFilters(domain) {{
