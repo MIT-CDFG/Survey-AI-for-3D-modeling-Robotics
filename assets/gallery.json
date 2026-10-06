@@ -4888,7 +4888,7 @@
     "code_label2": "",
     "demo_url": "https://www.airsup.ai/lab/euv-lithography",
     "demo_label": "airsup lab: EUV lithography",
-    "model": "Claude Opus 5.5 (confirmed by the author in a private reply to the archive's maintainers on 2026-10-05; the post does not name a model)",
+    "model": "Claude Opus 5.5 (confirmed by the author; the post does not name a model)",
     "tools": "not stated in the post"
   },
   {
@@ -5168,7 +5168,7 @@
     "code_label2": "",
     "demo_url": "https://www.airsup.ai/lab/flying-suit",
     "demo_label": "airsup lab: flying suit",
-    "model": "Claude Opus 5.5 (confirmed by the author in a private reply to the archive's maintainers on 2026-10-05; the page does not name a model)",
+    "model": "Claude Opus 5.5 (confirmed by the author; the page does not name a model)",
     "tools": "not stated"
   },
   {
@@ -5224,7 +5224,7 @@
     "code_label2": "",
     "demo_url": "",
     "demo_label": "Interactive Demo",
-    "model": "Claude Opus 5.5 (confirmed by the author in a private reply to the archive's maintainers on 2026-10-05; the post does not name a model)",
+    "model": "Claude Opus 5.5 (confirmed by the author; the post does not name a model)",
     "tools": "not stated in the post"
   },
   {
@@ -5252,7 +5252,7 @@
     "code_label2": "",
     "demo_url": "",
     "demo_label": "Interactive Demo",
-    "model": "Claude Opus 5.5 (confirmed by the author in a private reply to the archive's maintainers on 2026-10-05; the post does not name a model)",
+    "model": "Claude Opus 5.5 (confirmed by the author; the post does not name a model)",
     "tools": "not stated in the post"
   },
   {
