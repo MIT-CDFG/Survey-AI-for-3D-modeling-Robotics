@@ -704,7 +704,8 @@ def get_gallery_items(cases, readme_text=None):
     RAW_GITHUB_BASE = "https://raw.githubusercontent.com/Frank-ZY-Dou/awesome-ai-3d-modeling-robotics/main/"
     sections = re.split(r"\n##\s+", readme_text)
     items = []
-    field_keys = ["Model:", "Code:", "Demo:", "Tools:", "Archived copy:"]
+    # The last three only end the field before them: M113, R40 and R50 put them on the Model line.
+    field_keys = ["Model:", "Code:", "Demo:", "Tools:", "Archived copy:", "Follow-up:", "Also shared by:", "Links:"]
 
     for sec in sections:
         sec_lines = sec.strip().split("\n")
@@ -818,8 +819,9 @@ def get_gallery_items(cases, readme_text=None):
                         demo_label = dm.group(1).strip()
                         demo_url = dm.group(2).strip()
                         
-                model_name = fields.get("Model", "")
-                tools_name = fields.get("Tools", "")
+                # The case viewer shows these as plain text, so keep only a link's text.
+                model_name = re.sub(r"\[([^\]]+)\]\([^)\s]+\)", r"\1", fields.get("Model", ""))
+                tools_name = re.sub(r"\[([^\]]+)\]\([^)\s]+\)", r"\1", fields.get("Tools", ""))
                 archived_val = fields.get("Archived copy", "")
                 
                 # Extract video url
