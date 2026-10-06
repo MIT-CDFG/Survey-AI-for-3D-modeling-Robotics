@@ -4888,11 +4888,291 @@
     "code_label2": "",
     "demo_url": "https://www.airsup.ai/lab/euv-lithography",
     "demo_label": "airsup lab: EUV lithography",
-    "model": "Unnamed LLM (series-level attribution; the post does not name a model)",
+    "model": "Claude Opus 5.5 (confirmed by the author in a private reply to the archive's maintainers on 2026-10-05; the post does not name a model)",
     "tools": "not stated in the post"
   },
   {
     "order_index": 174,
+    "id": "M174",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Roman Space Telescope simulated in the browser: its orbit, dark matter and planets without a star",
+    "author": "Konstantin Saifoulline (@konstantinsaifo)",
+    "coauthors": [],
+    "source_url": "https://x.com/konstantinsaifo/status/2106009269308932317",
+    "platform": "X",
+    "desc": "The author writes \"Hubble would need 667 pictures to map the Andromeda galaxy. NASA's new telescope needs 14\" and \"I asked Claude Opus 5.5 to simulate what it will see: its orbit, dark matter, planets with no star\", adding \"Nothing in it is drawn. It is all computed.\" [A reply](https://x.com/konstantinsaifo/status/2106009275122245735) links the page and explains that the orbit is solved from the Sun\u2013Earth three-body problem, the planets come from the lens equation and the star's six spikes are an FFT of Roman's own mirror. The clip shows the telescope, its tiled field of view over the Andromeda galaxy, a field of galaxies and a diffraction pattern with six spikes. The post does not establish the scientific accuracy of the simulation.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m174-opus55-roman-telescope-konstantin.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m174-opus55-roman-telescope-konstantin.jpg",
+    "rel_img": "assets/images/m174-opus55-roman-telescope-konstantin.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m174-opus55-roman-telescope-konstantin.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://www.airsup.ai/lab/roman",
+    "demo_label": "airsup lab: Roman Space Telescope",
+    "model": "Claude Opus 5.5",
+    "tools": "not stated in the post"
+  },
+  {
+    "order_index": 175,
+    "id": "M175",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "The Line finished at full length on a curved Earth",
+    "author": "Konstantin Saifoulline (@konstantinsaifo)",
+    "coauthors": [],
+    "source_url": "https://x.com/konstantinsaifo/status/2106358590864818604",
+    "platform": "X",
+    "desc": "The author writes \"Saudi Arabia stopped building The Line after 2.4 km. So I had Claude Opus 5.5 finish it. All 170 km, true scale, on a curved Earth\", noting that \"The Earth bulges 567 m along it. The building is 500 m tall.\" [A reply](https://x.com/konstantinsaifo/status/2106358593540812958) links the page and lists real sun positions for 28\u00b0N, a 20-minute train timed from the distance and the Earth's curvature in every frame. The clip flies along the mirrored wall across the desert, through the green interior and over a cut-away of its transit spine. The post does not establish the accuracy of the model.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m175-opus55-the-line-konstantin.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m175-opus55-the-line-konstantin.jpg",
+    "rel_img": "assets/images/m175-opus55-the-line-konstantin.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m175-opus55-the-line-konstantin.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://www.airsup.ai/lab/the-line",
+    "demo_label": "airsup lab: The Line",
+    "model": "Claude Opus 5.5",
+    "tools": "not stated in the post"
+  },
+  {
+    "order_index": 176,
+    "id": "M176",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Metal 3D printer building a copper rocket engine, in the browser",
+    "author": "Konstantin Saifoulline (@konstantinsaifo)",
+    "coauthors": [],
+    "source_url": "https://x.com/konstantinsaifo/status/2106378121557782950",
+    "platform": "X",
+    "desc": "The author writes \"This rocket engine started as a pile of copper dust\" and \"I had Claude Opus 5.5 build the metal 3D printer that makes it, so you can watch. Four lasers, one blade, 9,625 layers, and 36 cooling channels hidden inside the wall.\" [A reply](https://x.com/konstantinsaifo/status/2106378123918934193) gives the print time as \"about 6 days\" and links the page, where the powder can be cut open, copper swapped for Inconel and the build fast-forwarded. The clip shows the lasers over the powder bed, the blade spreading a new layer, the layer count and the finished one-piece engine. The post does not establish the technical accuracy of the explanations.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m176-opus55-metal-printer-konstantin.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m176-opus55-metal-printer-konstantin.jpg",
+    "rel_img": "assets/images/m176-opus55-metal-printer-konstantin.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m176-opus55-metal-printer-konstantin.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://www.airsup.ai/lab/printer",
+    "demo_label": "airsup lab: metal 3D printer",
+    "model": "Claude Opus 5.5",
+    "tools": "not stated in the post"
+  },
+  {
+    "order_index": 177,
+    "id": "M177",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "The internet you can see: sea-floor cables, 75,000 networks and the Facebook outage",
+    "author": "Konstantin Saifoulline (@konstantinsaifo)",
+    "coauthors": [],
+    "source_url": "https://x.com/konstantinsaifo/status/2106447196593819648",
+    "platform": "X",
+    "desc": "The author writes \"5 years ago today, Facebook deleted itself from the internet for 6 hours. So I had Claude Opus 5.5 build the internet you can actually see. The cables on the sea floor, the 75,000 networks, and the moment Facebook vanished from all of them\", adding \"Then you get to cut the cables yourself.\" [A reply](https://x.com/konstantinsaifo/status/2106447199001334226) links the page and cites real cable routes and latencies, with the sound synthesised live in the browser. The clip shows data-center clusters on a globe, a cut-away cable, a cloud of networks and a cable ship at sea. The post does not establish the technical accuracy of the simulation.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m177-opus55-internet-konstantin.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m177-opus55-internet-konstantin.jpg",
+    "rel_img": "assets/images/m177-opus55-internet-konstantin.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m177-opus55-internet-konstantin.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://www.airsup.ai/lab/internet",
+    "demo_label": "airsup lab: the internet",
+    "model": "Claude Opus 5.5",
+    "tools": "not stated in the post"
+  },
+  {
+    "order_index": 178,
+    "id": "M178",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Live warehouse with trucks, forklifts and sorting chutes, in the browser",
+    "author": "Konstantin Saifoulline (@konstantinsaifo)",
+    "coauthors": [],
+    "source_url": "https://x.com/konstantinsaifo/status/2106855420237169107",
+    "platform": "X",
+    "desc": "The author writes \"Most warehouses run on spreadsheets so Opus 5.5 build one you can actually watch. Trucks reverse onto the dock, forklifts unload and boxes slide down chutes onto the right truck.\" [A reply](https://x.com/konstantinsaifo/status/2106855427594150049) links the page, where any truck, forklift, robot or person can be followed, the scene switched to night and the clock run 8\u00d7 faster; [a later reply](https://x.com/konstantinsaifo/status/2106867614014402856) shows night operations. The clip shows the warehouse from above, with docks, storage racks, a worker and live counters. The post does not establish that the simulation matches a real warehouse.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m178-opus55-warehouse-konstantin.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m178-opus55-warehouse-konstantin.jpg",
+    "rel_img": "assets/images/m178-opus55-warehouse-konstantin.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m178-opus55-warehouse-konstantin.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://www.airsup.ai/lab/warehouse",
+    "demo_label": "airsup lab: live warehouse",
+    "model": "Claude Opus 5.5",
+    "tools": "not stated in the post"
+  },
+  {
+    "order_index": 179,
+    "id": "M179",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Inside Starship at the speed of sound, cut in half in the browser",
+    "author": "Konstantin Saifoulline (@konstantinsaifo)",
+    "coauthors": [],
+    "source_url": "https://x.com/konstantinsaifo/status/2106876514423951569",
+    "platform": "X",
+    "desc": "The author writes \"Starship, 45 seconds after liftoff, going through the speed of sound just above the clouds\" and \"I asked Claude Opus 5.5 to freeze that moment so you can cut it in half: two tanks of liquid oxygen, two of methane, a pipe of methane falling straight through the oxygen, 39 Raptor 3 engines.\" [A reply](https://x.com/konstantinsaifo/status/2106876517556813968) answers that \"almost 9 out of every 10 tonnes on the pad are propellant\" and links the page. The clip, captioned \"Almost all propellant\", \"33 Raptor 3 engines\" and \"Two rockets, stacked\", cuts the stack open above the clouds. The author's [Starship flight simulation](#case-m165) is listed separately. The post does not establish the technical accuracy of the explanations.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m179-opus55-inside-starship-konstantin.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m179-opus55-inside-starship-konstantin.jpg",
+    "rel_img": "assets/images/m179-opus55-inside-starship-konstantin.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m179-opus55-inside-starship-konstantin.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://www.airsup.ai/lab/starship",
+    "demo_label": "airsup lab: Inside Starship",
+    "model": "Claude Opus 5.5",
+    "tools": "not stated in the post"
+  },
+  {
+    "order_index": 180,
+    "id": "M180",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Full-size fusion power station you can take apart in the browser",
+    "author": "Konstantin Saifoulline (@konstantinsaifo)",
+    "coauthors": [],
+    "source_url": "https://x.com/konstantinsaifo/status/2107156211154170098",
+    "platform": "X",
+    "desc": "The author writes \"Last week Claude Opus 5.5 built a fusion reactor you can take apart in your browser. So I asked it for the full size one ($30 billion)\", describing \"a 50 m cryostat, 16 magnets at minus 269 \u00b0C, 3,000 MW of fusion\" and every cable and pipe running to the cryoplant, magnet power supplies, steam generators, turbine and \"a 500 kV line to a city\". [A reply](https://x.com/konstantinsaifo/status/2107156213926445123) gives the fuel use as about 770 g of hydrogen a day for 1,000 MW on the grid and links the page. The clip shows the plasma inside the tokamak, the plant and a power line running to a city at night. The author's [smaller fusion reactor](#case-m114) is listed separately. The post does not establish the physical accuracy of the model.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m180-opus55-fusion-plant-konstantin.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m180-opus55-fusion-plant-konstantin.jpg",
+    "rel_img": "assets/images/m180-opus55-fusion-plant-konstantin.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m180-opus55-fusion-plant-konstantin.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://www.airsup.ai/lab/fusion-plant",
+    "demo_label": "airsup lab: fusion power station",
+    "model": "Claude Opus 5.5",
+    "tools": "not stated in the post"
+  },
+  {
+    "order_index": 181,
+    "id": "M181",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Tunnel boring machine you can cut in half in the browser",
+    "author": "Konstantin Saifoulline (@konstantinsaifo)",
+    "coauthors": [],
+    "source_url": "https://x.com/konstantinsaifo/status/2107173860403724715",
+    "platform": "X",
+    "desc": "The author writes \"I asked Claude Opus 5.5 to build a tunnel boring machine I could cut in half. Then I turned the screw conveyor one notch too fast and the street above it sank.\" [A reply](https://x.com/konstantinsaifo/status/2107173876484419683) links the page, where the machine can be cut open, the ground switched from clay to granite and the screw conveyor dragged \"until the houses crack\". The clip shows the cutter head, the tunnel and the street with houses above it. The post does not establish the physical accuracy of the simulation.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m181-opus55-tunnel-boring-machine-konstantin.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m181-opus55-tunnel-boring-machine-konstantin.jpg",
+    "rel_img": "assets/images/m181-opus55-tunnel-boring-machine-konstantin.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m181-opus55-tunnel-boring-machine-konstantin.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://www.airsup.ai/lab/tunnel-boring-machine",
+    "demo_label": "airsup lab: tunnel boring machine",
+    "model": "Claude Opus 5.5",
+    "tools": "not stated in the post"
+  },
+  {
+    "order_index": 182,
+    "id": "M182",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Asteroid impact in the ocean near a city, on a table in the browser",
+    "author": "Konstantin Saifoulline (@konstantinsaifo)",
+    "coauthors": [],
+    "source_url": "https://x.com/konstantinsaifo/status/2107240869476884774",
+    "platform": "X",
+    "desc": "The author asks \"What happens if a 1 km asteroid lands in the ocean 40 km from a city?\" and writes \"Claude Opus 5.5 built it on a table so I could watch: the hole it punches in the sea, the wave it makes, and the 10 minutes before it reaches the streets.\" [A reply](https://x.com/konstantinsaifo/status/2107240873742508231) links the page and notes that below about 60 m the asteroid explodes in the air and that around 150 m the wave starts to matter. [A quote post](https://x.com/konstantinsaifo/status/2107242156767256743) drops an iron asteroid on the edge of a 12 km city built by the model, and [a later post](https://x.com/konstantinsaifo/status/2107249472983978109) shows an impact on land. The clip shows the crater opening in the sea, the wave and the coast on a cut-away table. The posts do not establish the physical accuracy of the simulation.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m182-opus55-asteroid-impact-konstantin.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m182-opus55-asteroid-impact-konstantin.jpg",
+    "rel_img": "assets/images/m182-opus55-asteroid-impact-konstantin.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/m182-opus55-asteroid-impact-konstantin.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://www.airsup.ai/lab/asteroid-impact",
+    "demo_label": "airsup lab: asteroid impact",
+    "model": "Claude Opus 5.5",
+    "tools": "not stated in the post"
+  },
+  {
+    "order_index": 183,
+    "id": "M183",
+    "domain": "3d",
+    "subsection": "Education and explanation",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Flying suit with titanium armour and six jet turbines, in the airsup lab",
+    "author": "Konstantin Saifoulline (@konstantinsaifo)",
+    "coauthors": [],
+    "source_url": "https://www.airsup.ai/lab/flying-suit",
+    "platform": "airsup.ai",
+    "desc": "An exhibit in the author's airsup lab, published without a separate post; the page is undated and was listed in the lab's sitemap on 2026-10-01. The page describes \"A flying suit built from parts that exist today: titanium armour over an exoskeleton, a battery to walk and six jet turbines to fly. 162 kg of suit, 242 kg with a pilot.\" It shows a red-and-gold suit on a pad with labelled parts, thrust and kerosene readouts, and Stand and Hover modes. The page does not establish that the suit could fly.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m183-opus55-flying-suit-konstantin.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/m183-opus55-flying-suit-konstantin.jpg",
+    "rel_img": "assets/images/m183-opus55-flying-suit-konstantin.jpg",
+    "video_url": "",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://www.airsup.ai/lab/flying-suit",
+    "demo_label": "airsup lab: flying suit",
+    "model": "Claude Opus 5.5 (confirmed by the author in a private reply to the archive's maintainers on 2026-10-05; the page does not name a model)",
+    "tools": "not stated"
+  },
+  {
+    "order_index": 184,
     "id": "M116",
     "domain": "3d",
     "subsection": "Education and explanation",
@@ -4920,7 +5200,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 175,
+    "order_index": 185,
     "id": "M165",
     "domain": "3d",
     "subsection": "Education and explanation",
@@ -4944,11 +5224,11 @@
     "code_label2": "",
     "demo_url": "",
     "demo_label": "Interactive Demo",
-    "model": "Unnamed LLM (series-level attribution; the post does not name a model)",
+    "model": "Claude Opus 5.5 (confirmed by the author in a private reply to the archive's maintainers on 2026-10-05; the post does not name a model)",
     "tools": "not stated in the post"
   },
   {
-    "order_index": 176,
+    "order_index": 186,
     "id": "M166",
     "domain": "3d",
     "subsection": "Education and explanation",
@@ -4972,11 +5252,11 @@
     "code_label2": "",
     "demo_url": "",
     "demo_label": "Interactive Demo",
-    "model": "Unnamed LLM (series-level attribution; the post does not name a model)",
+    "model": "Claude Opus 5.5 (confirmed by the author in a private reply to the archive's maintainers on 2026-10-05; the post does not name a model)",
     "tools": "not stated in the post"
   },
   {
-    "order_index": 177,
+    "order_index": 187,
     "id": "I26",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -5004,7 +5284,7 @@
     "tools": "Claude Code; FreeCAD; FreeCAD MCP"
   },
   {
-    "order_index": 178,
+    "order_index": 188,
     "id": "I32",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -5032,7 +5312,7 @@
     "tools": "Codex desktop app plugin extension; text-to-cad"
   },
   {
-    "order_index": 179,
+    "order_index": 189,
     "id": "I36",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -5060,7 +5340,7 @@
     "tools": "STEVE; VibeCAD"
   },
   {
-    "order_index": 180,
+    "order_index": 190,
     "id": "I02",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -5093,7 +5373,7 @@
     "tools": "SolidWorks 2026, MecAgent"
   },
   {
-    "order_index": 181,
+    "order_index": 191,
     "id": "I03",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -5126,7 +5406,7 @@
     "tools": "SolidWorks 2026, MecAgent"
   },
   {
-    "order_index": 182,
+    "order_index": 192,
     "id": "I04",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -5154,7 +5434,7 @@
     "tools": "CGM kernel, Python, MCP"
   },
   {
-    "order_index": 183,
+    "order_index": 193,
     "id": "I09",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -5182,7 +5462,7 @@
     "tools": "Adam harness; Onshape by PTC"
   },
   {
-    "order_index": 184,
+    "order_index": 194,
     "id": "I18",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -5210,7 +5490,7 @@
     "tools": "FreeCAD; FreeCAD MCP"
   },
   {
-    "order_index": 185,
+    "order_index": 195,
     "id": "I23",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -5238,7 +5518,7 @@
     "tools": "FreeCAD; FreeCAD MCP"
   },
   {
-    "order_index": 186,
+    "order_index": 196,
     "id": "I21",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -5266,7 +5546,7 @@
     "tools": "Adam harness; Onshape by PTC"
   },
   {
-    "order_index": 187,
+    "order_index": 197,
     "id": "I22",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -5294,7 +5574,7 @@
     "tools": "SolidWorks 2026; MecAgent"
   },
   {
-    "order_index": 188,
+    "order_index": 198,
     "id": "I28",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -5322,7 +5602,7 @@
     "tools": "NX CAM"
   },
   {
-    "order_index": 189,
+    "order_index": 199,
     "id": "I29",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -5350,7 +5630,7 @@
     "tools": "FreeCAD; FreeCAD MCP"
   },
   {
-    "order_index": 190,
+    "order_index": 200,
     "id": "I33",
     "domain": "cad",
     "subsection": "Parametric CAD and solid modeling",
@@ -5378,7 +5658,35 @@
     "tools": "not stated in the post; SendCutSend for fabrication"
   },
   {
-    "order_index": 191,
+    "order_index": 201,
+    "id": "I37",
+    "domain": "cad",
+    "subsection": "Parametric CAD and solid modeling",
+    "rank_num": 3,
+    "rank": "rank-3",
+    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
+    "rank_title": "Rank 3: Demonstration Media Only",
+    "title": "Raptor 3 modeled as a 255-part STEP file in Claude Code with build123d",
+    "author": "Konstantin Saifoulline (@konstantinsaifo)",
+    "coauthors": [],
+    "source_url": "https://x.com/konstantinsaifo/status/2106786935951745338",
+    "platform": "X",
+    "desc": "The author writes \"I asked Claude Opus 5.5 to CAD a Raptor 3\": \"255 parts, real STEP file\", \"both turbopumps, preburners, injector, regen chamber, gimbal, TVC\", \"exploded view, every part named\", and that the prompt \"make it a Raptor Vacuum\" rebuilt the nozzle to 2.3 m and 107:1. [A reply](https://x.com/konstantinsaifo/status/2106786938229248444) explains that \"Claude Code writes a parametric build123d script (Python on the OpenCascade kernel), runs it, exports STEP plus a mesh\"; [another](https://x.com/konstantinsaifo/status/2106786940188033503) says the geometry comes from public numbers and the internal layout \"is from photos, not SpaceX data, so treat the turbomachinery as a best guess\"; [a third](https://x.com/konstantinsaifo/status/2106786942046089257) credits Jake Fitzgerald's text-to-cad ([I32](#case-i32)). [A later reply](https://x.com/konstantinsaifo/status/2106798345541091497) shows the STL output, and [a revised version](https://x.com/konstantinsaifo/status/2106859262836437326) that evening has 266 parts. The clip shows the engine in a CAD viewer with a part tree, an exploded view and the prompt that turns it into a Raptor Vacuum. The posts do not share the STEP file.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/i37-opus55-raptor3-cad-konstantin.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/i37-opus55-raptor3-cad-konstantin.jpg",
+    "rel_img": "assets/images/i37-opus55-raptor3-cad-konstantin.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/i37-opus55-raptor3-cad-konstantin.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "Claude Opus 5.5",
+    "tools": "Claude Code; build123d (OpenCascade kernel)"
+  },
+  {
+    "order_index": 202,
     "id": "I08",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5406,7 +5714,7 @@
     "tools": "text-to-cad"
   },
   {
-    "order_index": 192,
+    "order_index": 203,
     "id": "I13",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5434,7 +5742,7 @@
     "tools": "KiStack; T3CAD (author's T3Code fork); Bluetooth; microphones; IMU; LED; button"
   },
   {
-    "order_index": 193,
+    "order_index": 204,
     "id": "I20",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5462,7 +5770,7 @@
     "tools": "EasyEDA; tscircuit"
   },
   {
-    "order_index": 194,
+    "order_index": 205,
     "id": "I01",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5490,7 +5798,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 195,
+    "order_index": 206,
     "id": "I06",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5518,7 +5826,7 @@
     "tools": "Blender, macOS app"
   },
   {
-    "order_index": 196,
+    "order_index": 207,
     "id": "I07",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5546,7 +5854,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 197,
+    "order_index": 208,
     "id": "I05",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5574,7 +5882,7 @@
     "tools": ""
   },
   {
-    "order_index": 198,
+    "order_index": 209,
     "id": "I10",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5602,7 +5910,7 @@
     "tools": "STL; 3D printer (model not stated)"
   },
   {
-    "order_index": 199,
+    "order_index": 210,
     "id": "I11",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5630,7 +5938,7 @@
     "tools": "CAD tool not named; Blender"
   },
   {
-    "order_index": 200,
+    "order_index": 211,
     "id": "I12",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5658,7 +5966,7 @@
     "tools": "2D CAD (tool not named); Blender; Godot"
   },
   {
-    "order_index": 201,
+    "order_index": 212,
     "id": "I14",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5686,7 +5994,7 @@
     "tools": "Sentinel; Depence2 mentioned as comparison"
   },
   {
-    "order_index": 202,
+    "order_index": 213,
     "id": "I15",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5714,7 +6022,7 @@
     "tools": "YouTube reference video; modeling tool not named"
   },
   {
-    "order_index": 203,
+    "order_index": 214,
     "id": "I16",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5742,7 +6050,7 @@
     "tools": "Midjourney image; CAD software not named"
   },
   {
-    "order_index": 204,
+    "order_index": 215,
     "id": "I19",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5770,7 +6078,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 205,
+    "order_index": 216,
     "id": "I24",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5798,7 +6106,7 @@
     "tools": "Fusion 360; STEVE"
   },
   {
-    "order_index": 206,
+    "order_index": 217,
     "id": "I25",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5826,7 +6134,7 @@
     "tools": "BrickLink"
   },
   {
-    "order_index": 207,
+    "order_index": 218,
     "id": "I27",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5854,7 +6162,7 @@
     "tools": "Claude Code; KiCad"
   },
   {
-    "order_index": 208,
+    "order_index": 219,
     "id": "I31",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5882,7 +6190,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 209,
+    "order_index": 220,
     "id": "I34",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5910,7 +6218,7 @@
     "tools": "three.js; STL export"
   },
   {
-    "order_index": 210,
+    "order_index": 221,
     "id": "I35",
     "domain": "cad",
     "subsection": "Product design and prototypes",
@@ -5938,7 +6246,63 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 211,
+    "order_index": 222,
+    "id": "I38",
+    "domain": "cad",
+    "subsection": "Product design and prototypes",
+    "rank_num": 3,
+    "rank": "rank-3",
+    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
+    "rank_title": "Rank 3: Demonstration Media Only",
+    "title": "Robot spider designed as Python CAD and walked in MuJoCo",
+    "author": "Konstantin Saifoulline (@konstantinsaifo)",
+    "coauthors": [],
+    "source_url": "https://x.com/konstantinsaifo/status/2107044864038728089",
+    "platform": "X",
+    "desc": "The author writes \"I asked Claude Opus 5.5 to design a robot spider with no CAD software. 500 parts. 30 joints. 6 legs, 2 arms with grippers\", that \"Every part is a Python program. One YAML file holds the numbers. It exports a STEP file, a URDF and a MuJoCo model\", and that in a physics simulation \"It walked on the first try.\" [A reply](https://x.com/konstantinsaifo/status/2107044867666817060) describes the process: a YAML file of dimensions and motor sizes, build123d programs for each part family and a build script that computes masses and writes STEP, URDF and MJCF, all written and edited by Claude and rebuilt in 40 s; [another](https://x.com/konstantinsaifo/status/2107044869814333822) reports the MuJoCo check with torque capped at the motor spec (1.5 m in 6.5 s, peak torque 21 Nm); and [a third](https://x.com/konstantinsaifo/status/2107044878844916014) states \"It is a design, not a built robot.\" The clip shows the orange spider walking and reaching with its grippers.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/i38-opus55-robot-spider-konstantin.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/i38-opus55-robot-spider-konstantin.jpg",
+    "rel_img": "assets/images/i38-opus55-robot-spider-konstantin.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/i38-opus55-robot-spider-konstantin.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "Claude Opus 5.5",
+    "tools": "build123d; MuJoCo"
+  },
+  {
+    "order_index": 223,
+    "id": "I39",
+    "domain": "cad",
+    "subsection": "Product design and prototypes",
+    "rank_num": 3,
+    "rank": "rank-3",
+    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
+    "rank_title": "Rank 3: Demonstration Media Only",
+    "title": "Autonomous robot spider (ARACHNE-XL): 986 parts sized from datasheets, walking over rocks in MuJoCo",
+    "author": "Konstantin Saifoulline (@konstantinsaifo)",
+    "coauthors": [],
+    "source_url": "https://x.com/konstantinsaifo/status/2107146625785205035",
+    "platform": "X",
+    "desc": "The author writes \"I asked Claude Opus 5.5 to design an autonomous robot spider. Not a render. A full build. 986 parts. 30 joints. 55 kg. Lidar, a Jetson, 26 motor drivers\", and that \"it walked across a field of rocks in simulation and never fell.\" Replies [list the stack Claude chose and sized from datasheets](https://x.com/konstantinsaifo/status/2107146629568471183) (a Jetson Orin NX, a Raspberry Pi 5, 26 moteus-n1 drivers, a Livox lidar and two RealSense cameras), [describe the quasi-direct-drive legs](https://x.com/konstantinsaifo/status/2107146635520446679), [report the MuJoCo run](https://x.com/konstantinsaifo/status/2107146639483830343), in which Claude changed 9:1 gearboxes to 12:1 after the front legs exceeded their continuous torque, [show lidar-based foothold selection](https://x.com/konstantinsaifo/status/2107146642977648788) and [explain an ESP32 safety cutoff](https://x.com/konstantinsaifo/status/2107146646299836519); [the last](https://x.com/konstantinsaifo/status/2107146649885982955) states \"It is a full design, not a built robot yet\" and names the open-source software it runs on. The clip shows an exploded view labelled \"ARACHNE-XL\" and the robot walking over rocks. The author's [smaller robot spider](#case-i38) is listed separately.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/i39-opus55-arachne-xl-konstantin.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/i39-opus55-arachne-xl-konstantin.jpg",
+    "rel_img": "assets/images/i39-opus55-arachne-xl-konstantin.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/i39-opus55-arachne-xl-konstantin.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "Claude Opus 5.5",
+    "tools": "Python part programs exporting STEP and URDF; MuJoCo; the design's software stack is OpenSHC, elevation_mapping_cupy, ROS 2 and moteus (per the author)"
+  },
+  {
+    "order_index": 224,
     "id": "I17",
     "domain": "cad",
     "subsection": "BIM drafting",
@@ -5966,7 +6330,7 @@
     "tools": "Revit, BIM Pure Revit MCP, Notion"
   },
   {
-    "order_index": 212,
+    "order_index": 225,
     "id": "I30",
     "domain": "cad",
     "subsection": "BIM drafting",
@@ -5974,7 +6338,7 @@
     "rank": "rank-3",
     "rank_label": "RANK 3 \u00b7 DEMO ONLY",
     "rank_title": "Rank 3: Demonstration Media Only",
-    "title": "One rental floor plan to CAD drawings, a 3D model, Blender renders and a shared web page",
+    "title": "Rental floor plan to CAD drawings, a 3D model, Blender renders and web sharing with Claude Code",
     "author": "\u306f\u3057\u3082\u3068\u793e\u9577 (@hashimoto_no14)",
     "coauthors": [],
     "source_url": "https://x.com/hashimoto_no14/status/2104199889207038132",
@@ -5994,7 +6358,7 @@
     "tools": "Claude Code; Blender; JWW and DXF drawing formats"
   },
   {
-    "order_index": 213,
+    "order_index": 226,
     "id": "R01",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -6022,7 +6386,7 @@
     "tools": "Inspect Robots, IK solver"
   },
   {
-    "order_index": 214,
+    "order_index": 227,
     "id": "R04",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -6050,7 +6414,7 @@
     "tools": "Inspect Robots, I2RT YAM bimanual arms"
   },
   {
-    "order_index": 215,
+    "order_index": 228,
     "id": "R37",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -6078,7 +6442,7 @@
     "tools": "Inspect Robots; I2RT YAM bimanual arms"
   },
   {
-    "order_index": 216,
+    "order_index": 229,
     "id": "R34",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -6106,7 +6470,7 @@
     "tools": "EmbodiedSWE; Isaac Lab; bimanual Franka arms (simulation)"
   },
   {
-    "order_index": 217,
+    "order_index": 230,
     "id": "R45",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -6134,7 +6498,7 @@
     "tools": "Franka arm; AgileX Piper arms"
   },
   {
-    "order_index": 218,
+    "order_index": 231,
     "id": "R49",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -6162,7 +6526,7 @@
     "tools": "AirBot Play arms; Intel RealSense D405 cameras; SAM3"
   },
   {
-    "order_index": 219,
+    "order_index": 232,
     "id": "R05",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -6190,7 +6554,7 @@
     "tools": "MolmoAct2 dataset, Inspect Robots code"
   },
   {
-    "order_index": 220,
+    "order_index": 233,
     "id": "R29",
     "domain": "robotics",
     "subsection": "Manipulation evaluations",
@@ -6218,7 +6582,7 @@
     "tools": "MolmoSpaces-v1"
   },
   {
-    "order_index": 221,
+    "order_index": 234,
     "id": "R39",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -6246,7 +6610,7 @@
     "tools": "Codex; SO-101; Insta360 camera; MuJoCo"
   },
   {
-    "order_index": 222,
+    "order_index": 235,
     "id": "R22",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -6274,7 +6638,7 @@
     "tools": "mobile manipulator (not named in the post)"
   },
   {
-    "order_index": 223,
+    "order_index": 236,
     "id": "R20",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -6302,7 +6666,7 @@
     "tools": "robot hands (setting per the linked page)"
   },
   {
-    "order_index": 224,
+    "order_index": 237,
     "id": "R40",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -6330,7 +6694,7 @@
     "tools": "Unitree G1; Isaac Sim; AMO; RTX 4090 laptop \u00b7 Also shared by: [vigram (@vigram_void)](https://x.com/vigram_void/status/2104420569982849156) (X, 2026-09-28), a commentary that Astra only chooses skills such as navigate(goal) while arm commands run locally at 250 Hz and locomotion at 50 Hz"
   },
   {
-    "order_index": 225,
+    "order_index": 238,
     "id": "R08",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -6358,7 +6722,7 @@
     "tools": "SO-101 arm"
   },
   {
-    "order_index": 226,
+    "order_index": 239,
     "id": "R09",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -6386,7 +6750,7 @@
     "tools": "LeRobot SO-101, third-person RGB camera"
   },
   {
-    "order_index": 227,
+    "order_index": 240,
     "id": "R10",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -6414,7 +6778,7 @@
     "tools": "Wuji2 hand, third-person camera"
   },
   {
-    "order_index": 228,
+    "order_index": 241,
     "id": "R17",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -6442,7 +6806,7 @@
     "tools": "Wuji hand models in physics simulation"
   },
   {
-    "order_index": 229,
+    "order_index": 242,
     "id": "R25",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -6470,7 +6834,7 @@
     "tools": "robot arm and keyboard (setting not stated in the post)"
   },
   {
-    "order_index": 230,
+    "order_index": 243,
     "id": "R19",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -6498,7 +6862,7 @@
     "tools": "Vitrus robotics OS (physical robot)"
   },
   {
-    "order_index": 231,
+    "order_index": 244,
     "id": "R31",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -6526,7 +6890,7 @@
     "tools": "two RGB-D cameras; dual-arm setup (robot not named in the post)"
   },
   {
-    "order_index": 232,
+    "order_index": 245,
     "id": "R44",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -6554,7 +6918,7 @@
     "tools": "robot arm and 3D printer"
   },
   {
-    "order_index": 233,
+    "order_index": 246,
     "id": "R51",
     "domain": "robotics",
     "subsection": "Personal arms, dexterous hands and unseen robots",
@@ -6582,7 +6946,7 @@
     "tools": "the robot's SDK and a camera (per the author)"
   },
   {
-    "order_index": 234,
+    "order_index": 247,
     "id": "R03",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -6615,7 +6979,7 @@
     "tools": "ENPIRE, bimanual arms"
   },
   {
-    "order_index": 235,
+    "order_index": 248,
     "id": "R18",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -6643,7 +7007,7 @@
     "tools": "44-DOF dexterous hand (simulation)"
   },
   {
-    "order_index": 236,
+    "order_index": 249,
     "id": "R33",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -6671,7 +7035,7 @@
     "tools": "NVIDIA Isaac Sim; iPhone"
   },
   {
-    "order_index": 237,
+    "order_index": 250,
     "id": "R46",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -6699,7 +7063,7 @@
     "tools": "ARX X5 or I2RT/YAM arms; RealSense cameras"
   },
   {
-    "order_index": 238,
+    "order_index": 251,
     "id": "R11",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -6727,7 +7091,7 @@
     "tools": "MuJoCo"
   },
   {
-    "order_index": 239,
+    "order_index": 252,
     "id": "R15",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -6755,7 +7119,7 @@
     "tools": "MuJoCo, Blender"
   },
   {
-    "order_index": 240,
+    "order_index": 253,
     "id": "R24",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -6783,7 +7147,7 @@
     "tools": "Blender, Newton, Unitree G1 (simulation)"
   },
   {
-    "order_index": 241,
+    "order_index": 254,
     "id": "R35",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -6811,7 +7175,7 @@
     "tools": "MuJoCo; Blender"
   },
   {
-    "order_index": 242,
+    "order_index": 255,
     "id": "R14",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -6839,7 +7203,7 @@
     "tools": "MolmoAct2 sim_eval (simulation)"
   },
   {
-    "order_index": 243,
+    "order_index": 256,
     "id": "R16",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -6867,7 +7231,7 @@
     "tools": "MuJoCo (simulation)"
   },
   {
-    "order_index": 244,
+    "order_index": 257,
     "id": "R07",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -6895,7 +7259,7 @@
     "tools": "RoboDojo, RoboPianist"
   },
   {
-    "order_index": 245,
+    "order_index": 258,
     "id": "R42",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -6923,7 +7287,7 @@
     "tools": "botrail"
   },
   {
-    "order_index": 246,
+    "order_index": 259,
     "id": "R43",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -6951,7 +7315,7 @@
     "tools": "botrail"
   },
   {
-    "order_index": 247,
+    "order_index": 260,
     "id": "R47",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -6979,7 +7343,7 @@
     "tools": "RoboMME; Codex"
   },
   {
-    "order_index": 248,
+    "order_index": 261,
     "id": "R27",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -7007,7 +7371,7 @@
     "tools": "Dual-ALOHA (setting per the linked demo page)"
   },
   {
-    "order_index": 249,
+    "order_index": 262,
     "id": "R12",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -7035,7 +7399,7 @@
     "tools": "Isaac Lab, Sharpa hand (simulation)"
   },
   {
-    "order_index": 250,
+    "order_index": 263,
     "id": "R26",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -7063,7 +7427,7 @@
     "tools": "Isaac Sim, Unitree G1"
   },
   {
-    "order_index": 251,
+    "order_index": 264,
     "id": "R23",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -7091,7 +7455,7 @@
     "tools": "Fusion 360, reinforcement learning (simulation)"
   },
   {
-    "order_index": 252,
+    "order_index": 265,
     "id": "R02",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -7119,7 +7483,7 @@
     "tools": "SO-ARM101 (as identified in the AIToolHub.co share)"
   },
   {
-    "order_index": 253,
+    "order_index": 266,
     "id": "R28",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -7147,7 +7511,7 @@
     "tools": "Kitchen simulation; revised harness and hardware setup (software not named)"
   },
   {
-    "order_index": 254,
+    "order_index": 267,
     "id": "R32",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -7175,7 +7539,7 @@
     "tools": "MuJoCo (simulation); humanoid robot and whiteboard (simulation)"
   },
   {
-    "order_index": 255,
+    "order_index": 268,
     "id": "R41",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -7203,7 +7567,7 @@
     "tools": "Claude Code; robot arm and whiteboard; MuJoCo (simulation); humanoid robot and whiteboard (simulation)"
   },
   {
-    "order_index": 256,
+    "order_index": 269,
     "id": "R36",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -7231,7 +7595,7 @@
     "tools": "simulator not named; two robot arms (simulation)"
   },
   {
-    "order_index": 257,
+    "order_index": 270,
     "id": "R38",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -7259,7 +7623,7 @@
     "tools": "C5R facility harness; Opentrons Flex; LC-MS"
   },
   {
-    "order_index": 258,
+    "order_index": 271,
     "id": "R48",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -7287,7 +7651,7 @@
     "tools": "MuJoCo"
   },
   {
-    "order_index": 259,
+    "order_index": 272,
     "id": "R52",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -7315,7 +7679,7 @@
     "tools": "Codex CLI; a robot MCP server; the simulator is not named"
   },
   {
-    "order_index": 260,
+    "order_index": 273,
     "id": "R50",
     "domain": "robotics",
     "subsection": "Navigation and mobile robots",
@@ -7343,7 +7707,7 @@
     "tools": "Habitat-Sim with HSSD homes; Pi coding-agent harness \u00b7 Links: [report](https://research.dimensional.org/system-one-navigation/) \u00b7 Follow-up: [Stash Pomichter (@stash_pomichter)](https://x.com/stash_pomichter/status/2101149600044224698) (X, 2026-09-19): an earlier teaser, \"We gave Jev a robot body and handed it complex tasks across navigation, spatial reasoning, and world geometry\", announcing \"120 different real + simulated tasks and environments\" against \"Dimcode, Astra, Fable, Opus, and 5.6\"; [a reply](https://x.com/stash_pomichter/status/2101150479560397233) the same day links the repository ahead of the code release"
   },
   {
-    "order_index": 261,
+    "order_index": 274,
     "id": "R21",
     "domain": "robotics",
     "subsection": "Navigation and mobile robots",
@@ -7371,7 +7735,7 @@
     "tools": "Unitree G1 (simulation)"
   },
   {
-    "order_index": 262,
+    "order_index": 275,
     "id": "R06",
     "domain": "robotics",
     "subsection": "Navigation and mobile robots",
@@ -7399,7 +7763,7 @@
     "tools": "Drone-Bench"
   },
   {
-    "order_index": 263,
+    "order_index": 276,
     "id": "R13",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -7427,7 +7791,7 @@
     "tools": "I2RT YAM bimanual arms, Inspect Robots"
   },
   {
-    "order_index": 264,
+    "order_index": 277,
     "id": "R30",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -7455,7 +7819,7 @@
     "tools": "Discrete-action simulation; native APIs and a separate Claude Code follow-up"
   },
   {
-    "order_index": 265,
+    "order_index": 278,
     "id": "X08",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -7483,7 +7847,7 @@
     "tools": "none"
   },
   {
-    "order_index": 266,
+    "order_index": 279,
     "id": "A18",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -7511,7 +7875,7 @@
     "tools": "Three.js; WebGPU"
   },
   {
-    "order_index": 267,
+    "order_index": 280,
     "id": "A21",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -7539,7 +7903,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 268,
+    "order_index": 281,
     "id": "M21",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -7567,7 +7931,7 @@
     "tools": "Tripo, Blender"
   },
   {
-    "order_index": 269,
+    "order_index": 282,
     "id": "M22",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -7595,7 +7959,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 270,
+    "order_index": 283,
     "id": "M46",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -7623,7 +7987,7 @@
     "tools": "Higgsfield; Blender"
   },
   {
-    "order_index": 271,
+    "order_index": 284,
     "id": "M47",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -7651,7 +8015,7 @@
     "tools": "No tool named"
   },
   {
-    "order_index": 272,
+    "order_index": 285,
     "id": "M89",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -7679,7 +8043,7 @@
     "tools": "Blender; claude.ai"
   },
   {
-    "order_index": 273,
+    "order_index": 286,
     "id": "A09",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -7707,7 +8071,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 274,
+    "order_index": 287,
     "id": "A11",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -7735,7 +8099,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 275,
+    "order_index": 288,
     "id": "A12",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -7763,7 +8127,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 276,
+    "order_index": 289,
     "id": "A25",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -7791,7 +8155,7 @@
     "tools": "ImageGen (as named by the author)"
   },
   {
-    "order_index": 277,
+    "order_index": 290,
     "id": "A15",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -7819,7 +8183,7 @@
     "tools": "Canvas 2D; Web Audio; Claude Code"
   },
   {
-    "order_index": 278,
+    "order_index": 291,
     "id": "X11",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -7847,7 +8211,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 279,
+    "order_index": 292,
     "id": "M90",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -7875,7 +8239,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 280,
+    "order_index": 293,
     "id": "M20",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -7903,7 +8267,7 @@
     "tools": "TouchDesigner"
   },
   {
-    "order_index": 281,
+    "order_index": 294,
     "id": "M52",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -7931,7 +8295,7 @@
     "tools": "Houdini"
   },
   {
-    "order_index": 282,
+    "order_index": 295,
     "id": "M03",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -7959,7 +8323,7 @@
     "tools": "Miomoto"
   },
   {
-    "order_index": 283,
+    "order_index": 296,
     "id": "A02",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -7987,7 +8351,7 @@
     "tools": "Blender; Scenario for Blender; M5 Max MacBook Pro"
   },
   {
-    "order_index": 284,
+    "order_index": 297,
     "id": "A08",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -8015,7 +8379,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 285,
+    "order_index": 298,
     "id": "A14",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -8043,7 +8407,7 @@
     "tools": "Blender; Scenario for Blender"
   },
   {
-    "order_index": 286,
+    "order_index": 299,
     "id": "A16",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -8071,7 +8435,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 287,
+    "order_index": 300,
     "id": "A20",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -8099,7 +8463,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 288,
+    "order_index": 301,
     "id": "A22",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -8127,7 +8491,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 289,
+    "order_index": 302,
     "id": "M28",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -8155,7 +8519,7 @@
     "tools": "three.js, WebGL"
   },
   {
-    "order_index": 290,
+    "order_index": 303,
     "id": "M29",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -8183,7 +8547,7 @@
     "tools": "twigl.app (WebGL)"
   },
   {
-    "order_index": 291,
+    "order_index": 304,
     "id": "A01",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -8211,7 +8575,7 @@
     "tools": "Three.js; WebGL"
   },
   {
-    "order_index": 292,
+    "order_index": 305,
     "id": "A17",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -8239,7 +8603,7 @@
     "tools": "Three.js; WebGPU"
   },
   {
-    "order_index": 293,
+    "order_index": 306,
     "id": "A19",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -8267,7 +8631,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 294,
+    "order_index": 307,
     "id": "A24",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -8295,7 +8659,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 295,
+    "order_index": 308,
     "id": "A03",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -8323,7 +8687,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 296,
+    "order_index": 309,
     "id": "A07",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -8351,7 +8715,7 @@
     "tools": "Three.js; Airsup"
   },
   {
-    "order_index": 297,
+    "order_index": 310,
     "id": "A04",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -8379,7 +8743,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 298,
+    "order_index": 311,
     "id": "A13",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -8407,7 +8771,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 299,
+    "order_index": 312,
     "id": "A23",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -8435,7 +8799,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 300,
+    "order_index": 313,
     "id": "A05",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -8463,7 +8827,7 @@
     "tools": "Cowork"
   },
   {
-    "order_index": 301,
+    "order_index": 314,
     "id": "A06",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -8491,7 +8855,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 302,
+    "order_index": 315,
     "id": "A10",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -8519,7 +8883,7 @@
     "tools": "Three.js; TSL"
   },
   {
-    "order_index": 303,
+    "order_index": 316,
     "id": "M30",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -8547,7 +8911,7 @@
     "tools": "Higgsfield, Seedance 2.5"
   },
   {
-    "order_index": 304,
+    "order_index": 317,
     "id": "M40",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -8575,7 +8939,7 @@
     "tools": "Higgsfield; Blender; After Effects"
   },
   {
-    "order_index": 305,
+    "order_index": 318,
     "id": "M45",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -8603,7 +8967,7 @@
     "tools": "Blender; FLORA"
   },
   {
-    "order_index": 306,
+    "order_index": 319,
     "id": "M70",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -8631,7 +8995,7 @@
     "tools": "Blender; MCP; Magnific; MiniMax H3 named as an example"
   },
   {
-    "order_index": 307,
+    "order_index": 320,
     "id": "M76",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -8659,7 +9023,7 @@
     "tools": "Codex; Blender"
   },
   {
-    "order_index": 308,
+    "order_index": 321,
     "id": "M83",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
