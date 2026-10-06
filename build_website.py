@@ -899,6 +899,23 @@ def get_gallery_items(cases, readme_text=None):
 
     return items
 
+def count_benchmark_rows(readme_text):
+    """Rows in the archive's two benchmark tables: (robotics, 3D/CAD/spatial)."""
+    lines = readme_text.split("\n")
+    def rows(head):
+        if head not in lines:
+            return 0
+        a = lines.index(head)
+        n = 0
+        for l in lines[a + 1:]:
+            if l.startswith("### ") or l.startswith("## "):
+                break
+            if l.startswith("| ") and not l.startswith("| Evaluation |"):
+                n += 1
+        return n
+    return rows("### Robotics and embodied"), rows("### 3D, CAD and spatial")
+
+
 def parse_benchmarks_section(readme_text):
     m = re.search(r'## Benchmarks\s*(.*?)(?=\n## |\Z)', readme_text, re.DOTALL)
     if not m:
@@ -975,6 +992,7 @@ def parse_benchmarks_section(readme_text):
 
 def build_benchmarks_section_html(readme_text):
     intro, robotics_table, cad_table, notes_html = parse_benchmarks_section(readme_text)
+    n_robot, n_cad = count_benchmark_rows(readme_text)
     
     html = f'''
         <!-- Quantitative Benchmark Section -->
@@ -986,7 +1004,7 @@ def build_benchmarks_section_html(readme_text):
           </p>
 
           <h4 style="font-family: var(--font-sans); font-size: 1.05rem; font-weight: 700; color: var(--ink-primary); margin: 1.5rem 0 0.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
-            <span>2.1 Robotics &amp; Embodied Control Evaluations (23 Benchmark Suites)</span>
+            <span>2.1 Robotics &amp; Embodied Control Evaluations ({n_robot} Benchmark Suites)</span>
             <span style="font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 4px; background: #e0f2fe; color: #0369a1;">Isaac Sim · MuJoCo · Real Hardware</span>
           </h4>
           <div class="table-scroll-hint" aria-hidden="true">Swipe sideways to see every column →</div>
@@ -995,7 +1013,7 @@ def build_benchmarks_section_html(readme_text):
           </div>
 
           <h4 style="font-family: var(--font-sans); font-size: 1.05rem; font-weight: 700; color: var(--ink-primary); margin: 2.25rem 0 0.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
-            <span>2.2 3D Reconstruction, CAD &amp; Spatial Intelligence (7 Benchmark Suites)</span>
+            <span>2.2 3D Reconstruction, CAD &amp; Spatial Intelligence ({n_cad} Benchmark Suites)</span>
             <span style="font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 4px; background: #fef3c7; color: #b45309;">CadQuery · B-rep · Spatial VQA</span>
           </h4>
           <div class="table-scroll-hint" aria-hidden="true">Swipe sideways to see every column →</div>
@@ -2010,7 +2028,7 @@ def group_llm_tools(llm_tools):
     return [(g, grouped[g]) for g in order if g in grouped]
 
 
-def build_gallery_sidebar_html(gallery_items, llm_tools=None):
+def build_gallery_sidebar_html(gallery_items, llm_tools=None, n_suites=None):
     grouped = {}
     for item in gallery_items:
         d = item['domain']
@@ -2094,12 +2112,12 @@ def build_gallery_sidebar_html(gallery_items, llm_tools=None):
       <div class="sidebar-extra-section" style="margin-top: 1.25rem; padding-top: 0.85rem; border-top: 1px solid var(--border-subtle);">
         <a href="#benchmarks" class="sidebar-domain-head" onclick="openBenchmarks(event)" style="color: var(--mit-red); display: flex; align-items: center; justify-content: space-between; text-decoration: none; font-weight: 600;">
           <span>Quantitative Benchmarks ↗</span>
-          <span class="sidebar-domain-count">30 Suites</span>
+          <span class="sidebar-domain-count">@@NSUITES@@ Suites</span>
         </a>
       </div>
     </aside>
     ''')
-    return "\n".join(sidebar_html)
+    return "\n".join(sidebar_html).replace("@@NSUITES@@", str(n_suites if n_suites is not None else ""))
 
 def build_gallery_sections_html(gallery_items, llm_tools=None):
     html = [build_case_sections_html(gallery_items)]
@@ -2266,7 +2284,7 @@ def build_full_html():
     gallery_items = get_gallery_items(cases, readme_text)
     llm_tools = parse_llm_tools(readme_text, gallery_items)
     tools_count = len(llm_tools)
-    gallery_sidebar_html = build_gallery_sidebar_html(gallery_items, llm_tools)
+    gallery_sidebar_html = build_gallery_sidebar_html(gallery_items, llm_tools, n_suites=sum(count_benchmark_rows(readme_text)))
     gallery_sections_html = build_gallery_sections_html(gallery_items, llm_tools)
     paper_html = add_intrinsic_image_sizes(convert_paper_html(bib_urls))
     paper_toc_html = build_paper_toc_html(paper_html)
