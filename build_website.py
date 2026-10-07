@@ -207,7 +207,15 @@ def clean_desc_text(text):
         else:
             text = text.lstrip("[").rstrip("]")
     text = text.replace("]", "").replace("[", "")
-    return latex_to_unicode(text.strip())
+    return tex_plain(latex_to_unicode(text.strip()))
+
+
+def tex_plain(text):
+    r"""Escaped symbols and TeX quotes as plain text for the page (\% -> %, ``x'' -> “x”)."""
+    for a, b in ((r"\%", "%"), (r"\$", "$"), (r"\#", "#"), (r"\&", "&"), (r"\_", "_")):
+        text = text.replace(a, b)
+    text = text.replace("``", "“").replace("''", "”")
+    return html_escape(text, quote=False)
 
 def parse_bib_urls():
     bib_urls = {}
@@ -558,7 +566,7 @@ def build_appendix_c_html(bib_urls, gallery_items=None, intro_html="", caption_h
                         "rank_badge": rank_badge,
                         "type": ptype.strip(),
                         "desc": clean_desc_text(desc),
-                        "author": latex_to_unicode(author.strip().replace(r"\_", "_")),
+                        "author": tex_plain(latex_to_unicode(author.strip())),
                         "platform": platform.strip(),
                         "date": date.strip(),
                         "cite_key": cite_key.strip(),
