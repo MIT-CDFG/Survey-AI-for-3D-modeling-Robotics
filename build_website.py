@@ -1884,7 +1884,7 @@ def render_tile_html(item):
     """
 
 # ---------------------------------------------------------------------------
-# LLM tools: the archive's tool table, CAD and BIM tooling list and Resources,
+# LLM tools: the archive's tool table, CAD and BIM and 2D tooling lists and Resources,
 # shown as their own gallery category. Tools are not cases: no rank, not counted.
 # ---------------------------------------------------------------------------
 ARCHIVE_PAGES = "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/"
@@ -1899,6 +1899,7 @@ TOOL_GROUPS = [
     ("Vendor agentic modes", "Vendor Agentic Modes", ["vendor agentic mode"]),
     ("AI design applications", "AI Design Apps", ["AI-native CAD application", "vendor AI design platform"]),
     ("CAD and BIM tooling", "CAD & BIM Tooling", ["CAD and BIM tooling"]),
+    ("2D image, video and design tooling", "2D Image, Video & Design", ["2D image, video and design tooling"]),
     ("Resources", "Resources", ["Resources"]),
 ]
 
@@ -1981,6 +1982,7 @@ def parse_llm_tools(readme_text, gallery_items):
 
     # OpenTheme and similar entries are FreeCAD resources, not tools for agents
     bullet_tools("### CAD and BIM tooling", "CAD and BIM tooling", skip=lambda s: "rather than agent tooling" in s)
+    bullet_tools("### 2D image, video and design tooling", "2D image, video and design tooling")
     bullet_tools("## Resources", "Resources")
 
     kind_to_group = {k: g for g, _, ks in TOOL_GROUPS for k in ks}
@@ -4026,6 +4028,32 @@ def build_full_html():
     with open(out_file, "w", encoding="utf-8") as f:
         f.write(html_template)
     print("index.html successfully written!")
+    write_sitemap()
+
+
+SITE_URL = "https://mit-cdfg.github.io/Survey-AI-for-3D-modeling-Robotics/"
+
+
+def write_sitemap():
+    """sitemap.xml for search engines. lastmod is the newest commit date of the paper or
+    the archive, so rebuilding without new content gives the same file."""
+    dates = []
+    for repo in (WORKSPACE, os.path.expanduser("~/No-iCloud/awesome-ai-3d-modeling-robotics")):
+        try:
+            d = subprocess.run(["git", "-C", repo, "log", "-1", "--format=%cs"],
+                               capture_output=True, text=True, timeout=30).stdout.strip()
+            if re.fullmatch(r"\d{4}-\d{2}-\d{2}", d):
+                dates.append(d)
+        except Exception:
+            pass
+    lastmod = f"\n    <lastmod>{max(dates)}</lastmod>" if dates else ""
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+           f'  <url>\n    <loc>{SITE_URL}</loc>{lastmod}\n  </url>\n'
+           '</urlset>\n')
+    with open(os.path.join(WEBSITE_DIR, "sitemap.xml"), "w", encoding="utf-8") as f:
+        f.write(xml)
+    print("sitemap.xml written" + (f" (lastmod {max(dates)})" if dates else ""))
 
 if __name__ == "__main__":
     build_full_html()
