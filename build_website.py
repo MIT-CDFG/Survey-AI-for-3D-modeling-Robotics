@@ -2855,11 +2855,11 @@ def build_full_html():
           <button class="btn-copy" onclick="copyBibtex()">Copy BibTeX Citation</button>
         </div>
         <pre class="bibtex-code" id="bibtex-code">@misc{{dou2026frontier3drobotics,
-  title={{On the Opportunities and Risks of Frontier Models for 3D Modeling, Computational Design and Robotics}},
+  title={{On the Opportunities and Risks of Frontier Models for {{3D}} Modeling, Computational Design and Robotics}},
   author={{Dou, Zhiyang and Meindl, Jamison and Watanabe, Akihisa and Deng, Anna and Huang, Tianyu and Sadalski, Igor and Liang, Harrison and Guo, Minghao and Jones, Benjamin Tod and Matusik, Wojciech}},
   year={{2026}},
   month={{September}},
-  institution={{Computational Design and Fabrication Group (CDFG), MIT CSAIL}},
+  howpublished={{Computational Design and Fabrication Group (CDFG), MIT CSAIL}},
   url={{https://mit-cdfg.github.io/Survey-AI-for-3D-modeling-Robotics/}},
   note={{Living survey}}
 }}</pre>

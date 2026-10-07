@@ -1,6 +1,6 @@
 # Awesome AI for 3D modeling & Robotics
 
-Companion survey: [On the Opportunities and Risks of Frontier Models for 3D Modeling, Computational Design and Robotics](https://mit-cdfg.github.io/Survey-AI-for-3D-modeling-Robotics/) (MIT CSAIL), with a searchable gallery of every case in this archive.
+Companion survey: [On the Opportunities and Risks of Frontier Models for 3D Modeling, Computational Design and Robotics](https://mit-cdfg.github.io/Survey-AI-for-3D-modeling-Robotics/) (MIT CDFG), with a searchable gallery of every case in this archive.
 
 Public, source-linked examples of general AI models used for 3D modeling, industrial design and CAD, robot control, and animation, collected from X, LinkedIn, YouTube, Reddit and GitHub. Most cases use OpenAI's GPT-6 Astra, which has the largest public record in these tasks; comparisons and benchmark tables also cover Claude, Gemini, Kimi, DeepSeek and vision-language-action policies such as MolmoAct2. Each entry links to the original post, names the author and date, and quotes the author for any number or claim. The demo videos are archived in this repository.
 
