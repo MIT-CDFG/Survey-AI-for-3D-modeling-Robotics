@@ -87,10 +87,9 @@ python3 build_website.py
 If you find this survey or archive useful for your research, please cite:
 
 ```bibtex
-@article{dou2026frontier3drobotics,
+@misc{dou2026frontier3drobotics,
   title={On the Opportunities and Risks of Frontier Models for 3D Modeling, Computational Design and Robotics},
   author={Dou, Zhiyang and Meindl, Jamison and Watanabe, Akihisa and Deng, Anna and Huang, Tianyu and Sadalski, Igor and Liang, Harrison and Guo, Minghao and Jones, Benjamin Tod and Matusik, Wojciech},
-  journal={MIT CSAIL Research Report},
   year={2026},
   month={September},
   institution={Computational Design and Fabrication Group (CDFG), MIT CSAIL},
