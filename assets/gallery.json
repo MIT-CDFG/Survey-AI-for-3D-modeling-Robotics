@@ -9276,6 +9276,62 @@
   },
   {
     "order_index": 330,
+    "id": "R54",
+    "domain": "robotics",
+    "subsection": "Simulation control and training, painting and full evaluations",
+    "rank_num": 3,
+    "rank": "rank-3",
+    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
+    "rank_title": "Rank 3: Demonstration Media Only",
+    "title": "Speech to Reality: spoken requests to furniture built by a robot arm from magnetic modules",
+    "author": "Alexander Htet Kyaw",
+    "coauthors": [],
+    "source_url": "https://www.youtube.com/watch?v=GJQD86H9Nok",
+    "platform": "YouTube",
+    "desc": "Demonstration video for the SCF '25 paper. A spoken request such as \"I want a simple stool\" is turned into a mesh by a 3D generative model, adapted for discrete assembly, and built by a robot arm from lattice modules fed from a dispenser. The paper reports objects \"realized within 5 minutes using a robotic arm\". The paper is listed under [Related research](#related-research).",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r54-speech-to-reality-alexander-htet-kyaw.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r54-speech-to-reality-alexander-htet-kyaw.jpg",
+    "rel_img": "assets/images/r54-speech-to-reality-alexander-htet-kyaw.jpg",
+    "video_url": "",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "GPT-4 Turbo (named in the arXiv version of the paper)",
+    "tools": "Google Speech Recognition; Meshy.ai; UR10 arm; 10 cm cuboctahedral modules with embedded magnets"
+  },
+  {
+    "order_index": 331,
+    "id": "R55",
+    "domain": "robotics",
+    "subsection": "Simulation control and training, painting and full evaluations",
+    "rank_num": 3,
+    "rank": "rank-3",
+    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
+    "rank_title": "Rank 3: Demonstration Media Only",
+    "title": "Text to Robotic Assembly: a VLM splits a generated mesh into structural and panel parts for robotic assembly",
+    "author": "Alexander Htet Kyaw",
+    "coauthors": [],
+    "source_url": "https://www.youtube.com/watch?v=ZJrsWG7Mw5M",
+    "platform": "YouTube",
+    "desc": "Demonstration video for the NeurIPS 2025 Creative AI Track paper, linked from the paper. A text prompt such as \"Make me a chair\" becomes a mesh, a VLM assigns structural and panel components, and a robot assembles the object; conversational feedback such as \"I want panels on the seat\" changes the assignment. In the paper's user study, participants preferred the VLM's assignments 90.6% of the time, against 59.4% for rule-based and 2.5% for random assignment. The paper is listed under [Related research](#related-research).",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r55-text-to-robotic-assembly-alexander-htet-kyaw.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r55-text-to-robotic-assembly-alexander-htet-kyaw.jpg",
+    "rel_img": "assets/images/r55-text-to-robotic-assembly-alexander-htet-kyaw.jpg",
+    "video_url": "",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "Gemini 2.5 Pro (named in the paper)",
+    "tools": "Autodesk Project Bernini; robotic assembly cell (the paper names a UR20 with Robotiq grippers)"
+  },
+  {
+    "order_index": 332,
     "id": "R50",
     "domain": "robotics",
     "subsection": "Navigation and mobile robots",
@@ -9303,7 +9359,7 @@
     "tools": "Habitat-Sim with HSSD homes; Pi coding-agent harness"
   },
   {
-    "order_index": 331,
+    "order_index": 333,
     "id": "R21",
     "domain": "robotics",
     "subsection": "Navigation and mobile robots",
@@ -9331,7 +9387,7 @@
     "tools": "Unitree G1 (simulation)"
   },
   {
-    "order_index": 332,
+    "order_index": 334,
     "id": "R06",
     "domain": "robotics",
     "subsection": "Navigation and mobile robots",
@@ -9359,7 +9415,7 @@
     "tools": "Drone-Bench"
   },
   {
-    "order_index": 333,
+    "order_index": 335,
     "id": "R13",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -9387,7 +9443,7 @@
     "tools": "I2RT YAM bimanual arms, Inspect Robots"
   },
   {
-    "order_index": 334,
+    "order_index": 336,
     "id": "R30",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -9415,7 +9471,7 @@
     "tools": "Discrete-action simulation; native APIs and a separate Claude Code follow-up"
   },
   {
-    "order_index": 335,
+    "order_index": 337,
     "id": "X08",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -9443,7 +9499,7 @@
     "tools": "none"
   },
   {
-    "order_index": 336,
+    "order_index": 338,
     "id": "A18",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9471,7 +9527,7 @@
     "tools": "Three.js; WebGPU; Blender (Impala)"
   },
   {
-    "order_index": 337,
+    "order_index": 339,
     "id": "A21",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9499,7 +9555,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 338,
+    "order_index": 340,
     "id": "M21",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9527,7 +9583,7 @@
     "tools": "Tripo, Blender"
   },
   {
-    "order_index": 339,
+    "order_index": 341,
     "id": "M22",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9555,7 +9611,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 340,
+    "order_index": 342,
     "id": "M46",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9583,7 +9639,7 @@
     "tools": "Higgsfield; Blender"
   },
   {
-    "order_index": 341,
+    "order_index": 343,
     "id": "M47",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9611,7 +9667,7 @@
     "tools": "No tool named"
   },
   {
-    "order_index": 342,
+    "order_index": 344,
     "id": "M89",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9639,7 +9695,7 @@
     "tools": "Blender; claude.ai"
   },
   {
-    "order_index": 343,
+    "order_index": 345,
     "id": "A09",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9667,7 +9723,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 344,
+    "order_index": 346,
     "id": "A11",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9695,7 +9751,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 345,
+    "order_index": 347,
     "id": "A12",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9723,7 +9779,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 346,
+    "order_index": 348,
     "id": "A25",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9751,7 +9807,7 @@
     "tools": "ImageGen (as named by the author)"
   },
   {
-    "order_index": 347,
+    "order_index": 349,
     "id": "A27",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9779,7 +9835,7 @@
     "tools": "Krea2; Tripo; Blender; Rigify"
   },
   {
-    "order_index": 348,
+    "order_index": 350,
     "id": "A28",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9807,7 +9863,7 @@
     "tools": "Tripo P2; Blender; JEV; Seedance (left panel)"
   },
   {
-    "order_index": 349,
+    "order_index": 351,
     "id": "A29",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9835,7 +9891,7 @@
     "tools": "Blender MCP; Tripo P2.0; Blender"
   },
   {
-    "order_index": 350,
+    "order_index": 352,
     "id": "A30",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9863,7 +9919,7 @@
     "tools": "Tripo; Blender MCP; Rigify"
   },
   {
-    "order_index": 351,
+    "order_index": 353,
     "id": "A31",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9891,7 +9947,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 352,
+    "order_index": 354,
     "id": "A32",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9919,7 +9975,7 @@
     "tools": "Tripo P2.0; Seedance; Blender; Unity"
   },
   {
-    "order_index": 353,
+    "order_index": 355,
     "id": "A33",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9947,7 +10003,7 @@
     "tools": "Codex; Blender MCP; HY-Motion"
   },
   {
-    "order_index": 354,
+    "order_index": 356,
     "id": "A34",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9975,7 +10031,7 @@
     "tools": "Blender MCP; ARDY"
   },
   {
-    "order_index": 355,
+    "order_index": 357,
     "id": "A35",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10003,7 +10059,7 @@
     "tools": "Blender MCP; Tripo P2; Blender"
   },
   {
-    "order_index": 356,
+    "order_index": 358,
     "id": "X29",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10031,7 +10087,7 @@
     "tools": "Meshy; Blender MCP; Blender"
   },
   {
-    "order_index": 357,
+    "order_index": 359,
     "id": "X30",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10059,7 +10115,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 358,
+    "order_index": 360,
     "id": "A15",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10087,7 +10143,7 @@
     "tools": "Canvas 2D; Web Audio; Claude Code"
   },
   {
-    "order_index": 359,
+    "order_index": 361,
     "id": "A26",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10115,7 +10171,7 @@
     "tools": "Claude Code; p5.js; p5.brush; headless Chrome; ffmpeg"
   },
   {
-    "order_index": 360,
+    "order_index": 362,
     "id": "X11",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10143,7 +10199,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 361,
+    "order_index": 363,
     "id": "M90",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10171,7 +10227,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 362,
+    "order_index": 364,
     "id": "M20",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10199,7 +10255,7 @@
     "tools": "TouchDesigner"
   },
   {
-    "order_index": 363,
+    "order_index": 365,
     "id": "M52",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10227,7 +10283,7 @@
     "tools": "Houdini"
   },
   {
-    "order_index": 364,
+    "order_index": 366,
     "id": "M03",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10255,7 +10311,7 @@
     "tools": "Miomoto"
   },
   {
-    "order_index": 365,
+    "order_index": 367,
     "id": "A02",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10283,7 +10339,7 @@
     "tools": "Blender; Scenario for Blender; M5 Max MacBook Pro"
   },
   {
-    "order_index": 366,
+    "order_index": 368,
     "id": "A08",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10311,7 +10367,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 367,
+    "order_index": 369,
     "id": "A14",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10339,7 +10395,7 @@
     "tools": "Blender; Scenario for Blender"
   },
   {
-    "order_index": 368,
+    "order_index": 370,
     "id": "A16",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10367,7 +10423,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 369,
+    "order_index": 371,
     "id": "A20",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10395,7 +10451,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 370,
+    "order_index": 372,
     "id": "A22",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10423,7 +10479,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 371,
+    "order_index": 373,
     "id": "X31",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10451,7 +10507,7 @@
     "tools": "not stated in the posts"
   },
   {
-    "order_index": 372,
+    "order_index": 374,
     "id": "M28",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10479,7 +10535,7 @@
     "tools": "three.js, WebGL"
   },
   {
-    "order_index": 373,
+    "order_index": 375,
     "id": "M29",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10507,7 +10563,7 @@
     "tools": "twigl.app (WebGL)"
   },
   {
-    "order_index": 374,
+    "order_index": 376,
     "id": "A01",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10535,7 +10591,7 @@
     "tools": "Three.js; WebGL"
   },
   {
-    "order_index": 375,
+    "order_index": 377,
     "id": "A17",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10563,7 +10619,7 @@
     "tools": "Three.js; WebGPU"
   },
   {
-    "order_index": 376,
+    "order_index": 378,
     "id": "A19",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10591,7 +10647,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 377,
+    "order_index": 379,
     "id": "A24",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10619,7 +10675,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 378,
+    "order_index": 380,
     "id": "A03",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10647,7 +10703,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 379,
+    "order_index": 381,
     "id": "A07",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10675,7 +10731,7 @@
     "tools": "Three.js; Airsup"
   },
   {
-    "order_index": 380,
+    "order_index": 382,
     "id": "A04",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10703,7 +10759,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 381,
+    "order_index": 383,
     "id": "A13",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10731,7 +10787,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 382,
+    "order_index": 384,
     "id": "A23",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10759,7 +10815,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 383,
+    "order_index": 385,
     "id": "A05",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10787,7 +10843,7 @@
     "tools": "Cowork"
   },
   {
-    "order_index": 384,
+    "order_index": 386,
     "id": "A06",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10815,7 +10871,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 385,
+    "order_index": 387,
     "id": "A10",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10843,7 +10899,7 @@
     "tools": "Three.js; TSL"
   },
   {
-    "order_index": 386,
+    "order_index": 388,
     "id": "M30",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -10871,7 +10927,7 @@
     "tools": "Higgsfield, Seedance 2.5"
   },
   {
-    "order_index": 387,
+    "order_index": 389,
     "id": "M40",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -10899,7 +10955,7 @@
     "tools": "Higgsfield; Blender; After Effects"
   },
   {
-    "order_index": 388,
+    "order_index": 390,
     "id": "M45",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -10927,7 +10983,7 @@
     "tools": "Blender; FLORA"
   },
   {
-    "order_index": 389,
+    "order_index": 391,
     "id": "M70",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -10955,7 +11011,7 @@
     "tools": "Blender; MCP; Magnific; MiniMax H3 named as an example"
   },
   {
-    "order_index": 390,
+    "order_index": 392,
     "id": "M76",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -10983,7 +11039,7 @@
     "tools": "Codex; Blender"
   },
   {
-    "order_index": 391,
+    "order_index": 393,
     "id": "M83",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11011,7 +11067,7 @@
     "tools": "Blender, PixVerse, Seedance 2.5"
   },
   {
-    "order_index": 392,
+    "order_index": 394,
     "id": "A36",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11039,7 +11095,7 @@
     "tools": "Blender MCP; Seedance 2.5; DaVinci Resolve Studio (Fusion)"
   },
   {
-    "order_index": 393,
+    "order_index": 395,
     "id": "A37",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11067,7 +11123,7 @@
     "tools": "Codex; Blender MCP; Seedance 2.5; FLORA; Nano Banana Pro"
   },
   {
-    "order_index": 394,
+    "order_index": 396,
     "id": "A38",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11095,7 +11151,7 @@
     "tools": "Seedance 2.5 (through Atlas Cloud)"
   },
   {
-    "order_index": 395,
+    "order_index": 397,
     "id": "A39",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11123,7 +11179,7 @@
     "tools": "Blender MCP; Seedance 2.0"
   },
   {
-    "order_index": 396,
+    "order_index": 398,
     "id": "A40",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11151,7 +11207,7 @@
     "tools": "Blender MCP; Seedance 2; Midjourney; ChatGPT"
   },
   {
-    "order_index": 397,
+    "order_index": 399,
     "id": "A41",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11179,7 +11235,7 @@
     "tools": "Seedream 5 Pro; Blender; Seedance 2.0"
   },
   {
-    "order_index": 398,
+    "order_index": 400,
     "id": "A42",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
