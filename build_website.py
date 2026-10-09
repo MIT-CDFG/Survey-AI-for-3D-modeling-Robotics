@@ -767,6 +767,10 @@ def get_gallery_items(cases, readme_text=None):
                     platform = "YouTube"
                 elif "reddit.com" in source_url:
                     platform = "Reddit"
+                elif "bilibili.com" in source_url:
+                    platform = "Bilibili"
+                elif "arxiv.org" in source_url:
+                    platform = "arXiv"
                 elif "x.com" in source_url or "twitter.com" in source_url:
                     platform = "X"
                 elif source_url.startswith("http"):
