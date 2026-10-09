@@ -1837,8 +1837,8 @@ def render_tile_html(item):
     safe_demo = demo_url.replace("'", "\\'")
     safe_video = video_url.replace("'", "\\'")
     safe_rank_lbl = item['rank_label'].replace("'", "\\'")
-    safe_model = item.get('model', '').replace("'", "\\'")
-    safe_tools = item.get('tools', '').replace("'", "\\'")
+    safe_model = item.get('model', '').replace("'", "\\'").replace('"', '&quot;')
+    safe_tools = item.get('tools', '').replace("'", "\\'").replace('"', '&quot;')
     safe_sub = sub_text.replace("'", "\\'")
 
     safe_code2 = code_url2.replace("'", "\\'")
