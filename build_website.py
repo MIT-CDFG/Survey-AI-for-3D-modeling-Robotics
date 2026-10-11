@@ -943,6 +943,26 @@ def parse_benchmarks_section(readme_text):
     intro = re.sub(r'with additions through \d{4}-\d{2}-\d{2}\.?', 'with additions from recent evaluations.', intro_raw)
     intro = re.sub(r'as of \d{4}-\d{2}-\d{2}', 'in recent evaluations', intro)
 
+    # README links to a case anchor, e.g. "([case](#case-r56))", open that case in the Case Archive;
+    # any other in-page README anchor is reduced to its label.
+    domain_of, cur = {}, None
+    for line in readme_text.split('\n'):
+        if line.startswith('## '):
+            cur = {'3D Modeling': '3d', 'Industrial Design and CAD': 'cad', 'Robot Control': 'robotics', 'Animation': 'animation'}.get(line[3:].strip())
+        mm = re.search(r'name="case-([a-z0-9]+)"', line)
+        if mm and cur:
+            domain_of[mm.group(1).upper()] = cur
+
+    def anchor_links(s):
+        def case_link(mm):
+            cid = mm.group(2).upper()
+            d = domain_of.get(cid)
+            if not d:
+                return mm.group(1)
+            return f'<a href="#" class="academic-link" onclick="openArchiveCase(\'{cid}\', \'{d}\'); return false;" title="Open case {cid}">{mm.group(1)}</a>'
+        s = re.sub(r'\[([^\]]+)\]\(#case-([a-z0-9]+)\)', case_link, s)
+        return re.sub(r'\[([^\]]+)\]\(#[^)\s]+\)', r'\1', s)
+
     def format_table(table_text):
         lines = [l.strip() for l in table_text.strip().split('\n') if l.strip().startswith('|')]
         if len(lines) < 3:
@@ -964,6 +984,7 @@ def parse_benchmarks_section(readme_text):
             for idx, c in enumerate(cols):
                 c_clean = re.sub(r'as of \d{4}-\d{2}-\d{2}', 'in recent evaluations', c)
                 c_html = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" rel="noopener noreferrer" class="academic-link">\1 ↗</a>', c_clean)
+                c_html = anchor_links(c_html)
                 if idx == 0:
                     html.append(f'      <td><strong>{c_html}</strong></td>')
                 elif idx == 2:
@@ -1000,6 +1021,7 @@ def parse_benchmarks_section(readme_text):
                 for ni in note_items:
                     ni_clean = re.sub(r'as of \d{4}-\d{2}-\d{2}', 'in recent evaluations', ni)
                     ni_html = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2" target="_blank" rel="noopener noreferrer" class="academic-link">\1 ↗</a>', ni_clean)
+                    ni_html = anchor_links(ni_html)
                     note_lis.append(f'<li>{ni_html}</li>')
                 notes_html = "\n".join(note_lis)
             cad_html = format_table(table_part)
