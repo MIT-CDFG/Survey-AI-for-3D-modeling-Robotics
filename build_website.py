@@ -771,6 +771,8 @@ def get_gallery_items(cases, readme_text=None):
                     platform = "Bilibili"
                 elif "arxiv.org" in source_url:
                     platform = "arXiv"
+                elif "github.com" in source_url:
+                    platform = "GitHub"
                 elif "x.com" in source_url or "twitter.com" in source_url:
                     platform = "X"
                 elif source_url.startswith("http"):
@@ -1711,7 +1713,8 @@ DOMAINS_CONFIG = [
         "desc": "{count} archived cases spanning high-precision manipulation, dexterous multi-finger hands, real-to-sim transfer, physics simulation control, navigation and mobile robots, and physical safety evaluations.",
         "sub_short_names": {
             "Manipulation evaluations": "Manipulation Evaluations",
-            "Personal arms, dexterous hands and unseen robots": "Dexterous Arms & Hands",
+            "Personal arms and unseen robots": "Personal Arms",
+            "Dexterous hands": "Dexterous Hands",
             "Learning from demonstration and real-to-sim": "Demo & Real-to-Sim",
             "Simulation control and training, painting and full evaluations": "Simulation & Control",
             "Navigation and mobile robots": "Navigation",

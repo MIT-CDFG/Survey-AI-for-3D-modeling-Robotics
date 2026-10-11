@@ -8181,7 +8181,7 @@
     "order_index": 291,
     "id": "R39",
     "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
+    "subsection": "Personal arms and unseen robots",
     "rank_num": 1,
     "rank": "rank-1",
     "rank_label": "RANK 1 \u00b7 CODE",
@@ -8209,7 +8209,7 @@
     "order_index": 292,
     "id": "R22",
     "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
+    "subsection": "Personal arms and unseen robots",
     "rank_num": 1,
     "rank": "rank-1",
     "rank_label": "RANK 1 \u00b7 CODE",
@@ -8235,37 +8235,9 @@
   },
   {
     "order_index": 293,
-    "id": "R20",
-    "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
-    "rank_num": 2,
-    "rank": "rank-2",
-    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
-    "rank_title": "Rank 2: Demo + Interactive Web Link",
-    "title": "Rubik's cube solved with robot hands",
-    "author": "Yanjie Ze (@ZeYanjie)",
-    "coauthors": [],
-    "source_url": "https://x.com/ZeYanjie/status/2098118164626501669",
-    "platform": "X",
-    "desc": "Author: \"GPT6 Astra solved Rubik's Cube with robot hands\", with a project page linked from the post.",
-    "img_url": "assets/gallery/r20.jpg",
-    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r20-rubiks-cube-robot-hands-zeyanjie.jpg",
-    "rel_img": "assets/images/r20-rubiks-cube-robot-hands-zeyanjie.jpg",
-    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r20-rubiks-cube-robot-hands-zeyanjie.mp4",
-    "code_url": "",
-    "code_label": "Code",
-    "code_url2": "",
-    "code_label2": "",
-    "demo_url": "https://dex-rubik-cube.yanjieze.com/",
-    "demo_label": "Dexterous cube replay",
-    "model": "GPT-6 Astra",
-    "tools": "robot hands (setting per the linked page)"
-  },
-  {
-    "order_index": 294,
     "id": "R40",
     "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
+    "subsection": "Personal arms and unseen robots",
     "rank_num": 2,
     "rank": "rank-2",
     "rank_label": "RANK 2 \u00b7 INTERACTIVE",
@@ -8290,10 +8262,10 @@
     "tools": "Unitree G1; Isaac Sim; AMO; RTX 4090 laptop"
   },
   {
-    "order_index": 295,
+    "order_index": 294,
     "id": "R08",
     "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
+    "subsection": "Personal arms and unseen robots",
     "rank_num": 3,
     "rank": "rank-3",
     "rank_label": "RANK 3 \u00b7 DEMO ONLY",
@@ -8318,10 +8290,10 @@
     "tools": "SO-101 arm"
   },
   {
-    "order_index": 296,
+    "order_index": 295,
     "id": "R09",
     "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
+    "subsection": "Personal arms and unseen robots",
     "rank_num": 3,
     "rank": "rank-3",
     "rank_label": "RANK 3 \u00b7 DEMO ONLY",
@@ -8346,66 +8318,10 @@
     "tools": "LeRobot SO-101, third-person RGB camera"
   },
   {
-    "order_index": 297,
-    "id": "R10",
-    "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
-    "rank_num": 3,
-    "rank": "rank-3",
-    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
-    "rank_title": "Rank 3: Demonstration Media Only",
-    "title": "Wuji2 robotic hand stands itself upright using its fingers (Ultra)",
-    "author": "Zhiyang (Frank) Dou (@frankzydou)",
-    "coauthors": [],
-    "source_url": "https://x.com/frankzydou/status/2100754714971287557",
-    "platform": "X",
-    "desc": "One prompt asked GPT-6 Astra Ultra to move the hand from lying flat into an upright configuration with its base at the bottom, with a third-person camera for feedback. Author: Ultra succeeded in about 3 minutes; an earlier run at Max Effort failed after about 8 minutes of repeated attempts; the hand stayed standing after the motors were disabled. Asked how it worked, the model said it tested poses in simulation, then used camera and joint feedback to refine the real motion, with curled fingers lifting the palm and the thumb as a support.",
-    "img_url": "assets/gallery/r10.jpg",
-    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r10-wuji2-hand-self-righting-frankzydou.jpg",
-    "rel_img": "assets/images/r10-wuji2-hand-self-righting-frankzydou.jpg",
-    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r10-wuji2-hand-self-righting-frankzydou.mp4",
-    "code_url": "",
-    "code_label": "Code",
-    "code_url2": "",
-    "code_label2": "",
-    "demo_url": "",
-    "demo_label": "Interactive Demo",
-    "model": "GPT-6 Astra",
-    "tools": "Wuji2 hand, third-person camera"
-  },
-  {
-    "order_index": 298,
-    "id": "R17",
-    "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
-    "rank_num": 3,
-    "rank": "rank-3",
-    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
-    "rank_title": "Rank 3: Demonstration Media Only",
-    "title": "Two videos to real-to-sim and physics-simulated retargeting on Wuji hands",
-    "author": "lingxiao guo (@Lingxiao234)",
-    "coauthors": [],
-    "source_url": "https://x.com/Lingxiao234/status/2097717020540481630",
-    "platform": "X",
-    "desc": "Author: \"I wanted to find whether GPT-6 hits its limit on robot dexterity. So I just gave it two videos, without states or actions, and told it to do real2sim and physical retarget to Wuji hands.\" The author reports successful \"physical rollouts\" of a Rubik's cube task and of an egocentric human video; the clip shows them as physics-simulated replays on Wuji hand models (\"Sim physical replay\"), and [in the thread](https://x.com/Lingxiao234/status/2097719528494936372) the author writes that \"The controller written above by agent definitely can\u2019t transfer to the real world.\"",
-    "img_url": "assets/gallery/r17.jpg",
-    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r17-wuji-hands-real2sim-retarget-lingxiao234.jpg",
-    "rel_img": "assets/images/r17-wuji-hands-real2sim-retarget-lingxiao234.jpg",
-    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r17-wuji-hands-real2sim-retarget-lingxiao234.mp4",
-    "code_url": "",
-    "code_label": "Code",
-    "code_url2": "",
-    "code_label2": "",
-    "demo_url": "",
-    "demo_label": "Interactive Demo",
-    "model": "GPT-6 Astra",
-    "tools": "Wuji hand models in physics simulation"
-  },
-  {
-    "order_index": 299,
+    "order_index": 296,
     "id": "R25",
     "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
+    "subsection": "Personal arms and unseen robots",
     "rank_num": 3,
     "rank": "rank-3",
     "rank_label": "RANK 3 \u00b7 DEMO ONLY",
@@ -8430,10 +8346,10 @@
     "tools": "robot arm and keyboard (setting not stated in the post)"
   },
   {
-    "order_index": 300,
+    "order_index": 297,
     "id": "R19",
     "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
+    "subsection": "Personal arms and unseen robots",
     "rank_num": 3,
     "rank": "rank-3",
     "rank_label": "RANK 3 \u00b7 DEMO ONLY",
@@ -8458,10 +8374,10 @@
     "tools": "Vitrus robotics OS (physical robot)"
   },
   {
-    "order_index": 301,
+    "order_index": 298,
     "id": "R31",
     "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
+    "subsection": "Personal arms and unseen robots",
     "rank_num": 3,
     "rank": "rank-3",
     "rank_label": "RANK 3 \u00b7 DEMO ONLY",
@@ -8486,10 +8402,10 @@
     "tools": "two RGB-D cameras; dual-arm setup (robot not named in the post)"
   },
   {
-    "order_index": 302,
+    "order_index": 299,
     "id": "R44",
     "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
+    "subsection": "Personal arms and unseen robots",
     "rank_num": 3,
     "rank": "rank-3",
     "rank_label": "RANK 3 \u00b7 DEMO ONLY",
@@ -8514,10 +8430,10 @@
     "tools": "robot arm and 3D printer"
   },
   {
-    "order_index": 303,
+    "order_index": 300,
     "id": "R51",
     "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
+    "subsection": "Personal arms and unseen robots",
     "rank_num": 3,
     "rank": "rank-3",
     "rank_label": "RANK 3 \u00b7 DEMO ONLY",
@@ -8542,10 +8458,10 @@
     "tools": "the robot's SDK and a camera (per the author)"
   },
   {
-    "order_index": 304,
+    "order_index": 301,
     "id": "R59",
     "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
+    "subsection": "Personal arms and unseen robots",
     "rank_num": 3,
     "rank": "rank-3",
     "rank_label": "RANK 3 \u00b7 DEMO ONLY",
@@ -8570,10 +8486,10 @@
     "tools": "Loop-ROS (the developers' toolchain, not public); reBot Arm (as named in the peeling post's tag and by Seeed Studio)"
   },
   {
-    "order_index": 305,
+    "order_index": 302,
     "id": "R60",
     "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
+    "subsection": "Personal arms and unseen robots",
     "rank_num": 3,
     "rank": "rank-3",
     "rank_label": "RANK 3 \u00b7 DEMO ONLY",
@@ -8598,10 +8514,10 @@
     "tools": "Loop-ROS (the developers' toolchain, not public); robot arm (model not named in the post)"
   },
   {
-    "order_index": 306,
+    "order_index": 303,
     "id": "R61",
     "domain": "robotics",
-    "subsection": "Personal arms, dexterous hands and unseen robots",
+    "subsection": "Personal arms and unseen robots",
     "rank_num": 3,
     "rank": "rank-3",
     "rank_label": "RANK 3 \u00b7 DEMO ONLY",
@@ -8626,7 +8542,287 @@
     "tools": "Franka robot arm (real)"
   },
   {
+    "order_index": 304,
+    "id": "R18",
+    "domain": "robotics",
+    "subsection": "Dexterous hands",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "One human-hand video to a real-to-sim workflow for a 44-DOF hand (dexgpt)",
+    "author": "xiao hu (@huxiao93612565)",
+    "coauthors": [],
+    "source_url": "https://x.com/huxiao93612565/status/2097815230105399402",
+    "platform": "X",
+    "desc": "Author: \"I gave GPT-6 Astra one video of a human hand.\" The author says the model wrote the whole real-to-sim workflow itself, hand tracking, IK retargeting to a 44-DOF dexterous hand and grasp refinement, with \"Zero code from me\", and open-sourced it.",
+    "img_url": "assets/gallery/r18.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r18-hand-video-to-real2sim-pipeline-huxiao.jpg",
+    "rel_img": "assets/images/r18-hand-video-to-real2sim-pipeline-huxiao.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r18-hand-video-to-real2sim-pipeline-huxiao.mp4",
+    "code_url": "https://github.com/Hu-xiao-max/dexgpt",
+    "code_label": "Hu-xiao-max/dexgpt",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "GPT-6 Astra",
+    "tools": "44-DOF dexterous hand (simulation)"
+  },
+  {
+    "order_index": 305,
+    "id": "R65",
+    "domain": "robotics",
+    "subsection": "Dexterous hands",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "Evolving dexterity: Astra spins a pen, turns a Rubik's cube and swings a hammer in simulation, zero-shot and after training",
+    "author": "Jianglong Ye (@jianglong_ye)",
+    "coauthors": [],
+    "source_url": "https://x.com/jianglong_ye/status/2100617525407211679",
+    "platform": "X",
+    "desc": "Author: \"Evolving dexterity with GPT-6 Astra \ud83d\udd90\ufe0f Been trying Astra recently. Its zero-shot dexterous manipulation is already quite surprising. More interesting is seeing it learn and improve through simulation training, from pen spinning and Rubik's Cube to hammer use.\" The clip compares zero-shot and trained runs: a Sharpa Wave hand spinning a pen in Isaac Sim, Wuji hands turning a Rubik's cube in MuJoCo, and a Sharpa hand on an arm hammering a nail. The repository describes the zero-shot pen run as a \"sampled finger-keyframe planner\" and the trained one as a \"PPO policy: 3 turns and a hold\"; the zero-shot cube controller manages \"two moves\", and the trained one-hand cube policy \"solves `U F L`\". It calls itself \"the final artifacts from my Astra experiments, rather than a task-specific harness or benchmark provided to Astra\", and reports no success rate. All runs are in simulation; the author adds \"The real goal would be to evolve this dexterity in the real world.\" A different team's Sharpa pen-spinning run is [R12](#case-r12).",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r65-evolving-dexterity-pen-cube-hammer-jianglong-ye.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r65-evolving-dexterity-pen-cube-hammer-jianglong-ye.jpg",
+    "rel_img": "assets/images/r65-evolving-dexterity-pen-cube-hammer-jianglong-ye.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r65-evolving-dexterity-pen-cube-hammer-jianglong-ye.mp4",
+    "code_url": "https://github.com/jianglongye/dexterous-astra",
+    "code_label": "jianglongye/dexterous-astra",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "GPT-6 Astra",
+    "tools": "Isaac Lab and Isaac Sim; MuJoCo; rsl_rl PPO; Sharpa Wave and Wuji hand models (simulation)"
+  },
+  {
+    "order_index": 306,
+    "id": "R66",
+    "domain": "robotics",
+    "subsection": "Dexterous hands",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "Picasso's dove drawn by a Shadow Hand on a Kinova arm in MuJoCo",
+    "author": "Dmytro Hrybov (@dimentary)",
+    "coauthors": [],
+    "source_url": "https://x.com/dimentary/status/2097141042214797801",
+    "platform": "X",
+    "desc": "Author: \"i've seen GPT-6 Astra draw in Paint, how about drawing with a robot in a physics simulation? asked it to build a MuJoCo setup and write a controller to draw Picasso's dove using a robot arm and a five-fingered hand\". In the thread he writes that \"the pencil is held by pressure and friction against the hand, with every mark coming from simulated tip\u2013paper contact\", that \"the setup combines two existing robot models: a Kinova Gen3 arm and a Shadow Hand\", and that \"GPT defaulted to using 2 fingers although I provided it with a 5-fingered hand, i suspect that the model is biased towards standard claw-gripper usage\". The clip, sped up 4\u00d7, shows the thumb and index finger holding the pencil as the arm traces the dove beside the reference. The repository's README for the experiment reports \"nine strokes in 173 simulated seconds\" with a median tip-to-path distance of 0.149 mm for the published run. The author's later Fibonacci run ([R16](#case-r16)) quotes this post.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r66-shadow-hand-draws-picasso-dove-dimentary.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r66-shadow-hand-draws-picasso-dove-dimentary.jpg",
+    "rel_img": "assets/images/r66-shadow-hand-draws-picasso-dove-dimentary.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r66-shadow-hand-draws-picasso-dove-dimentary.mp4",
+    "code_url": "https://github.com/dimentary/llm-robotics-playground/tree/main/experiments/dove-drawing",
+    "code_label": "dimentary/llm-robotics-playground, dove-drawing",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "GPT-6 Astra",
+    "tools": "MuJoCo (simulation); Kinova Gen3 arm and Shadow Hand (MuJoCo Menagerie models)"
+  },
+  {
     "order_index": 307,
+    "id": "R67",
+    "domain": "robotics",
+    "subsection": "Dexterous hands",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "Astra as a direct closed-loop policy for grippers and dexterous hands in simulation: mostly failures, all recorded",
+    "author": "Vinit Awale (TheShiningVampire/astra-manipulation)",
+    "coauthors": [],
+    "source_url": "https://github.com/TheShiningVampire/astra-manipulation",
+    "platform": "GitHub",
+    "desc": "No announcement post was found; the repository, with its videos and per-call records, is the source. At every decision GPT-6 Astra \"receives camera images, measured robot proprioception, a language instruction, static actuator documentation, and its recent actions\" and returns a bounded actuator vector; \"There is no learned manipulation policy, object-state oracle, grasp planner, or high-level skill executing the task for Astra.\" The simulation pauses while the model reasons. On four DexArt tasks with an Allegro hand it records \"0/4 native benchmark successes\", although the toilet lid was visibly opened. A ten-task MuJoCo pilot with a Panda gripper and the Adroit Shadow hand ends with \"0/10 completed goals\"; the hand opened its door \"approximately 62\u00b0 against a 77\u00b0 threshold\". Two gripper cube lifts and a separate PyBullet reach and pick-and-place succeeded. The author writes: \"These are one-off trials, not a general capability estimate.\"",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r67-astra-direct-hand-control-door-awale.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r67-astra-direct-hand-control-door-awale.jpg",
+    "rel_img": "assets/images/r67-astra-direct-hand-control-door-awale.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r67-astra-direct-hand-control-door-awale.mp4",
+    "code_url": "https://github.com/TheShiningVampire/astra-manipulation",
+    "code_label": "TheShiningVampire/astra-manipulation",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "GPT-6 Astra (gpt-6-astra through the Codex CLI, medium reasoning)",
+    "tools": "MuJoCo with Adroit; DexArt on SAPIEN; robosuite/robomimic; PyBullet (simulation)"
+  },
+  {
+    "order_index": 308,
+    "id": "R68",
+    "domain": "robotics",
+    "subsection": "Dexterous hands",
+    "rank_num": 1,
+    "rank": "rank-1",
+    "rank_label": "RANK 1 \u00b7 CODE",
+    "rank_title": "Rank 1: Demo + Implementation Code",
+    "title": "A demonstration-retrieval controller written by Astra, evaluated on 900 DexJoCo episodes",
+    "author": "YichengDraw (astra-policy-dexjoco)",
+    "coauthors": [],
+    "source_url": "https://github.com/YichengDraw/astra-policy-dexjoco",
+    "platform": "GitHub",
+    "desc": "No announcement post was found; the repository, with its results and videos, is the source. It reports that \"GPT-6 Astra (`gpt-6-astra`, `xhigh`) wrote a controller that matches camera images and robot state to examples from 100 official training demonstrations per task and condition. The code was then frozen\", and that \"The model was not called at each control step.\" Over 900 simulated episodes on three DexJoCo tasks with 16-joint hands, success was 21.3% and 6.7% for hammering a nail, 22.0% in both settings for watering a plant, and 2.7% and 1.3% for the two-arm microwave task (open the door, load food, close it, press start). The author writes that the controller \"scored below all five policies in the paper's table on these six conditions\" and discloses earlier test-seed exposure. The archived clips are successful episodes. Results are in [Benchmarks](#robotics-and-embodied).",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r68-astra-dexjoco-microwave-yichengdraw.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r68-astra-dexjoco-microwave-yichengdraw.jpg",
+    "rel_img": "assets/images/r68-astra-dexjoco-microwave-yichengdraw.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r68-astra-dexjoco-microwave-yichengdraw.mp4",
+    "code_url": "https://github.com/YichengDraw/astra-policy-dexjoco",
+    "code_label": "YichengDraw/astra-policy-dexjoco",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "GPT-6 Astra (xhigh)",
+    "tools": "DexJoCo; MuJoCo (simulation)"
+  },
+  {
+    "order_index": 309,
+    "id": "R20",
+    "domain": "robotics",
+    "subsection": "Dexterous hands",
+    "rank_num": 2,
+    "rank": "rank-2",
+    "rank_label": "RANK 2 \u00b7 INTERACTIVE",
+    "rank_title": "Rank 2: Demo + Interactive Web Link",
+    "title": "Rubik's cube solved with robot hands",
+    "author": "Yanjie Ze (@ZeYanjie)",
+    "coauthors": [],
+    "source_url": "https://x.com/ZeYanjie/status/2098118164626501669",
+    "platform": "X",
+    "desc": "Author: \"GPT6 Astra solved Rubik's Cube with robot hands\", with a project page linked from the post.",
+    "img_url": "assets/gallery/r20.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r20-rubiks-cube-robot-hands-zeyanjie.jpg",
+    "rel_img": "assets/images/r20-rubiks-cube-robot-hands-zeyanjie.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r20-rubiks-cube-robot-hands-zeyanjie.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "https://dex-rubik-cube.yanjieze.com/",
+    "demo_label": "Dexterous cube replay",
+    "model": "GPT-6 Astra",
+    "tools": "robot hands (setting per the linked page)"
+  },
+  {
+    "order_index": 310,
+    "id": "R10",
+    "domain": "robotics",
+    "subsection": "Dexterous hands",
+    "rank_num": 3,
+    "rank": "rank-3",
+    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
+    "rank_title": "Rank 3: Demonstration Media Only",
+    "title": "Wuji2 robotic hand stands itself upright using its fingers (Ultra)",
+    "author": "Zhiyang (Frank) Dou (@frankzydou)",
+    "coauthors": [],
+    "source_url": "https://x.com/frankzydou/status/2100754714971287557",
+    "platform": "X",
+    "desc": "One prompt asked GPT-6 Astra Ultra to move the hand from lying flat into an upright configuration with its base at the bottom, with a third-person camera for feedback. Author: Ultra succeeded in about 3 minutes; an earlier run at Max Effort failed after about 8 minutes of repeated attempts; the hand stayed standing after the motors were disabled. Asked how it worked, the model said it tested poses in simulation, then used camera and joint feedback to refine the real motion, with curled fingers lifting the palm and the thumb as a support.",
+    "img_url": "assets/gallery/r10.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r10-wuji2-hand-self-righting-frankzydou.jpg",
+    "rel_img": "assets/images/r10-wuji2-hand-self-righting-frankzydou.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r10-wuji2-hand-self-righting-frankzydou.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "GPT-6 Astra",
+    "tools": "Wuji2 hand, third-person camera"
+  },
+  {
+    "order_index": 311,
+    "id": "R17",
+    "domain": "robotics",
+    "subsection": "Dexterous hands",
+    "rank_num": 3,
+    "rank": "rank-3",
+    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
+    "rank_title": "Rank 3: Demonstration Media Only",
+    "title": "Two videos to real-to-sim and physics-simulated retargeting on Wuji hands",
+    "author": "lingxiao guo (@Lingxiao234)",
+    "coauthors": [],
+    "source_url": "https://x.com/Lingxiao234/status/2097717020540481630",
+    "platform": "X",
+    "desc": "Author: \"I wanted to find whether GPT-6 hits its limit on robot dexterity. So I just gave it two videos, without states or actions, and told it to do real2sim and physical retarget to Wuji hands.\" The author reports successful \"physical rollouts\" of a Rubik's cube task and of an egocentric human video; the clip shows them as physics-simulated replays on Wuji hand models (\"Sim physical replay\"), and [in the thread](https://x.com/Lingxiao234/status/2097719528494936372) the author writes that \"The controller written above by agent definitely can\u2019t transfer to the real world.\"",
+    "img_url": "assets/gallery/r17.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r17-wuji-hands-real2sim-retarget-lingxiao234.jpg",
+    "rel_img": "assets/images/r17-wuji-hands-real2sim-retarget-lingxiao234.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r17-wuji-hands-real2sim-retarget-lingxiao234.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "GPT-6 Astra",
+    "tools": "Wuji hand models in physics simulation"
+  },
+  {
+    "order_index": 312,
+    "id": "R12",
+    "domain": "robotics",
+    "subsection": "Dexterous hands",
+    "rank_num": 3,
+    "rank": "rank-3",
+    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
+    "rank_title": "Rank 3: Demonstration Media Only",
+    "title": "Pen spinning with a Sharpa hand: Astra builds the Isaac Lab task and trains the RL policy",
+    "author": "Wentao Zhu (@walterzhu8)",
+    "coauthors": [],
+    "source_url": "https://x.com/walterzhu8/status/2100212420840989112",
+    "platform": "X",
+    "desc": "Prompt: \"Implement pen spinning with a dexterous hand. Use Isaac Lab for RL training, use the Sharpa hand, and create the pen mesh yourself. Give me a trained RL policy and a visualization video. You are free to search the web and download papers or anything else you need.\" Author: \"After running autonomously for a day and a half (including training the policy), this is what we got\". The post credits Chengyang Li. Jianglong Ye's separate Sharpa pen-spinning work is [R65](#case-r65).",
+    "img_url": "assets/gallery/r12.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r12-sharpa-hand-pen-spinning-isaac-lab-walterzhu8.jpg",
+    "rel_img": "assets/images/r12-sharpa-hand-pen-spinning-isaac-lab-walterzhu8.jpg",
+    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r12-sharpa-hand-pen-spinning-isaac-lab-walterzhu8.mp4",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "GPT-6 Astra",
+    "tools": "Isaac Lab, Sharpa hand (simulation)"
+  },
+  {
+    "order_index": 313,
+    "id": "R69",
+    "domain": "robotics",
+    "subsection": "Dexterous hands",
+    "rank_num": 3,
+    "rank": "rank-3",
+    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
+    "rank_title": "Rank 3: Demonstration Media Only",
+    "title": "Claude drives a real Aero Hand Open through fist and peace-sign gestures, checking each through a camera",
+    "author": "phillip torrone (Adafruit)",
+    "coauthors": [],
+    "source_url": "https://blog.adafruit.com/2026/03/02/llm-claude-given-robotic-hand-immediately-starts-making-peace-signs/",
+    "platform": "blog.adafruit.com",
+    "desc": "The post: \"There's a 3D-printed robotic hand sitting on a desk here. An LLM (Claude) is controlling it. The AI spotted the hand through a USB camera, found the serial port, connected to the firmware, and started running gestures\u2026 fist, peace sign, open palm\". The hand is TetherIA's Aero Hand Open, with \"16 joints across 5 fingers driven by 7 actuators\". \"The whole loop is camera-verified. The LLM sends a gesture command, then checks the camera feed to confirm the hand actually moved.\" The post shows photos and Telegram chat screenshots of the agent at work, with the hand making a fist and a peace sign; there is no video, and the agent setup is not published.",
+    "img_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r69-claude-aero-hand-gestures-adafruit.jpg",
+    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r69-claude-aero-hand-gestures-adafruit.jpg",
+    "rel_img": "assets/images/r69-claude-aero-hand-gestures-adafruit.jpg",
+    "video_url": "",
+    "code_url": "",
+    "code_label": "Code",
+    "code_url2": "",
+    "code_label2": "",
+    "demo_url": "",
+    "demo_label": "Interactive Demo",
+    "model": "Claude (version not stated; an OpenClaw agent over Telegram, per the screenshots)",
+    "tools": "Aero Hand Open (real), USB camera, serial firmware"
+  },
+  {
+    "order_index": 314,
     "id": "R03",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -8659,35 +8855,7 @@
     "tools": "ENPIRE, bimanual arms"
   },
   {
-    "order_index": 308,
-    "id": "R18",
-    "domain": "robotics",
-    "subsection": "Learning from demonstration and real-to-sim",
-    "rank_num": 1,
-    "rank": "rank-1",
-    "rank_label": "RANK 1 \u00b7 CODE",
-    "rank_title": "Rank 1: Demo + Implementation Code",
-    "title": "One human-hand video to a real-to-sim workflow for a 44-DOF hand (dexgpt)",
-    "author": "xiao hu (@huxiao93612565)",
-    "coauthors": [],
-    "source_url": "https://x.com/huxiao93612565/status/2097815230105399402",
-    "platform": "X",
-    "desc": "Author: \"I gave GPT-6 Astra one video of a human hand.\" The author says the model wrote the whole real-to-sim workflow itself, hand tracking, IK retargeting to a 44-DOF dexterous hand and grasp refinement, with \"Zero code from me\", and open-sourced it.",
-    "img_url": "assets/gallery/r18.jpg",
-    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r18-hand-video-to-real2sim-pipeline-huxiao.jpg",
-    "rel_img": "assets/images/r18-hand-video-to-real2sim-pipeline-huxiao.jpg",
-    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r18-hand-video-to-real2sim-pipeline-huxiao.mp4",
-    "code_url": "https://github.com/Hu-xiao-max/dexgpt",
-    "code_label": "Hu-xiao-max/dexgpt",
-    "code_url2": "",
-    "code_label2": "",
-    "demo_url": "",
-    "demo_label": "Interactive Demo",
-    "model": "GPT-6 Astra",
-    "tools": "44-DOF dexterous hand (simulation)"
-  },
-  {
-    "order_index": 309,
+    "order_index": 315,
     "id": "R33",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -8715,7 +8883,7 @@
     "tools": "NVIDIA Isaac Sim; iPhone"
   },
   {
-    "order_index": 310,
+    "order_index": 316,
     "id": "R46",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -8743,7 +8911,7 @@
     "tools": "ARX X5 or I2RT/YAM arms; RealSense cameras"
   },
   {
-    "order_index": 311,
+    "order_index": 317,
     "id": "R11",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -8771,7 +8939,7 @@
     "tools": "MuJoCo"
   },
   {
-    "order_index": 312,
+    "order_index": 318,
     "id": "R15",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -8799,7 +8967,7 @@
     "tools": "MuJoCo, Blender"
   },
   {
-    "order_index": 313,
+    "order_index": 319,
     "id": "R24",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -8827,7 +8995,7 @@
     "tools": "Blender, Newton, Unitree G1 (simulation)"
   },
   {
-    "order_index": 314,
+    "order_index": 320,
     "id": "R35",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -8855,7 +9023,7 @@
     "tools": "MuJoCo; Blender"
   },
   {
-    "order_index": 315,
+    "order_index": 321,
     "id": "R58",
     "domain": "robotics",
     "subsection": "Learning from demonstration and real-to-sim",
@@ -8883,7 +9051,7 @@
     "tools": "two YAM robot arms (as named in the post) with wrist and overhead cameras"
   },
   {
-    "order_index": 316,
+    "order_index": 322,
     "id": "R14",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -8911,7 +9079,7 @@
     "tools": "MolmoAct2 sim_eval (simulation)"
   },
   {
-    "order_index": 317,
+    "order_index": 323,
     "id": "R16",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -8924,7 +9092,7 @@
     "coauthors": [],
     "source_url": "https://x.com/dimentary/status/2097455860541009958",
     "platform": "X",
-    "desc": "Author: \"Astra, can you write a Python script for the Fibonacci sequence i mean physically\". The post quotes the author's earlier experiment, which asked the model to build a MuJoCo setup and write a controller to draw Picasso's dove with a robot arm. The author's six-legged spider robot from the same repository is [listed separately](#case-r57).",
+    "desc": "Author: \"Astra, can you write a Python script for the Fibonacci sequence i mean physically\". The post quotes the author's earlier experiment, which asked the model to build a MuJoCo setup and write a controller to draw Picasso's dove with a robot arm ([R66](#case-r66)). The author's six-legged spider robot from the same repository is [listed separately](#case-r57).",
     "img_url": "assets/gallery/r16.jpg",
     "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r16-mujoco-arm-writes-fibonacci-dimentary.jpg",
     "rel_img": "assets/images/r16-mujoco-arm-writes-fibonacci-dimentary.jpg",
@@ -8939,7 +9107,7 @@
     "tools": "MuJoCo (simulation)"
   },
   {
-    "order_index": 318,
+    "order_index": 324,
     "id": "R07",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -8967,7 +9135,7 @@
     "tools": "RoboDojo, RoboPianist"
   },
   {
-    "order_index": 319,
+    "order_index": 325,
     "id": "R42",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -8995,7 +9163,7 @@
     "tools": "botrail"
   },
   {
-    "order_index": 320,
+    "order_index": 326,
     "id": "R43",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9023,7 +9191,7 @@
     "tools": "botrail"
   },
   {
-    "order_index": 321,
+    "order_index": 327,
     "id": "R47",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9051,7 +9219,7 @@
     "tools": "RoboMME; Codex"
   },
   {
-    "order_index": 322,
+    "order_index": 328,
     "id": "R56",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9079,7 +9247,7 @@
     "tools": "RoboTwin 2.0 and RoboDojo (simulation); Franka and AgileX Piper arms (real, Gemini runs)"
   },
   {
-    "order_index": 323,
+    "order_index": 329,
     "id": "R57",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9107,7 +9275,7 @@
     "tools": "MuJoCo (simulation); Kinova Gen3 arms and Robotiq 2F-85 grippers (MuJoCo Menagerie models)"
   },
   {
-    "order_index": 324,
+    "order_index": 330,
     "id": "R63",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9135,7 +9303,7 @@
     "tools": "LIBERO and robosuite (simulation); MCP; Hello Robot Stretch 4 (v2)"
   },
   {
-    "order_index": 325,
+    "order_index": 331,
     "id": "R27",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9163,35 +9331,7 @@
     "tools": "Dual-ALOHA (setting per the linked demo page)"
   },
   {
-    "order_index": 326,
-    "id": "R12",
-    "domain": "robotics",
-    "subsection": "Simulation control and training, painting and full evaluations",
-    "rank_num": 3,
-    "rank": "rank-3",
-    "rank_label": "RANK 3 \u00b7 DEMO ONLY",
-    "rank_title": "Rank 3: Demonstration Media Only",
-    "title": "Pen spinning with a Sharpa hand: Astra builds the Isaac Lab task and trains the RL policy",
-    "author": "Wentao Zhu (@walterzhu8)",
-    "coauthors": [],
-    "source_url": "https://x.com/walterzhu8/status/2100212420840989112",
-    "platform": "X",
-    "desc": "Prompt: \"Implement pen spinning with a dexterous hand. Use Isaac Lab for RL training, use the Sharpa hand, and create the pen mesh yourself. Give me a trained RL policy and a visualization video. You are free to search the web and download papers or anything else you need.\" Author: \"After running autonomously for a day and a half (including training the policy), this is what we got\". The post credits Chengyang Li.",
-    "img_url": "assets/gallery/r12.jpg",
-    "remote_img": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/images/r12-sharpa-hand-pen-spinning-isaac-lab-walterzhu8.jpg",
-    "rel_img": "assets/images/r12-sharpa-hand-pen-spinning-isaac-lab-walterzhu8.jpg",
-    "video_url": "https://frank-zy-dou.github.io/awesome-ai-3d-modeling-robotics/assets/videos/r12-sharpa-hand-pen-spinning-isaac-lab-walterzhu8.mp4",
-    "code_url": "",
-    "code_label": "Code",
-    "code_url2": "",
-    "code_label2": "",
-    "demo_url": "",
-    "demo_label": "Interactive Demo",
-    "model": "GPT-6 Astra",
-    "tools": "Isaac Lab, Sharpa hand (simulation)"
-  },
-  {
-    "order_index": 327,
+    "order_index": 332,
     "id": "R26",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9219,7 +9359,7 @@
     "tools": "Isaac Sim, Unitree G1"
   },
   {
-    "order_index": 328,
+    "order_index": 333,
     "id": "R23",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9247,7 +9387,7 @@
     "tools": "Fusion 360, reinforcement learning (simulation)"
   },
   {
-    "order_index": 329,
+    "order_index": 334,
     "id": "R02",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9275,7 +9415,7 @@
     "tools": "SO-ARM101 (as identified in the AIToolHub.co share)"
   },
   {
-    "order_index": 330,
+    "order_index": 335,
     "id": "R28",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9303,7 +9443,7 @@
     "tools": "Kitchen simulation; revised harness and hardware setup (software not named)"
   },
   {
-    "order_index": 331,
+    "order_index": 336,
     "id": "R32",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9331,7 +9471,7 @@
     "tools": "MuJoCo (simulation); humanoid robot and whiteboard (simulation)"
   },
   {
-    "order_index": 332,
+    "order_index": 337,
     "id": "R41",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9359,7 +9499,7 @@
     "tools": "Claude Code; robot arm and whiteboard; MuJoCo (simulation); humanoid robot and whiteboard (simulation)"
   },
   {
-    "order_index": 333,
+    "order_index": 338,
     "id": "R36",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9387,7 +9527,7 @@
     "tools": "simulator not named; two robot arms (simulation)"
   },
   {
-    "order_index": 334,
+    "order_index": 339,
     "id": "R38",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9415,7 +9555,7 @@
     "tools": "C5R facility harness; Opentrons Flex; LC-MS"
   },
   {
-    "order_index": 335,
+    "order_index": 340,
     "id": "R48",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9443,7 +9583,7 @@
     "tools": "MuJoCo"
   },
   {
-    "order_index": 336,
+    "order_index": 341,
     "id": "R52",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9471,7 +9611,7 @@
     "tools": "Codex CLI; a robot MCP server; the simulator is not named"
   },
   {
-    "order_index": 337,
+    "order_index": 342,
     "id": "R53",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9499,7 +9639,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 338,
+    "order_index": 343,
     "id": "R54",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9527,7 +9667,7 @@
     "tools": "Google Speech Recognition; Meshy.ai; UR10 arm; 10 cm cuboctahedral modules with embedded magnets"
   },
   {
-    "order_index": 339,
+    "order_index": 344,
     "id": "R55",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9555,7 +9695,7 @@
     "tools": "Autodesk Project Bernini; robotic assembly cell (the paper names a UR20 with Robotiq grippers)"
   },
   {
-    "order_index": 340,
+    "order_index": 345,
     "id": "R62",
     "domain": "robotics",
     "subsection": "Simulation control and training, painting and full evaluations",
@@ -9583,7 +9723,7 @@
     "tools": "SO-101 arm and two webcams (real); MuJoCo (simulation)"
   },
   {
-    "order_index": 341,
+    "order_index": 346,
     "id": "R50",
     "domain": "robotics",
     "subsection": "Navigation and mobile robots",
@@ -9611,7 +9751,7 @@
     "tools": "Habitat-Sim with HSSD homes; Pi coding-agent harness"
   },
   {
-    "order_index": 342,
+    "order_index": 347,
     "id": "R21",
     "domain": "robotics",
     "subsection": "Navigation and mobile robots",
@@ -9639,7 +9779,7 @@
     "tools": "Unitree G1 (simulation)"
   },
   {
-    "order_index": 343,
+    "order_index": 348,
     "id": "R06",
     "domain": "robotics",
     "subsection": "Navigation and mobile robots",
@@ -9667,7 +9807,7 @@
     "tools": "Drone-Bench"
   },
   {
-    "order_index": 344,
+    "order_index": 349,
     "id": "R13",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -9695,7 +9835,7 @@
     "tools": "I2RT YAM bimanual arms, Inspect Robots"
   },
   {
-    "order_index": 345,
+    "order_index": 350,
     "id": "R30",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -9723,7 +9863,7 @@
     "tools": "Discrete-action simulation; native APIs and a separate Claude Code follow-up"
   },
   {
-    "order_index": 346,
+    "order_index": 351,
     "id": "X08",
     "domain": "robotics",
     "subsection": "Safety evaluations and claims",
@@ -9751,7 +9891,7 @@
     "tools": "none"
   },
   {
-    "order_index": 347,
+    "order_index": 352,
     "id": "A18",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9779,7 +9919,7 @@
     "tools": "Three.js; WebGPU; Blender (Impala)"
   },
   {
-    "order_index": 348,
+    "order_index": 353,
     "id": "A21",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9807,7 +9947,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 349,
+    "order_index": 354,
     "id": "M21",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9835,7 +9975,7 @@
     "tools": "Tripo, Blender"
   },
   {
-    "order_index": 350,
+    "order_index": 355,
     "id": "M22",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9863,7 +10003,7 @@
     "tools": "not stated"
   },
   {
-    "order_index": 351,
+    "order_index": 356,
     "id": "M46",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9891,7 +10031,7 @@
     "tools": "Higgsfield; Blender"
   },
   {
-    "order_index": 352,
+    "order_index": 357,
     "id": "M47",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9919,7 +10059,7 @@
     "tools": "No tool named"
   },
   {
-    "order_index": 353,
+    "order_index": 358,
     "id": "M89",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9947,7 +10087,7 @@
     "tools": "Blender; claude.ai"
   },
   {
-    "order_index": 354,
+    "order_index": 359,
     "id": "A09",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -9975,7 +10115,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 355,
+    "order_index": 360,
     "id": "A11",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10003,7 +10143,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 356,
+    "order_index": 361,
     "id": "A12",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10031,7 +10171,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 357,
+    "order_index": 362,
     "id": "A25",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10059,7 +10199,7 @@
     "tools": "ImageGen (as named by the author)"
   },
   {
-    "order_index": 358,
+    "order_index": 363,
     "id": "A27",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10087,7 +10227,7 @@
     "tools": "Krea2; Tripo; Blender; Rigify"
   },
   {
-    "order_index": 359,
+    "order_index": 364,
     "id": "A28",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10115,7 +10255,7 @@
     "tools": "Tripo P2; Blender; JEV; Seedance (left panel)"
   },
   {
-    "order_index": 360,
+    "order_index": 365,
     "id": "A29",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10143,7 +10283,7 @@
     "tools": "Blender MCP; Tripo P2.0; Blender"
   },
   {
-    "order_index": 361,
+    "order_index": 366,
     "id": "A30",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10171,7 +10311,7 @@
     "tools": "Tripo; Blender MCP; Rigify"
   },
   {
-    "order_index": 362,
+    "order_index": 367,
     "id": "A31",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10199,7 +10339,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 363,
+    "order_index": 368,
     "id": "A32",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10227,7 +10367,7 @@
     "tools": "Tripo P2.0; Seedance; Blender; Unity"
   },
   {
-    "order_index": 364,
+    "order_index": 369,
     "id": "A33",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10255,7 +10395,7 @@
     "tools": "Codex; Blender MCP; HY-Motion"
   },
   {
-    "order_index": 365,
+    "order_index": 370,
     "id": "A34",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10283,7 +10423,7 @@
     "tools": "Blender MCP; ARDY"
   },
   {
-    "order_index": 366,
+    "order_index": 371,
     "id": "A35",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10311,7 +10451,7 @@
     "tools": "Blender MCP; Tripo P2; Blender"
   },
   {
-    "order_index": 367,
+    "order_index": 372,
     "id": "X29",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10339,7 +10479,7 @@
     "tools": "Meshy; Blender MCP; Blender"
   },
   {
-    "order_index": 368,
+    "order_index": 373,
     "id": "X30",
     "domain": "animation",
     "subsection": "Rigging and character animation",
@@ -10367,7 +10507,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 369,
+    "order_index": 374,
     "id": "A15",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10395,7 +10535,7 @@
     "tools": "Canvas 2D; Web Audio; Claude Code"
   },
   {
-    "order_index": 370,
+    "order_index": 375,
     "id": "A26",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10423,7 +10563,7 @@
     "tools": "Claude Code; p5.js; p5.brush; headless Chrome; ffmpeg"
   },
   {
-    "order_index": 371,
+    "order_index": 376,
     "id": "X11",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10451,7 +10591,7 @@
     "tools": "Blender"
   },
   {
-    "order_index": 372,
+    "order_index": 377,
     "id": "M90",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10479,7 +10619,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 373,
+    "order_index": 378,
     "id": "M20",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10507,7 +10647,7 @@
     "tools": "TouchDesigner"
   },
   {
-    "order_index": 374,
+    "order_index": 379,
     "id": "M52",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10535,7 +10675,7 @@
     "tools": "Houdini"
   },
   {
-    "order_index": 375,
+    "order_index": 380,
     "id": "M03",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10563,7 +10703,7 @@
     "tools": "Miomoto"
   },
   {
-    "order_index": 376,
+    "order_index": 381,
     "id": "A02",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10591,7 +10731,7 @@
     "tools": "Blender; Scenario for Blender; M5 Max MacBook Pro"
   },
   {
-    "order_index": 377,
+    "order_index": 382,
     "id": "A08",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10619,7 +10759,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 378,
+    "order_index": 383,
     "id": "A14",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10647,7 +10787,7 @@
     "tools": "Blender; Scenario for Blender"
   },
   {
-    "order_index": 379,
+    "order_index": 384,
     "id": "A16",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10675,7 +10815,7 @@
     "tools": "Blender; Higgsfield"
   },
   {
-    "order_index": 380,
+    "order_index": 385,
     "id": "A20",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10703,7 +10843,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 381,
+    "order_index": 386,
     "id": "A22",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10731,7 +10871,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 382,
+    "order_index": 387,
     "id": "X31",
     "domain": "animation",
     "subsection": "Procedural animation and motion graphics",
@@ -10759,7 +10899,7 @@
     "tools": "not stated in the posts"
   },
   {
-    "order_index": 383,
+    "order_index": 388,
     "id": "M28",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10787,7 +10927,7 @@
     "tools": "three.js, WebGL"
   },
   {
-    "order_index": 384,
+    "order_index": 389,
     "id": "M29",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10815,7 +10955,7 @@
     "tools": "twigl.app (WebGL)"
   },
   {
-    "order_index": 385,
+    "order_index": 390,
     "id": "A01",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10843,7 +10983,7 @@
     "tools": "Three.js; WebGL"
   },
   {
-    "order_index": 386,
+    "order_index": 391,
     "id": "A17",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10871,7 +11011,7 @@
     "tools": "Three.js; WebGPU"
   },
   {
-    "order_index": 387,
+    "order_index": 392,
     "id": "A19",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10899,7 +11039,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 388,
+    "order_index": 393,
     "id": "A24",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10927,7 +11067,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 389,
+    "order_index": 394,
     "id": "A03",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10955,7 +11095,7 @@
     "tools": "Three.js"
   },
   {
-    "order_index": 390,
+    "order_index": 395,
     "id": "A07",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -10983,7 +11123,7 @@
     "tools": "Three.js; Airsup"
   },
   {
-    "order_index": 391,
+    "order_index": 396,
     "id": "A04",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -11011,7 +11151,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 392,
+    "order_index": 397,
     "id": "A13",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -11039,7 +11179,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 393,
+    "order_index": 398,
     "id": "A23",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -11067,7 +11207,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 394,
+    "order_index": 399,
     "id": "A05",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -11095,7 +11235,7 @@
     "tools": "Cowork"
   },
   {
-    "order_index": 395,
+    "order_index": 400,
     "id": "A06",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -11123,7 +11263,7 @@
     "tools": "not stated in the post"
   },
   {
-    "order_index": 396,
+    "order_index": 401,
     "id": "A10",
     "domain": "animation",
     "subsection": "Interactive and shader animation",
@@ -11151,7 +11291,7 @@
     "tools": "Three.js; TSL"
   },
   {
-    "order_index": 397,
+    "order_index": 402,
     "id": "M30",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11179,7 +11319,7 @@
     "tools": "Higgsfield, Seedance 2.5"
   },
   {
-    "order_index": 398,
+    "order_index": 403,
     "id": "M40",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11207,7 +11347,7 @@
     "tools": "Higgsfield; Blender; After Effects"
   },
   {
-    "order_index": 399,
+    "order_index": 404,
     "id": "M45",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11235,7 +11375,7 @@
     "tools": "Blender; FLORA"
   },
   {
-    "order_index": 400,
+    "order_index": 405,
     "id": "M70",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11263,7 +11403,7 @@
     "tools": "Blender; MCP; Magnific; MiniMax H3 named as an example"
   },
   {
-    "order_index": 401,
+    "order_index": 406,
     "id": "M76",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11291,7 +11431,7 @@
     "tools": "Codex; Blender"
   },
   {
-    "order_index": 402,
+    "order_index": 407,
     "id": "M83",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11319,7 +11459,7 @@
     "tools": "Blender, PixVerse, Seedance 2.5"
   },
   {
-    "order_index": 403,
+    "order_index": 408,
     "id": "A36",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11347,7 +11487,7 @@
     "tools": "Blender MCP; Seedance 2.5; DaVinci Resolve Studio (Fusion)"
   },
   {
-    "order_index": 404,
+    "order_index": 409,
     "id": "A37",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11375,7 +11515,7 @@
     "tools": "Codex; Blender MCP; Seedance 2.5; FLORA; Nano Banana Pro"
   },
   {
-    "order_index": 405,
+    "order_index": 410,
     "id": "A38",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11403,7 +11543,7 @@
     "tools": "Seedance 2.5 (through Atlas Cloud)"
   },
   {
-    "order_index": 406,
+    "order_index": 411,
     "id": "A39",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11431,7 +11571,7 @@
     "tools": "Blender MCP; Seedance 2.0"
   },
   {
-    "order_index": 407,
+    "order_index": 412,
     "id": "A40",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11459,7 +11599,7 @@
     "tools": "Blender MCP; Seedance 2; Midjourney; ChatGPT"
   },
   {
-    "order_index": 408,
+    "order_index": 413,
     "id": "A41",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
@@ -11487,7 +11627,7 @@
     "tools": "Seedream 5 Pro; Blender; Seedance 2.0"
   },
   {
-    "order_index": 409,
+    "order_index": 414,
     "id": "A42",
     "domain": "animation",
     "subsection": "Previsualization and animation-to-video workflows",
