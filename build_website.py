@@ -1479,6 +1479,7 @@ def convert_paper_html(bib_urls=None):
         ("gallery3d", "fig:gallery-3d", "figures/gallery_3d.tex", "3d"),
         ("gallerycad", "fig:gallery-cad", "figures/gallery_cad.tex", "cad"),
         ("galleryrobot", "fig:gallery-robot", "figures/gallery_robot.tex", "robotics"),
+        ("galleryrobotb", "fig:gallery-robot-b", "figures/gallery_robot_b.tex", "robotics"),
         ("galleryanim", "fig:gallery-anim", "figures/gallery_anim.tex", "animation"),
     ):
         figure_html[key] = build_latex_gallery_figure_html(
@@ -1683,7 +1684,7 @@ DOMAINS_CONFIG = [
         "badge": "Domain 01",
         "title": "3D Modeling & Spatial Synthesis",
         "short_title": "3D Modeling",
-        "desc": "{count} community and research cases exploring automated asset generation, architectural reconstruction, character and material synthesis, world-building, and generative 3D workflows.",
+        "desc": "{count} community and research cases spanning architecture and real-world reconstruction, vehicles, products and environments, characters and materials, game assets and playable worlds, 3D workflows and tooling, and interactive education and explanation.",
         "sub_short_names": {
             "Architecture and real-world reconstruction": "Architecture & Recon",
             "Vehicles, products and environments": "Vehicles & Environments",
@@ -1698,7 +1699,7 @@ DOMAINS_CONFIG = [
         "badge": "Domain 02",
         "title": "Industrial Design & Parametric CAD",
         "short_title": "Industrial Design & CAD",
-        "desc": "{count} archived cases covering B-rep solid modeling, feature trees, industrial design drafting, and algorithmic CAD kernel execution.",
+        "desc": "{count} archived cases covering parametric CAD and solid modeling, product design and prototypes (including PCBs and brick builds), and BIM drafting.",
         "sub_short_names": {
             "Parametric CAD and solid modeling": "Parametric Solid Modeling",
             "Product design and prototypes": "Product Design & Prototypes",
@@ -1710,14 +1711,16 @@ DOMAINS_CONFIG = [
         "badge": "Domain 03",
         "title": "Embodied Robotics & Physical Interaction",
         "short_title": "Embodied Robotics",
-        "desc": "{count} archived cases spanning high-precision manipulation, dexterous multi-finger hands, real-to-sim transfer, physics simulation control, navigation and mobile robots, and physical safety evaluations.",
+        "desc": "{count} archived cases spanning manipulation evaluations, personal arms and unseen robots, dexterous hands, robot design and simulation, learning from demonstration and real-to-sim, drawing and painting, work cells and lab automation, simulation control and training, navigation and mobile robots, and safety evaluations.",
         "sub_short_names": {
             "Manipulation evaluations": "Manipulation Evaluations",
             "Personal arms and unseen robots": "Personal Arms",
             "Dexterous hands": "Dexterous Hands",
             "Robot design and simulation": "Robot Design & Sim",
             "Learning from demonstration and real-to-sim": "Demo & Real-to-Sim",
-            "Simulation control and training, painting and full evaluations": "Simulation & Control",
+            "Drawing and painting": "Drawing & Painting",
+            "Work cells, assembly and lab automation": "Work Cells & Lab",
+            "Simulation control and training": "Simulation & Control",
             "Navigation and mobile robots": "Navigation",
             "Safety evaluations and claims": "Safety Evaluations"
         }
@@ -1903,7 +1906,9 @@ TOOL_GROUPS = [
     ("Application plug-ins and add-ins", "Plug-ins & Add-ins", ["application plug-in or add-in"]),
     ("Computer use", "Computer Use", ["computer use"]),
     ("Robot harnesses and operating layers", "Robot Harnesses", ["robot harness or operating layer"]),
-    ("Simulators and engines", "Simulators & Engines", ["simulator or engine"]),
+    ("Physics and robot simulators", "Robot Simulators", ["physics or robot simulator"]),
+    ("3D, CAD and game applications", "3D, CAD & Game Apps", ["3D, CAD or game application"]),
+    ("Generative 3D, video and reconstruction models", "Generative Models", ["generative 3D, video or reconstruction model"]),
     ("Vendor agentic modes", "Vendor Agentic Modes", ["vendor agentic mode"]),
     ("AI design applications", "AI Design Apps", ["AI-native CAD application", "vendor AI design platform"]),
     ("CAD and BIM tooling", "CAD & BIM Tooling", ["CAD and BIM tooling"]),
@@ -2550,7 +2555,7 @@ def build_full_html():
               </div>
               <div class="pillar-tagline">Demonstrations as a Distributed User Study</div>
               <p>
-                We analyze the corpus of over {CORPUS["posts"]} publicly documented showcases and developer reports as an extensive, distributed "crowdsourced user study." This framing captures how models operate when prompted across diverse geometry kernels (CGM, Open CASCADE), DCC software (Blender), physics simulators (Isaac Sim, MuJoCo, Genesis), and physical robot hardware—revealing real-world workflow friction, prompt overhead, and boundary failures that static benchmarks miss.
+                We analyze the corpus of over {CORPUS["posts"]} publicly documented showcases and developer reports as an extensive, distributed "crowdsourced user study." This framing captures how models operate when prompted across diverse geometry kernels (CGM, Open CASCADE), DCC software (Blender), physics simulators (Isaac Sim, MuJoCo, Newton), and physical robot hardware—revealing real-world workflow friction, prompt overhead, and boundary failures that static benchmarks miss.
               </p>
             </div>
 
