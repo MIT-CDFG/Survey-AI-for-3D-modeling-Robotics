@@ -69,6 +69,8 @@ def latex_to_unicode(text):
     (Mu{\v{s}}i{\'c} -> Mušić, Elmal{\i} -> Elmalı, \textbar -> |)."""
     if not text or "\\" not in text:
         return text
+    text = re.sub(r"\$\\pi_\{([^{}$]*)\}\$", "π\\1", text)  # $\pi_{0.5}$ -> π0.5
+    text = text.replace("$\\pi$", "π")  # $\pi$0.5 -> π0.5
     text = re.sub(r"\\textbar\\?\s?", "| ", text)
     text = re.sub(r"\{\\i\}|\\i\b", "ı", text)
     def accent(m):
