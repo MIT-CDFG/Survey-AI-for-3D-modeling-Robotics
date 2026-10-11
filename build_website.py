@@ -1715,6 +1715,7 @@ DOMAINS_CONFIG = [
             "Manipulation evaluations": "Manipulation Evaluations",
             "Personal arms and unseen robots": "Personal Arms",
             "Dexterous hands": "Dexterous Hands",
+            "Robot design and simulation": "Robot Design & Sim",
             "Learning from demonstration and real-to-sim": "Demo & Real-to-Sim",
             "Simulation control and training, painting and full evaluations": "Simulation & Control",
             "Navigation and mobile robots": "Navigation",
