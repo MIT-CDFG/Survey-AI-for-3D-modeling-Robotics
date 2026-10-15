@@ -241,20 +241,20 @@
           <div class="latex-content-body">
             <h1 class="unnumbered" id="abstract">Abstract</h1>
 <p>Recent frontier multimodal models, including GPT-6 Astra, Claude Opus
-5.5 and Fable 5.1, and Gemini 3.8 Flash, exhibit capabilities in 3D
-modeling, computational design and robotics that earlier models lacked.
-The most current evidence of these capabilities comes from public
-demonstrations and vendor reports, which appear well before
-peer-reviewed evaluations. This survey collects and verifies 1646 public
-posts and their accompanying benchmark evaluations across 707 cases to
-assess what these models can reliably accomplish and where human
-expertise remains necessary. It is maintained as a live record that is
-updated as new results appear. The record shows that <em>3D spatial
-perception, geometric reasoning and scene understanding have advanced
-substantially over previous model generations</em>, and it supports
-three findings about what this advance means in practice. First,
-frontier models are now effective drafting tools for 3D and CAD work:
-they produce editable scenes and parametric assemblies containing
+5.5 and Fable 5.1, and Gemini 3.8 Flash and 4 Argon, exhibit
+capabilities in 3D modeling, computational design and robotics that
+earlier models lacked. The most current evidence of these capabilities
+comes from public demonstrations and vendor reports, which appear well
+before peer-reviewed evaluations. This survey collects and verifies 1646
+public posts and their accompanying benchmark evaluations across 707
+cases to assess what these models can reliably accomplish and where
+human expertise remains necessary. It is maintained as a live record
+that is updated as new results appear. The record shows that <em>3D
+spatial perception, geometric reasoning and scene understanding have
+advanced substantially over previous model generations</em>, and it
+supports three findings about what this advance means in practice.
+First, frontier models are now effective drafting tools for 3D and CAD
+work: they produce editable scenes and parametric assemblies containing
 hundreds of verified solids and improve substantially over prior
 generations on standardized CAD benchmarks, although confirming
 conformance to tolerances and manufacturability requires further
@@ -7126,11 +7126,12 @@ self-reported and skew toward successes. Only 132 cases include runnable
 code, 182 provide an interactive demonstration, and 393 are documented
 only by posts and media (Section <a href="#sec:intro-methods" class="academic-ref-link">10</a>), so most
 capabilities in this review are demonstrated rather than reproduced.</p>
-<p><em>Model coverage.</em> Most cases and benchmark results concern
-GPT-6 Astra. Several established CAD, 3D, embodied, and safety
-benchmarks and methods, including BlenderGym, SGP-Bench, Text2CAD,
-CADBench, EmbodiedBench, SIMPLER, SafeArena, AgentDojo, RoboPAIR, and
-RoboGuard, report no GPT-6 Astra results in their current releases <span class="citation-group">(<a href="#ref-gu2025blendergym" class="citation-link" data-refs="ref-gu2025blendergym" title="[113] View in References">Gu
+<p><em>Model coverage.</em> GPT-6 Astra appears in more cases than any
+other model and in most benchmark results. Several established CAD, 3D,
+embodied, and safety benchmarks and methods, including BlenderGym,
+SGP-Bench, Text2CAD, CADBench, EmbodiedBench, SIMPLER, SafeArena,
+AgentDojo, RoboPAIR, and RoboGuard, report no GPT-6 Astra results in
+their current releases <span class="citation-group">(<a href="#ref-gu2025blendergym" class="citation-link" data-refs="ref-gu2025blendergym" title="[113] View in References">Gu
 et al. 2025</a>; <a href="#ref-qiu2025sgp" class="citation-link" data-refs="ref-qiu2025sgp" title="[241] View in References">Qiu et al. 2025</a>; <a href="#ref-khan2024text2cad" class="citation-link" data-refs="ref-khan2024text2cad" title="[152] View in References">Khan et al. 2024</a>; <a href="#ref-wang2026text2cadbench" class="citation-link" data-refs="ref-wang2026text2cadbench" title="[333] View in References">L. Wang et al. 2026</a>; <a href="#ref-du2024blenderllm" class="citation-link" data-refs="ref-du2024blenderllm" title="[76] View in References">Du
 et al. 2024</a>; <a href="#ref-doris2026cadbench" class="citation-link" data-refs="ref-doris2026cadbench" title="[68] View in References">Doris et al. 2026</a>; <a href="#ref-seldon2026cadbench" class="citation-link" data-refs="ref-seldon2026cadbench" title="[274] View in References">Seldon Research 2026</a>; <a href="#ref-yang2025embodiedbench" class="citation-link" data-refs="ref-yang2025embodiedbench" title="[362] View in References">R. Yang et al.
 2025</a>; <a href="#ref-li2024simpler" class="citation-link" data-refs="ref-li2024simpler" title="[171] View in References">Li et al. 2024</a>; <a href="#ref-tur2025safearena" class="citation-link" data-refs="ref-tur2025safearena" title="[319] View in References">Tur et al. 2025</a>; <a href="#ref-debenedetti2024agentdojo" class="citation-link" data-refs="ref-debenedetti2024agentdojo" title="[63] View in References">Debenedetti et al. 2024</a>; <a href="#ref-robey2024robopair" class="citation-link" data-refs="ref-robey2024robopair" title="[258] View in References">Robey et
