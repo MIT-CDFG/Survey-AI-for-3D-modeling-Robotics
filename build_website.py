@@ -1939,6 +1939,8 @@ TOOL_GROUPS = [
     ("2D image, video and design tooling", "2D Image, Video & Design", ["2D image, video and design tooling"]),
     ("Resources", "Resources", ["Resources"]),
 ]
+# Tools shown first in their group, ahead of table rows and earlier bullets (maintainer request)
+PINNED_TOOLS = {"MIT-CDFG/scandium"}
 
 
 def md_inline_html(text):
@@ -2023,6 +2025,7 @@ def parse_llm_tools(readme_text, gallery_items):
     bullet_tools("## Resources", "Resources")
 
     kind_to_group = {k: g for g, _, ks in TOOL_GROUPS for k in ks}
+    tools.sort(key=lambda t: t["name"] not in PINNED_TOOLS)  # stable: pinned first, README order otherwise
     for i, t in enumerate(tools):
         t["group"] = kind_to_group.get(t["kind"], t["kind"][:1].upper() + t["kind"][1:])
         t["order_index"] = 10000 + i
