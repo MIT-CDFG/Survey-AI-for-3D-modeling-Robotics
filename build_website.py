@@ -1936,11 +1936,23 @@ TOOL_GROUPS = [
     ("Vendor agentic modes", "Vendor Agentic Modes", ["vendor agentic mode"]),
     ("AI design applications", "AI Design Apps", ["AI-native CAD application", "vendor AI design platform"]),
     ("CAD and BIM tooling", "CAD & BIM Tooling", ["CAD and BIM tooling"]),
-    ("2D image, video and design tooling", "2D Image, Video & Design", ["2D image, video and design tooling"]),
     ("Resources", "Resources", ["Resources"]),
 ]
 # Tools shown first in their group, ahead of table rows and earlier bullets (maintainer request)
 PINNED_TOOLS = {"MIT-CDFG/scandium"}
+# 2D image, video and design tools get their own gallery section, apart from the LLM tools
+# (maintainer request); its categories are the README's "####" headings in that list
+DESIGN2D_KIND = "2D image, video and design tooling"
+DESIGN2D_TITLE = "2D Image, Video & Design"
+DESIGN2D_SHORT = {
+    "Image and photo editors": "Image & Photo Editors",
+    "Creative app suites and connectors": "App Suites & Connectors",
+    "Shaders and graphics components": "Shaders & Graphics",
+    "Design agents": "Design Agents",
+}
+# Tools-table rows of that kind have no "####" heading: vendor agents shown working in design
+# apps (ego lite drawing in Canva). Their group comes after the README's categories.
+DESIGN2D_TABLE_GROUP = "Design agents"
 
 
 def md_inline_html(text):
@@ -2005,7 +2017,11 @@ def parse_llm_tools(readme_text, gallery_items):
         })
 
     def bullet_tools(head, kind, skip=lambda s: False):
+        category = ""
         for l in block(head):
+            if l.startswith("#### "):
+                category = l[5:].strip()
+                continue
             m = re.match(r'- \[([^\]]+)\]\(([^)\s]+)\):?\s*(.*)', l)
             if not m or skip(l):
                 continue
@@ -2016,25 +2032,32 @@ def parse_llm_tools(readme_text, gallery_items):
                 "code_note_html": "",
                 "code_url": url if ("github.com" in url or "gitlab.com" in url) else "",
                 "page_url": "" if ("github.com" in url or "gitlab.com" in url) else url,
-                "announce_url": "", "img_url": "",
+                "announce_url": "", "img_url": "", "category": category,
             })
 
     # OpenTheme and similar entries are FreeCAD resources, not tools for agents
     bullet_tools("### CAD and BIM tooling", "CAD and BIM tooling", skip=lambda s: "rather than agent tooling" in s)
-    bullet_tools("### 2D image, video and design tooling", "2D image, video and design tooling")
+    bullet_tools("### 2D image, video and design tooling", DESIGN2D_KIND)
     bullet_tools("## Resources", "Resources")
 
     kind_to_group = {k: g for g, _, ks in TOOL_GROUPS for k in ks}
     tools.sort(key=lambda t: t["name"] not in PINNED_TOOLS)  # stable: pinned first, README order otherwise
     for i, t in enumerate(tools):
-        t["group"] = kind_to_group.get(t["kind"], t["kind"][:1].upper() + t["kind"][1:])
+        if t["kind"] == DESIGN2D_KIND:
+            t["domain"] = "design2d"
+            t["group"] = t.get("category") or DESIGN2D_TABLE_GROUP
+            t["short"] = DESIGN2D_SHORT.get(t["group"], t["group"])
+        else:
+            t["domain"] = "tools"
+            t["group"] = kind_to_group.get(t["kind"], t["kind"][:1].upper() + t["kind"][1:])
+            t["short"] = next((s for g, s, _ in TOOL_GROUPS if g == t["group"]), t["group"])
         t["order_index"] = 10000 + i
         t["case_links"] = [(c, case_domain[c]) for c in t["cases"] if c in case_domain]
     return tools
 
 
 def render_tool_tile_html(tool):
-    short = next((s for g, s, _ in TOOL_GROUPS if g == tool["group"]), tool["group"])
+    short = tool["short"]
     name_html = (f'<a href="{html_escape(tool["page_url"] or tool["code_url"])}" target="_blank" rel="noopener noreferrer" class="tile-desc-link">{html_escape(tool["name"])}</a>'
                  if (tool["page_url"] or tool["code_url"]) else html_escape(tool["name"]))
     if tool["img_url"]:
@@ -2059,7 +2082,7 @@ def render_tool_tile_html(tool):
     note_html = f'<div class="tool-code-note">{tool["code_note_html"]}</div>' if tool["code_note_html"] else ""
     search_blob = " ".join([tool["name"], tool["kind"], tool["group"], tool["desc_text"], " ".join(tool["cases"])]).lower()
     return f"""
-    <div class="gallery-tile tool-tile cat-tools" data-domain="tools" data-rank="tool" data-rank-num="9" data-order="{tool['order_index']}" data-id="{html_escape(tool['name'])}" data-author="{html_escape(tool['kind'])}" data-desc="{html_escape(tool['name'] + ' ' + tool['desc_text'])}" data-search="{html_escape(search_blob)}">
+    <div class="gallery-tile tool-tile cat-tools" data-domain="{tool['domain']}" data-rank="tool" data-rank-num="9" data-order="{tool['order_index']}" data-id="{html_escape(tool['name'])}" data-author="{html_escape(tool['kind'])}" data-desc="{html_escape(tool['name'] + ' ' + tool['desc_text'])}" data-search="{html_escape(search_blob)}">
       {media}
       <div class="tile-meta">
         <div class="tile-author tool-name">{name_html}</div>
@@ -2073,14 +2096,23 @@ def render_tool_tile_html(tool):
 
 
 def group_llm_tools(llm_tools):
+    """LLM tools in TOOL_GROUPS order; 2D tools (no TOOL_GROUPS entry) in README category order,
+    with the tools-table group last."""
     grouped = {}
     for t in llm_tools:
         grouped.setdefault(t["group"], []).append(t)
-    order = [g for g, _, _ in TOOL_GROUPS] + [g for g in grouped if g not in {x for x, _, _ in TOOL_GROUPS}]
+    known = {x for x, _, _ in TOOL_GROUPS}
+    rest = sorted((g for g in grouped if g not in known),
+                  key=lambda g: (g == DESIGN2D_TABLE_GROUP, min(t["order_index"] for t in grouped[g])))
+    order = [g for g, _, _ in TOOL_GROUPS] + rest
     return [(g, grouped[g]) for g in order if g in grouped]
 
 
-def build_gallery_sidebar_html(gallery_items, llm_tools=None, n_suites=None):
+def tool_section_slug(domain, g_title):
+    return ("tools-" if domain == "tools" else domain + "-") + slugify(g_title)
+
+
+def build_gallery_sidebar_html(gallery_items, llm_tools=None, n_suites=None, design_tools=None):
     grouped = {}
     for item in gallery_items:
         d = item['domain']
@@ -2134,21 +2166,23 @@ def build_gallery_sidebar_html(gallery_items, llm_tools=None, n_suites=None):
         </div>
         ''')
 
-    if llm_tools:
+    for d_id, d_title, d_tools in (("tools", "LLM Tools", llm_tools), ("design2d", DESIGN2D_TITLE, design_tools)):
+        if not d_tools:
+            continue
         sidebar_html.append(f'''
-        <div class="sidebar-domain-group" data-domain="tools" id="nav-group-tools">
-          <a href="#domain-tools" class="sidebar-domain-head" data-domain="tools" onclick="handleSidebarJump(event, 'domain-tools')">
-            <span>LLM Tools</span>
-            <span class="sidebar-domain-count" id="badge-domain-tools">{len(llm_tools)}</span>
+        <div class="sidebar-domain-group" data-domain="{d_id}" id="nav-group-{d_id}">
+          <a href="#domain-{d_id}" class="sidebar-domain-head" data-domain="{d_id}" onclick="handleSidebarJump(event, 'domain-{d_id}')">
+            <span>{d_title}</span>
+            <span class="sidebar-domain-count" id="badge-domain-{d_id}">{len(d_tools)}</span>
           </a>
           <ul class="sidebar-sub-list">
         ''')
-        for g_title, items in group_llm_tools(llm_tools):
-            slug = "tools-" + slugify(g_title)
-            short = next((s for g, s, _ in TOOL_GROUPS if g == g_title), g_title)
+        for g_title, items in group_llm_tools(d_tools):
+            slug = tool_section_slug(d_id, g_title)
+            short = items[0]["short"]
             sidebar_html.append(f'''
             <li>
-              <a href="#sub-{slug}" class="sidebar-sub-link" data-sub-slug="sub-{slug}" data-domain="tools" onclick="handleSidebarJump(event, 'sub-{slug}')">
+              <a href="#sub-{slug}" class="sidebar-sub-link" data-sub-slug="sub-{slug}" data-domain="{d_id}" onclick="handleSidebarJump(event, 'sub-{slug}')">
                 <span class="sub-name" title="{g_title}">{short}</span>
                 <span class="sub-cnt" id="badge-sub-{slug}">{len(items)}</span>
               </a>
@@ -2171,31 +2205,39 @@ def build_gallery_sidebar_html(gallery_items, llm_tools=None, n_suites=None):
     ''')
     return "\n".join(sidebar_html).replace("@@NSUITES@@", str(n_suites if n_suites is not None else ""))
 
-def build_gallery_sections_html(gallery_items, llm_tools=None):
+def build_gallery_sections_html(gallery_items, llm_tools=None, design_tools=None):
     html = [build_case_sections_html(gallery_items)]
-    if llm_tools:
-        n = len(llm_tools)
+    sections = [
+        ("tools", "Tools for LLM Agents", llm_tools,
+         "{n} MCP servers, coding agents, plug-ins, robot harnesses, simulators, design applications and resources that models use in the archived cases, as listed in the companion archive. They are not cases: they carry no rank and are not counted in the case totals."),
+        ("design2d", "2D Image, Video &amp; Design Tools", design_tools,
+         "{n} applications, agent connectors and components for 2D image, video and design work, as listed in the companion archive. They are not cases: they carry no rank and are not counted in the case totals."),
+    ]
+    for d_id, d_title, d_tools, d_desc in sections:
+        if not d_tools:
+            continue
+        n = len(d_tools)
         html.append(f'''
-        <section class="gallery-domain-section tools-domain-section" id="domain-tools" data-domain="tools">
+        <section class="gallery-domain-section tools-domain-section" id="domain-{d_id}" data-domain="{d_id}">
           <div class="gallery-domain-header">
             <div class="domain-header-left">
               <span class="domain-label-badge">Tools</span>
-              <h3 class="gallery-domain-title">Tools for LLM Agents</h3>
+              <h3 class="gallery-domain-title">{d_title}</h3>
             </div>
-            <span class="domain-count-badge" id="domain-head-cnt-tools">
-              <span class="domain-visible-cnt" id="cnt-domain-tools">{n}</span> Tools
+            <span class="domain-count-badge" id="domain-head-cnt-{d_id}">
+              <span class="domain-visible-cnt" id="cnt-domain-{d_id}">{n}</span> Tools
             </span>
           </div>
-          <p class="domain-header-desc">{n} MCP servers, coding agents, plug-ins, robot harnesses, simulators, design applications and resources that models use in the archived cases, as listed in the companion archive. They are not cases: they carry no rank and are not counted in the case totals.</p>
+          <p class="domain-header-desc">{d_desc.format(n=n)}</p>
         ''')
-        for g_title, items in group_llm_tools(llm_tools):
-            slug = "tools-" + slugify(g_title)
+        for g_title, items in group_llm_tools(d_tools):
+            slug = tool_section_slug(d_id, g_title)
             html.append(f'''
-          <div class="gallery-subsection-block" id="sub-{slug}" data-domain="tools" data-sub-slug="sub-{slug}" data-sub="{g_title}">
+          <div class="gallery-subsection-block" id="sub-{slug}" data-domain="{d_id}" data-sub-slug="sub-{slug}" data-sub="{g_title}">
             <div class="gallery-subsection-header">
               <h4 class="gallery-subsection-title">{g_title}</h4>
               <span class="gallery-subsection-badge">
-                <span class="sub-visible-cnt" id="cnt-sub-{slug}">{len(items)}</span> tools
+                <span class="sub-visible-cnt" id="cnt-sub-{slug}">{len(items)}</span> {"tool" if len(items) == 1 else "tools"}
               </span>
             </div>
             <div class="gallery-tiles-grid" id="grid-sub-{slug}">
@@ -2334,10 +2376,13 @@ def build_full_html():
     bib_urls = parse_bib_urls()
     cases = parse_case_index(bib_urls)
     gallery_items = get_gallery_items(cases, readme_text)
-    llm_tools = parse_llm_tools(readme_text, gallery_items)
-    tools_count = len(llm_tools)
-    gallery_sidebar_html = build_gallery_sidebar_html(gallery_items, llm_tools, n_suites=sum(count_benchmark_rows(readme_text)))
-    gallery_sections_html = build_gallery_sections_html(gallery_items, llm_tools)
+    all_tools = parse_llm_tools(readme_text, gallery_items)
+    llm_tools = [t for t in all_tools if t["domain"] == "tools"]
+    design_tools = [t for t in all_tools if t["domain"] == "design2d"]
+    tools_count = len(all_tools)  # both tool sections; the domain pills count each one
+    llm_count, design_count = len(llm_tools), len(design_tools)
+    gallery_sidebar_html = build_gallery_sidebar_html(gallery_items, llm_tools, n_suites=sum(count_benchmark_rows(readme_text)), design_tools=design_tools)
+    gallery_sections_html = build_gallery_sections_html(gallery_items, llm_tools, design_tools)
     paper_html = add_intrinsic_image_sizes(convert_paper_html(bib_urls))
     paper_toc_html = build_paper_toc_html(paper_html)
     benchmarks_section_html = build_benchmarks_section_html(readme_text)
@@ -2850,7 +2895,10 @@ def build_full_html():
                 Animation &amp; Motion ({anim_count})
               </button>
               <button class="filter-pill domain-pill tools-pill" aria-pressed="false" data-domain="tools" onclick="setDomainFilter('tools')" title="Tools that models use in the archived cases; not cases">
-                LLM Tools ({tools_count})
+                LLM Tools ({llm_count})
+              </button>
+              <button class="filter-pill domain-pill tools-pill" aria-pressed="false" data-domain="design2d" onclick="setDomainFilter('design2d')" title="Applications, agent connectors and components for 2D image, video and design work; not cases">
+                2D Image, Video &amp; Design ({design_count})
               </button>
             </div>
           </div>
@@ -3148,7 +3196,7 @@ def build_full_html():
 
         if (matchesDomain && matchesRank && matchesSearch) {{
           t.style.display = 'flex';
-          if (d === 'tools') toolCount++; else visibleCount++;
+          if (r === 'tool') toolCount++; else visibleCount++;
           var parentBlock = t.closest('.gallery-subsection-block');
           if (parentBlock) {{
             var slug = parentBlock.getAttribute('data-sub-slug');
