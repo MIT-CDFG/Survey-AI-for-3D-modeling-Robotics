@@ -2053,6 +2053,11 @@ def parse_llm_tools(readme_text, gallery_items):
             t["short"] = next((s for g, s, _ in TOOL_GROUPS if g == t["group"]), t["group"])
         t["order_index"] = 10000 + i
         t["case_links"] = [(c, case_domain[c]) for c in t["cases"] if c in case_domain]
+        # A product image from the tool's own page (assets/tools/<slug>.jpg, sources in
+        # assets/tools/SOURCES.md) for tools with no archived still (maintainer request)
+        local_img = f"assets/tools/{slugify(t['name'])}.jpg"
+        if not t["img_url"] and os.path.exists(os.path.join(WEBSITE_DIR, local_img)):
+            t["img_url"] = local_img
     return tools
 
 
@@ -2166,7 +2171,7 @@ def build_gallery_sidebar_html(gallery_items, llm_tools=None, n_suites=None, des
         </div>
         ''')
 
-    for d_id, d_title, d_tools in (("tools", "LLM Tools", llm_tools), ("design2d", DESIGN2D_TITLE, design_tools)):
+    for d_id, d_title, d_tools in (("design2d", DESIGN2D_TITLE, design_tools), ("tools", "LLM Tools", llm_tools)):  # LLM Tools last
         if not d_tools:
             continue
         sidebar_html.append(f'''
@@ -2207,11 +2212,11 @@ def build_gallery_sidebar_html(gallery_items, llm_tools=None, n_suites=None, des
 
 def build_gallery_sections_html(gallery_items, llm_tools=None, design_tools=None):
     html = [build_case_sections_html(gallery_items)]
-    sections = [
-        ("tools", "Tools for LLM Agents", llm_tools,
-         "{n} MCP servers, coding agents, plug-ins, robot harnesses, simulators, design applications and resources that models use in the archived cases, as listed in the companion archive. They are not cases: they carry no rank and are not counted in the case totals."),
+    sections = [  # LLM Tools last
         ("design2d", "2D Image, Video &amp; Design Tools", design_tools,
          "{n} applications, agent connectors and components for 2D image, video and design work, as listed in the companion archive. They are not cases: they carry no rank and are not counted in the case totals."),
+        ("tools", "Tools for LLM Agents", llm_tools,
+         "{n} MCP servers, coding agents, plug-ins, robot harnesses, simulators, design applications and resources that models use in the archived cases, as listed in the companion archive. They are not cases: they carry no rank and are not counted in the case totals."),
     ]
     for d_id, d_title, d_tools, d_desc in sections:
         if not d_tools:
@@ -2894,11 +2899,11 @@ def build_full_html():
               <button class="filter-pill domain-pill" aria-pressed="false" data-domain="animation" onclick="setDomainFilter('animation')">
                 Animation &amp; Motion ({anim_count})
               </button>
-              <button class="filter-pill domain-pill tools-pill" aria-pressed="false" data-domain="tools" onclick="setDomainFilter('tools')" title="Tools that models use in the archived cases; not cases">
-                LLM Tools ({llm_count})
-              </button>
               <button class="filter-pill domain-pill tools-pill" aria-pressed="false" data-domain="design2d" onclick="setDomainFilter('design2d')" title="Applications, agent connectors and components for 2D image, video and design work; not cases">
                 2D Image, Video &amp; Design ({design_count})
+              </button>
+              <button class="filter-pill domain-pill tools-pill" aria-pressed="false" data-domain="tools" onclick="setDomainFilter('tools')" title="Tools that models use in the archived cases; not cases">
+                LLM Tools ({llm_count})
               </button>
             </div>
           </div>
