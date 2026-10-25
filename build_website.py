@@ -1948,6 +1948,8 @@ DESIGN2D_SHORT = {
     "Image and photo editors": "Image & Photo Editors",
     "Creative app suites and connectors": "App Suites & Connectors",
     "Shaders and graphics components": "Shaders & Graphics",
+    "Video and motion": "Video & Motion",
+    "UI and diagram design skills": "UI & Diagram Skills",
     "Design agents": "Design Agents",
 }
 # Tools-table rows of that kind have no "####" heading: vendor agents shown working in design
