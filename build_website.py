@@ -1723,11 +1723,12 @@ DOMAINS_CONFIG = [
         "badge": "Domain 02",
         "title": "Industrial Design & Parametric CAD",
         "short_title": "Industrial Design & CAD",
-        "desc": "{count} archived cases covering parametric CAD and solid modeling, product design and prototypes (including PCBs and brick builds), and BIM drafting.",
+        "desc": "{count} archived cases covering parametric CAD and solid modeling, product design and prototypes (including PCBs and brick builds), BIM drafting, and engineering simulation.",
         "sub_short_names": {
             "Parametric CAD and solid modeling": "Parametric Solid Modeling",
             "Product design and prototypes": "Product Design & Prototypes",
-            "BIM drafting": "BIM Drafting"
+            "BIM drafting": "BIM Drafting",
+            "Engineering simulation (CAE)": "Engineering Simulation"
         }
     },
     {
