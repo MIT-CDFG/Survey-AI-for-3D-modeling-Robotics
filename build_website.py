@@ -10,6 +10,7 @@ Website generator for Frontier 3D & Robotics Survey (MIT CSAIL CDFG):
 import os
 import re
 import glob
+import hashlib
 import json
 import subprocess
 import time
@@ -1770,7 +1771,7 @@ def slugify(text):
     s = re.sub(r'[^a-z0-9]+', '-', s)
     return s.strip('-')
 
-def render_tile_html(item):
+def render_tile_html(item, stack_id=""):
     domain_class = f"cat-{item['domain']}"
     source_url = item.get("source_url", "#")
     has_link = source_url and source_url != "#"
@@ -1908,13 +1909,113 @@ def render_tile_html(item):
         item['id'], all_authors, item['platform'], sub_text, item['title'], item['desc'],
         item.get('model', ''), item.get('tools', '')] if v).lower()
 
+    stack_attr = f' data-stack="{stack_id}"' if stack_id else ""
+    co_class = " has-coauthors" if item.get("coauthors") else ""
     return f"""
-    <div class="gallery-tile {domain_class} {rank_class}" data-domain="{item['domain']}" data-rank="{item['rank']}" data-rank-num="{item['rank_num']}" data-order="{item['order_index']}" data-id="{item['id']}" data-author="{html_escape(item['author'])}" data-desc="{html_escape(item['title'] + ' ' + item['desc'])}" data-search="{html_escape(search_blob)}">
+    <div class="gallery-tile {domain_class} {rank_class}{co_class}" data-domain="{item['domain']}" data-rank="{item['rank']}" data-rank-num="{item['rank_num']}" data-order="{item['order_index']}" data-id="{item['id']}" data-author="{html_escape(item['author'])}" data-desc="{html_escape(item['title'] + ' ' + item['desc'])}" data-search="{html_escape(search_blob)}"{stack_attr}>
       {media_wrap_html}
       <div class="tile-meta">
         <div class="tile-author">{author_html}</div>
         <div class="tile-desc">{desc_html}</div>
         <div class="tile-footer">{actions_html}</div>
+      </div>
+    </div>
+    """
+
+
+# ---------------------------------------------------------------------------
+# Series stacks (maintainer request, 2026-11-26): the cases one author has in one
+# subsection are shown as a single stacked card; clicking it opens a viewer that lays
+# out every case of the stack. The member tiles stay in the grid, hidden while the
+# stack is shown, so filters, counts, sorting and links to a case keep working.
+# ---------------------------------------------------------------------------
+STACK_MIN = 2  # an author's cases in one subsection form a stack from this many on
+
+
+def author_key(item):
+    """Who a case belongs to, for stacking: the @handle when the name carries one."""
+    m = re.search(r"\(@([A-Za-z0-9_]+)\)", item.get("author", ""))
+    if m:
+        return m.group(1).lower()
+    m = re.match(r"https?://(?:www\.)?(?:x|twitter)\.com/([^/?#]+)/", item.get("source_url", ""))
+    if m:
+        return m.group(1).lower()
+    return re.sub(r"\s+", " ", item.get("author", "")).strip().lower()
+
+
+def author_profile_url(item):
+    """The author's public profile when the source is an X post, else ''."""
+    m = re.match(r"https?://(?:www\.)?(?:x|twitter)\.com/([A-Za-z0-9_]+)/status/", item.get("source_url", ""))
+    return f"https://x.com/{m.group(1)}" if m else ""
+
+
+STACK_ICON = ('<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" '
+              'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>'
+              '<polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>')
+
+
+def render_stack_html(stack_id, members, domain_title):
+    """The stacked card for one author's cases in one subsection (members in archive order)."""
+    first = members[0]
+    n = len(members)
+    sub_text = first.get("subsection", "")
+    from html import unescape
+    author = html_escape(unescape(first["author"]))  # README names may carry entities such as &#124;
+    profile = author_profile_url(first)
+    platform = first["platform"]
+    if profile:
+        author_html = (f'<a href="{profile}" target="_blank" rel="noopener noreferrer" class="tile-author-link" '
+                       f'title="Open the author\'s profile on X">{author}&nbsp;<span class="tile-platform">· X ↗</span></a>')
+    else:
+        author_html = f'{author}&nbsp;<span class="tile-platform">· {platform}</span>'
+    if sub_text:
+        author_html += (f' <span class="tile-subcat-wrap"><span class="tile-subcat-sep">·</span> '
+                        f'<span class="tile-subcat-badge" title="{sub_text}">{sub_text}</span></span>')
+
+    def img_tag(it, cls, alt):
+        if not it.get("img_url"):
+            return ""
+        fb = it.get("remote_img", "").replace("'", "%27").replace('"', "%22")
+        onerr = (f' onerror="this.onerror=null;if(this.src.indexOf(\'frank-zy-dou.github.io\')===-1){{this.src=\'{fb}\';}}"'
+                 if it.get("rel_img") and fb else "")
+        src = it["img_url"].replace('"', "%22")
+        return f'<img class="{cls}" src="{src}" alt="{alt}" loading="lazy"{onerr}>'
+
+    cover = img_tag(first, "stack-cover-img", first["id"])
+    if not cover:
+        cover = '<div class="stack-cover-empty" aria-hidden="true"></div>'
+    thumbs = "".join(img_tag(it, "stack-thumb", "") for it in members[1:4])
+    more = f'<span class="stack-more">+{n - 4}</span>' if n > 4 else ""
+    plain_author = unescape(first["author"])
+    titles = "; ".join(html_escape(unescape(it["title"])) for it in members[:3])
+    ranks = [sum(1 for it in members if it["rank_num"] == r) for r in (1, 2, 3)]
+    rank_words = ("with code (Rank 1)", "with an interactive demo (Rank 2)", "with demonstration media only (Rank 3)")
+    dots = "".join(
+        f'<span class="stack-rank-dot rank-{r}" data-rank-dot="{r}" title="{c} {"case" if c == 1 else "cases"} {rank_words[r - 1]}"'
+        f'{"" if c else " hidden"}>{c}</span>'
+        for r, c in zip((1, 2, 3), ranks))
+    ids = " ".join(it["id"] for it in members)
+    label = html_escape(f"Open the {n} cases by {plain_author} in {sub_text}")
+    return f"""
+    <div class="gallery-stack cat-{first['domain']}" data-stack-id="{stack_id}" data-domain="{first['domain']}" data-domain-title="{html_escape(domain_title)}" data-sub="{html_escape(sub_text)}" data-author-name="{html_escape(plain_author)}" data-author-url="{profile}" data-members="{ids}">
+      <span class="stack-sheet stack-sheet-2" aria-hidden="true"></span>
+      <span class="stack-sheet stack-sheet-1" aria-hidden="true"></span>
+      <div class="stack-front">
+        <div class="tile-img-wrap stack-cover" role="button" tabindex="0" aria-haspopup="dialog" aria-label="{label}" onclick="openStackModal(this.closest('.gallery-stack'))">
+          {cover}
+          <div class="tile-badges-overlay">
+            <span class="stack-count-badge">{STACK_ICON}<span class="stack-count">{n} cases</span></span>
+          </div>
+          <div class="stack-strip" aria-hidden="true">{thumbs}{more}</div>
+        </div>
+        <div class="tile-meta">
+          <div class="tile-author">{author_html}</div>
+          <div class="tile-desc stack-titles">{titles}</div>
+          <div class="tile-footer stack-footer">
+            <button type="button" class="tile-btn btn-stack" onclick="openStackModal(this.closest('.gallery-stack'))">{STACK_ICON}<span class="stack-open-label">View all {n}</span></button>
+            <span class="stack-rank-dots">{dots}</span>
+          </div>
+        </div>
       </div>
     </div>
     """
@@ -2291,7 +2392,25 @@ def build_case_sections_html(gallery_items):
 
         for sub_title, items in sub_dict.items():
             slug = slugify(sub_title)
-            tiles_html = [render_tile_html(it) for it in items]
+            # one stack per author with STACK_MIN or more cases here, placed where the
+            # author's first case sits; the member tiles follow in archive order
+            by_author = {}
+            for it in items:
+                by_author.setdefault(author_key(it), []).append(it)
+            stack_of = {}
+            for key, members in by_author.items():
+                if len(members) >= STACK_MIN:
+                    key_slug = (slugify(key) or "author") + "-" + hashlib.md5(key.encode("utf-8")).hexdigest()[:6]
+                    for it in members:
+                        stack_of[it["id"]] = (f"stack-{slug}-{key_slug}", members)
+            tiles_html = []
+            emitted = set()
+            for it in items:
+                sid, members = stack_of.get(it["id"], ("", None))
+                if sid and sid not in emitted:
+                    tiles_html.append(render_stack_html(sid, members, d_cfg.get("short_title", d_title)))
+                    emitted.add(sid)
+                tiles_html.append(render_tile_html(it, stack_id=sid))
             html.append(f'''
           <div class="gallery-subsection-block" id="sub-{slug}" data-domain="{d_id}" data-sub-slug="sub-{slug}" data-sub="{sub_title}">
             <div class="gallery-subsection-header">
@@ -2495,7 +2614,7 @@ def build_full_html():
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=20261004-tools">
+  <link rel="stylesheet" href="css/style.css?v=20261126-stacks">
 </head>
 <body id="top">
 
@@ -2985,6 +3104,23 @@ def build_full_html():
 
   </main>
 
+  <!-- Series viewer: lays out every case of one author's stack -->
+  <div class="stack-modal" id="stack-modal" role="dialog" aria-modal="true" aria-labelledby="stack-modal-title" aria-hidden="true">
+    <div class="stack-modal-panel" id="stack-modal-panel">
+      <div class="stack-modal-head">
+        <div class="stack-modal-heading">
+          <div class="stack-modal-kicker" id="stack-modal-kicker"></div>
+          <h3 class="stack-modal-title" id="stack-modal-title"></h3>
+          <div class="stack-modal-sub" id="stack-modal-sub"></div>
+        </div>
+        <button class="stack-modal-close" type="button" aria-label="Close" onclick="closeStackModal()">&times;</button>
+      </div>
+      <div class="stack-modal-body">
+        <div class="stack-modal-grid" id="stack-modal-grid"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- Fullscreen Lightbox Modal -->
   <div class="modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Case preview" aria-hidden="true">
     <button class="modal-close" type="button" aria-label="Close preview" onclick="closeLightbox()">&times;</button>
@@ -3181,12 +3317,210 @@ def build_full_html():
         tiles.forEach(function(t) {{
           grid.appendChild(t);
         }});
+        // a stack sits where its first case now sits
+        grid.querySelectorAll('.gallery-stack').forEach(function(s) {{
+          var first = grid.querySelector('.gallery-tile[data-stack="' + s.getAttribute('data-stack-id') + '"]');
+          if (first) grid.insertBefore(s, first);
+        }});
       }});
+      refreshStacks();
+    }}
+
+    // Series stacks: one author's cases in one subsection share a stacked card, which
+    // stands in for the cases that match the filters whenever two or more of them match.
+    var RANK_WORDS = {{1: 'with code (Rank 1)', 2: 'with an interactive demo (Rank 2)', 3: 'with demonstration media only (Rank 3)'}};
+    function stackMembers(stack) {{
+      var sid = stack.getAttribute('data-stack-id');
+      return Array.from(stack.parentNode.querySelectorAll('.gallery-tile[data-stack="' + sid + '"]'));
+    }}
+    function stackVisibleMembers(stack) {{
+      return stackMembers(stack).filter(function(m) {{
+        return m.getAttribute('data-match') !== '0';
+      }});
+    }}
+    function tileImg(t) {{
+      return t.querySelector('.tile-img-wrap img');
+    }}
+    function tileTitle(t) {{
+      var d = t.querySelector('.tile-desc');
+      return d ? d.textContent.replace(/\\s+/g, ' ').trim() : '';
+    }}
+    function rankCount(members, r) {{
+      return members.filter(function(m) {{ return m.getAttribute('data-rank-num') === String(r); }}).length;
+    }}
+    function paintStack(s, vis) {{
+      var sig = vis.map(function(m) {{ return m.getAttribute('data-id'); }}).join(' ');
+      if (s.getAttribute('data-painted') === sig) return;
+      s.setAttribute('data-painted', sig);
+      var n = vis.length;
+      var cnt = s.querySelector('.stack-count');
+      if (cnt) cnt.textContent = n + ' cases';
+      var lbl = s.querySelector('.stack-open-label');
+      if (lbl) lbl.textContent = 'View all ' + n;
+      var cover = s.querySelector('.stack-cover');
+      if (cover) cover.setAttribute('aria-label', 'Open the ' + n + ' cases by ' +
+        s.getAttribute('data-author-name') + ' in ' + s.getAttribute('data-sub'));
+      var img = s.querySelector('.stack-cover-img');
+      var src = tileImg(vis[0]);
+      if (cover) cover.classList.toggle('stack-cover-blank', !src);
+      if (img && src && img.getAttribute('src') !== src.getAttribute('src')) {{
+        img.setAttribute('onerror', src.getAttribute('onerror') || '');
+        img.setAttribute('src', src.getAttribute('src'));
+        img.alt = vis[0].getAttribute('data-id');
+      }}
+      var strip = s.querySelector('.stack-strip');
+      if (strip) {{
+        strip.textContent = '';
+        vis.slice(1, 4).forEach(function(m) {{
+          var u = tileImg(m);
+          if (!u) return;
+          var t = document.createElement('img');
+          t.className = 'stack-thumb';
+          t.alt = '';
+          t.loading = 'lazy';
+          t.src = u.getAttribute('src');
+          strip.appendChild(t);
+        }});
+        if (n > 4) {{
+          var more = document.createElement('span');
+          more.className = 'stack-more';
+          more.textContent = '+' + (n - 4);
+          strip.appendChild(more);
+        }}
+      }}
+      var titles = s.querySelector('.stack-titles');
+      if (titles) titles.textContent = vis.slice(0, 3).map(tileTitle).join('; ');
+      [1, 2, 3].forEach(function(r) {{
+        var dot = s.querySelector('[data-rank-dot="' + r + '"]');
+        if (!dot) return;
+        var c = rankCount(vis, r);
+        dot.textContent = c;
+        dot.hidden = !c;
+        dot.title = c + (c === 1 ? ' case ' : ' cases ') + RANK_WORDS[r];
+      }});
+    }}
+    function refreshStacks() {{
+      document.querySelectorAll('.gallery-domain-section .gallery-stack').forEach(function(s) {{
+        var vis = stackVisibleMembers(s);
+        if (vis.length >= 2) {{
+          vis.forEach(function(m) {{ m.style.display = 'none'; }});
+          if (s.nextElementSibling !== vis[0]) s.parentNode.insertBefore(s, vis[0]);
+          s.style.display = '';
+          paintStack(s, vis);
+        }} else {{
+          s.style.display = 'none';
+          vis.forEach(function(m) {{ m.style.display = 'flex'; }});
+        }}
+      }});
+    }}
+
+    var stackReturnFocus = null;
+    function isStackModalOpen() {{
+      var sm = document.getElementById('stack-modal');
+      return !!(sm && sm.classList.contains('active'));
+    }}
+
+    function openStackModal(stack, focusId) {{
+      if (!stack) return;
+      var modal = document.getElementById('stack-modal');
+      var grid = document.getElementById('stack-modal-grid');
+      var members = stackVisibleMembers(stack);
+      if (members.length < 2) members = stackMembers(stack);
+      grid.textContent = '';
+      members.forEach(function(m, i) {{
+        var c = m.cloneNode(true);
+        c.removeAttribute('data-stack');
+        c.classList.remove('tile-flash');
+        c.style.display = 'flex';
+        c.classList.add('stack-dealt');
+        c.style.setProperty('--deal-i', String(Math.min(i, 18)));
+        var im = c.querySelector('.tile-img-wrap img');
+        if (im) im.setAttribute('loading', 'eager');
+        grid.appendChild(c);
+      }});
+      var n = members.length;
+      var name = stack.getAttribute('data-author-name') || '';
+      var url = stack.getAttribute('data-author-url') || '';
+      var titleEl = document.getElementById('stack-modal-title');
+      titleEl.textContent = '';
+      if (url) {{
+        var a = document.createElement('a');
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.title = "Open the author's profile on X";
+        a.textContent = name;
+        var arrow = document.createElement('span');
+        arrow.className = 'stack-modal-title-arrow';
+        arrow.textContent = ' · X ↗';
+        a.appendChild(arrow);
+        titleEl.appendChild(a);
+      }} else {{
+        titleEl.textContent = name;
+      }}
+      document.getElementById('stack-modal-kicker').textContent =
+        (stack.getAttribute('data-domain-title') || '') + ' · ' + (stack.getAttribute('data-sub') || '');
+      var sub = document.getElementById('stack-modal-sub');
+      sub.textContent = '';
+      var lead = document.createElement('strong');
+      lead.textContent = n + ' cases by this author';
+      sub.appendChild(lead);
+      [1, 2, 3].forEach(function(r) {{
+        var c = rankCount(members, r);
+        if (!c) return;
+        var item = document.createElement('span');
+        item.className = 'stack-sub-item';
+        var sw = document.createElement('span');
+        sw.className = 'stack-rank-swatch rank-' + r;
+        item.appendChild(sw);
+        item.appendChild(document.createTextNode(c + ' ' + RANK_WORDS[r]));
+        sub.appendChild(item);
+      }});
+      if (!isStackModalOpen()) {{
+        var ae = document.activeElement;
+        // opened from the paper, the old focus is hidden: return to the stack instead
+        stackReturnFocus = (ae && ae !== document.body && ae.offsetParent !== null) ? ae : stack.querySelector('.stack-cover');
+        document.documentElement.classList.add('modal-open');
+        // phone back gesture should close the viewer, not leave the page
+        saveHistoryState();
+        try {{
+          history.pushState({{ view: currentViewId(), y: Math.round(window.pageYOffset), overlay: 'stack' }}, '', location.href);
+        }} catch (err) {{}}
+      }}
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      var panel = document.getElementById('stack-modal-panel');
+      if (panel) panel.scrollTop = 0;
+      var target = focusId ? grid.querySelector('.gallery-tile[data-id="' + String(focusId).toUpperCase() + '"]') : null;
+      if (target) {{
+        setTimeout(function() {{
+          target.scrollIntoView({{ block: 'center' }});
+          target.classList.add('tile-flash');
+          var op = target.querySelector('.tile-img-wrap');
+          if (op) op.focus({{ preventScroll: true }});
+        }}, 80);
+      }} else {{
+        var closeBtn = modal.querySelector('.stack-modal-close');
+        if (closeBtn) closeBtn.focus({{ preventScroll: true }});
+      }}
+    }}
+
+    function closeStackModal() {{
+      var modal = document.getElementById('stack-modal');
+      if (!modal || !modal.classList.contains('active')) return;
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.getElementById('stack-modal-grid').textContent = '';
+      var lb = document.getElementById('lightbox-modal');
+      if (!(lb && lb.classList.contains('active'))) document.documentElement.classList.remove('modal-open');
+      if (history.state && history.state.overlay === 'stack') history.back();
+      if (stackReturnFocus && stackReturnFocus.focus) stackReturnFocus.focus({{ preventScroll: true }});
+      stackReturnFocus = null;
     }}
 
     function applyGalleryFilters() {{
       var q = (document.getElementById('gallery-search').value || '').toLowerCase().trim();
-      var tiles = document.querySelectorAll('.gallery-tile');
+      var tiles = document.querySelectorAll('.gallery-domain-section .gallery-tile');
       var visibleCount = 0;
       var toolCount = 0;  // tools are not cases: counted apart
       var subCounts = {{}};
@@ -3202,7 +3536,9 @@ def build_full_html():
         var matchesRank = (activeRank === 'all' || r === activeRank);
         var matchesSearch = (!q || q.split(/\\s+/).every(function(term) {{ return haystack.indexOf(term) !== -1; }}));
 
-        if (matchesDomain && matchesRank && matchesSearch) {{
+        var matches = matchesDomain && matchesRank && matchesSearch;
+        t.setAttribute('data-match', matches ? '1' : '0');
+        if (matches) {{
           t.style.display = 'flex';
           if (r === 'tool') toolCount++; else visibleCount++;
           var parentBlock = t.closest('.gallery-subsection-block');
@@ -3215,6 +3551,8 @@ def build_full_html():
           t.style.display = 'none';
         }}
       }});
+      // stacked cases still count above; only their cards are folded into the stack
+      refreshStacks();
 
       // Update subsection blocks & sidebar links
       document.querySelectorAll('.gallery-subsection-block').forEach(function(block) {{
@@ -3314,21 +3652,33 @@ def build_full_html():
       switchView('view-gallery', true, true);
       resetGalleryFilters(domain);
       var tile = null;
-      document.querySelectorAll('.gallery-tile').forEach(function(t) {{
+      document.querySelectorAll('.gallery-domain-section .gallery-tile').forEach(function(t) {{
         if (!tile && (t.getAttribute('data-id') || '').toUpperCase() === String(caseId).toUpperCase()) tile = t;
       }});
       if (!tile) {{
         openArchiveDomain(domain);
         return;
       }}
+      // a case folded into a stack: show the stack, then open it at that case
+      var stack = null;
+      var sid = tile.getAttribute('data-stack');
+      if (sid && tile.style.display === 'none') {{
+        var s = tile.parentNode.querySelector('.gallery-stack[data-stack-id="' + sid + '"]');
+        if (s && s.style.display !== 'none') stack = s;
+      }}
+      var target = stack || tile;
       setTimeout(function() {{
-        var r = tile.getBoundingClientRect();
+        var r = target.getBoundingClientRect();
         jumpTo(Math.max(0, Math.round(r.top + window.pageYOffset - (window.innerHeight - r.height) / 2)));
-        tile.classList.remove('tile-flash');
-        void tile.offsetWidth;
-        tile.classList.add('tile-flash');
-        var opener = tile.querySelector('.tile-img-wrap');
-        if (opener) opener.focus({{ preventScroll: true }});
+        target.classList.remove('tile-flash');
+        void target.offsetWidth;
+        target.classList.add('tile-flash');
+        if (stack) {{
+          openStackModal(stack, caseId);
+        }} else {{
+          var opener = tile.querySelector('.tile-img-wrap');
+          if (opener) opener.focus({{ preventScroll: true }});
+        }}
         updateScrollspy();
       }}, 60);
     }}
@@ -3474,7 +3824,7 @@ def build_full_html():
       }}
       m.classList.remove('active');
       m.setAttribute('aria-hidden', 'true');
-      document.documentElement.classList.remove('modal-open');
+      if (!isStackModalOpen()) document.documentElement.classList.remove('modal-open');
       if (history.state && history.state.overlay === 'lightbox') history.back();
       if (lightboxReturnFocus && lightboxReturnFocus.focus) lightboxReturnFocus.focus({{ preventScroll: true }});
       lightboxReturnFocus = null;
@@ -3482,6 +3832,9 @@ def build_full_html():
 
     document.getElementById('lightbox-modal').addEventListener('click', function(e) {{
       if (e.target === this) closeLightbox();
+    }});
+    document.getElementById('stack-modal').addEventListener('click', function(e) {{
+      if (e.target === this) closeStackModal();
     }});
 
     document.addEventListener('keydown', function(e) {{
@@ -3491,9 +3844,16 @@ def build_full_html():
         closeLightbox();
         return;
       }}
-      if (open && e.key === 'Tab') {{
+      // the series viewer sits under the case viewer: it takes keys only on its own
+      var stackOpen = !open && isStackModalOpen();
+      if (stackOpen && e.key === 'Escape') {{
+        closeStackModal();
+        return;
+      }}
+      var dialog = open ? m : (stackOpen ? document.getElementById('stack-modal') : null);
+      if (dialog && e.key === 'Tab') {{
         // keep keyboard focus inside the dialog
-        var f = Array.from(m.querySelectorAll('button, a[href], video[controls]')).filter(function(x) {{
+        var f = Array.from(dialog.querySelectorAll('button, a[href], video[controls], [role="button"][tabindex="0"]')).filter(function(x) {{
           return x.offsetParent !== null;
         }});
         if (!f.length) return;
@@ -3955,8 +4315,15 @@ def build_full_html():
     window.addEventListener('popstate', function(e) {{
       lastPopstateAt = Date.now();
       closeLightbox();
-      closeContentsDrawer();
       var st = e.state;
+      // back from a case opened inside the series viewer returns to the viewer
+      if (!(st && st.overlay === 'stack')) closeStackModal();
+      else if (!isStackModalOpen()) {{
+        // an entry left by a viewer that is already closed (Back, then Forward) must not hold the next Back
+        try {{ history.replaceState({{ view: st.view, y: st.y }}, '', location.href); }} catch (err) {{}}
+        st = history.state;
+      }}
+      closeContentsDrawer();
       if (st && st.view) {{
         if (st.view !== currentViewId()) switchView(st.view, false, true);
         jumpTo(st.y || 0);

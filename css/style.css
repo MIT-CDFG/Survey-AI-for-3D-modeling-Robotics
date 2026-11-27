@@ -4322,3 +4322,401 @@ img.zoomable:focus-visible,
 .tool-desc a { color: inherit; text-decoration: underline; }
 .tools-domain-section .domain-label-badge { background: #1d4a85; }
 .tools-count-text { color: var(--ink-muted); }
+
+/* ==========================================================================
+   Series stacks: one author's cases in one subsection as a stacked card,
+   and the series viewer that lays them out
+   ========================================================================== */
+/* stacked cases stay in the grid but are folded into their stack card */
+.gallery-domain-section .gallery-tile[data-stack] {
+  display: none;
+}
+
+.gallery-stack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  /* leave room for the two sheets that peek out behind the front card */
+  margin: 0 10px 10px 0;
+}
+
+.stack-sheet {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #fff;
+  border: 1px solid var(--border-line);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+  transition: transform 0.18s ease;
+}
+
+.stack-sheet-1 { transform: translate(5px, 5px); background: #f8fafc; }
+.stack-sheet-2 { transform: translate(10px, 10px); background: #eef1f5; }
+
+.gallery-stack:hover .stack-sheet-1 { transform: translate(7px, 6px) rotate(0.8deg); }
+.gallery-stack:hover .stack-sheet-2 { transform: translate(13px, 11px) rotate(1.6deg); }
+
+.stack-front {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--border-line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.gallery-stack:hover .stack-front {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-stack.tile-flash .stack-front {
+  animation: tileFlash 2s ease-out;
+}
+
+.stack-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.stack-cover:hover .stack-cover-img {
+  transform: scale(1.05);
+}
+
+.stack-cover-empty,
+.stack-cover.stack-cover-blank .stack-cover-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-box);
+}
+
+.stack-cover.stack-cover-blank .stack-cover-img {
+  visibility: hidden;
+}
+
+.stack-count-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(117, 0, 20, 0.92);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.16rem 0.48rem;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(117, 0, 20, 0.35);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* thumbnails of the next cases in the stack */
+.stack-strip {
+  position: absolute;
+  left: 6px;
+  bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* beats ".tile-img-wrap img", which sizes the cover image */
+.stack-cover .stack-thumb {
+  width: 38px;
+  height: 26px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border: 1.5px solid #fff;
+  border-radius: 2px;
+  background: var(--bg-box);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+.stack-cover:hover .stack-thumb {
+  transform: none;
+}
+
+.stack-more {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(15, 23, 42, 0.82);
+  padding: 0.14rem 0.38rem;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.stack-titles {
+  font-style: normal;
+}
+
+.stack-footer {
+  justify-content: space-between;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.tile-btn.btn-stack {
+  background: var(--mit-red);
+  color: #fff;
+  border: 1.2px solid var(--mit-red);
+  cursor: pointer;
+}
+
+.tile-btn.btn-stack:hover {
+  background: var(--mit-red-dark);
+  border-color: var(--mit-red-dark);
+}
+
+.tile-btn.btn-stack:focus-visible {
+  outline: 2px solid var(--mit-red);
+  outline-offset: 2px;
+}
+
+.stack-rank-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stack-rank-dot {
+  min-width: 1.35rem;
+  padding: 0.05rem 0.32rem;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 800;
+  text-align: center;
+  color: #fff;
+  cursor: default;
+}
+
+.stack-rank-dot[hidden] { display: none; }
+.stack-rank-dot.rank-1 { background: var(--mit-red); }
+.stack-rank-dot.rank-2 { background: #1D4ED8; }
+.stack-rank-dot.rank-3 { background: rgba(51, 65, 85, 0.9); }
+
+/* the viewer */
+.stack-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1900; /* under the case viewer (2000), which opens on top of it */
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 2.5vw;
+  background: rgba(17, 24, 39, 0.72);
+  backdrop-filter: blur(5px);
+}
+
+.stack-modal.active {
+  display: flex;
+}
+
+.stack-modal-panel {
+  position: relative;
+  width: min(1180px, 100%);
+  max-height: 94vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--bg-page);
+  border-radius: 10px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+@supports (height: 100dvh) {
+  .stack-modal-panel { max-height: 94dvh; }
+}
+
+.stack-modal.active .stack-modal-panel {
+  animation: stackPanelIn 0.22s ease-out both;
+}
+
+@keyframes stackPanelIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+
+.stack-modal-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem 0.9rem;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid var(--border-subtle);
+  border-top: 3px solid var(--mit-red);
+  border-radius: 10px 10px 0 0;
+  backdrop-filter: blur(6px);
+}
+
+.stack-modal-kicker {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mit-red);
+}
+
+.stack-modal-title {
+  margin: 0.2rem 0 0.3rem;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+  overflow-wrap: anywhere;
+}
+
+.stack-modal-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.stack-modal-title a:hover {
+  color: var(--mit-red);
+  text-decoration: underline;
+}
+
+.stack-modal-title-arrow {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--ink-muted);
+}
+
+.stack-modal-sub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--ink-secondary);
+}
+
+.stack-modal-sub strong {
+  color: var(--ink-primary);
+}
+
+.stack-sub-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.stack-rank-swatch {
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 2px;
+}
+
+.stack-rank-swatch.rank-1 { background: var(--mit-red); }
+.stack-rank-swatch.rank-2 { background: #1D4ED8; }
+.stack-rank-swatch.rank-3 { background: rgba(51, 65, 85, 0.9); }
+
+.stack-modal-close {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-line);
+  border-radius: var(--radius-full);
+  background: #fff;
+  color: var(--ink-primary);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.stack-modal-close:hover {
+  background: var(--ink-primary);
+  color: #fff;
+}
+
+.stack-modal-close:focus-visible {
+  outline: 2px solid var(--mit-red);
+  outline-offset: 2px;
+}
+
+.stack-modal-body {
+  padding: 1.1rem 1.25rem 1.5rem;
+}
+
+.stack-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1rem;
+}
+
+/* every card in the viewer shares the author and subsection named in the header;
+   cards with a second author keep their author line */
+.stack-modal .tile-subcat-wrap,
+.stack-modal .gallery-tile:not(.has-coauthors) .tile-author {
+  display: none;
+}
+
+/* cards are dealt out of the stack one after another */
+@keyframes stackDeal {
+  from { opacity: 0; transform: translate(-14px, -12px) scale(0.94) rotate(-1.5deg); }
+  to { opacity: 1; transform: none; }
+}
+
+.stack-modal.active .stack-dealt {
+  animation: stackDeal 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  animation-delay: calc(var(--deal-i, 0) * 22ms);
+}
+
+.stack-modal.active .stack-dealt.tile-flash {
+  animation: stackDeal 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) backwards, tileFlash 2s ease-out 0.3s;
+}
+
+@media (max-width: 760px) {
+  .gallery-stack { margin: 0 8px 8px 0; }
+  .stack-sheet-1 { transform: translate(4px, 4px); }
+  .stack-sheet-2 { transform: translate(8px, 8px); }
+  .stack-cover .stack-thumb { width: 30px; height: 21px; }
+  .stack-cover .stack-thumb:nth-child(3) { display: none; }
+  .stack-modal { padding: 0; }
+  .stack-modal-panel {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    border-radius: 0;
+  }
+  .stack-modal-head { border-radius: 0; padding: 0.8rem 0.9rem 0.75rem; }
+  .stack-modal-title { font-size: 1.12rem; }
+  .stack-modal-body { padding: 0.85rem 0.9rem 1.25rem; }
+  .stack-modal-grid {
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    gap: 0.65rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-sheet,
+  .stack-front,
+  .stack-cover-img { transition: none; }
+  .stack-modal.active .stack-modal-panel,
+  .stack-modal.active .stack-dealt,
+  .stack-modal.active .stack-dealt.tile-flash { animation: none; }
+}
